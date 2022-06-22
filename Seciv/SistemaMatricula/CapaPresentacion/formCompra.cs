@@ -27,15 +27,15 @@ namespace CapaPresentacion
 
         private void formMatricula_Load(object sender, EventArgs e)
         {
-            if (estadoUsuario != "A") // desactivacion de ciertas funciones si el usuario es administrador
-            {
-                chkbxMostrarEliminados.Enabled = false;
-                chkbxMostrarEliminados.Visible = false;
-                btnActivarEliminado.Enabled = false;
-                btnActivarEliminado.Visible = false;
-                btnReporteMatriculas.Enabled = false;
-                btnReporteMatriculas.Visible = false;
-            }
+            //if (estadoUsuario != "A") // desactivacion de ciertas funciones si el usuario es administrador
+            //{
+            //    chkbxMostrarEliminados.Enabled = false;
+            //    chkbxMostrarEliminados.Visible = false;
+            //    btnActivarEliminado.Enabled = false;
+            //    btnActivarEliminado.Visible = false;
+            //    btnReporteMatriculas.Enabled = false;
+            //    btnReporteMatriculas.Visible = false;
+            //}
 
 
         }

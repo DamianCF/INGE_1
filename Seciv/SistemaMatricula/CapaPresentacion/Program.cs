@@ -9,11 +9,6 @@ namespace CapaPresentacion
     static class Program
     {
         /// <summary>
-        /// UNIVERSIDAD NACIONAL DE COSTA RICA
-        /// Proyecto 1 Programacion 3 Ciclo 2 2021
-        /// Ronald Blanco Navarro 117580543
-        /// 
-        /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
         static void Main()
