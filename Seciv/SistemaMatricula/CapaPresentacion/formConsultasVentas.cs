@@ -180,9 +180,7 @@ namespace CapaPresentacion
 
         private void btnReporteHorarioes_Click(object sender, EventArgs e)
         {
-            frmReporte reporte = new frmReporte();
-            reporte.Eleccion = 'H';
-            reporte.Show();
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -303,13 +301,7 @@ namespace CapaPresentacion
 
         private void btnReporteCursosHorario_Click(object sender, EventArgs e)
         {
-            if (chkbxMostrarEliminados.Checked == false)
-            {
-                frmReporte reporte = new frmReporte();
-                reporte.Eleccion = '3';/// lista de cursos segun horario en reporte
-                reporte.IDParametro1 = int.Parse(cbxHorario.SelectedValue.ToString());
-                reporte.Show();
-            }
+
         }
 
         private void cbxDia_SelectedIndexChanged(object sender, EventArgs e)

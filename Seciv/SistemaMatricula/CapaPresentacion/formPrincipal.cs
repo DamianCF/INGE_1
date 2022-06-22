@@ -75,16 +75,16 @@ namespace CapaPresentacion
 
         private void btnAulas_Click(object sender, EventArgs e)
         {
-            formInventario form = new formInventario();
+            formProductos form = new formProductos();
             form.EstadoUsuario = estadoUsuario; // eenvio de estado de usuario
             openChildForm(form);
         }
 
         private void btnConsultasVentas_Click(object sender, EventArgs e)
         {
-            formConsultasVentas form = new formConsultasVentas();
-            form.EstadoUsuario = estadoUsuario;
-            openChildForm(form);
+            //formConsultasVentas form = new formConsultasVentas();
+            //form.EstadoUsuario = estadoUsuario;
+            //openChildForm(form);
         }
 
         private void btnMatriculas_Click(object sender, EventArgs e)

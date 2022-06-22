@@ -32,25 +32,25 @@ namespace CapaPresentacion
 
         private void formUsuario_Load(object sender, EventArgs e)
         {
-            if(IDUsuario == 0) //si el usuario esta o no cargado
-            {
-                //modo registro usuario
-                btnModificar.Enabled = false;
-                btnModificar.Visible = false;
-                btnEliminar.Enabled = false;
-                btnEliminar.Visible = false;
+            //if(IDUsuario == 0) //si el usuario esta o no cargado
+            //{
+            //modo registro usuario
+            btnModificar.Enabled = false;
+            btnModificar.Visible = false;
+            btnEliminar.Enabled = false;
+            btnEliminar.Visible = false;
 
-            }
-            else
-            {   // modo mantenimiento usuario
-                this.FormBorderStyle = FormBorderStyle.None;
-                btnRegistrar.Enabled = false;
-                btnRegistrar.Visible = false;
-                btnSalir.Enabled = false;
-                btnSalir.Visible = false;
+            //}
+            //else
+            //{   // modo mantenimiento usuario
+            //    this.FormBorderStyle = FormBorderStyle.None;
+            btnRegistrar.Enabled = false;
+            btnRegistrar.Visible = false;
+            btnSalir.Enabled = false;
+            btnSalir.Visible = false;
 
-                BuscarUsuario();
-            }
+            //    BuscarUsuario();
+            //}
 
             validarCampo();
         }
@@ -61,99 +61,31 @@ namespace CapaPresentacion
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
 
-            using (GestorUsuario elUsuario = new GestorUsuario())
-            {
-                elUsuario.insertarUsuario(txtUsuario_cedula.Text, txtUsuario_nombre.Text, txtUsuario_primerApellido.Text,
-                    txtUsuario_segundoApellido.Text,determinarTipoUsuario(), txtUsuario_telefono.Text, txtUsuario_correoElectronico.Text,
-                    txtUsuario_direccion.Text,txtContraseña.Text, "A");
-            }
-            MessageBox.Show("Usuario Registrado correctamente", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e) // eliminacion de usuario y salida de la aplicacion
         {
-           if( MessageBox.Show("Desea Eliminar Usuario?", "Eliminar Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question)  == DialogResult.Yes)
-            {
-                using (GestorUsuario elUsuario = new GestorUsuario())
-                {
-                    elUsuario.InactivarUsuario(IDUsuario);
-                }
-
-                MessageBox.Show("Usuario Eliminado correctamente", "Eliminar Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Application.Exit();
-            }
 
         }
 
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
-            if (txtContraseña.Text == txtConfirmarContraseña.Text)
-            {
-                using (GestorUsuario elUsuario = new GestorUsuario())
-                {                               //si cambia la variable a global Usuario_id y le manda esa funciona si se seleciona desde el grid
-                    elUsuario.ModificarUsuario(IDUsuario, txtUsuario_cedula.Text, txtUsuario_nombre.Text, txtUsuario_primerApellido.Text,
-                                                txtUsuario_segundoApellido.Text, determinarTipoUsuario(), txtUsuario_telefono.Text, txtUsuario_correoElectronico.Text,
-                                                txtUsuario_direccion.Text, txtContraseña.Text, "A");
-                }
-                MessageBox.Show("Usuario Modificacado correctamente", "Modificacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Incoherencia validando contraseña", "Error Digitacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            }
 
         }
 
-        string determinarTipoUsuario()
-        {
-            string tipoUsuario = "";
-            if (chkbxAdministrador.Checked == true)
-            {
-                tipoUsuario = "A"; // usuario administrador
-            }
-            else
-            {
-                tipoUsuario = "F"; //usuario final
-            }
 
-            return tipoUsuario;
-        }
 
         private void BuscarUsuario()
         {
 
-            using (GestorUsuario Usuario = new GestorUsuario())
-            {
-                this.dsUsuario = Usuario.ConsultarUsuario(IDUsuario);
-                this.dtUsuario = this.dsUsuario.Tables[0];
-            }
-            CargarDatosUsuario();
         }
 
 
 
         private void CargarDatosUsuario()
         {
-            txtUsuario_cedula.Text = this.dtUsuario.Rows[0]["Usuario_cedula"].ToString();
-            txtUsuario_nombre.Text = this.dtUsuario.Rows[0]["Usuario_nombre"].ToString();
-            txtUsuario_primerApellido.Text = this.dtUsuario.Rows[0]["Usuario_primerApellido"].ToString();
-            txtUsuario_segundoApellido.Text = this.dtUsuario.Rows[0]["Usuario_segundoApellido"].ToString();
-            txtUsuario_telefono.Text = this.dtUsuario.Rows[0]["Usuario_telefono"].ToString();
-            string estadoUsuario = this.dtUsuario.Rows[0]["Usuario_tipo"].ToString();
-            if(estadoUsuario == "A") //modificadir chkbx administrador
-            {
-                chkbxAdministrador.Checked = true;
-            }
-            else
-            {
-                chkbxAdministrador.Checked = false;
-            }
-            txtUsuario_correoElectronico.Text = this.dtUsuario.Rows[0]["Usuario_correoElectronico"].ToString();
-            txtUsuario_direccion.Text = this.dtUsuario.Rows[0]["Usuario_direccion"].ToString();
-            txtContraseña.Text = this.dtUsuario.Rows[0]["Usuario_contrasenia"].ToString();
-            txtConfirmarContraseña.Text = this.dtUsuario.Rows[0]["Usuario_contrasenia"].ToString();
+
         }
 
 

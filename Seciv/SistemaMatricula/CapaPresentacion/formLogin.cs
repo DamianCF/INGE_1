@@ -87,19 +87,7 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)  // validaciones para el ingreso del usuario
         {
-            var vr = !string.IsNullOrEmpty(txtUsuario.Text) && txtUsuario.Text != "CEDULA USUARIO:" &&
-                !string.IsNullOrEmpty(txtContraseña.Text) && txtContraseña.Text != "CONTRASEÑA:";
-
-            if (vr) // si estan cargados
-            {
-                try
-                {
-                    BuscarUsuario(); // problemas si usuario no coicide
-
-                    if (txtUsuario.Text == this.dtUsuario.Rows[0]["Usuario_cedula"].ToString() &&
-                        txtContraseña.Text == this.dtUsuario.Rows[0]["Usuario_contrasenia"].ToString())
-                    {   // si coincide
-
+           
                         formPrincipal principal = new formPrincipal(); // paso a form principal
                         principal.IDUsuario1 = IDUsuario;
                         principal.Visible = false;
@@ -107,34 +95,12 @@ namespace CapaPresentacion
                         principal.Show();
                         this.Close();
 
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Usuario o Contraseña Mal Digitados", "Error Digitacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Campo sin Rellenar", "Error Digitacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
         }
 
 
         void BuscarUsuario()
         {
 
-            using (GestorUsuario Usuario = new GestorUsuario())
-            {
-                this.dsUsuario = Usuario.ConsultarUsuarioLogin(txtUsuario.Text, txtContraseña.Text);
-                this.dtUsuario = this.dsUsuario.Tables[0];
-            }
-
-            IDUsuario = int.Parse(this.dtUsuario.Rows[0]["Usuario_id"].ToString());
         }
 
         private static void MainForm_Closed(object sender, FormClosedEventArgs e) // metodo para cambio de forms sin cerrar programa

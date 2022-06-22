@@ -52,9 +52,9 @@ namespace CapaPresentacion
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 330);
+            this.panel1.Size = new System.Drawing.Size(355, 406);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formLogin_MouseDown);
             // 
@@ -62,9 +62,10 @@ namespace CapaPresentacion
             // 
             this.pctrSM.Image = ((System.Drawing.Image)(resources.GetObject("pctrSM.Image")));
             this.pctrSM.InitialImage = null;
-            this.pctrSM.Location = new System.Drawing.Point(12, 38);
+            this.pctrSM.Location = new System.Drawing.Point(16, 47);
+            this.pctrSM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pctrSM.Name = "pctrSM";
-            this.pctrSM.Size = new System.Drawing.Size(238, 250);
+            this.pctrSM.Size = new System.Drawing.Size(317, 308);
             this.pctrSM.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctrSM.TabIndex = 0;
             this.pctrSM.TabStop = false;
@@ -76,9 +77,10 @@ namespace CapaPresentacion
             this.lblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblTitulo.Location = new System.Drawing.Point(423, 38);
+            this.lblTitulo.Location = new System.Drawing.Point(564, 47);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(206, 34);
+            this.lblTitulo.Size = new System.Drawing.Size(258, 42);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "INICIO SESION";
             // 
@@ -86,10 +88,11 @@ namespace CapaPresentacion
             // 
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(310, 111);
+            this.txtUsuario.Location = new System.Drawing.Point(413, 137);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(428, 24);
+            this.txtUsuario.Size = new System.Drawing.Size(571, 30);
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "CEDULA USUARIO:";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
@@ -99,10 +102,11 @@ namespace CapaPresentacion
             // 
             this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(310, 170);
+            this.txtContraseña.Location = new System.Drawing.Point(413, 209);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContraseña.MaxLength = 50;
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(428, 24);
+            this.txtContraseña.Size = new System.Drawing.Size(571, 30);
             this.txtContraseña.TabIndex = 2;
             this.txtContraseña.Text = "CONTRASEÑA:";
             this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
@@ -116,9 +120,10 @@ namespace CapaPresentacion
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.Color.Black;
-            this.btnIngresar.Location = new System.Drawing.Point(450, 234);
+            this.btnIngresar.Location = new System.Drawing.Point(600, 288);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(156, 42);
+            this.btnIngresar.Size = new System.Drawing.Size(208, 52);
             this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "INGRESAR";
             this.btnIngresar.UseVisualStyleBackColor = false;
@@ -129,9 +134,10 @@ namespace CapaPresentacion
             this.lnklblRegistrarse.AutoSize = true;
             this.lnklblRegistrarse.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnklblRegistrarse.LinkColor = System.Drawing.Color.DarkTurquoise;
-            this.lnklblRegistrarse.Location = new System.Drawing.Point(471, 300);
+            this.lnklblRegistrarse.Location = new System.Drawing.Point(628, 369);
+            this.lnklblRegistrarse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnklblRegistrarse.Name = "lnklblRegistrarse";
-            this.lnklblRegistrarse.Size = new System.Drawing.Size(114, 21);
+            this.lnklblRegistrarse.Size = new System.Drawing.Size(133, 23);
             this.lnklblRegistrarse.TabIndex = 0;
             this.lnklblRegistrarse.TabStop = true;
             this.lnklblRegistrarse.Text = "REGISTRARSE";
@@ -140,9 +146,10 @@ namespace CapaPresentacion
             // btnCerrar
             // 
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(734, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(979, 15);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(34, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(45, 39);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.TabStop = false;
@@ -151,9 +158,10 @@ namespace CapaPresentacion
             // btnMinimizar
             // 
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(691, 12);
+            this.btnMinimizar.Location = new System.Drawing.Point(921, 15);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(37, 32);
+            this.btnMinimizar.Size = new System.Drawing.Size(49, 39);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMinimizar.TabIndex = 7;
             this.btnMinimizar.TabStop = false;
@@ -161,10 +169,10 @@ namespace CapaPresentacion
             // 
             // formLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(780, 330);
+            this.ClientSize = new System.Drawing.Size(1040, 406);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lnklblRegistrarse);
@@ -175,7 +183,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formLogin";
             this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

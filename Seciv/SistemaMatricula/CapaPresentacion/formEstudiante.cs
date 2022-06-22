@@ -209,9 +209,7 @@ namespace CapaPresentacion
 
         private void btnReporteEstudiantees_Click(object sender, EventArgs e)
         {
-            frmReporte reporte = new frmReporte();
-            reporte.Eleccion = 'E';
-            reporte.Show();
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

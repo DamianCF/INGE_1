@@ -17,7 +17,7 @@ namespace CapaPresentacion
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new formLogin());//new frmProfesor()
 
-            formPrincipal login = new formPrincipal();  // apertura del form login
+            formLogin login = new formLogin();  // apertura del form login
             login.FormClosed += MainForm_Closed; 
             login.Show();
             Application.Run(); 

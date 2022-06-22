@@ -174,9 +174,7 @@ namespace CapaPresentacion
 
         private void btnReporteCursoes_Click(object sender, EventArgs e) // apertura reporte cursos
         {
-            frmReporte reporte = new frmReporte();
-            reporte.Eleccion = 'C';
-            reporte.Show();
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -299,13 +297,7 @@ namespace CapaPresentacion
 
         private void btnReporteEstCurso_Click(object sender, EventArgs e)
         {
-            if (chkbxMostrarEliminados.Checked == false)
-            {
-                frmReporte reporte = new frmReporte();
-                reporte.Eleccion = '1';/// lista de estudiantes del curso reporte
-                reporte.IDParametro1 = int.Parse(cbxCurso.SelectedValue.ToString());
-                reporte.Show();
-            }
+
         }
     }
 }

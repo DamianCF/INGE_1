@@ -180,9 +180,6 @@ namespace CapaPresentacion
 
         private void btnReporteAulas_Click(object sender, EventArgs e) // mostrar reporte aulas
         {
-            frmReporte reporte = new frmReporte();
-            reporte.Eleccion = 'A';
-            reporte.Show();
 
         }
 
