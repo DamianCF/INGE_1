@@ -39,7 +39,7 @@ namespace CapaPresentacion
 
         private void LimpiarTxts()
         {
-            txtGrupo_descripcion.ResetText();
+            txtCod.ResetText();
             validarCampo();
 
         }
@@ -100,21 +100,21 @@ namespace CapaPresentacion
 
         private void validarCampo() // valida campos de texto para activar o desactivar ciertos botones y mas
         {
-            var vr = !string.IsNullOrEmpty(txtGrupo_descripcion.Text);
+            var vr = !string.IsNullOrEmpty(txtCod.Text);
 
             btnModificar.Enabled = vr;
-            btnGrupo_Insertar.Enabled = vr;
+            btnInsertar.Enabled = vr;
             btnEliminar.Enabled = vr;
             if (vr)
             {
                 btnModificar.BackColor = Color.CornflowerBlue;
-                btnGrupo_Insertar.BackColor = Color.CornflowerBlue;
+                btnInsertar.BackColor = Color.CornflowerBlue;
                 btnEliminar.BackColor = Color.CornflowerBlue;
             }
             else
             {
                 btnModificar.BackColor = Color.Gray;
-                btnGrupo_Insertar.BackColor = Color.Gray;
+                btnInsertar.BackColor = Color.Gray;
                 btnEliminar.BackColor = Color.Gray;
             }
             // boton btnActivarEliminado manejo mas especifico
