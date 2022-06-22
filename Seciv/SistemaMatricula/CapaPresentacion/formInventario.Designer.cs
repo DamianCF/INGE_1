@@ -254,7 +254,7 @@ namespace CapaPresentacion
             this.btnActivarEliminado.UseVisualStyleBackColor = false;
             this.btnActivarEliminado.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
-            // formAula
+            // formInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -277,7 +277,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblAula_descricion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "formAula";
+            this.Name = "formInventario";
             this.Text = "Sistema Matricula = Modulo Profesor";
             this.Load += new System.EventHandler(this.formAula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAulas)).EndInit();

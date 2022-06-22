@@ -56,9 +56,7 @@ namespace CapaPresentacion
 
         private void btnGrupos_Click(object sender, EventArgs e)
         {
-            formCompra form = new formCompra();
-            form.EstadoUsuario = estadoUsuario;
-            openChildForm(form); ;
+
         }
 
         private void btnCursos_Click(object sender, EventArgs e)
@@ -82,11 +80,11 @@ namespace CapaPresentacion
             openChildForm(form);
         }
 
-        private void btnHorarios_Click(object sender, EventArgs e)
+        private void btnConsultasVentas_Click(object sender, EventArgs e)
         {
-            //formHorario form = new formHorario();
-            //form.EstadoUsuario = estadoUsuario;
-            //openChildForm(form);
+            formConsultasVentas form = new formConsultasVentas();
+            form.EstadoUsuario = estadoUsuario;
+            openChildForm(form);
         }
 
         private void btnMatriculas_Click(object sender, EventArgs e)

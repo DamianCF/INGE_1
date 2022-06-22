@@ -170,11 +170,11 @@
     <Compile Include="formInventario.Designer.cs">
       <DependentUpon>formInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="formCurso.cs">
+    <Compile Include="formConsultasCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formCurso.Designer.cs">
-      <DependentUpon>formCurso.cs</DependentUpon>
+    <Compile Include="formConsultasCompras.Designer.cs">
+      <DependentUpon>formConsultasCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="formEstudiante.cs">
       <SubType>Form</SubType>
@@ -188,11 +188,11 @@
     <Compile Include="formGrupo.Designer.cs">
       <DependentUpon>formGrupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="formHorario.cs">
+    <Compile Include="formConsultasVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formHorario.Designer.cs">
-      <DependentUpon>formHorario.cs</DependentUpon>
+    <Compile Include="formConsultasVentas.Designer.cs">
+      <DependentUpon>formConsultasVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
@@ -273,8 +273,8 @@
     <EmbeddedResource Include="formInventario.resx">
       <DependentUpon>formInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formCurso.resx">
-      <DependentUpon>formCurso.cs</DependentUpon>
+    <EmbeddedResource Include="formConsultasCompras.resx">
+      <DependentUpon>formConsultasCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formEstudiante.resx">
       <DependentUpon>formEstudiante.cs</DependentUpon>
@@ -282,8 +282,8 @@
     <EmbeddedResource Include="formGrupo.resx">
       <DependentUpon>formGrupo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formHorario.resx">
-      <DependentUpon>formHorario.cs</DependentUpon>
+    <EmbeddedResource Include="formConsultasVentas.resx">
+      <DependentUpon>formConsultasVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
