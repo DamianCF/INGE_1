@@ -45,6 +45,7 @@ namespace CapaPresentacion
             this.btnUsuario = new System.Windows.Forms.Button();
             this.pnlCentral = new System.Windows.Forms.Panel();
             this.pctrLogoCentral = new System.Windows.Forms.PictureBox();
+            this.btnProveedores = new System.Windows.Forms.Button();
             this.pnlSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrMazimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctrCerrar)).BeginInit();
@@ -61,7 +62,7 @@ namespace CapaPresentacion
             this.btnEstudiantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstudiantes.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstudiantes.ForeColor = System.Drawing.Color.White;
-            this.btnEstudiantes.Location = new System.Drawing.Point(0, 68);
+            this.btnEstudiantes.Location = new System.Drawing.Point(0, 85);
             this.btnEstudiantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEstudiantes.Name = "btnEstudiantes";
             this.btnEstudiantes.Size = new System.Drawing.Size(451, 68);
@@ -140,6 +141,7 @@ namespace CapaPresentacion
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.btnProveedores);
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Controls.Add(this.btnHorarios);
             this.panel2.Controls.Add(this.btnCursos);
@@ -179,7 +181,7 @@ namespace CapaPresentacion
             this.btnHorarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHorarios.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHorarios.ForeColor = System.Drawing.Color.White;
-            this.btnHorarios.Location = new System.Drawing.Point(0, 340);
+            this.btnHorarios.Location = new System.Drawing.Point(0, 425);
             this.btnHorarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHorarios.Name = "btnHorarios";
             this.btnHorarios.Size = new System.Drawing.Size(451, 68);
@@ -196,7 +198,7 @@ namespace CapaPresentacion
             this.btnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCursos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCursos.ForeColor = System.Drawing.Color.White;
-            this.btnCursos.Location = new System.Drawing.Point(0, 272);
+            this.btnCursos.Location = new System.Drawing.Point(0, 340);
             this.btnCursos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCursos.Name = "btnCursos";
             this.btnCursos.Size = new System.Drawing.Size(451, 68);
@@ -213,7 +215,7 @@ namespace CapaPresentacion
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.Location = new System.Drawing.Point(0, 204);
+            this.btnProductos.Location = new System.Drawing.Point(0, 255);
             this.btnProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(451, 68);
@@ -229,7 +231,7 @@ namespace CapaPresentacion
             this.btnProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfesores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfesores.ForeColor = System.Drawing.Color.White;
-            this.btnProfesores.Location = new System.Drawing.Point(0, 136);
+            this.btnProfesores.Location = new System.Drawing.Point(0, 170);
             this.btnProfesores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProfesores.Name = "btnProfesores";
             this.btnProfesores.Size = new System.Drawing.Size(451, 68);
@@ -281,6 +283,22 @@ namespace CapaPresentacion
             this.pctrLogoCentral.TabIndex = 0;
             this.pctrLogoCentral.TabStop = false;
             // 
+            // btnProveedores
+            // 
+            this.btnProveedores.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.Color.White;
+            this.btnProveedores.Location = new System.Drawing.Point(0, 510);
+            this.btnProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(451, 68);
+            this.btnProveedores.TabIndex = 11;
+            this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = false;
+            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -327,5 +345,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnProfesores;
         private System.Windows.Forms.Panel pnlCentral;
         private System.Windows.Forms.PictureBox pctrLogoCentral;
+        private System.Windows.Forms.Button btnProveedores;
     }
 }

@@ -13,13 +13,13 @@ using SistemaMatricula.CapaPresentacion.Validar_TextBox;
 namespace CapaPresentacion
 {
 
-    public partial class formEstudiante : Form
+    public partial class formIngresarProveedor : Form
     {
         DataSet dsEstudiante = new DataSet();
         DataTable dtEstudiante = new DataTable();
         private string estadoUsuario = "";
 
-        public formEstudiante()
+        public formIngresarProveedor()
         {
             InitializeComponent();
         }

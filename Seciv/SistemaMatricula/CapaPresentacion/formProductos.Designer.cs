@@ -34,9 +34,9 @@ namespace CapaPresentacion
             this.btnReporteProducto = new System.Windows.Forms.Button();
             this.btnCargarDatos = new System.Windows.Forms.Button();
             this.cbxGrupo = new System.Windows.Forms.ComboBox();
-            this.dgvGrupos = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnInsertar = new System.Windows.Forms.Button();
+            this.btnInsertarProducto = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@ namespace CapaPresentacion
             this.label5 = new System.Windows.Forms.Label();
             this.txtPTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGrupos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,18 +109,18 @@ namespace CapaPresentacion
             this.cbxGrupo.TabIndex = 39;
             this.cbxGrupo.SelectedIndexChanged += new System.EventHandler(this.cbxGrupo_SelectedIndexChanged);
             // 
-            // dgvGrupos
+            // dgvProductos
             // 
-            this.dgvGrupos.BackgroundColor = System.Drawing.Color.DimGray;
-            this.dgvGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrupos.Location = new System.Drawing.Point(527, 208);
-            this.dgvGrupos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvGrupos.Name = "dgvGrupos";
-            this.dgvGrupos.RowHeadersWidth = 51;
-            this.dgvGrupos.RowTemplate.Height = 24;
-            this.dgvGrupos.Size = new System.Drawing.Size(621, 450);
-            this.dgvGrupos.TabIndex = 38;
-            this.dgvGrupos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupoes_CellClick);
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(527, 208);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.RowTemplate.Height = 24;
+            this.dgvProductos.Size = new System.Drawing.Size(621, 450);
+            this.dgvProductos.TabIndex = 38;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupoes_CellClick);
             // 
             // btnModificar
             // 
@@ -137,20 +137,20 @@ namespace CapaPresentacion
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnInsertar
+            // btnInsertarProducto
             // 
-            this.btnInsertar.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnInsertar.FlatAppearance.BorderSize = 0;
-            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsertar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsertar.Location = new System.Drawing.Point(35, 581);
-            this.btnInsertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(216, 62);
-            this.btnInsertar.TabIndex = 36;
-            this.btnInsertar.Text = "Insertar";
-            this.btnInsertar.UseVisualStyleBackColor = false;
-            this.btnInsertar.Click += new System.EventHandler(this.btnGrupo_Insertar_Click);
+            this.btnInsertarProducto.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnInsertarProducto.FlatAppearance.BorderSize = 0;
+            this.btnInsertarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertarProducto.Location = new System.Drawing.Point(35, 581);
+            this.btnInsertarProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInsertarProducto.Name = "btnInsertarProducto";
+            this.btnInsertarProducto.Size = new System.Drawing.Size(216, 62);
+            this.btnInsertarProducto.TabIndex = 36;
+            this.btnInsertarProducto.Text = "Insertar";
+            this.btnInsertarProducto.UseVisualStyleBackColor = false;
+            this.btnInsertarProducto.Click += new System.EventHandler(this.btnGrupo_Insertar_Click);
             // 
             // btnLimpiar
             // 
@@ -361,15 +361,15 @@ namespace CapaPresentacion
             this.Controls.Add(this.btnReporteProducto);
             this.Controls.Add(this.btnCargarDatos);
             this.Controls.Add(this.cbxGrupo);
-            this.Controls.Add(this.dgvGrupos);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnInsertar);
+            this.Controls.Add(this.btnInsertarProducto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formProductos";
             this.Text = "Sistema Matricula = Modulo Grupo";
             this.Load += new System.EventHandler(this.formGrupo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGrupos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -382,9 +382,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnReporteProducto;
         private System.Windows.Forms.Button btnCargarDatos;
         private System.Windows.Forms.ComboBox cbxGrupo;
-        private System.Windows.Forms.DataGridView dgvGrupos;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnInsertar;
+        private System.Windows.Forms.Button btnInsertarProducto;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnEliminar;
