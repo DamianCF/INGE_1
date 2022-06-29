@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using CapaPresentacion.Models;
 
 namespace CapaPresentacion
 {
@@ -45,6 +47,15 @@ namespace CapaPresentacion
         public string Avisos { get => avisos; set => avisos = value; }
         private void btnMatricula_Insertar_Click(object sender, EventArgs e)
         {
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("SECIV");
+
+            var categoriasDB = database.GetCollection<Categoria>("Categorias");
+
+
+            var categoria = new Categoria() { cod_Categoria = "123abc", nombre_Categoria = "lkandj", descripcion_Categoria = "slknvjg" };
+
+            categoriasDB.InsertOne(categoria);
 
         }
 
