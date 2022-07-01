@@ -53,7 +53,7 @@ namespace CapaPresentacion
             var categoriasDB = database.GetCollection<Categoria>("Categorias");
 
 
-            var categoria = new Categoria() { cod_Categoria = "123abc", nombre_Categoria = "lkandj", descripcion_Categoria = "slknvjg" };
+            var categoria = new Categoria() { cod_Categoria = "9876344245", nombre_Categoria = "avvvvvdfs23a", descripcion_Categoria = "vvvvvv" };
 
             categoriasDB.InsertOne(categoria);
 
