@@ -47,15 +47,15 @@ namespace CapaPresentacion
         public string Avisos { get => avisos; set => avisos = value; }
         private void btnMatricula_Insertar_Click(object sender, EventArgs e)
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("SECIV");
+            //var client = new MongoClient("mongodb://localhost:27017");
+            //var database = client.GetDatabase("SECIV");
 
-            var categoriasDB = database.GetCollection<Categoria>("Categorias");
+            //var categoriasDB = database.GetCollection<Categoria>("Categorias");
 
 
-            var categoria = new Categoria() { cod_Categoria = "9876344245", nombre_Categoria = "avvvvvdfs23a", descripcion_Categoria = "vvvvvv" };
+            //var categoria = new Categoria() { cod_Categoria = "9876344245", nombre_Categoria = "avvvvvdfs23a", descripcion_Categoria = "vvvvvv" };
 
-            categoriasDB.InsertOne(categoria);
+            //categoriasDB.InsertOne(categoria);
 
         }
 

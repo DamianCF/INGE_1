@@ -117,17 +117,7 @@ namespace CapaPresentacion
                 btnInsertarProducto.BackColor = Color.Gray;
                 btnEliminar.BackColor = Color.Gray;
             }
-            // boton btnActivarEliminado manejo mas especifico
-            if (vr && chkbxMostrarEliminados.Checked)
-            {
-                btnActivarEliminado.Enabled = true;
-                btnActivarEliminado.BackColor = Color.CornflowerBlue;
-            }
-            else
-            {
-                btnActivarEliminado.Enabled = true;
-                btnActivarEliminado.BackColor = Color.Gray;
-            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

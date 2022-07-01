@@ -32,9 +32,6 @@ namespace CapaPresentacion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCompra));
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.Titulo = new System.Windows.Forms.Label();
-            this.btnReporteMatriculas = new System.Windows.Forms.Button();
-            this.btnCargarDatos = new System.Windows.Forms.Button();
-            this.cbxMatriculas = new System.Windows.Forms.ComboBox();
             this.dgvMatriculas = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnMatricula_Insertar = new System.Windows.Forms.Button();
@@ -43,11 +40,11 @@ namespace CapaPresentacion
             this.lblEstudiante_id = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.chkbxMostrarEliminados = new System.Windows.Forms.CheckBox();
-            this.btnActivarEliminado = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnCargarDatos = new System.Windows.Forms.Button();
+            this.cbxMatriculas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatriculas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,43 +74,6 @@ namespace CapaPresentacion
             this.Titulo.TabIndex = 42;
             this.Titulo.Text = "Compra";
             // 
-            // btnReporteMatriculas
-            // 
-            this.btnReporteMatriculas.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnReporteMatriculas.FlatAppearance.BorderSize = 0;
-            this.btnReporteMatriculas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteMatriculas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteMatriculas.Location = new System.Drawing.Point(887, 697);
-            this.btnReporteMatriculas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReporteMatriculas.Name = "btnReporteMatriculas";
-            this.btnReporteMatriculas.Size = new System.Drawing.Size(343, 50);
-            this.btnReporteMatriculas.TabIndex = 41;
-            this.btnReporteMatriculas.Text = "Reporte Compras";
-            this.btnReporteMatriculas.UseVisualStyleBackColor = false;
-            // 
-            // btnCargarDatos
-            // 
-            this.btnCargarDatos.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCargarDatos.FlatAppearance.BorderSize = 0;
-            this.btnCargarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarDatos.Location = new System.Drawing.Point(953, 94);
-            this.btnCargarDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCargarDatos.Name = "btnCargarDatos";
-            this.btnCargarDatos.Size = new System.Drawing.Size(277, 50);
-            this.btnCargarDatos.TabIndex = 40;
-            this.btnCargarDatos.Text = "Cargar Datos";
-            this.btnCargarDatos.UseVisualStyleBackColor = false;
-            // 
-            // cbxMatriculas
-            // 
-            this.cbxMatriculas.FormattingEnabled = true;
-            this.cbxMatriculas.Location = new System.Drawing.Point(729, 117);
-            this.cbxMatriculas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxMatriculas.Name = "cbxMatriculas";
-            this.cbxMatriculas.Size = new System.Drawing.Size(217, 24);
-            this.cbxMatriculas.TabIndex = 39;
-            // 
             // dgvMatriculas
             // 
             this.dgvMatriculas.BackgroundColor = System.Drawing.Color.DimGray;
@@ -123,7 +83,7 @@ namespace CapaPresentacion
             this.dgvMatriculas.Name = "dgvMatriculas";
             this.dgvMatriculas.RowHeadersWidth = 51;
             this.dgvMatriculas.RowTemplate.Height = 24;
-            this.dgvMatriculas.Size = new System.Drawing.Size(743, 519);
+            this.dgvMatriculas.Size = new System.Drawing.Size(743, 567);
             this.dgvMatriculas.TabIndex = 38;
             // 
             // btnModificar
@@ -132,10 +92,10 @@ namespace CapaPresentacion
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(279, 521);
+            this.btnModificar.Location = new System.Drawing.Point(68, 446);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(179, 50);
+            this.btnModificar.Size = new System.Drawing.Size(186, 50);
             this.btnModificar.TabIndex = 37;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -211,33 +171,6 @@ namespace CapaPresentacion
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // chkbxMostrarEliminados
-            // 
-            this.chkbxMostrarEliminados.AutoSize = true;
-            this.chkbxMostrarEliminados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbxMostrarEliminados.Location = new System.Drawing.Point(487, 117);
-            this.chkbxMostrarEliminados.Margin = new System.Windows.Forms.Padding(4);
-            this.chkbxMostrarEliminados.Name = "chkbxMostrarEliminados";
-            this.chkbxMostrarEliminados.Size = new System.Drawing.Size(211, 27);
-            this.chkbxMostrarEliminados.TabIndex = 55;
-            this.chkbxMostrarEliminados.Text = "Mostrar Eliminados";
-            this.chkbxMostrarEliminados.UseVisualStyleBackColor = true;
-            // 
-            // btnActivarEliminado
-            // 
-            this.btnActivarEliminado.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnActivarEliminado.FlatAppearance.BorderSize = 0;
-            this.btnActivarEliminado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarEliminado.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarEliminado.Location = new System.Drawing.Point(279, 576);
-            this.btnActivarEliminado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnActivarEliminado.Name = "btnActivarEliminado";
-            this.btnActivarEliminado.Size = new System.Drawing.Size(179, 82);
-            this.btnActivarEliminado.TabIndex = 54;
-            this.btnActivarEliminado.Text = "Activar \r\nEliminado";
-            this.btnActivarEliminado.UseVisualStyleBackColor = false;
-            this.btnActivarEliminado.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(219, 200);
@@ -265,6 +198,29 @@ namespace CapaPresentacion
             this.textBox3.Size = new System.Drawing.Size(303, 22);
             this.textBox3.TabIndex = 58;
             // 
+            // btnCargarDatos
+            // 
+            this.btnCargarDatos.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCargarDatos.FlatAppearance.BorderSize = 0;
+            this.btnCargarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarDatos.Location = new System.Drawing.Point(953, 94);
+            this.btnCargarDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCargarDatos.Name = "btnCargarDatos";
+            this.btnCargarDatos.Size = new System.Drawing.Size(277, 50);
+            this.btnCargarDatos.TabIndex = 40;
+            this.btnCargarDatos.Text = "Cargar Datos";
+            this.btnCargarDatos.UseVisualStyleBackColor = false;
+            // 
+            // cbxMatriculas
+            // 
+            this.cbxMatriculas.FormattingEnabled = true;
+            this.cbxMatriculas.Location = new System.Drawing.Point(729, 117);
+            this.cbxMatriculas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxMatriculas.Name = "cbxMatriculas";
+            this.cbxMatriculas.Size = new System.Drawing.Size(217, 24);
+            this.cbxMatriculas.TabIndex = 39;
+            // 
             // formCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -273,13 +229,10 @@ namespace CapaPresentacion
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.chkbxMostrarEliminados);
-            this.Controls.Add(this.btnActivarEliminado);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.Titulo);
-            this.Controls.Add(this.btnReporteMatriculas);
             this.Controls.Add(this.btnCargarDatos);
             this.Controls.Add(this.cbxMatriculas);
             this.Controls.Add(this.dgvMatriculas);
@@ -304,9 +257,6 @@ namespace CapaPresentacion
 
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label Titulo;
-        private System.Windows.Forms.Button btnReporteMatriculas;
-        private System.Windows.Forms.Button btnCargarDatos;
-        private System.Windows.Forms.ComboBox cbxMatriculas;
         private System.Windows.Forms.DataGridView dgvMatriculas;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnMatricula_Insertar;
@@ -315,10 +265,10 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblEstudiante_id;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.CheckBox chkbxMostrarEliminados;
-        private System.Windows.Forms.Button btnActivarEliminado;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnCargarDatos;
+        private System.Windows.Forms.ComboBox cbxMatriculas;
     }
 }
