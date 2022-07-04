@@ -39,7 +39,7 @@ namespace CapaPresentacion
             //    btnReporteMatriculas.Visible = false;
             //}
 
-
+            CargarGridMatricula();
         }
 
 
@@ -49,21 +49,14 @@ namespace CapaPresentacion
         {
             //var client = new MongoClient("mongodb://localhost:27017");
             //var database = client.GetDatabase("SECIV");
-
             //var categoriasDB = database.GetCollection<Categoria>("Categorias");
-
-
             //var categoria = new Categoria() { cod_Categoria = "9876344245", nombre_Categoria = "avvvvvdfs23a", descripcion_Categoria = "vvvvvv" };
-
             //categoriasDB.InsertOne(categoria);
-
-
 
             Conexion conexion = new Conexion();
             var categoriasDB = conexion.getCompras();
             var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
             categoriasDB.InsertOne(compra);
-
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -78,6 +71,17 @@ namespace CapaPresentacion
 
         private void CargarGridMatricula()
         {// cargado de matriculas activas o inactivas
+
+            Conexion conexion = new Conexion();
+            var categoriasDB = conexion.getCompras();
+            //var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
+            List<Compra> lst = categoriasDB.Find(d=>true).ToList();
+            foreach (Compra compra in lst)
+            {
+                //Console.WriteLine(compra.Cod_Compra.ToString());
+                System.Diagnostics.Debug.WriteLine(compra.Cod_Compra.ToString());
+               // MessageBox.Show(compra.Cod_Compra.ToString());
+            }
 
         }
 
