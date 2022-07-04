@@ -18,7 +18,7 @@ namespace CapaPresentacion.Models
         public string Cod_Compra { get; set; }
 
         [BsonElement("Monto_Compra")]
-        public string Monto_Compra { get; set; }
+        public float Monto_Compra { get; set; }
 
         [BsonElement("Fecha_Compra")]
         public string Fecha_Compra { get; set; }

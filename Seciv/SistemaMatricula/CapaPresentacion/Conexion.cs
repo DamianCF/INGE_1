@@ -10,11 +10,20 @@ namespace CapaPresentacion
 {
     public class Conexion
     {
-
-        static Conexion()
+        public Conexion()
         {
-         var client = new MongoClient("mongodb://localhost:27017");
-         var database = client.GetDatabase("SECIV");
+        }
+        public IMongoDatabase getDataBase()
+        {
+            var client = new MongoClient("mongodb://localhost:27017");
+            IMongoDatabase database = client.GetDatabase("SECIV");
+            return database;
+        }
+
+        public IMongoCollection<Compra> getCompras()
+        {
+            var categoriasDB = getDataBase().GetCollection<Compra>("Compras");
+            return categoriasDB;
         }
 
     }

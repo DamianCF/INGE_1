@@ -57,6 +57,13 @@ namespace CapaPresentacion
 
             //categoriasDB.InsertOne(categoria);
 
+
+
+            Conexion conexion = new Conexion();
+            var categoriasDB = conexion.getCompras();
+            var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
+            categoriasDB.InsertOne(compra);
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
