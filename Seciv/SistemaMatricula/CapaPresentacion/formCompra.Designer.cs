@@ -43,8 +43,6 @@ namespace CapaPresentacion
             this.txtCodCompra = new System.Windows.Forms.TextBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
-            this.btnCargarDatos = new System.Windows.Forms.Button();
-            this.cbxMatriculas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,12 +54,13 @@ namespace CapaPresentacion
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Location = new System.Drawing.Point(50, 423);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(140, 41);
             this.btnLimpiar.TabIndex = 43;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // Titulo
             // 
@@ -80,7 +79,7 @@ namespace CapaPresentacion
             this.dgvCompras.BackgroundColor = System.Drawing.Color.DimGray;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Location = new System.Drawing.Point(365, 128);
-            this.dgvCompras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCompras.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.RowHeadersWidth = 51;
             this.dgvCompras.RowTemplate.Height = 24;
@@ -95,7 +94,7 @@ namespace CapaPresentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(51, 362);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(140, 41);
             this.btnModificar.TabIndex = 37;
@@ -110,7 +109,7 @@ namespace CapaPresentacion
             this.btnMatricula_Insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMatricula_Insertar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMatricula_Insertar.Location = new System.Drawing.Point(50, 486);
-            this.btnMatricula_Insertar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMatricula_Insertar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMatricula_Insertar.Name = "btnMatricula_Insertar";
             this.btnMatricula_Insertar.Size = new System.Drawing.Size(140, 41);
             this.btnMatricula_Insertar.TabIndex = 36;
@@ -155,7 +154,7 @@ namespace CapaPresentacion
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(50, 26);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(92, 83);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +168,7 @@ namespace CapaPresentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(50, 540);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(140, 41);
             this.btnEliminar.TabIndex = 47;
@@ -180,7 +179,7 @@ namespace CapaPresentacion
             // txtCodCompra
             // 
             this.txtCodCompra.Location = new System.Drawing.Point(164, 162);
-            this.txtCodCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodCompra.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodCompra.MaxLength = 100;
             this.txtCodCompra.Name = "txtCodCompra";
             this.txtCodCompra.Size = new System.Drawing.Size(179, 20);
@@ -189,43 +188,21 @@ namespace CapaPresentacion
             // txtMonto
             // 
             this.txtMonto.Location = new System.Drawing.Point(115, 199);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(2);
             this.txtMonto.MaxLength = 100;
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(228, 20);
             this.txtMonto.TabIndex = 57;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // txtFecha
             // 
             this.txtFecha.Location = new System.Drawing.Point(115, 236);
-            this.txtFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(2);
             this.txtFecha.MaxLength = 100;
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(228, 20);
             this.txtFecha.TabIndex = 58;
-            // 
-            // btnCargarDatos
-            // 
-            this.btnCargarDatos.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCargarDatos.FlatAppearance.BorderSize = 0;
-            this.btnCargarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarDatos.Location = new System.Drawing.Point(715, 76);
-            this.btnCargarDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnCargarDatos.Name = "btnCargarDatos";
-            this.btnCargarDatos.Size = new System.Drawing.Size(208, 41);
-            this.btnCargarDatos.TabIndex = 40;
-            this.btnCargarDatos.Text = "Cargar Datos";
-            this.btnCargarDatos.UseVisualStyleBackColor = false;
-            // 
-            // cbxMatriculas
-            // 
-            this.cbxMatriculas.FormattingEnabled = true;
-            this.cbxMatriculas.Location = new System.Drawing.Point(547, 95);
-            this.cbxMatriculas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbxMatriculas.Name = "cbxMatriculas";
-            this.cbxMatriculas.Size = new System.Drawing.Size(164, 21);
-            this.cbxMatriculas.TabIndex = 39;
             // 
             // formCompra
             // 
@@ -239,8 +216,6 @@ namespace CapaPresentacion
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.Titulo);
-            this.Controls.Add(this.btnCargarDatos);
-            this.Controls.Add(this.cbxMatriculas);
             this.Controls.Add(this.dgvCompras);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnMatricula_Insertar);
@@ -248,7 +223,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblGrupo_id);
             this.Controls.Add(this.lblEstudiante_id);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sistema Matricula = Modulo Matricula";
@@ -275,7 +250,5 @@ namespace CapaPresentacion
         private System.Windows.Forms.TextBox txtCodCompra;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.TextBox txtFecha;
-        private System.Windows.Forms.Button btnCargarDatos;
-        private System.Windows.Forms.ComboBox cbxMatriculas;
     }
 }

@@ -10,19 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MongoDB.Driver;
 using CapaPresentacion.Models;
+using SistemaMatricula.CapaPresentacion.Validar_TextBox;
 
 namespace CapaPresentacion
 {
     public partial class formCompra : Form
     {
-        DataSet dsMatricula = new DataSet();
-        DataTable dtMatricula = new DataTable();
-        private string estadoUsuario = "";
-        private string avisos = ""; // string que recolecta errores en caso de existir al momento de insertar matricula
-        int IDAulaAnterior = 0;
-
         string idCompra = "";
-
+        Conexion conexion = new Conexion();
+        List<Compra> lst;
 
         public formCompra()
         {
@@ -31,65 +27,54 @@ namespace CapaPresentacion
 
         private void formMatricula_Load(object sender, EventArgs e)
         {
-            //if (estadoUsuario != "A") // desactivacion de ciertas funciones si el usuario es administrador
-            //{
-            //    chkbxMostrarEliminados.Enabled = false;
-            //    chkbxMostrarEliminados.Visible = false;
-            //    btnActivarEliminado.Enabled = false;
-            //    btnActivarEliminado.Visible = false;
-            //    btnReporteMatriculas.Enabled = false;
-            //    btnReporteMatriculas.Visible = false;
-            //}
-
+            dgvCompras.Columns.Add("id", "ID");
+            dgvCompras.Columns["id"].Visible = false;
+            dgvCompras.Columns.Add("codCompra", "Codigo compra");
+            this.dgvCompras.Columns["codCompra"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCompras.Columns.Add("monto", "Monto");
+            this.dgvCompras.Columns["monto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvCompras.Columns.Add("fecha", "Fecha de compra");
+            this.dgvCompras.Columns["fecha"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             CargarGridMatricula();
         }
 
-
-        public string EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
-        public string Avisos { get => avisos; set => avisos = value; }
         private void btnMatricula_Insertar_Click(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion();
             var categoriasDB = conexion.getCompras();
             var compra = new Compra() { Cod_Compra = txtCodCompra.Text.ToString(), Monto_Compra = int.Parse(txtMonto.Text.ToString()), Fecha_Compra = txtFecha.Text.ToString() };
             categoriasDB.InsertOne(compra);
+            CargarGridMatricula();
+            LimpiarTxts();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion();
             var categoriasDB = conexion.getCompras();
             var compra = new Compra() { id= idCompra, Cod_Compra = txtCodCompra.Text.ToString(), Monto_Compra = int.Parse(txtMonto.Text.ToString()), Fecha_Compra = txtFecha.Text.ToString() };
             categoriasDB.ReplaceOne(d=>d.id == idCompra, compra);
+            CargarGridMatricula();
+            LimpiarTxts();
         }
 
 
 
         private void LimpiarTxts()
         {
+            idCompra = "";
+            txtCodCompra.Clear();
+            txtFecha.Clear();
+            txtMonto.Clear();
         }
 
         private void CargarGridMatricula()
-        {// cargado de matriculas activas o inactivas
-
-            Conexion conexion = new Conexion();
-            var categoriasDB = conexion.getCompras();
-            //var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
-            List<Compra> lst = categoriasDB.Find(d => true).ToList();
-            dgvCompras.Columns.Add("id", "ID");
-            dgvCompras.Columns["id"].Visible = false;
-            dgvCompras.Columns.Add("codCompra", "Codigo compra");
-            dgvCompras.Columns.Add("monto", "Monto");
-            dgvCompras.Columns.Add("fecha", "Fecha de compra");
+        {
+            dgvCompras.Rows.Clear();
+            var comprasDB = conexion.getCompras();
+            lst = comprasDB.Find(d => true).ToList();
             foreach (Compra compra in lst)
             {
                 dgvCompras.Rows.Add(compra.id.ToString(),compra.Cod_Compra.ToString(), compra.Monto_Compra.ToString(), compra.Fecha_Compra.ToString());
-                Console.WriteLine(compra.Cod_Compra.ToString());
-                //System.Diagnostics.Debug.WriteLine(compra.Cod_Compra.ToString());
-                // MessageBox.Show(compra.Cod_Compra.ToString());
-            }
-            
-
+            }  
         }
 
         private void CargarComboMatricula()
@@ -124,9 +109,20 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Conexion conexion = new Conexion();
             var categoriasDB = conexion.getCompras();
             categoriasDB.DeleteOne(d => d.id == idCompra);
+            CargarGridMatricula();
+            LimpiarTxts();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarTxts();
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
         }
     }
 }

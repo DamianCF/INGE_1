@@ -58,7 +58,7 @@ namespace SistemaMatricula.CapaPresentacion.Validar_TextBox
             else
             {
                 v.Handled = true;
-                MessageBox.Show("Solo Numeros","Error Digitacion",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("No se permite el ingreso de letras en este campo","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
