@@ -78,8 +78,8 @@ namespace CapaPresentacion
             List<Compra> lst = categoriasDB.Find(d=>true).ToList();
             foreach (Compra compra in lst)
             {
-                //Console.WriteLine(compra.Cod_Compra.ToString());
-                System.Diagnostics.Debug.WriteLine(compra.Cod_Compra.ToString());
+                Console.WriteLine(compra.Cod_Compra.ToString());
+                //System.Diagnostics.Debug.WriteLine(compra.Cod_Compra.ToString());
                // MessageBox.Show(compra.Cod_Compra.ToString());
             }
 
