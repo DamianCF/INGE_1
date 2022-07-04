@@ -40,9 +40,9 @@ namespace CapaPresentacion
             this.lblEstudiante_id = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCodCompra = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.btnCargarDatos = new System.Windows.Forms.Button();
             this.cbxMatriculas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
@@ -86,6 +86,7 @@ namespace CapaPresentacion
             this.dgvCompras.RowTemplate.Height = 24;
             this.dgvCompras.Size = new System.Drawing.Size(557, 461);
             this.dgvCompras.TabIndex = 38;
+            this.dgvCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellClick);
             // 
             // btnModificar
             // 
@@ -174,33 +175,34 @@ namespace CapaPresentacion
             this.btnEliminar.TabIndex = 47;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // textBox1
+            // txtCodCompra
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 162);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.MaxLength = 100;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 20);
-            this.textBox1.TabIndex = 56;
+            this.txtCodCompra.Location = new System.Drawing.Point(164, 162);
+            this.txtCodCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodCompra.MaxLength = 100;
+            this.txtCodCompra.Name = "txtCodCompra";
+            this.txtCodCompra.Size = new System.Drawing.Size(179, 20);
+            this.txtCodCompra.TabIndex = 56;
             // 
-            // textBox2
+            // txtMonto
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 199);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.MaxLength = 100;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 20);
-            this.textBox2.TabIndex = 57;
+            this.txtMonto.Location = new System.Drawing.Point(115, 199);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMonto.MaxLength = 100;
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(228, 20);
+            this.txtMonto.TabIndex = 57;
             // 
-            // textBox3
+            // txtFecha
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 236);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.MaxLength = 100;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 20);
-            this.textBox3.TabIndex = 58;
+            this.txtFecha.Location = new System.Drawing.Point(115, 236);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFecha.MaxLength = 100;
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(228, 20);
+            this.txtFecha.TabIndex = 58;
             // 
             // btnCargarDatos
             // 
@@ -230,9 +232,9 @@ namespace CapaPresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 800);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFecha);
+            this.Controls.Add(this.txtMonto);
+            this.Controls.Add(this.txtCodCompra);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLimpiar);
@@ -270,9 +272,9 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label lblEstudiante_id;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCodCompra;
+        private System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Button btnCargarDatos;
         private System.Windows.Forms.ComboBox cbxMatriculas;
     }

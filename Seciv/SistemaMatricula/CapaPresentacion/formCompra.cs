@@ -21,6 +21,8 @@ namespace CapaPresentacion
         private string avisos = ""; // string que recolecta errores en caso de existir al momento de insertar matricula
         int IDAulaAnterior = 0;
 
+        string idCompra = "";
+
 
         public formCompra()
         {
@@ -47,20 +49,18 @@ namespace CapaPresentacion
         public string Avisos { get => avisos; set => avisos = value; }
         private void btnMatricula_Insertar_Click(object sender, EventArgs e)
         {
-            //var client = new MongoClient("mongodb://localhost:27017");
-            //var database = client.GetDatabase("SECIV");
-            //var categoriasDB = database.GetCollection<Categoria>("Categorias");
-            //var categoria = new Categoria() { cod_Categoria = "9876344245", nombre_Categoria = "avvvvvdfs23a", descripcion_Categoria = "vvvvvv" };
-            //categoriasDB.InsertOne(categoria);
-
             Conexion conexion = new Conexion();
             var categoriasDB = conexion.getCompras();
-            var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
+            var compra = new Compra() { Cod_Compra = txtCodCompra.Text.ToString(), Monto_Compra = int.Parse(txtMonto.Text.ToString()), Fecha_Compra = txtFecha.Text.ToString() };
             categoriasDB.InsertOne(compra);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            Conexion conexion = new Conexion();
+            var categoriasDB = conexion.getCompras();
+            var compra = new Compra() { id= idCompra, Cod_Compra = txtCodCompra.Text.ToString(), Monto_Compra = int.Parse(txtMonto.Text.ToString()), Fecha_Compra = txtFecha.Text.ToString() };
+            categoriasDB.ReplaceOne(d=>d.id == idCompra, compra);
         }
 
 
@@ -75,16 +75,17 @@ namespace CapaPresentacion
             Conexion conexion = new Conexion();
             var categoriasDB = conexion.getCompras();
             //var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
-            List<Compra> lst = categoriasDB.Find(d=>true).ToList();
+            List<Compra> lst = categoriasDB.Find(d => true).ToList();
+            dgvCompras.Columns.Add("id", "ID");
             dgvCompras.Columns.Add("codCompra", "Codigo compra");
             dgvCompras.Columns.Add("monto", "Monto");
             dgvCompras.Columns.Add("fecha", "Fecha de compra");
             foreach (Compra compra in lst)
             {
-                dgvCompras.Rows.Add(compra.Cod_Compra.ToString(), compra.Monto_Compra.ToString(), compra.Fecha_Compra.ToString());
+                dgvCompras.Rows.Add(compra.id.ToString(),compra.Cod_Compra.ToString(), compra.Monto_Compra.ToString(), compra.Fecha_Compra.ToString());
                 Console.WriteLine(compra.Cod_Compra.ToString());
                 //System.Diagnostics.Debug.WriteLine(compra.Cod_Compra.ToString());
-               // MessageBox.Show(compra.Cod_Compra.ToString());
+                // MessageBox.Show(compra.Cod_Compra.ToString());
             }
 
         }
@@ -99,6 +100,31 @@ namespace CapaPresentacion
 
         }
 
-    
+        private void dgvCompras_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int numFila = dgvCompras.CurrentCell.RowIndex;
+
+            if(dgvCompras.CurrentCell.Value != null)
+            {
+
+                idCompra = this.dgvCompras[0, numFila].Value.ToString();
+
+                string codCompra = this.dgvCompras[1, numFila].Value.ToString();
+                txtCodCompra.Text = codCompra;
+
+                string Monto = this.dgvCompras[2, numFila].Value.ToString();
+                txtMonto.Text = Monto;
+
+                string Fecha = this.dgvCompras[3, numFila].Value.ToString();
+                txtFecha.Text = Fecha;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Conexion conexion = new Conexion();
+            var categoriasDB = conexion.getCompras();
+            categoriasDB.DeleteOne(d => d.id == idCompra);
+        }
     }
 }
