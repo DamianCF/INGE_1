@@ -26,6 +26,11 @@ namespace CapaPresentacion
             var categoriasDB = getDataBase().GetCollection<Compra>("Compras");
             return categoriasDB;
         }
+        public IMongoCollection<Producto> getProductos()
+        {
+            var categoriasDB = getDataBase().GetCollection<Producto>("Productos");
+            return categoriasDB;
+        }
 
     }
 }

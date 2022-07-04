@@ -77,15 +77,6 @@ namespace CapaPresentacion
             }  
         }
 
-        private void CargarComboMatricula()
-        {// cargado de matriculas activas o inactivas
-
-        }
-
-        private void CargarComboEstudiante()
-        {
-
-        }
 
         private void dgvCompras_CellClick(object sender, DataGridViewCellEventArgs e)
         {

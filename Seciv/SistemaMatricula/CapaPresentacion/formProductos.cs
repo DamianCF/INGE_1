@@ -1,5 +1,4 @@
-﻿using SistemaMatricula.CapaIntegracion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,126 +7,181 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaPresentacion.Models;
+using SistemaMatricula.CapaIntegracion;
 using SistemaMatricula.CapaPresentacion.Validar_TextBox;
+using MongoDB.Driver;
 
 namespace CapaPresentacion
 {
     public partial class formProductos : Form
     {
-        DataSet dsGrupo = new DataSet();
-        DataTable dtGrupo = new DataTable();
-        private string estadoUsuario = "";
-        public string EstadoUsuario { get => estadoUsuario; set => estadoUsuario = value; }
+        string idProducto = "";
+        Conexion conexion = new Conexion();
+        List<Producto> lst;
 
         public formProductos()
         {
             InitializeComponent();
         }
 
-        private void formGrupo_Load(object sender, EventArgs e)
+        private void formProducto_Load(object sender, EventArgs e)
         {
-
-
+            dgvProductos.Columns.Add("id", "ID");
+            dgvProductos.Columns["id"].Visible = false;
+            dgvProductos.Columns.Add("Codigo_Producto", "Codigo Producto");
+            this.dgvProductos.Columns["Codigo_Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("Nombre_Producto", "Nombre");
+            this.dgvProductos.Columns["Nombre_Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("Descripcion_Producto", "Descripcion");
+            this.dgvProductos.Columns["Descripcion_Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("Precio_Costo", "Precio Costo");
+            this.dgvProductos.Columns["Precio_Costo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("Utili", "Utilidad");
+            this.dgvProductos.Columns["Utili"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("Precio_Venta", "Precio Venta");
+            this.dgvProductos.Columns["Precio_Venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("Cantidad_Stock", "Cantidad");
+            this.dgvProductos.Columns["Cantidad_Stock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CargarGridProducto();
         }
 
 
-        private void btnGrupo_Insertar_Click(object sender, EventArgs e)
-        {
 
-
-        }
 
         private void LimpiarTxts()
         {
-            txtNombre.ResetText();
-            validarCampo();
-
+            idProducto = "";
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            txtPrecioCosto.Clear();
+            txtPrecioVenta.Clear();
+            txtUtilidad.Clear();
+            txtCantidadStock.Clear();
         }
 
-        private void CargarGridGrupo()
+        private void CargarGridProducto()
         {
-           
+            dgvProductos.Rows.Clear();
+            var comprasDB = conexion.getProductos();
+            lst = comprasDB.Find(d => true).ToList();
+            foreach (Producto compra in lst)
+            {
+                dgvProductos.Rows.Add(compra.id.ToString(), compra.Codigo_Producto.ToString(), compra.Nombre_Producto.ToString(), compra.Descripcion_Producto.ToString(),
+                    compra.Precio_Costo.ToString(), compra.Utili.ToString(), compra.Precio_Venta.ToString(), compra.Cantidad_Stock.ToString());
+            }
         }
 
-        private void CargarComboGrupo()
+
+        private void dgvProductoes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         
-        }
-        private void BuscarGrupo()
-        {
+            int numFila = dgvProductos.CurrentCell.RowIndex;
 
-        }
+            if (dgvProductos.CurrentCell.Value != null)
+            {
 
-        private void CargarDatosGrupo()
-        {
+                idProducto = this.dgvProductos[0, numFila].Value.ToString();
 
+                string codProducto = this.dgvProductos[1, numFila].Value.ToString();
+                txtCodigo.Text = codProducto;
 
-        }
+                string Nombre = this.dgvProductos[2, numFila].Value.ToString();
+                txtNombre.Text = Nombre;
 
-        private void btnCargarDatos_Click(object sender, EventArgs e)
-        {
-        }
+                string Descripcion = this.dgvProductos[3, numFila].Value.ToString();
+                txtDescripcion.Text = Descripcion;
 
-        private void dgvGrupoes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
+                string PrecioCosto = this.dgvProductos[4, numFila].Value.ToString();
+                txtPrecioCosto.Text = PrecioCosto;
+
+                string Utilidad = this.dgvProductos[5, numFila].Value.ToString();
+                txtUtilidad.Text = Utilidad;
+
+                string PrecioVenta = this.dgvProductos[6, numFila].Value.ToString();
+                txtPrecioVenta.Text = PrecioVenta;
+
+                string CantidadStock = this.dgvProductos[7, numFila].Value.ToString();
+                txtCantidadStock.Text = CantidadStock;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            var categoriasDB = conexion.getProductos();
+            var compra = new Producto() { id = idProducto,
+                Codigo_Producto = txtCodigo.Text.ToString(),
+                Nombre_Producto = txtNombre.Text,
+                Descripcion_Producto = txtDescripcion.Text.ToString(),
+                Precio_Costo = int.Parse(txtPrecioCosto.Text.ToString()),
+                Utili = int.Parse(txtUtilidad.Text.ToString()),
+                Precio_Venta = int.Parse(txtPrecioVenta.Text.ToString()),
+                Cantidad_Stock = int.Parse(txtCantidadStock.Text.ToString() )};
+            categoriasDB.ReplaceOne(d => d.id == idProducto, compra);
+            CargarGridProducto();
+            LimpiarTxts();
 
         }
-
-        private void btnReporteGrupoes_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarTxts();
         }
-
-        private void cbxGrupo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvProductos.ClearSelection();
-        }
-
-        private void txtGrupo_descripcion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            validarCampo();
-        }
-
-        private void validarCampo() // valida campos de texto para activar o desactivar ciertos botones y mas
-        {
-            var vr = !string.IsNullOrEmpty(txtNombre.Text);
-
-            btnModificar.Enabled = vr;
-            btnInsertarProducto.Enabled = vr;
-            btnEliminar.Enabled = vr;
-            if (vr)
-            {
-                btnModificar.BackColor = Color.CornflowerBlue;
-                btnInsertarProducto.BackColor = Color.CornflowerBlue;
-                btnEliminar.BackColor = Color.CornflowerBlue;
-            }
-            else
-            {
-                btnModificar.BackColor = Color.Gray;
-                btnInsertarProducto.BackColor = Color.Gray;
-                btnEliminar.BackColor = Color.Gray;
-            }
-
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-           
+            var categoriasDB = conexion.getProductos();
+            categoriasDB.DeleteOne(d => d.id == idProducto);
+            CargarGridProducto();
+            LimpiarTxts();
+        }
+        private void txtProducto_descripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
 
-
-        private void chkbxMostrarEliminados_CheckedChanged(object sender, EventArgs e)
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+        private void txtPrecioCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
+
+        private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
+
+        private void txtUtilidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
+
+        private void txtCantidadStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
+
+        private void btnInsertarProducto_Click(object sender, EventArgs e)
+        {
+                var categoriasDB = conexion.getProductos();
+                var compra = new Producto()
+                {
+                    Codigo_Producto = txtCodigo.Text.ToString(),
+                    Nombre_Producto = txtNombre.Text,
+                    Descripcion_Producto = txtDescripcion.Text.ToString(),
+                    Precio_Costo = int.Parse(txtPrecioCosto.Text.ToString()),
+                    Utili = int.Parse(txtUtilidad.Text.ToString()),
+                    Precio_Venta = int.Parse(txtPrecioVenta.Text.ToString()),
+                    Cantidad_Stock = int.Parse(txtCantidadStock.Text.ToString())
+                };
+                categoriasDB.InsertOne(compra);
+                CargarGridProducto();
+                LimpiarTxts();
 
         }
     }

@@ -31,27 +31,25 @@ namespace CapaPresentacion
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formProductos));
             this.Titulo = new System.Windows.Forms.Label();
-            this.btnCargarDatos = new System.Windows.Forms.Button();
-            this.cbxGrupo = new System.Windows.Forms.ComboBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnInsertarProducto = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPCosto = new System.Windows.Forms.TextBox();
+            this.txtPrecioCosto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPVenta = new System.Windows.Forms.TextBox();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIVA = new System.Windows.Forms.TextBox();
+            this.txtUtilidad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPTotal = new System.Windows.Forms.TextBox();
+            this.txtCantidadStock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,31 +66,6 @@ namespace CapaPresentacion
             this.Titulo.TabIndex = 42;
             this.Titulo.Text = "Producto";
             // 
-            // btnCargarDatos
-            // 
-            this.btnCargarDatos.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCargarDatos.FlatAppearance.BorderSize = 0;
-            this.btnCargarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarDatos.Location = new System.Drawing.Point(1000, 148);
-            this.btnCargarDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCargarDatos.Name = "btnCargarDatos";
-            this.btnCargarDatos.Size = new System.Drawing.Size(199, 50);
-            this.btnCargarDatos.TabIndex = 40;
-            this.btnCargarDatos.Text = "Cargar Datos";
-            this.btnCargarDatos.UseVisualStyleBackColor = false;
-            this.btnCargarDatos.Click += new System.EventHandler(this.btnCargarDatos_Click);
-            // 
-            // cbxGrupo
-            // 
-            this.cbxGrupo.FormattingEnabled = true;
-            this.cbxGrupo.Location = new System.Drawing.Point(759, 174);
-            this.cbxGrupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxGrupo.Name = "cbxGrupo";
-            this.cbxGrupo.Size = new System.Drawing.Size(209, 24);
-            this.cbxGrupo.TabIndex = 39;
-            this.cbxGrupo.SelectedIndexChanged += new System.EventHandler(this.cbxGrupo_SelectedIndexChanged);
-            // 
             // dgvProductos
             // 
             this.dgvProductos.BackgroundColor = System.Drawing.Color.DimGray;
@@ -104,7 +77,7 @@ namespace CapaPresentacion
             this.dgvProductos.RowTemplate.Height = 24;
             this.dgvProductos.Size = new System.Drawing.Size(672, 532);
             this.dgvProductos.TabIndex = 38;
-            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupoes_CellClick);
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductoes_CellClick);
             // 
             // btnModificar
             // 
@@ -134,7 +107,7 @@ namespace CapaPresentacion
             this.btnInsertarProducto.TabIndex = 36;
             this.btnInsertarProducto.Text = "Insertar";
             this.btnInsertarProducto.UseVisualStyleBackColor = false;
-            this.btnInsertarProducto.Click += new System.EventHandler(this.btnGrupo_Insertar_Click);
+            this.btnInsertarProducto.Click += new System.EventHandler(this.btnInsertarProducto_Click);
             // 
             // btnLimpiar
             // 
@@ -177,14 +150,15 @@ namespace CapaPresentacion
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // txtNombre
+            // txtCodigo
             // 
-            this.txtNombre.Location = new System.Drawing.Point(234, 224);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNombre.MaxLength = 20;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(248, 22);
-            this.txtNombre.TabIndex = 49;
+            this.txtCodigo.Location = new System.Drawing.Point(234, 224);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCodigo.MaxLength = 20;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(248, 22);
+            this.txtCodigo.TabIndex = 49;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // label1
             // 
@@ -192,18 +166,19 @@ namespace CapaPresentacion
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(108, 219);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 31);
+            this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 48;
             this.label1.Text = "Codigo:";
             // 
-            // txtDesc
+            // txtNombre
             // 
-            this.txtDesc.Location = new System.Drawing.Point(234, 269);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDesc.MaxLength = 20;
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(248, 22);
-            this.txtDesc.TabIndex = 51;
+            this.txtNombre.Location = new System.Drawing.Point(234, 269);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.MaxLength = 20;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(248, 22);
+            this.txtNombre.TabIndex = 51;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label2
             // 
@@ -211,18 +186,19 @@ namespace CapaPresentacion
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(108, 264);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 31);
+            this.label2.Size = new System.Drawing.Size(87, 25);
             this.label2.TabIndex = 50;
             this.label2.Text = "Nombre:";
             // 
-            // txtPCosto
+            // txtPrecioCosto
             // 
-            this.txtPCosto.Location = new System.Drawing.Point(234, 350);
-            this.txtPCosto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPCosto.MaxLength = 20;
-            this.txtPCosto.Name = "txtPCosto";
-            this.txtPCosto.Size = new System.Drawing.Size(248, 22);
-            this.txtPCosto.TabIndex = 53;
+            this.txtPrecioCosto.Location = new System.Drawing.Point(234, 350);
+            this.txtPrecioCosto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrecioCosto.MaxLength = 20;
+            this.txtPrecioCosto.Name = "txtPrecioCosto";
+            this.txtPrecioCosto.Size = new System.Drawing.Size(248, 22);
+            this.txtPrecioCosto.TabIndex = 53;
+            this.txtPrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCosto_KeyPress);
             // 
             // label3
             // 
@@ -234,14 +210,15 @@ namespace CapaPresentacion
             this.label3.TabIndex = 52;
             this.label3.Text = "Precio Costo:";
             // 
-            // txtPVenta
+            // txtPrecioVenta
             // 
-            this.txtPVenta.Location = new System.Drawing.Point(234, 394);
-            this.txtPVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPVenta.MaxLength = 20;
-            this.txtPVenta.Name = "txtPVenta";
-            this.txtPVenta.Size = new System.Drawing.Size(248, 22);
-            this.txtPVenta.TabIndex = 55;
+            this.txtPrecioVenta.Location = new System.Drawing.Point(234, 394);
+            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrecioVenta.MaxLength = 20;
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(248, 22);
+            this.txtPrecioVenta.TabIndex = 55;
+            this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVenta_KeyPress);
             // 
             // label4
             // 
@@ -253,14 +230,15 @@ namespace CapaPresentacion
             this.label4.TabIndex = 54;
             this.label4.Text = "Precio Venta:";
             // 
-            // txtIVA
+            // txtUtilidad
             // 
-            this.txtIVA.Location = new System.Drawing.Point(234, 435);
-            this.txtIVA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIVA.MaxLength = 20;
-            this.txtIVA.Name = "txtIVA";
-            this.txtIVA.Size = new System.Drawing.Size(248, 22);
-            this.txtIVA.TabIndex = 57;
+            this.txtUtilidad.Location = new System.Drawing.Point(234, 435);
+            this.txtUtilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUtilidad.MaxLength = 20;
+            this.txtUtilidad.Name = "txtUtilidad";
+            this.txtUtilidad.Size = new System.Drawing.Size(248, 22);
+            this.txtUtilidad.TabIndex = 57;
+            this.txtUtilidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUtilidad_KeyPress);
             // 
             // label5
             // 
@@ -268,18 +246,19 @@ namespace CapaPresentacion
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(98, 431);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 31);
+            this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 56;
             this.label5.Text = "Utilidad:";
             // 
-            // txtPTotal
+            // txtCantidadStock
             // 
-            this.txtPTotal.Location = new System.Drawing.Point(103, 503);
-            this.txtPTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPTotal.MaxLength = 20;
-            this.txtPTotal.Name = "txtPTotal";
-            this.txtPTotal.Size = new System.Drawing.Size(379, 22);
-            this.txtPTotal.TabIndex = 59;
+            this.txtCantidadStock.Location = new System.Drawing.Point(103, 503);
+            this.txtCantidadStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCantidadStock.MaxLength = 20;
+            this.txtCantidadStock.Name = "txtCantidadStock";
+            this.txtCantidadStock.Size = new System.Drawing.Size(379, 22);
+            this.txtCantidadStock.TabIndex = 59;
+            this.txtCantidadStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadStock_KeyPress);
             // 
             // label6
             // 
@@ -287,18 +266,18 @@ namespace CapaPresentacion
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(98, 470);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 31);
+            this.label6.Size = new System.Drawing.Size(152, 25);
             this.label6.TabIndex = 58;
             this.label6.Text = "Cantidad Stock:";
             // 
-            // textBox1
+            // txtDescripcion
             // 
-            this.textBox1.Location = new System.Drawing.Point(234, 309);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 22);
-            this.textBox1.TabIndex = 61;
+            this.txtDescripcion.Location = new System.Drawing.Point(234, 309);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDescripcion.MaxLength = 20;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(248, 22);
+            this.txtDescripcion.TabIndex = 61;
             // 
             // label7
             // 
@@ -306,7 +285,7 @@ namespace CapaPresentacion
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(108, 304);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 31);
+            this.label7.Size = new System.Drawing.Size(120, 25);
             this.label7.TabIndex = 60;
             this.label7.Text = "Descripcion:";
             // 
@@ -315,26 +294,24 @@ namespace CapaPresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 774);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtPTotal);
+            this.Controls.Add(this.txtCantidadStock);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtIVA);
+            this.Controls.Add(this.txtUtilidad);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtPVenta);
+            this.Controls.Add(this.txtPrecioVenta);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtPCosto);
+            this.Controls.Add(this.txtPrecioCosto);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtDesc);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.Titulo);
-            this.Controls.Add(this.btnCargarDatos);
-            this.Controls.Add(this.cbxGrupo);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnInsertarProducto);
@@ -342,7 +319,7 @@ namespace CapaPresentacion
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formProductos";
             this.Text = "Sistema Matricula = Modulo Grupo";
-            this.Load += new System.EventHandler(this.formGrupo_Load);
+            this.Load += new System.EventHandler(this.formProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -353,27 +330,25 @@ namespace CapaPresentacion
         #endregion
 
         private System.Windows.Forms.Label Titulo;
-        private System.Windows.Forms.Button btnCargarDatos;
-        private System.Windows.Forms.ComboBox cbxGrupo;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnInsertarProducto;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPCosto;
+        private System.Windows.Forms.TextBox txtPrecioCosto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPVenta;
+        private System.Windows.Forms.TextBox txtPrecioVenta;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtIVA;
+        private System.Windows.Forms.TextBox txtUtilidad;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPTotal;
+        private System.Windows.Forms.TextBox txtCantidadStock;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label7;
     }
 }

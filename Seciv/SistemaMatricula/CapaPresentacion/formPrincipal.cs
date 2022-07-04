@@ -75,7 +75,6 @@ namespace CapaPresentacion
         private void btnAulas_Click(object sender, EventArgs e)
         {
             formProductos form = new formProductos();
-            form.EstadoUsuario = estadoUsuario; // eenvio de estado de usuario
             openChildForm(form);
         }
 
