@@ -76,8 +76,12 @@ namespace CapaPresentacion
             var categoriasDB = conexion.getCompras();
             //var compra = new Compra() { Cod_Compra = "23232", Monto_Compra = 150, Fecha_Compra = "vsffvv" };
             List<Compra> lst = categoriasDB.Find(d=>true).ToList();
+            dgvCompras.Columns.Add("codCompra", "Codigo compra");
+            dgvCompras.Columns.Add("monto", "Monto");
+            dgvCompras.Columns.Add("fecha", "Fecha de compra");
             foreach (Compra compra in lst)
             {
+                dgvCompras.Rows.Add(compra.Cod_Compra.ToString(), compra.Monto_Compra.ToString(), compra.Fecha_Compra.ToString());
                 Console.WriteLine(compra.Cod_Compra.ToString());
                 //System.Diagnostics.Debug.WriteLine(compra.Cod_Compra.ToString());
                // MessageBox.Show(compra.Cod_Compra.ToString());
