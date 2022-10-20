@@ -29,20 +29,26 @@ namespace CapaPresentacion
         {
             dgvProductos.Columns.Add("id", "ID");
             dgvProductos.Columns["id"].Visible = false;
-            dgvProductos.Columns.Add("Codigo_Producto", "Codigo Producto");
-            this.dgvProductos.Columns["Codigo_Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductos.Columns.Add("Nombre_Producto", "Nombre");
-            this.dgvProductos.Columns["Nombre_Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductos.Columns.Add("Descripcion_Producto", "Descripcion");
-            this.dgvProductos.Columns["Descripcion_Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductos.Columns.Add("Precio_Costo", "Precio Costo");
-            this.dgvProductos.Columns["Precio_Costo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductos.Columns.Add("Utili", "Utilidad");
-            this.dgvProductos.Columns["Utili"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductos.Columns.Add("Precio_Venta", "Precio Venta");
-            this.dgvProductos.Columns["Precio_Venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvProductos.Columns.Add("Cantidad_Stock", "Cantidad");
-            this.dgvProductos.Columns["Cantidad_Stock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_codigo", "Codigo Producto");
+            this.dgvProductos.Columns["prd_codigo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_nombre", "Nombre");
+            this.dgvProductos.Columns["prd_nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_descripcion", "Descripcion");
+            this.dgvProductos.Columns["prd_descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_precioCosto", "Precio Costo");
+            this.dgvProductos.Columns["prd_precioCosto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_utilidad", "Utilidad");
+            this.dgvProductos.Columns["prd_utilidad"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_precioVenta", "Precio Venta");
+            this.dgvProductos.Columns["prd_precioVenta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_porcIVA", "Porcentaje IVA");
+            this.dgvProductos.Columns["prd_porcIVA"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_cantStock", "Cantidad");
+            this.dgvProductos.Columns["prd_cantStock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_idCategoria", "Categoria");
+            this.dgvProductos.Columns["prd_idCategoria"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvProductos.Columns.Add("prd_idDecoracion", "Decoracion");
+            this.dgvProductos.Columns["prd_idDecoracion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             CargarGridProducto();
         }
 
@@ -69,7 +75,7 @@ namespace CapaPresentacion
             foreach (Producto compra in lst)
             {
                 dgvProductos.Rows.Add(compra.id.ToString(), compra.Codigo_Producto.ToString(), compra.Nombre_Producto.ToString(), compra.Descripcion_Producto.ToString(),
-                    compra.Precio_Costo.ToString(), compra.Utili.ToString(), compra.Precio_Venta.ToString(), compra.Cantidad_Stock.ToString());
+                    compra.Precio_Costo.ToString(), compra.Utilidad.ToString(), compra.Precio_Venta.ToString(), compra.Porcentaje_IVA.ToString(), compra.Cantidad_Stock.ToString(), compra.id_Categoria.ToString(), compra.id_Decoracion.ToString());
             }
         }
 
@@ -109,14 +115,20 @@ namespace CapaPresentacion
         private void btnModificar_Click(object sender, EventArgs e)
         {
             var categoriasDB = conexion.getProductos();
-            var compra = new Producto() { id = idProducto,
+            var compra = new Producto()
+            {
+                id = idProducto,
                 Codigo_Producto = txtCodigo.Text.ToString(),
                 Nombre_Producto = txtNombre.Text,
                 Descripcion_Producto = txtDescripcion.Text.ToString(),
                 Precio_Costo = int.Parse(txtPrecioCosto.Text.ToString()),
-                Utili = int.Parse(txtUtilidad.Text.ToString()),
+                Porcentaje_IVA = 13,
+                Utilidad = int.Parse(txtUtilidad.Text.ToString()),
                 Precio_Venta = int.Parse(txtPrecioVenta.Text.ToString()),
-                Cantidad_Stock = int.Parse(txtCantidadStock.Text.ToString() )};
+                Cantidad_Stock = int.Parse(txtCantidadStock.Text.ToString()),
+                id_Categoria = "63519807e54e48b2009f24f7",
+                id_Decoracion = "6351982ee54e48b2009f24f8"
+            };
             categoriasDB.ReplaceOne(d => d.id == idProducto, compra);
             CargarGridProducto();
             LimpiarTxts();
@@ -168,20 +180,23 @@ namespace CapaPresentacion
 
         private void btnInsertarProducto_Click(object sender, EventArgs e)
         {
-                var categoriasDB = conexion.getProductos();
-                var compra = new Producto()
-                {
-                    Codigo_Producto = txtCodigo.Text.ToString(),
-                    Nombre_Producto = txtNombre.Text,
-                    Descripcion_Producto = txtDescripcion.Text.ToString(),
-                    Precio_Costo = int.Parse(txtPrecioCosto.Text.ToString()),
-                    Utili = int.Parse(txtUtilidad.Text.ToString()),
-                    Precio_Venta = int.Parse(txtPrecioVenta.Text.ToString()),
-                    Cantidad_Stock = int.Parse(txtCantidadStock.Text.ToString())
-                };
-                categoriasDB.InsertOne(compra);
-                CargarGridProducto();
-                LimpiarTxts();
+            var categoriasDB = conexion.getProductos();
+            var compra = new Producto()
+            {
+                Codigo_Producto = txtCodigo.Text.ToString(),
+                Nombre_Producto = txtNombre.Text,
+                Descripcion_Producto = txtDescripcion.Text.ToString(),
+                Precio_Costo = int.Parse(txtPrecioCosto.Text.ToString()),
+                Utilidad = int.Parse(txtUtilidad.Text.ToString()),
+                Precio_Venta = int.Parse(txtPrecioVenta.Text.ToString()),
+                Porcentaje_IVA = 13,
+                Cantidad_Stock = int.Parse(txtCantidadStock.Text.ToString()),
+                id_Categoria = "63519807e54e48b2009f24f7",
+                id_Decoracion = "6351982ee54e48b2009f24f8"
+            };
+            categoriasDB.InsertOne(compra);
+            CargarGridProducto();
+            LimpiarTxts();
 
         }
     }

@@ -27,14 +27,23 @@ namespace CapaPresentacion.Models
         [BsonElement("Precio_Costo")]
         public double Precio_Costo { get; set; }
 
-        [BsonElement("Utili")]
-        public double Utili { get; set; }
+        [BsonElement("Utilidad")]
+        public double Utilidad { get; set; }
 
         [BsonElement("Precio_Venta")]
         public double Precio_Venta { get; set; }
 
+        [BsonElement("Porcentaje_IVA")]
+        public double Porcentaje_IVA { get; set; }
+
         [BsonElement("Cantidad_Stock")]
         public int Cantidad_Stock { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id_Categoria { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id_Decoracion { get; set; }
 
         // categoria
 
