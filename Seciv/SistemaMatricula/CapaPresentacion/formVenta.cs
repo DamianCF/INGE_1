@@ -28,10 +28,7 @@ namespace CapaPresentacion
         {
             if (estadoUsuario != "A") // activacion de ciertas botones segun estado usuario 
             {
-                chkbxMostrarEliminados.Enabled = false;
-                chkbxMostrarEliminados.Visible = false;
-                btnActivarEliminado.Enabled = false;
-                btnActivarEliminado.Visible = false;
+
                 btnReporteProfesores.Enabled = false;
                 btnReporteProfesores.Visible = false;
                 btnReporteCursosProfesor.Enabled = false;
@@ -157,16 +154,7 @@ namespace CapaPresentacion
                 btnReporteCursosProfesor.Enabled = true;
                 btnReporteCursosProfesor.BackColor = Color.Gray;
             }
-            // boton btnActivarEliminado manejo mas especifico
-            if (vr && chkbxMostrarEliminados.Checked) {
-                btnActivarEliminado.Enabled = true;
-                btnActivarEliminado.BackColor = Color.CornflowerBlue;
-            }
-            else
-            {
-                btnActivarEliminado.Enabled = true;
-                btnActivarEliminado.BackColor = Color.Gray;
-            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e) // realmente lo inactiva

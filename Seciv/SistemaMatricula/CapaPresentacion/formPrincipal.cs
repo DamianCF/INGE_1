@@ -146,6 +146,9 @@ namespace CapaPresentacion
             openChildForm(form);
         }
 
+        private void pctrLogoCentral_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

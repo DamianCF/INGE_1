@@ -44,16 +44,12 @@ namespace CapaPresentacion
             this.btnProfesor_Insertar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dgvProfesores = new System.Windows.Forms.DataGridView();
-            this.cbxProfesor = new System.Windows.Forms.ComboBox();
-            this.btnCargarDatos = new System.Windows.Forms.Button();
             this.btnReporteProfesores = new System.Windows.Forms.Button();
             this.Titulo = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnReporteCursosProfesor = new System.Windows.Forms.Button();
-            this.btnActivarEliminado = new System.Windows.Forms.Button();
-            this.chkbxMostrarEliminados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -140,10 +136,10 @@ namespace CapaPresentacion
             // 
             // btnProfesor_Insertar
             // 
-            this.btnProfesor_Insertar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnProfesor_Insertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnProfesor_Insertar.FlatAppearance.BorderSize = 0;
             this.btnProfesor_Insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfesor_Insertar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfesor_Insertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfesor_Insertar.Location = new System.Drawing.Point(23, 619);
             this.btnProfesor_Insertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProfesor_Insertar.Name = "btnProfesor_Insertar";
@@ -155,10 +151,10 @@ namespace CapaPresentacion
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(196, 537);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
@@ -170,7 +166,7 @@ namespace CapaPresentacion
             // 
             // dgvProfesores
             // 
-            this.dgvProfesores.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dgvProfesores.BackgroundColor = System.Drawing.Color.White;
             this.dgvProfesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfesores.Location = new System.Drawing.Point(392, 112);
             this.dgvProfesores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -182,37 +178,12 @@ namespace CapaPresentacion
             this.dgvProfesores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesores_CellClick);
             this.dgvProfesores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesores_CellContentClick);
             // 
-            // cbxProfesor
-            // 
-            this.cbxProfesor.FormattingEnabled = true;
-            this.cbxProfesor.Location = new System.Drawing.Point(683, 73);
-            this.cbxProfesor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxProfesor.Name = "cbxProfesor";
-            this.cbxProfesor.Size = new System.Drawing.Size(275, 24);
-            this.cbxProfesor.TabIndex = 17;
-            this.cbxProfesor.SelectedIndexChanged += new System.EventHandler(this.cbxProfesor_SelectedIndexChanged);
-            // 
-            // btnCargarDatos
-            // 
-            this.btnCargarDatos.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCargarDatos.FlatAppearance.BorderSize = 0;
-            this.btnCargarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarDatos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarDatos.Location = new System.Drawing.Point(964, 38);
-            this.btnCargarDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCargarDatos.Name = "btnCargarDatos";
-            this.btnCargarDatos.Size = new System.Drawing.Size(300, 62);
-            this.btnCargarDatos.TabIndex = 18;
-            this.btnCargarDatos.Text = "Cargar Datos";
-            this.btnCargarDatos.UseVisualStyleBackColor = false;
-            this.btnCargarDatos.Click += new System.EventHandler(this.btnCargarDatos_Click);
-            // 
             // btnReporteProfesores
             // 
-            this.btnReporteProfesores.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnReporteProfesores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnReporteProfesores.FlatAppearance.BorderSize = 0;
             this.btnReporteProfesores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteProfesores.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteProfesores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteProfesores.Location = new System.Drawing.Point(996, 681);
             this.btnReporteProfesores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteProfesores.Name = "btnReporteProfesores";
@@ -226,20 +197,20 @@ namespace CapaPresentacion
             // 
             this.Titulo.AutoSize = true;
             this.Titulo.BackColor = System.Drawing.SystemColors.Control;
-            this.Titulo.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titulo.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.Titulo.Location = new System.Drawing.Point(164, 26);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(154, 47);
+            this.Titulo.Size = new System.Drawing.Size(150, 46);
             this.Titulo.TabIndex = 20;
             this.Titulo.Text = "Ventas";
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Location = new System.Drawing.Point(25, 537);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
@@ -262,11 +233,11 @@ namespace CapaPresentacion
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(23, 700);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
@@ -278,10 +249,10 @@ namespace CapaPresentacion
             // 
             // btnReporteCursosProfesor
             // 
-            this.btnReporteCursosProfesor.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnReporteCursosProfesor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnReporteCursosProfesor.FlatAppearance.BorderSize = 0;
             this.btnReporteCursosProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteCursosProfesor.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteCursosProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporteCursosProfesor.Location = new System.Drawing.Point(651, 681);
             this.btnReporteCursosProfesor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReporteCursosProfesor.Name = "btnReporteCursosProfesor";
@@ -291,49 +262,18 @@ namespace CapaPresentacion
             this.btnReporteCursosProfesor.UseVisualStyleBackColor = false;
             this.btnReporteCursosProfesor.Click += new System.EventHandler(this.btnReporteCursosProfesor_Click);
             // 
-            // btnActivarEliminado
-            // 
-            this.btnActivarEliminado.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnActivarEliminado.FlatAppearance.BorderSize = 0;
-            this.btnActivarEliminado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarEliminado.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarEliminado.Location = new System.Drawing.Point(392, 681);
-            this.btnActivarEliminado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnActivarEliminado.Name = "btnActivarEliminado";
-            this.btnActivarEliminado.Size = new System.Drawing.Size(207, 82);
-            this.btnActivarEliminado.TabIndex = 25;
-            this.btnActivarEliminado.Text = "Activar \r\nEliminado";
-            this.btnActivarEliminado.UseVisualStyleBackColor = false;
-            this.btnActivarEliminado.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // chkbxMostrarEliminados
-            // 
-            this.chkbxMostrarEliminados.AutoSize = true;
-            this.chkbxMostrarEliminados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbxMostrarEliminados.Location = new System.Drawing.Point(392, 73);
-            this.chkbxMostrarEliminados.Margin = new System.Windows.Forms.Padding(4);
-            this.chkbxMostrarEliminados.Name = "chkbxMostrarEliminados";
-            this.chkbxMostrarEliminados.Size = new System.Drawing.Size(211, 27);
-            this.chkbxMostrarEliminados.TabIndex = 26;
-            this.chkbxMostrarEliminados.Text = "Mostrar Eliminados";
-            this.chkbxMostrarEliminados.UseVisualStyleBackColor = true;
-            this.chkbxMostrarEliminados.CheckedChanged += new System.EventHandler(this.chkbxMostrarEliminados_CheckedChanged);
-            // 
             // formVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.ClientSize = new System.Drawing.Size(1300, 774);
-            this.Controls.Add(this.chkbxMostrarEliminados);
-            this.Controls.Add(this.btnActivarEliminado);
             this.Controls.Add(this.btnReporteCursosProfesor);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.Titulo);
             this.Controls.Add(this.btnReporteProfesores);
-            this.Controls.Add(this.btnCargarDatos);
-            this.Controls.Add(this.cbxProfesor);
             this.Controls.Add(this.dgvProfesores);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnProfesor_Insertar);
@@ -375,16 +315,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnProfesor_Insertar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DataGridView dgvProfesores;
-        private System.Windows.Forms.ComboBox cbxProfesor;
-        private System.Windows.Forms.Button btnCargarDatos;
         private Button btnReporteProfesores;
         private Label Titulo;
         private Button btnLimpiar;
         private PictureBox pictureBox1;
         private Button btnEliminar;
         private Button btnReporteCursosProfesor;
-        private Button btnActivarEliminado;
-        private CheckBox chkbxMostrarEliminados;
     }
 }
 

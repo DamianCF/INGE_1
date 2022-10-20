@@ -49,14 +49,14 @@ namespace CapaPresentacion
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(50, 423);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(67, 521);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(140, 41);
+            this.btnLimpiar.Size = new System.Drawing.Size(187, 50);
             this.btnLimpiar.TabIndex = 43;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -65,38 +65,37 @@ namespace CapaPresentacion
             // Titulo
             // 
             this.Titulo.AutoSize = true;
-            this.Titulo.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titulo.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.Titulo.Location = new System.Drawing.Point(173, 71);
-            this.Titulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Titulo.Location = new System.Drawing.Point(231, 87);
             this.Titulo.Name = "Titulo";
-            this.Titulo.Size = new System.Drawing.Size(144, 38);
+            this.Titulo.Size = new System.Drawing.Size(168, 46);
             this.Titulo.TabIndex = 42;
             this.Titulo.Text = "Compra";
             // 
             // dgvCompras
             // 
-            this.dgvCompras.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dgvCompras.BackgroundColor = System.Drawing.Color.White;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompras.Location = new System.Drawing.Point(365, 128);
-            this.dgvCompras.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCompras.Location = new System.Drawing.Point(487, 158);
+            this.dgvCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.RowHeadersWidth = 51;
             this.dgvCompras.RowTemplate.Height = 24;
-            this.dgvCompras.Size = new System.Drawing.Size(557, 461);
+            this.dgvCompras.Size = new System.Drawing.Size(743, 567);
             this.dgvCompras.TabIndex = 38;
             this.dgvCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellClick);
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(51, 362);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(68, 446);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(140, 41);
+            this.btnModificar.Size = new System.Drawing.Size(187, 50);
             this.btnModificar.TabIndex = 37;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -104,14 +103,14 @@ namespace CapaPresentacion
             // 
             // btnMatricula_Insertar
             // 
-            this.btnMatricula_Insertar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnMatricula_Insertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnMatricula_Insertar.FlatAppearance.BorderSize = 0;
             this.btnMatricula_Insertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMatricula_Insertar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMatricula_Insertar.Location = new System.Drawing.Point(50, 486);
-            this.btnMatricula_Insertar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMatricula_Insertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMatricula_Insertar.Location = new System.Drawing.Point(67, 598);
+            this.btnMatricula_Insertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMatricula_Insertar.Name = "btnMatricula_Insertar";
-            this.btnMatricula_Insertar.Size = new System.Drawing.Size(140, 41);
+            this.btnMatricula_Insertar.Size = new System.Drawing.Size(187, 50);
             this.btnMatricula_Insertar.TabIndex = 36;
             this.btnMatricula_Insertar.Text = "Insertar";
             this.btnMatricula_Insertar.UseVisualStyleBackColor = false;
@@ -121,10 +120,9 @@ namespace CapaPresentacion
             // 
             this.lblCurso_id.AutoSize = true;
             this.lblCurso_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurso_id.Location = new System.Drawing.Point(47, 233);
-            this.lblCurso_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCurso_id.Location = new System.Drawing.Point(63, 287);
             this.lblCurso_id.Name = "lblCurso_id";
-            this.lblCurso_id.Size = new System.Drawing.Size(62, 20);
+            this.lblCurso_id.Size = new System.Drawing.Size(78, 25);
             this.lblCurso_id.TabIndex = 24;
             this.lblCurso_id.Text = "Fecha :";
             // 
@@ -132,10 +130,9 @@ namespace CapaPresentacion
             // 
             this.lblGrupo_id.AutoSize = true;
             this.lblGrupo_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrupo_id.Location = new System.Drawing.Point(46, 197);
-            this.lblGrupo_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGrupo_id.Location = new System.Drawing.Point(61, 242);
             this.lblGrupo_id.Name = "lblGrupo_id";
-            this.lblGrupo_id.Size = new System.Drawing.Size(62, 20);
+            this.lblGrupo_id.Size = new System.Drawing.Size(78, 25);
             this.lblGrupo_id.TabIndex = 23;
             this.lblGrupo_id.Text = "Monto :";
             // 
@@ -143,34 +140,33 @@ namespace CapaPresentacion
             // 
             this.lblEstudiante_id.AutoSize = true;
             this.lblEstudiante_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstudiante_id.Location = new System.Drawing.Point(46, 160);
-            this.lblEstudiante_id.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEstudiante_id.Location = new System.Drawing.Point(61, 197);
             this.lblEstudiante_id.Name = "lblEstudiante_id";
-            this.lblEstudiante_id.Size = new System.Drawing.Size(123, 20);
+            this.lblEstudiante_id.Size = new System.Drawing.Size(156, 25);
             this.lblEstudiante_id.TabIndex = 22;
             this.lblEstudiante_id.Text = "Codigo Compra:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(50, 26);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(67, 32);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 83);
+            this.pictureBox1.Size = new System.Drawing.Size(123, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(196)))), ((int)(((byte)(203)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(50, 540);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(67, 665);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(140, 41);
+            this.btnEliminar.Size = new System.Drawing.Size(187, 50);
             this.btnEliminar.TabIndex = 47;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -178,37 +174,38 @@ namespace CapaPresentacion
             // 
             // txtCodCompra
             // 
-            this.txtCodCompra.Location = new System.Drawing.Point(164, 162);
-            this.txtCodCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCodCompra.Location = new System.Drawing.Point(219, 199);
+            this.txtCodCompra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCodCompra.MaxLength = 100;
             this.txtCodCompra.Name = "txtCodCompra";
-            this.txtCodCompra.Size = new System.Drawing.Size(179, 20);
+            this.txtCodCompra.Size = new System.Drawing.Size(237, 22);
             this.txtCodCompra.TabIndex = 56;
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(115, 199);
-            this.txtMonto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMonto.Location = new System.Drawing.Point(153, 245);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMonto.MaxLength = 100;
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(228, 20);
+            this.txtMonto.Size = new System.Drawing.Size(303, 22);
             this.txtMonto.TabIndex = 57;
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(115, 236);
-            this.txtFecha.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFecha.Location = new System.Drawing.Point(153, 290);
+            this.txtFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFecha.MaxLength = 100;
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(228, 20);
+            this.txtFecha.Size = new System.Drawing.Size(303, 22);
             this.txtFecha.TabIndex = 58;
             // 
             // formCompra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.ClientSize = new System.Drawing.Size(1600, 985);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.txtCodCompra);
@@ -223,7 +220,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.lblGrupo_id);
             this.Controls.Add(this.lblEstudiante_id);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sistema Matricula = Modulo Matricula";

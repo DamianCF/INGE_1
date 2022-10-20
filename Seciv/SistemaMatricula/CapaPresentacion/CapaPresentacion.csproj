@@ -346,7 +346,9 @@
     <Content Include="Recursos\cerca.png" />
     <Content Include="Recursos\contrato.png" />
     <Content Include="Recursos\grupo.png" />
+    <Content Include="Recursos\ICONO.png" />
     <Content Include="Recursos\leyendo.png" />
+    <Content Include="Recursos\LogotipoSECIV.png" />
     <Content Include="Recursos\maximizar.png" />
     <Content Include="Recursos\minimizar.png" />
     <Content Include="Recursos\profesor.png" />
