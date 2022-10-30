@@ -4,12 +4,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaPresentacion", "CapaPresentacion.csproj", "{F8718D4C-AE4D-4767-A690-45452E25E693}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3FF45D52-6F0C-4DCC-9EA5-BEDF5843BA46} = {3FF45D52-6F0C-4DCC-9EA5-BEDF5843BA46}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaConexion", "..\CapaConexion\CapaConexion.csproj", "{324C4FEC-7253-4A72-8E37-14D38C13E1D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaLogica", "..\CapaLogica\CapaLogica.csproj", "{B25952F7-93E3-4163-9825-65AF8272F4B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{324C4FEC-7253-4A72-8E37-14D38C13E1D7} = {324C4FEC-7253-4A72-8E37-14D38C13E1D7}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaIntegracion", "..\CapaIntegracion\CapaIntegracion.csproj", "{3FF45D52-6F0C-4DCC-9EA5-BEDF5843BA46}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B25952F7-93E3-4163-9825-65AF8272F4B6} = {B25952F7-93E3-4163-9825-65AF8272F4B6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
