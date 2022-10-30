@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaLogica
+namespace CapaConexion
 {
-    public class Class1
+    internal class Servicio
     {
+
+        
     }
 }

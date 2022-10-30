@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaIntegracion
+namespace CapaLogica.Servicios
 {
-    public class Class1
+    internal class ServicioCompra
     {
     }
 }
