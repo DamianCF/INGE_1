@@ -63,7 +63,7 @@ namespace CapaPresentacion
             txtDescripcion.Clear();
             txtPrecioCosto.Clear();
             txtPrecioVenta.Clear();
-            txtUtilidad.Clear();
+            txtUtilidad.Clear();        
             txtCantidadStock.Clear();
         }
 
