@@ -19,7 +19,7 @@
         <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Margin="169,273,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Margin="169,316,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtFecha" HorizontalAlignment="Left" Margin="169,355,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="584,404,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.055,-0.29" Click="btnLimpiar_Click"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="681,344,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.055,-0.29" Click="btnLimpiar_Click" Style="{StaticResource MyStyle}"/>
 
 
     </Grid>
