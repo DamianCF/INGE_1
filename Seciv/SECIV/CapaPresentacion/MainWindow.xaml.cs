@@ -1,4 +1,5 @@
 ﻿using CapaIntegracion;
+using CapaLogica.LogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,16 +25,52 @@ namespace CapaPresentacion
         public MainWindow()
         {
             InitializeComponent();
+            ListarCompras();
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorCompras laCompra = new GestorCompras())
             {
-                laCompra.InsertarCompra(txtCodigo.Text, float.Parse(txtMonto.Text), txtFecha.Text);
+                laCompra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text);
             }
+            ListarCompras();
         }
 
+        public void ListarCompras()
+        {
+            using (GestorCompras laCompra = new GestorCompras())
+            {
+                dgridCompras.ItemsSource = laCompra.ListarCompras();
+            }
+            cargarTxts();
+        }
+
+        private void cargarTxts()
+        {
+            if (dgridCompras.Items.Count > 0)
+            {
+                Compra compra = (Compra)dgridCompras.SelectedItem;
+                if (compra == null)
+                {
+                    compra = (Compra)dgridCompras.Items.GetItemAt(0);
+                }
+                txtId.Text = compra.id;
+                txtCodigo.Text = compra.Cod_Compra;
+                txtMonto.Text = compra.Monto_Compra.ToString();
+                txtFecha.Text = compra.Fecha_Compra;
+            }
+        }
         
+        private void dgridCompras_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+                cargarTxts();
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+    
 }

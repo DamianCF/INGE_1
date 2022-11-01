@@ -18,12 +18,20 @@ namespace CapaIntegracion
         {
 
         }
-        public void InsertarCompra(string codigo, float monto, string fecha)
+        public void InsertarCompra(string codigo, Double monto, string fecha)
         {
             Compra nuevaCompra = new Compra(codigo,monto,fecha);
 
             using (ServicioCompra laCompra = new ServicioCompra())
             laCompra.InsertarCompra(nuevaCompra);
+        }
+
+        public  List<Compra> ListarCompras()
+        {
+            using (ServicioCompra laCompra = new ServicioCompra())
+            {
+                return laCompra.ListarCompras();
+            }
         }
     }
 }

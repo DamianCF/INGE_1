@@ -16,10 +16,7 @@ namespace CapaLogica.Servicios
 
         }
 
-        public void Dispose()
-        {
-
-        }
+        public void Dispose() {}
          
         static IMongoCollection<Compra> collection = conexion.getDataBase().GetCollection<Compra>("Compras");
 
@@ -27,6 +24,12 @@ namespace CapaLogica.Servicios
         {
             collection.InsertOne(c);
         }
-        
+        public List<Compra> ListarCompras()
+        {
+            return collection.AsQueryable().ToList<Compra>(); // collection.Find(x => true).ToList(); 
+        }
     }
+            
+        
+    
 }
