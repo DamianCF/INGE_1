@@ -69,7 +69,35 @@ namespace CapaPresentacion
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
+            using (GestorCompras laCompra = new GestorCompras())
+            {
+                laCompra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text);
+            }
+            ListarCompras();
+        }
 
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorCompras laCompra = new GestorCompras())
+            {
+                if (txtId.Text != "")
+                {
+                    laCompra.EliminarCompra(txtId.Text);
+                }
+            }
+            ListarCompras();
+        }
+
+        private void LimpiarTxts()
+        {
+            txtId.Text = "";
+            txtCodigo.Text = "";
+            txtMonto.Text = "";
+            txtFecha.Text = "";
+        }
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            LimpiarTxts();
         }
     }
     

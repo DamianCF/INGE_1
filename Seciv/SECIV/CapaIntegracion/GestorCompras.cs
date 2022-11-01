@@ -33,5 +33,17 @@ namespace CapaIntegracion
                 return laCompra.ListarCompras();
             }
         }
+
+        public void ActualizarCompra(string id, string codigo, Double monto, string fecha)
+        {
+            Compra nuevaCompra = new Compra(id, codigo, monto, fecha);
+            using (ServicioCompra laCompra = new ServicioCompra())
+                laCompra.ActualizarCompra(nuevaCompra);
+        }
+        public void EliminarCompra(string id)
+        {
+            using (ServicioCompra laCompra = new ServicioCompra())
+                laCompra.EliminarCompra(id);
+        }
     }
 }

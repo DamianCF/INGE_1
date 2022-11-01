@@ -28,6 +28,14 @@ namespace CapaLogica.Servicios
         {
             return collection.AsQueryable().ToList<Compra>(); // collection.Find(x => true).ToList(); 
         }
+        public void ActualizarCompra(Compra c)
+        {
+            collection.ReplaceOne(x => x.id == c.id, c);
+        }
+        public void EliminarCompra(string id)
+        {
+            collection.DeleteOne(x => x.id == id);
+        }
     }
             
         
