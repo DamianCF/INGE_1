@@ -298,7 +298,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="CapaPresentacion_TemporaryKey.pfx" />
     <None Include="Core\Compression\Snappy\lib\linux\libsnappy64.so" />
@@ -349,14 +348,10 @@
     <Content Include="Recursos\grupo.png" />
     <Content Include="Recursos\ICONO.png" />
     <Content Include="Recursos\leyendo.png" />
-    <None Include="Recursos\Logotipo.png" />
     <Content Include="Recursos\LogotipoSECIV.png" />
-    <None Include="Recursos\max.png" />
     <Content Include="Recursos\maximizar.png" />
-    <None Include="Recursos\min.png" />
     <Content Include="Recursos\minimizar.png" />
     <Content Include="Recursos\profesor.png" />
-    <None Include="Recursos\salir.png" />
     <Content Include="Recursos\SM.png" />
     <Content Include="Recursos\SMLogo.png" />
     <Content Include="Recursos\smlogo_Pkw_icon.ico" />
