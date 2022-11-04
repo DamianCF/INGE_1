@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CapaPresentacion"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="800"
@@ -39,17 +40,20 @@
             Cursor="" />
         <Button
             x:Name="btnAgregar"
+            Width="83"
+            Height="26"
             Margin="582,215,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="btnAgregar_Click"
-            Content="Agregar" Height="26" Width="83" RenderTransformOrigin="0.5,0.5">
+            Content="Agregar"
+            RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.471"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-0.471" />
+                    <TranslateTransform />
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
@@ -108,6 +112,29 @@
             Content="Limpiar"
             RenderTransformOrigin="0.055,-0.29" />
 
-        
+        <materialDesign:RatingBar
+  x:Name="CustomRatingBar"
+  Max="3"
+  Orientation="Vertical"
+  Value="2" Margin="400,182,260,172">
+            <materialDesign:RatingBar.ValueItemTemplate>
+                <DataTemplate
+      DataType="system:Int32">
+                    <Grid>
+                        <materialDesign:PackIcon
+          Width="24"
+          Height="24"
+          Kind="Heart" />
+                        <TextBlock
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          FontSize="8"
+          Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+          Text="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </materialDesign:RatingBar.ValueItemTemplate>
+        </materialDesign:RatingBar>
+
     </Grid>
 </Window>
