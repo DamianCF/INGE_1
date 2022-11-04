@@ -146,8 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogicaNegocio\Compra.cs" />
+    <Compile Include="LogicaNegocio\Producto.cs" />
+    <Compile Include="LogicaNegocio\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\ServicioCompra.cs" />
+    <Compile Include="Servicios\ServicioProducto.cs" />
+    <Compile Include="Servicios\ServicioUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

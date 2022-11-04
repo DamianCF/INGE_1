@@ -18,32 +18,32 @@ namespace CapaIntegracion
         {
 
         }
-        public void InsertarCompra(string codigo, Double monto, string fecha)
+        public void InsertarCompra( string com_codigo, double com_monto, string com_fecha, string com_estado)
         {
-            Compra nuevaCompra = new Compra(codigo,monto,fecha);
+            Compra nuevaCompra = new Compra(com_codigo, com_monto, com_fecha, com_estado);
 
-            using (ServicioCompra laCompra = new ServicioCompra())
-            laCompra.InsertarCompra(nuevaCompra);
+            using (ServicioCompra Compra = new ServicioCompra())
+            Compra.InsertarCompra(nuevaCompra);
         }
 
         public  List<Compra> ListarCompras()
         {
-            using (ServicioCompra laCompra = new ServicioCompra())
+            using (ServicioCompra Compra = new ServicioCompra())
             {
-                return laCompra.ListarCompras();
+                return Compra.ListarCompras();
             }
         }
 
-        public void ActualizarCompra(string id, string codigo, Double monto, string fecha)
+        public void ActualizarCompra(string id, string com_codigo, double com_monto, string com_fecha, string com_estado)
         {
-            Compra nuevaCompra = new Compra(id, codigo, monto, fecha);
-            using (ServicioCompra laCompra = new ServicioCompra())
-                laCompra.ActualizarCompra(nuevaCompra);
+            Compra ActCompra = new Compra(id, com_codigo, com_monto, com_fecha, com_estado);
+            using (ServicioCompra Compra = new ServicioCompra())
+                Compra.ActualizarCompra(ActCompra);
         }
         public void EliminarCompra(string id)
         {
-            using (ServicioCompra laCompra = new ServicioCompra())
-                laCompra.EliminarCompra(id);
+            using (ServicioCompra Compra = new ServicioCompra())
+                Compra.EliminarCompra(id);
         }
     }
 }
