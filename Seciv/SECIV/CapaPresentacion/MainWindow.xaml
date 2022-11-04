@@ -112,29 +112,5 @@
             Content="Limpiar"
             RenderTransformOrigin="0.055,-0.29" />
 
-        <materialDesign:RatingBar
-  x:Name="CustomRatingBar"
-  Max="3"
-  Orientation="Vertical"
-  Value="2" Margin="400,182,260,172">
-            <materialDesign:RatingBar.ValueItemTemplate>
-                <DataTemplate
-      DataType="system:Int32">
-                    <Grid>
-                        <materialDesign:PackIcon
-          Width="24"
-          Height="24"
-          Kind="Heart" />
-                        <TextBlock
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          FontSize="8"
-          Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
-          Text="{Binding}" />
-                    </Grid>
-                </DataTemplate>
-            </materialDesign:RatingBar.ValueItemTemplate>
-        </materialDesign:RatingBar>
-
     </Grid>
 </Window>
