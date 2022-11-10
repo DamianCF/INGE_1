@@ -22,7 +22,7 @@ namespace CapaIntegracion
             Envio nuevoEnvio = new Envio(env_codigo, env_numeroGuia, env_nomCliente, env_pApellCliente, env_codPostal, env_provincia, env_canton, env_distrito, env_direccion, env_telefonoContacto, env_correoContacto);
 
             using (ServicioEnvio Envio = new ServicioEnvio())
-                Envio.InsertarEnvios(nuevoEnvio);
+                Envio.InsertarEnvio(nuevoEnvio);
         }
 
         public List<Envio> ListarEnvios()
