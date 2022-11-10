@@ -18,7 +18,7 @@ namespace CapaLogica.Servicios
 
         public void Dispose() { }
 
-        static IMongoCollection<Compra> collection = conexion.getDataBase().GetCollection<Compra>("Compras");
+        static IMongoCollection<Compra> collection = conexion.getDataBase().GetCollection<Compra>("SECIV_compras");
 
         public void InsertarCompra(Compra c)
         {

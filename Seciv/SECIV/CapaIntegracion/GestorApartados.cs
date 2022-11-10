@@ -20,9 +20,10 @@ namespace CapaIntegracion
 
         }
 
-        public void InsertarApartados(string codigo, string nomCliente, string productos, string fecha, string fechaLimite, string abonos, string saldos, string estado)
+        public void InsertarApartados(string apa_codigo, string apa_nomCliente, string apa_productos, string apa_fecha, string apa_fechaLimite,
+            string apa_abonos, string apa_saldos, string apa_estado)
         {
-            Apartado nuevoApartado = new Apartado(codigo, nomCliente, productos, fecha, fechaLimite, abonos, saldos, estado);
+            Apartado nuevoApartado = new Apartado(apa_codigo, apa_nomCliente, apa_productos, apa_fecha, apa_fechaLimite, apa_abonos, apa_saldos, apa_estado);
 
             using (ServicioApartado Apartado = new ServicioApartado())
                 Apartado.InsertarApartados(nuevoApartado);
@@ -36,11 +37,12 @@ namespace CapaIntegracion
             }
         }
 
-        public void ActualizarApartados(string id, string codigo, string nomCliente, string productos, string fecha, string fechaLimite, string abonos, string saldos, string estado)
+        public void ActualizarApartados(string id,string apa_codigo, string apa_nomCliente, string apa_productos, string apa_fecha, string apa_fechaLimite,
+            string apa_abonos, string apa_saldos, string apa_estado)
         {
-            Apartado nuevoApartado = new Apartado(id, codigo, nomCliente, productos, fecha, fechaLimite, abonos, saldos, estado);
+            Apartado ActApartado = new Apartado(id, apa_codigo, apa_nomCliente, apa_productos, apa_fecha, apa_fechaLimite, apa_abonos, apa_saldos, apa_estado);
             using (ServicioApartado Apartado = new ServicioApartado())
-                Apartado.ActualizarApartados(nuevoApartado);
+                Apartado.ActualizarApartados(ActApartado);
         }
         public void EliminarApartados(string id)
         {
