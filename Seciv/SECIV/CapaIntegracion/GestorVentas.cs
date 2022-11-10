@@ -40,7 +40,7 @@ namespace CapaIntegracion
         {
             Venta ActVenta = new Venta(id, vent_codigo, vent_monto, vent_fecha, estado_Venta);
             using (ServicioVenta Venta = new ServicioVenta())
-                Venta.ActualizarVentas(ActVenta);
+                Venta.ActualizarVenta(ActVenta);
         }
         public void EliminarVenta(string id)
         {
