@@ -11,13 +11,13 @@ namespace CapaLogica.Servicios
 {
     public class ServicioCompra : IDisposable
     {
-        public ServicioCompra() 
+        public ServicioCompra()
         {
 
         }
 
-        public void Dispose() {}
-         
+        public void Dispose() { }
+
         static IMongoCollection<Compra> collection = conexion.getDataBase().GetCollection<Compra>("Compras");
 
         public void InsertarCompra(Compra c)
@@ -37,7 +37,7 @@ namespace CapaLogica.Servicios
             collection.DeleteOne(x => x.id == id);
         }
     }
-            
-        
-    
+
+
+
 }
