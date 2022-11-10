@@ -38,12 +38,12 @@ namespace CapaIntegracion
         {
             Envio ActEnvio = new Envio(id, env_codigo, env_numeroGuia, env_nomCliente, env_pApellCliente, env_codPostal, env_provincia, env_canton, env_distrito, env_direccion, env_telefonoContacto, env_correoContacto);
             using (ServicioEnvio Envio = new ServicioEnvio())
-                Envio.ActualizarEnvios(ActEnvio);
+                Envio.ActualizarEnvio(ActEnvio);
         }
         public void EliminarEnvio(string id)
         {
             using (ServicioEnvio Envio = new ServicioEnvio())
-                Envio.EliminarEnvios(id);
+                Envio.EliminarEnvio(id);
         }
     }
 }
