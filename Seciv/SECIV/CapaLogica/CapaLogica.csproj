@@ -145,6 +145,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicaNegocio\Apartado.cs" />
     <Compile Include="LogicaNegocio\Compra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\ServicioCompra.cs" />
