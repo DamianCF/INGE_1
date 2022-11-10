@@ -45,9 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestorApartados.cs" />
     <Compile Include="GestorCompras.cs" />
+    <Compile Include="GestorEnvios.cs" />
     <Compile Include="GestorProductos.cs" />
     <Compile Include="GestorUsuarios.cs" />
+    <Compile Include="GestorVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
