@@ -29,7 +29,7 @@ namespace CapaLogica.LogicaNegocio
             this.usu_estado = usu_estado;
         }
 
-        public Usuario( string usu_cedula, string usu_nombre, string usu_primerApellido, string usu_segundoApellido, string usu_correo, string usu_contrasena, string usu_estado)
+        public Usuario(string usu_cedula, string usu_nombre, string usu_primerApellido, string usu_segundoApellido, string usu_correo, string usu_contrasena, string usu_estado)
         {
             this.usu_cedula = usu_cedula;
             this.usu_nombre = usu_nombre;

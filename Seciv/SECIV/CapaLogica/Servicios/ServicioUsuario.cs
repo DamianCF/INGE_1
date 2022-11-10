@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapaLogica.Servicios
 {
-    public class ServicioUsuario : IDisposable 
+    public class ServicioUsuario : IDisposable
     {
         public ServicioUsuario()
         {

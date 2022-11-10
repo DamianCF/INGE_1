@@ -31,7 +31,7 @@ namespace CapaLogica.LogicaNegocio
             this.prd_idDecoracion = prd_idDecoracion;
         }
 
-        public Producto( string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, decimal prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public Producto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, decimal prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
         {
             this.prd_codigo = prd_codigo;
             this.prd_nombre = prd_nombre;

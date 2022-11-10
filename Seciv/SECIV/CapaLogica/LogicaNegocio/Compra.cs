@@ -26,7 +26,7 @@ namespace CapaLogica.LogicaNegocio
             this.com_estado = com_estado;
         }
 
-        public Compra( string com_codigo, double com_monto, string com_fecha, string com_estado)
+        public Compra(string com_codigo, double com_monto, string com_fecha, string com_estado)
         {
             this.com_codigo = com_codigo;
             this.com_monto = com_monto;

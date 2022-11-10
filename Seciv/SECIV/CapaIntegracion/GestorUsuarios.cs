@@ -19,10 +19,10 @@ namespace CapaIntegracion
         {
 
         }
-        
-        public void InsertarUsuario( string usu_cedula, string usu_nombre, string usu_primerApellido, string usu_segundoApellido, string usu_correo, string usu_contrasena, string usu_estado)
+
+        public void InsertarUsuario(string usu_cedula, string usu_nombre, string usu_primerApellido, string usu_segundoApellido, string usu_correo, string usu_contrasena, string usu_estado)
         {
-            Usuario nuevoUsuario = new Usuario(usu_cedula,usu_nombre,usu_primerApellido,usu_segundoApellido,usu_correo,usu_contrasena,usu_estado);
+            Usuario nuevoUsuario = new Usuario(usu_cedula, usu_nombre, usu_primerApellido, usu_segundoApellido, usu_correo, usu_contrasena, usu_estado);
 
             using (ServicioUsuario Usuario = new ServicioUsuario())
                 Usuario.InsertarUsuario(nuevoUsuario);

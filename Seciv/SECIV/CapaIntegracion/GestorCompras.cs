@@ -18,15 +18,15 @@ namespace CapaIntegracion
         {
 
         }
-        public void InsertarCompra( string com_codigo, double com_monto, string com_fecha, string com_estado)
+        public void InsertarCompra(string com_codigo, double com_monto, string com_fecha, string com_estado)
         {
             Compra nuevaCompra = new Compra(com_codigo, com_monto, com_fecha, com_estado);
 
             using (ServicioCompra Compra = new ServicioCompra())
-            Compra.InsertarCompra(nuevaCompra);
+                Compra.InsertarCompra(nuevaCompra);
         }
 
-        public  List<Compra> ListarCompras()
+        public List<Compra> ListarCompras()
         {
             using (ServicioCompra Compra = new ServicioCompra())
             {
