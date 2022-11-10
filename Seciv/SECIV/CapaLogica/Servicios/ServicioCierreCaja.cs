@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapaLogica.Servicios
 {
-    public class ServicioCierreCaja: IDisposable
+    public class ServicioCierreCaja : IDisposable
     {
         public ServicioCierreCaja()
         {
@@ -20,7 +20,7 @@ namespace CapaLogica.Servicios
 
         }
 
-        static IMongoCollection<CierreCaja> collection = conexion.getDataBase().GetCollection<CierreCaja>("CierreCaja");
+        static IMongoCollection<CierreCaja> collection = conexion.getDataBase().GetCollection<CierreCaja>("SECIV_cierreCajas");
 
         public void InsertarCierreCaja(CierreCaja c)
         {

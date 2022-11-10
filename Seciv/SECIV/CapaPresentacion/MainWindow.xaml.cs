@@ -30,36 +30,36 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            using (GestorCompras laCompra = new GestorCompras())
+            using (GestorCompras Compra = new GestorCompras())
             {
-                laCompra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text);
+                Compra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, "A");
             }
             ListarCompras();
         }
 
         public void ListarCompras()
         {
-            using (GestorCompras laCompra = new GestorCompras())
+            using (GestorCompras Compra = new GestorCompras())
             {
-                dgridCompras.ItemsSource = laCompra.ListarCompras();
+                dgridCompras.ItemsSource = Compra.ListarCompras();
             }
             cargarTxts();
         }
 
         private void cargarTxts()
         {
-            if (dgridCompras.Items.Count > 0)
-            {
-                Compra compra = (Compra)dgridCompras.SelectedItem;
-                if (compra == null)
-                {
-                    compra = (Compra)dgridCompras.Items.GetItemAt(0);
-                }
-                txtId.Text = compra.id;
-                txtCodigo.Text = compra.Cod_Compra;
-                txtMonto.Text = compra.Monto_Compra.ToString();
-                txtFecha.Text = compra.Fecha_Compra;
-            }
+            //if (dgridCompras.Items.Count > 0)
+            //{
+            //    Compra compra = (Compra)dgridCompras.SelectedItem;
+            //    if (compra == null)
+            //    {
+            //        compra = (Compra)dgridCompras.Items.GetItemAt(0);
+            //    }
+            //    txtId.Text = compra.id;
+            //    txtCodigo.Text = compra.com_codigo;
+            //    txtMonto.Text = compra.com_monto.ToString();
+            //    txtFecha.Text = compra.com_fecha;
+            //}
         }
         
         private void dgridCompras_MouseUp(object sender, MouseButtonEventArgs e)
@@ -69,20 +69,20 @@ namespace CapaPresentacion
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            using (GestorCompras laCompra = new GestorCompras())
+            using (GestorCompras Compra = new GestorCompras())
             {
-                laCompra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text);
+                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, "A");
             }
             ListarCompras();
         }
 
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            using (GestorCompras laCompra = new GestorCompras())
+            using (GestorCompras Compra = new GestorCompras())
             {
                 if (txtId.Text != "")
                 {
-                    laCompra.EliminarCompra(txtId.Text);
+                    Compra.EliminarCompra(txtId.Text);
                 }
             }
             ListarCompras();

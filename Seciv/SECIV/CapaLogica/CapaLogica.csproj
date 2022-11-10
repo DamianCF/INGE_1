@@ -148,13 +148,23 @@
     <Compile Include="LogicaNegocio\Apartado.cs" />
     <Compile Include="LogicaNegocio\CierreCaja.cs" />
     <Compile Include="LogicaNegocio\Compra.cs" />
+    <Compile Include="LogicaNegocio\Decoracion.cs" />
     <Compile Include="LogicaNegocio\Envio.cs" />
+    <Compile Include="LogicaNegocio\FacturaCompra.cs" />
+    <Compile Include="LogicaNegocio\FacturaVenta.cs" />
+    <Compile Include="LogicaNegocio\Producto.cs" />
+    <Compile Include="LogicaNegocio\Usuario.cs" />
     <Compile Include="LogicaNegocio\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\ServicioApartado.cs" />
     <Compile Include="Servicios\ServicioCierreCaja.cs" />
     <Compile Include="Servicios\ServicioCompra.cs" />
+    <Compile Include="Servicios\ServicioDecoracion.cs" />
     <Compile Include="Servicios\ServicioEnvio.cs" />
+    <Compile Include="Servicios\ServicioFacturaCompra.cs" />
+    <Compile Include="Servicios\ServicioFacturaVenta.cs" />
+    <Compile Include="Servicios\ServicioProducto.cs" />
+    <Compile Include="Servicios\ServicioUsuario.cs" />
     <Compile Include="Servicios\ServicioVenta.cs" />
   </ItemGroup>
   <ItemGroup>

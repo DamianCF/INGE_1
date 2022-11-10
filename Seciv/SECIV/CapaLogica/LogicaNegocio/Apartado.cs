@@ -11,59 +11,75 @@ namespace CapaLogica.LogicaNegocio
     public class Apartado
     {
 
-        public Apartado(string id, string apa_codigo, string apa_nomCliente, string apa_productos, string apa_fecha, string apa_fechaLimite, string apa_abonos, string apa_saldos, string apa_estado)
+        #region CONSTRUCTORES
+
+        public Apartado()
+        {
+
+        }
+
+        public Apartado(string id, string apa_codigo, string apa_nomCliente, string apa_productos, string apa_fecha, string apa_fechaLimite,
+            string apa_abonos, string apa_saldos, string apa_estado)
         {
             this.id = id;
-            apa_Codigo = apa_codigo;
-            apa_NomCliente = apa_nomCliente;
-            apa_Productos = apa_productos;
-            apa_Fecha = apa_fecha;
-            apa_FechaLimite = apa_fechaLimite;
-            apa_Abonos = apa_abonos;
-            apa_Saldos = apa_saldos;
-            apa_Estado = apa_estado;
+            this.apa_codigo = apa_codigo;
+            this.apa_nomCliente = apa_nomCliente;
+            this.apa_productos = apa_productos;
+            this.apa_fecha = apa_fecha;
+            this.apa_fechaLimite = apa_fechaLimite;
+            this.apa_abonos = apa_abonos;
+            this.apa_saldos = apa_saldos;
+            this.apa_estado = apa_estado;
 
         }
 
-        public Apartado(string apa_codigo, string apa_nomCliente, string apa_productos, string apa_fecha, string apa_fechaLimite, string apa_abonos, string apa_saldos, string apa_estado)
+        public Apartado(string apa_codigo, string apa_nomCliente, string apa_productos, string apa_fecha, string apa_fechaLimite,
+           string apa_abonos, string apa_saldos, string apa_estado)
         {
-            apa_Codigo = apa_codigo;
-            apa_NomCliente = apa_nomCliente;
-            apa_Productos = apa_productos;
-            apa_Fecha = apa_fecha;
-            apa_FechaLimite = apa_fechaLimite;
-            apa_Abonos = apa_abonos;
-            apa_Saldos = apa_saldos;
-            apa_Estado = apa_estado;
+            this.apa_codigo = apa_codigo;
+            this.apa_nomCliente = apa_nomCliente;
+            this.apa_productos = apa_productos;
+            this.apa_fecha = apa_fecha;
+            this.apa_fechaLimite = apa_fechaLimite;
+            this.apa_abonos = apa_abonos;
+            this.apa_saldos = apa_saldos;
+            this.apa_estado = apa_estado;
 
         }
+
+        #endregion
+
+        #region ATRIBUTOS
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
 
-        [BsonElement("apa_Codigo")]
-        public string apa_Codigo { get; set; }
+        [BsonElement("apa_codigo")]
+        public string apa_codigo { get; set; }
 
-        [BsonElement("apa_NomCliente")]
-        public string apa_NomCliente { get; set; }
+        [BsonElement("apa_nomCliente")]
+        public string apa_nomCliente { get; set; }
 
-        [BsonElement("apa_Productos")]
-        public string apa_Productos { get; set; }
+        [BsonElement("apa_productos")]
+        public string apa_productos { get; set; }
 
-        [BsonElement("apa_Fecha")]
-        public string apa_Fecha { get; set; }
+        [BsonElement("apa_fecha")]
+        public string apa_fecha { get; set; }
 
-        [BsonElement("apa_FechaLimite")]
-        public string apa_FechaLimite { get; set; }
+        [BsonElement("apa_fechaLimite")]
+        public string apa_fechaLimite { get; set; }
 
-        [BsonElement("apa_Abonos")]
-        public string apa_Abonos { get; set; }
+        [BsonElement("apa_abonos")]
+        public string apa_abonos { get; set; }
 
-        [BsonElement("apa_Saldos")]
-        public string apa_Saldos { get; set; }
+        [BsonElement("apa_saldos")]
+        public string apa_saldos { get; set; }
 
-        [BsonElement("apa_Estado")]
-        public string apa_Estado { get; set; }
+        [BsonElement("apa_estado")]
+        public string apa_estado { get; set; }
+
+        #endregion
+
     }
 }

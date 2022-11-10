@@ -46,9 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestorApartados.cs" />
-    <Compile Include="GestorCierreCaja.cs" />
+    <Compile Include="GestorCierreCajas.cs" />
     <Compile Include="GestorCompras.cs" />
+    <Compile Include="GestorDecoraciones.cs" />
     <Compile Include="GestorEnvios.cs" />
+    <Compile Include="GestorFacturaCompras.cs" />
+    <Compile Include="GestorFacturaVentas.cs" />
+    <Compile Include="GestorProductos.cs" />
+    <Compile Include="GestorUsuarios.cs" />
     <Compile Include="GestorVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

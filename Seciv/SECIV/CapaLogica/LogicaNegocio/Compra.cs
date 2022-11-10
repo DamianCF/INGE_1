@@ -10,32 +10,51 @@ namespace CapaLogica.LogicaNegocio
 {
     public class Compra
     {
-        public Compra(string id, string cod_Compra, Double monto_Compra, string fecha_Compra)
+
+        #region CONSTRUCTORES
+        public Compra()
         {
-            this.id = id;
-            Cod_Compra = cod_Compra;
-            Monto_Compra = monto_Compra;
-            Fecha_Compra = fecha_Compra;
+
         }
 
-        public Compra(string cod_Compra, Double monto_Compra, string fecha_Compra)
+        public Compra(string id, string com_codigo, double com_monto, string com_fecha, string com_estado)
         {
-            Cod_Compra = cod_Compra;
-            Monto_Compra = monto_Compra;
-            Fecha_Compra = fecha_Compra;
+            this.id = id;
+            this.com_codigo = com_codigo;
+            this.com_monto = com_monto;
+            this.com_fecha = com_fecha;
+            this.com_estado = com_estado;
         }
+
+        public Compra(string com_codigo, double com_monto, string com_fecha, string com_estado)
+        {
+            this.com_codigo = com_codigo;
+            this.com_monto = com_monto;
+            this.com_fecha = com_fecha;
+            this.com_estado = com_estado;
+        }
+
+        #endregion
+
+        #region ATRIBUTOS
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
 
-        [BsonElement("Cod_Compra")]
-        public string Cod_Compra { get; set; }
+        [BsonElement("com_codigo")]
+        public string com_codigo { get; set; }
 
-        [BsonElement("Monto_Compra")]
-        public Double Monto_Compra { get; set; }
+        [BsonElement("com_monto")]
+        public Double com_monto { get; set; }
 
-        [BsonElement("Fecha_Compra")]
-        public string Fecha_Compra { get; set; }
+        [BsonElement("com_fecha")]
+        public string com_fecha { get; set; }
+
+        [BsonElement("com_estado")]
+        public string com_estado { get; set; }
+
+        #endregion
+
     }
 }

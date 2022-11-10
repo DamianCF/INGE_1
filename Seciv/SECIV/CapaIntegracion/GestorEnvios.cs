@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CapaIntegracion
 {
-    public class GestorEnvios: IDisposable
+    public class GestorEnvios : IDisposable
     {
 
         public void Dispose()
@@ -16,34 +16,34 @@ namespace CapaIntegracion
 
         }
 
-        public void Insertarenvio(string id, string codigo, Double numeroGuia, string nomCliente, string pApellCliente, string codPostal, string provincia, string canton,
-            string distrito, string direccion, string telefonoContacto, string correoContacto)
+        public void Insertarenvio(string env_codigo, double env_numeroGuia, string env_nomCliente, string env_pApellCliente, string env_codPostal,
+            string env_provincia, string env_canton, string env_distrito, string env_direccion, string env_telefonoContacto, string env_correoContacto)
         {
-            Envio nuevoEnvio = new Envio(codigo, numeroGuia, nomCliente, pApellCliente, codPostal, provincia, canton, distrito, direccion, telefonoContacto, correoContacto);
+            Envio nuevoEnvio = new Envio(env_codigo, env_numeroGuia, env_nomCliente, env_pApellCliente, env_codPostal, env_provincia, env_canton, env_distrito, env_direccion, env_telefonoContacto, env_correoContacto);
 
-            using (ServicioEnvio laEnvios = new ServicioEnvio())
-                laEnvios.InsertarEnvios(nuevoEnvio);
+            using (ServicioEnvio Envio = new ServicioEnvio())
+                Envio.InsertarEnvios(nuevoEnvio);
         }
 
         public List<Envio> ListarEnvios()
         {
-            using (ServicioEnvio elEnvio = new ServicioEnvio())
+            using (ServicioEnvio Envio = new ServicioEnvio())
             {
-                return elEnvio.ListarEnvios();
+                return Envio.ListarEnvios();
             }
         }
 
-        public void ActualizarEnvios(string id, string codigo, Double numeroGuia, string nomCliente, string pApellCliente, string codPostal, string provincia, string canton,
-            string distrito, string direccion, string telefonoContacto, string correoContacto)
+        public void ActualizarEnvios(string id, string env_codigo, double env_numeroGuia, string env_nomCliente, string env_pApellCliente, string env_codPostal,
+            string env_provincia, string env_canton, string env_distrito, string env_direccion, string env_telefonoContacto, string env_correoContacto)
         {
-            Envio nuevoEnvio = new Envio(codigo, numeroGuia, nomCliente, pApellCliente, codPostal, provincia, canton, distrito, direccion, telefonoContacto, correoContacto);
-            using (ServicioEnvio elEnvio = new ServicioEnvio())
-                elEnvio.ActualizarEnvios(nuevoEnvio);
+            Envio ActEnvio = new Envio(id, env_codigo, env_numeroGuia, env_nomCliente, env_pApellCliente, env_codPostal, env_provincia, env_canton, env_distrito, env_direccion, env_telefonoContacto, env_correoContacto);
+            using (ServicioEnvio Envio = new ServicioEnvio())
+                Envio.ActualizarEnvios(ActEnvio);
         }
         public void EliminarEnvio(string id)
         {
-            using (ServicioEnvio elEnvio = new ServicioEnvio())
-                elEnvio.EliminarEnvios(id);
+            using (ServicioEnvio Envio = new ServicioEnvio())
+                Envio.EliminarEnvios(id);
         }
     }
 }

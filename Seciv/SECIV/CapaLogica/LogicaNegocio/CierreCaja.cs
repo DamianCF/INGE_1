@@ -10,44 +10,57 @@ namespace CapaLogica.LogicaNegocio
 {
     public class CierreCaja
     {
-        public CierreCaja(Double cc_cierreCompras, Double cc_cierreVentas, Double cc_saldoFinal, string cc_estado, string cc_fehca)
+
+        #region COSNTRUCTORES
+
+        public CierreCaja()
+        {
+
+        }
+
+        public CierreCaja(Double cc_compras, Double cc_ventas, Double cc_saldoFinal, string cc_estado, string cc_fehca)
         {
             this.id = id;
-            CierreCompras = cc_cierreCompras;
-            CierreVentas = cc_cierreVentas;
-            SaldoFinal = cc_saldoFinal;
-            Estado = cc_estado;
-            Fecha = cc_fehca;
-
+            this.cc_compras = cc_compras;
+            this.cc_ventas = cc_ventas;
+            this.cc_saldoFinal = cc_saldoFinal;
+            this.cc_fecha = cc_fehca;
+            this.cc_estado = cc_estado;
         }
 
-        public CierreCaja(string id, Double cc_cierreCompras, Double cc_cierreVentas, Double cc_saldoFinal, string cc_estado, string cc_fehca)
+        public CierreCaja(string id, Double cc_compras, Double cc_ventas, Double cc_saldoFinal, string cc_estado, string cc_fehca)
         {
-            CierreCompras = cc_cierreCompras;
-            CierreVentas = cc_cierreVentas;
-            SaldoFinal = cc_saldoFinal;
-            Estado = cc_estado;
-            Fecha = cc_fehca;
-
+            this.cc_compras = cc_compras;
+            this.cc_ventas = cc_ventas;
+            this.cc_saldoFinal = cc_saldoFinal;
+            this.cc_fecha = cc_fehca;
+            this.cc_estado = cc_estado;
         }
+
+        #endregion
+
+        #region ATRIBUTOS
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
 
-        [BsonElement("CierreCompras")]
-        public Double CierreCompras { get; set; }
+        [BsonElement("cc_compras")]
+        public Double cc_compras { get; set; }
 
-        [BsonElement("CierreVentas")]
-        public Double CierreVentas { get; set; }
+        [BsonElement("cc_ventas")]
+        public Double cc_ventas { get; set; }
 
-        [BsonElement("SaldoFinal")]
-        public Double SaldoFinal { get; set; }
+        [BsonElement("cc_saldoFinal")]
+        public Double cc_saldoFinal { get; set; }
 
-        [BsonElement("Estado")]
-        public string Estado { get; set; }
+        [BsonElement("cc_fecha")]
+        public string cc_fecha { get; set; }
+        
+        [BsonElement("cc_estado")]
+        public string cc_estado { get; set; }
 
-        [BsonElement("Fecha")]
-        public string Fecha { get; set; }
+        #endregion
+
     }
 }
