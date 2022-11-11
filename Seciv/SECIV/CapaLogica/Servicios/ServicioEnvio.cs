@@ -22,9 +22,9 @@ namespace CapaLogica.Servicios
 
         }
 
-        static IMongoCollection<Envio> collection = conexion.getDataBase().GetCollection<Envio>("Envio");
+        static IMongoCollection<Envio> collection = conexion.getDataBase().GetCollection<Envio>("SECIV_envios");
 
-        public void InsertarEnvios(Envio c)
+        public void InsertarEnvio(Envio c)
         {
             collection.InsertOne(c);
         }
@@ -32,11 +32,11 @@ namespace CapaLogica.Servicios
         {
             return collection.AsQueryable().ToList<Envio>(); // collection.Find(x => true).ToList(); 
         }
-        public void ActualizarEnvios(Envio c)
+        public void ActualizarEnvio(Envio c)
         {
             collection.ReplaceOne(x => x.id == c.id, c);
         }
-        public void EliminarEnvios(string id)
+        public void EliminarEnvio(string id)
         {
             collection.DeleteOne(x => x.id == id);
         }
