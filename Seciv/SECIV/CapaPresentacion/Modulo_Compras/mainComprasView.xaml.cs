@@ -108,6 +108,9 @@ namespace CapaPresentacion.Modulo_Compras
         private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
+            e.Cancel = e.PropertyName == "com_codigo";
         }
     }
 }
