@@ -11,14 +11,29 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Button
-            Margin="303,0,264,272"
-            VerticalAlignment="Bottom"
-            DockPanel.Dock="Bottom"
-            Style="{StaticResource menuButton}">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Ejemplo" />
-            </StackPanel>
-        </Button>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Grid Margin="0,0,10,0" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition SharedSizeGroup="FirstColumn" />
+                    <ColumnDefinition SharedSizeGroup="SecondColumn" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" SharedSizeGroup="FirstRow" />
+                </Grid.RowDefinitions>
+
+                <Rectangle
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="200"
+                    Height="100"
+                    Fill="Silver" />
+                <Rectangle
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="150"
+                    Height="100"
+                    Fill="Blue" />
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>
