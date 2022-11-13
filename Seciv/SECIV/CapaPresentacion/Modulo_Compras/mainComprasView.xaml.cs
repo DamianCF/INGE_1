@@ -1,6 +1,8 @@
 ﻿using CapaIntegracion;
+using CapaLogica.LogicaNegocio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +33,7 @@ namespace CapaPresentacion.Modulo_Compras
         {
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, "A");
+                Compra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text);
             }
             ListarCompras();
         }
@@ -41,24 +43,27 @@ namespace CapaPresentacion.Modulo_Compras
             using (GestorCompras Compra = new GestorCompras())
             {
                 dgridCompras.ItemsSource = Compra.ListarCompras();
+
             }
             cargarTxts();
         }
 
         private void cargarTxts()
         {
-            //if (dgridCompras.Items.Count > 0)
-            //{
-            //    Compra compra = (Compra)dgridCompras.SelectedItem;
-            //    if (compra == null)
-            //    {
-            //        compra = (Compra)dgridCompras.Items.GetItemAt(0);
-            //    }
-            //    txtId.Text = compra.id;
-            //    txtCodigo.Text = compra.com_codigo;
-            //    txtMonto.Text = compra.com_monto.ToString();
-            //    txtFecha.Text = compra.com_fecha;
-            //}
+            
+            if (dgridCompras.Items.Count > 0)
+            {
+                Compra compra = (Compra)dgridCompras.SelectedItem;
+                if (compra == null)
+                {
+                    compra = (Compra)dgridCompras.Items.GetItemAt(0);
+                }
+                txtId.Text = compra.id;
+                txtCodigo.Text = compra.com_codigo;
+                txtMonto.Text = compra.com_monto.ToString();
+                txtFecha.Text = compra.com_fecha;
+                txtEstado.Text = compra.com_estado;
+           }
         }
 
         private void dgridCompras_MouseUp(object sender, MouseButtonEventArgs e)
@@ -70,7 +75,7 @@ namespace CapaPresentacion.Modulo_Compras
         {
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, "A");
+                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text);
             }
             ListarCompras();
         }
@@ -93,10 +98,16 @@ namespace CapaPresentacion.Modulo_Compras
             txtCodigo.Text = "";
             txtMonto.Text = "";
             txtFecha.Text = "";
+            txtEstado.Text = "";
         }
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             LimpiarTxts();
+        }
+
+        private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
         }
     }
 }
