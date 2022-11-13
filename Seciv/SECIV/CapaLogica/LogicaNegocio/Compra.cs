@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System.ComponentModel;
 
 namespace CapaLogica.LogicaNegocio
 {
@@ -43,15 +44,20 @@ namespace CapaLogica.LogicaNegocio
         public string id { get; set; }
 
         [BsonElement("com_codigo")]
+        [DisplayName("Código")]
         public string com_codigo { get; set; }
 
         [BsonElement("com_monto")]
+        [DisplayName("Monto")]
         public Double com_monto { get; set; }
 
         [BsonElement("com_fecha")]
+        [DisplayName("Fecha")]
         public string com_fecha { get; set; }
 
         [BsonElement("com_estado")]
+        
+        [DisplayName("Estado")]
         public string com_estado { get; set; }
 
         #endregion

@@ -10,12 +10,12 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
         <Grid Margin="77,63,377,240">
-            <DataGrid x:Name="dgridCompras" MouseUp="dgridCompras_MouseUp" />
+            <DataGrid x:Name="dgridCompras" MouseUp="dgridCompras_MouseUp" IsReadOnly="True" AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn" />
         </Grid>
 
-        <Grid Margin="36,256,235,44">
+        <Grid Margin="49,246,221,59" Height="140">
             <Label
                 Margin="25,25,0,0"
                 HorizontalAlignment="Left"
@@ -45,7 +45,6 @@
                 Margin="120,25,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Text="TextBox"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="txtCodigo"
@@ -53,7 +52,6 @@
                 Margin="120,40,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Text="TextBox"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="txtMonto"
@@ -61,7 +59,6 @@
                 Margin="120,60,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Text="TextBox"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="txtFecha"
@@ -69,7 +66,19 @@
                 Margin="120,80,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Text="TextBox"
+                TextWrapping="Wrap" />
+            <Label
+                Margin="25,109,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Estado"
+                Cursor="" RenderTransformOrigin="2.736,0.207" />
+            <TextBox
+                x:Name="txtEstado"
+                Width="120"
+                Margin="120,110,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
                 TextWrapping="Wrap" />
         </Grid>
 
