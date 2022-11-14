@@ -124,19 +124,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Folder Include="Modulo_EnviosyApartados\" />
     <Folder Include="Modulo_Inventarios\" />
     <Folder Include="Modulo_Ventas\" />
-    <Resource Include="Recursos\logo.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Recursos\logo.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\iconoAzul.ico" />
