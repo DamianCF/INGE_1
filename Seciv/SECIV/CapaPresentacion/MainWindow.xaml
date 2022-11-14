@@ -9,15 +9,13 @@
     Title="SECIV"
     Width="{x:Static SystemParameters.PrimaryScreenWidth}"
     Height="{x:Static SystemParameters.PrimaryScreenHeight}"
-    Icon="/Recursos/logo.ico"
+    MinWidth="1350"
+    MinHeight="750"
+    Icon="/Recursos/iconoAzul.ico"
     WindowStartupLocation="CenterScreen"
-    WindowState="Maximized"
-    mc:Ignorable="d"
-    >
+    mc:Ignorable="d">
 
-    <Border
-        Background="#EFF2F7"
-        CornerRadius="0">
+    <Border Background="#EFF2F7" CornerRadius="0">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -39,7 +37,8 @@
 
                 <Border
                     Grid.Row="1"
-                    Background="#623ED0"
+                    Margin="0,0,-45,0"
+                    Background="#01D0FB"
                     CornerRadius="0 50 0 0">
                     <DockPanel>
                         <!--  Menu Logo  -->
@@ -47,58 +46,126 @@
                         <!--  Menu Titles  -->
 
                         <!--  Menu Seprator  -->
-                        <Separator
-                            Height="0.8"
-                            Margin="25"
-                            Background="#7E5FDC"
-                            DockPanel.Dock="Top" />
 
                         <!--  Menu Buttons  -->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Dashboard" />
-                                </StackPanel>
-                            </Button>
 
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click">
+                            <Border
+                                Width="160"
+                                Height="160"
+                                Margin="-30,-80,0,0"
+                                HorizontalAlignment="Center"
+                                Background="#EFF2F7"
+                                CornerRadius="100"
+                                DockPanel.Dock="Top">
+                                <Ellipse>
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="/Recursos/iconoAzul.ico" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Border>
+
+                            <Button
+                                Width="168"
+                                Height="99"
+                                Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Events" />
+                                    <materialDesign:PackIcon
+                                        Width="94"
+                                        Height="77"
+                                        Kind="Cash" />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        Text="Ventas" />
                                 </StackPanel>
                             </Button>
 
                             <Button
-                                Background="#7B5CD6"
-                                Foreground="White"
+                                Width="190"
+                                Height="99"
+                                Click="Button_Click"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Members" />
+                                    <materialDesign:PackIcon
+                                        Width="90"
+                                        Height="60"
+                                        Kind="CartArrowDown" />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        Text="Compras" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
+                            <Button
+                                Width="190"
+                                Height="99"
+                                Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Wallet" />
+                                    <materialDesign:PackIcon
+                                        Width="90"
+                                        Height="60"
+                                        Kind="Bookshelf" />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        Text="Inventario" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button
+                                Width="190"
+                                Height="99"
+                                Click="Button_Click_1"
+                                Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Messages" />
+                                    <materialDesign:PackIcon
+                                        Width="90"
+                                        Height="60"
+                                        Kind="FileChartOutline" />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        Text="Reportes" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button
+                                Width="190"
+                                Height="99"
+                                Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon
+                                        Width="90"
+                                        Height="60"
+                                        Kind="GiftOutline" />
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        Text="Apartados" />
                                 </StackPanel>
                             </Button>
 
                         </StackPanel>
 
                         <Button
+                            Width="50"
+                            Height="50"
                             Margin="15,0,15,20"
+                            HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
-                            DockPanel.Dock="Bottom"
-                            Style="{StaticResource menuButton}">
+                            Style="{StaticResource userButton}">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Logout" />
+                                <materialDesign:PackIcon
+                                    Width="48"
+                                    Height="51"
+                                    VerticalAlignment="Bottom"
+                                    Foreground="White"
+                                    Kind="AccountCircle" />
                             </StackPanel>
                         </Button>
+
 
                     </DockPanel>
                 </Border>
@@ -106,8 +173,11 @@
             </Grid>
 
             <!--  Main Section  -->
-            <Grid Margin="10,102,10,0" Grid.Column="1">
-                <Frame x:Name="Grid" NavigationUIVisibility="Hidden"></Frame>
+            <Grid Grid.Column="1" Margin="10,102,10,0">
+                <Frame
+                    x:Name="Grid"
+                    Margin="45,0,0,0"
+                    NavigationUIVisibility="Hidden" />
             </Grid>
         </Grid>
     </Border>

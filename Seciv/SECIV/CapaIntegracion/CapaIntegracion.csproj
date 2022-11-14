@@ -50,8 +50,6 @@
     <Compile Include="GestorCompras.cs" />
     <Compile Include="GestorDecoraciones.cs" />
     <Compile Include="GestorEnvios.cs" />
-    <Compile Include="GestorFacturaCompras.cs" />
-    <Compile Include="GestorFacturaVentas.cs" />
     <Compile Include="GestorProductos.cs" />
     <Compile Include="GestorUsuarios.cs" />
     <Compile Include="GestorVentas.cs" />

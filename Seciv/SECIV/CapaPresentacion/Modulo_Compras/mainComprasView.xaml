@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="CapaPresentacion.Modulo_Compras.mainComprasView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,38 +6,105 @@
     xmlns:local="clr-namespace:CapaPresentacion.Modulo_Compras"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="mainComprasView"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
-        <Grid Margin="41,26,511,251">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="23*"/>
-                <RowDefinition Height="48*"/>
-            </Grid.RowDefinitions>
-            <DataGrid x:Name="dgridCompras" MouseUp="dgridCompras_MouseUp" IsReadOnly="True" AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn" Grid.RowSpan="2" Background="#FFDCF2F4" />
-        </Grid>
 
-        <Grid Margin="366,224,112,28">
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Orientation="Horizontal">
+        <Grid
+            Margin="10,10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="FirstColumn" />
+                <ColumnDefinition SharedSizeGroup="SecondColumn" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" SharedSizeGroup="FirstRow" />
+            </Grid.RowDefinitions>
+
+            <DataGrid
+                x:Name="dgridCompras"
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="950"
+                Height="700"
+                Padding="0,10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                MouseUp="dgridCompras_MouseUp" />
+
+            <Button
+                x:Name="btnAgregar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                HorizontalAlignment="Left"
+                Click="btnAgregar_Click"
+                Content="Agregar" Margin="135,560,0,110" />
+
+            <Button
+                x:Name="btnActualizar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="135,506,0,164"
+                HorizontalAlignment="Left"
+                Click="btnActualizar_Click"
+                Content="Actualizar" />
+
+            <Button
+                x:Name="BtnEliminar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="25,560,0,110"
+                HorizontalAlignment="Left"
+                Click="BtnEliminar_Click"
+                Content="Eliminar" />
+
+            <Button
+                x:Name="btnLimpiar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="25,506,0,164"
+                HorizontalAlignment="Left"
+                Click="btnLimpiar_Click"
+                Content="Limpiar" />
+
             <Label
+                Grid.Row="0"
+                Grid.Column="1"
                 Margin="25,25,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Id" />
             <Label
+                Grid.Row="0"
+                Grid.Column="1"
                 Margin="25,40,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Codigo"
                 Cursor="" />
             <Label
+                Grid.Row="0"
+                Grid.Column="1"
                 Margin="25,60,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Monto"
                 Cursor="" />
             <Label
+                Grid.Row="0"
+                Grid.Column="1"
                 Margin="25,80,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -45,39 +112,57 @@
                 Cursor="" />
             <TextBox
                 x:Name="txtId"
+                Grid.Row="0"
+                Grid.Column="1"
                 Width="120"
-                Margin="120,37,0,0"
+                Margin="120,25,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Text="TextBox"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="txtCodigo"
+                Grid.Row="0"
+                Grid.Column="1"
                 Width="120"
-                Margin="120,13,0,0"
+                Margin="120,40,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Text="TextBox"
                 TextWrapping="Wrap" />
             <TextBox
                 x:Name="txtMonto"
+                Grid.Row="0"
+                Grid.Column="1"
                 Width="120"
-                Margin="120,72,0,0"
+                Margin="120,60,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                TextWrapping="Wrap" Height="13" />
+                Text="TextBox"
+                TextWrapping="Wrap" />
             <TextBox
                 x:Name="txtFecha"
+                Grid.Row="0"
+                Grid.Column="1"
                 Width="120"
-                Margin="120,85,0,0"
+                Margin="120,80,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Text="TextBox"
                 TextWrapping="Wrap" />
+
             <Label
+                Grid.Row="0"
+                Grid.Column="1"
                 Margin="25,109,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Estado"
-                Cursor="" RenderTransformOrigin="2.736,0.207" />
+                Cursor=""
+                RenderTransformOrigin="2.736,0.207" />
             <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
                 x:Name="txtEstado"
                 Width="120"
                 Margin="120,110,0,0"
@@ -85,146 +170,149 @@
                 VerticalAlignment="Top"
                 TextWrapping="Wrap" />
             <Label
+                Grid.Row="0"
+                Grid.Column="1"
                 Margin="24,146,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="idFact"
-                Cursor="" RenderTransformOrigin="2.736,0.207" />
+                Content="Descuento"
+                Cursor=""
+                RenderTransformOrigin="2.736,0.207" />
             <TextBox
-                x:Name="txtIDFACT"
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtDesc"
                 Width="120"
-                Margin="120,145,0,0"
+                Margin="120,135,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Impuesto" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtImpuesto"
+                Width="120"
+                Margin="120,161,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,213,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Total"
+                RenderTransformOrigin="1.046,1.23" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtTotal"
+                Width="120"
+                Margin="120,191,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,242,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Subtotal" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtSubtotal"
+                Width="120"
+                Margin="120,221,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,271,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Proveedor" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtProve"
+                Width="120"
+                Margin="120,251,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,295,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Producto" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtProducto"
+                Width="120"
+                Margin="120,281,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,319,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Detalle" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtDetalle"
+                Width="120"
+                Margin="120,311,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,343,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Metodo Pago" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="txtMetodoPago"
+                Width="120"
+                Margin="120,343,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+
+
         </Grid>
 
-        <Grid Margin="553,10,0,0">
-            <Button
-                x:Name="btnAgregar"
-                Width="83"
-                Height="26"
-                Margin="85,34,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="btnAgregar_Click"
-                Content="Agregar"
-                RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform Angle="-0.471" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button
-                x:Name="btnActualizar"
-                Margin="85,64,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="btnActualizar_Click"
-                Content="Actualizar" />
-            <Button
-                x:Name="BtnEliminar"
-                Margin="91,138,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="BtnEliminar_Click"
-                Content="Eliminar" />
 
-            <Button
-                x:Name="btnLimpiar"
-                Margin="93,101,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="btnLimpiar_Click"
-                Content="Limpiar"
-                RenderTransformOrigin="0.055,-0.29" />
-        </Grid>
-        <Grid Margin="41,207,422,27">
-            <Label
-                Margin="29,16,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Id" RenderTransformOrigin="0.698,-0.49" Height="24" />
-            <Label
-                Margin="25,40,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Codigo"
-                Cursor="" />
-            <Label x:Name="proveedor"
-                Margin="5,72,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Nombre Proveedor"
-                Cursor="" />
-            <Label
-                Margin="29,101,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Fecha"
-                Cursor="" />
-            <TextBox
-                x:Name="txtCodigoFact"
-                Width="120"
-                Margin="120,37,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                TextWrapping="Wrap" />
-            <TextBox
-                x:Name="txtIdFact"
-                Width="120"
-                Margin="120,13,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                TextWrapping="Wrap" />
-            <TextBox
-                x:Name="txtNomProveedorFact"
-                Width="120"
-                Margin="128,78,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                TextWrapping="Wrap" Height="18" />
-            <TextBox
-                x:Name="txtFechaFact"
-                Width="120"
-                Margin="120,100,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                TextWrapping="Wrap" />
-            <Label
-                Margin="28,130,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="detalle"
-                Cursor="" RenderTransformOrigin="2.736,0.207" />
-            <TextBox
-                x:Name="txtDetalleFact"
-                Width="120"
-                Margin="120,129,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                TextWrapping="Wrap" />
-            <Label
-                Margin="25,159,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Metodo Pago"
-                Cursor="" RenderTransformOrigin="2.736,0.207" />
-            <TextBox
-                x:Name="txtMetodoPagoFact"
-                Width="120"
-                Margin="120,163,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                TextWrapping="Wrap" />
-        </Grid>
-        <Label Content="Factura" HorizontalAlignment="Left" Margin="96,207,0,0" VerticalAlignment="Top"/>
+    </StackPanel>
 
 
 
-    </Grid>
+
+
 </Page>
+
+
+
+

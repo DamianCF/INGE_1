@@ -36,5 +36,5 @@ namespace CapaPresentacion
         {
             Grid.Content = new Modulo_Contabilidad.mainContabilidadView();
         }
-    }
+    }  
 }

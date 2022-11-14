@@ -20,9 +20,11 @@ namespace CapaIntegracion
 
         }
 
-        public void Insertarventa(string vent_codigo, Double vent_monto, string vent_fecha, string estado_Venta)
+        public void Insertarventa(string vent_codigo, Double vent_monto, string vent_fecha, string vent_estado, string vent_nombreComprador, string vent_productos, string vent_detalle,
+            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_total, Double vent_subTotal)
         {
-            Venta nuevaVenta = new Venta(vent_codigo, vent_monto, vent_fecha, estado_Venta);
+            Venta nuevaVenta = new Venta(vent_codigo, vent_monto, vent_fecha, vent_estado, vent_nombreComprador, vent_productos, vent_detalle
+                , vent_metodoPago, vent_descuento, vent_impuesto, vent_total, vent_subTotal);
 
             using (ServicioVenta Venta = new ServicioVenta())
                 Venta.InsertarVenta(nuevaVenta);
@@ -36,9 +38,11 @@ namespace CapaIntegracion
             }
         }
 
-        public void ActualizarVentas(string id, string vent_codigo, Double vent_monto, string vent_fecha, string estado_Venta)
+        public void ActualizarVentas(string id, string vent_codigo, Double vent_monto, string vent_fecha, string vent_estado, string vent_nombreComprador, string vent_productos, string vent_detalle,
+            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_total, Double vent_subTotal)
         {
-            Venta ActVenta = new Venta(id, vent_codigo, vent_monto, vent_fecha, estado_Venta);
+            Venta ActVenta = new Venta(id, vent_codigo, vent_monto, vent_fecha, vent_estado, vent_nombreComprador, vent_productos, vent_detalle
+                , vent_metodoPago, vent_descuento, vent_impuesto, vent_total, vent_subTotal);
             using (ServicioVenta Venta = new ServicioVenta())
                 Venta.ActualizarVenta(ActVenta);
         }
