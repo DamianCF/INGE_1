@@ -60,7 +60,7 @@
                                 DockPanel.Dock="Top">
                                 <Ellipse>
                                     <Ellipse.Fill>
-                                        <ImageBrush ImageSource="\Recursos\iconoAzul.ico" />
+                                        <ImageBrush ImageSource="/Recursos/iconoAzul.ico" />
                                     </Ellipse.Fill>
                                 </Ellipse>
                             </Border>

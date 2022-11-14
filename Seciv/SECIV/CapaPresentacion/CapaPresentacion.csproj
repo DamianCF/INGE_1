@@ -130,11 +130,6 @@
     <Folder Include="Modulo_Ventas\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Recursos\logo.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Recursos\iconoAzul.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

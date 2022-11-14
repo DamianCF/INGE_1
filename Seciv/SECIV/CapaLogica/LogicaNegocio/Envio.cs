@@ -10,77 +10,88 @@ namespace CapaLogica.LogicaNegocio
 {
     public class Envio
     {
-        public Envio(string id, string env_Codigo, Double env_NumeroGuia, string env_nomCliente, string env_pApellCliente, string env_CodPostal, string env_Provincia, string env_Canton,
-            string env_Distrito, string env_Direccion, string env_TelefonoContacto, string env_CorreoContacto)
+
+        #region CONSTRUCTORES
+        public Envio()
+        {
+
+        }
+
+        public Envio(string id, string env_codigo, double env_numeroGuia, string env_nomCliente, string env_pApellCliente, string env_codPostal,
+            string env_provincia, string env_canton, string env_distrito, string env_direccion, string env_telefonoContacto, string env_correoContacto)
         {
             this.id = id;
-            Env_Codigo = env_Codigo;
-            Env_NumeroGuia = env_NumeroGuia;
-            Env_nomCliente = env_nomCliente;
-            Env_pApellCliente = env_pApellCliente;
-            Env_CodPostal = env_CodPostal;
-            Env_Provincia = env_Provincia;
-            Env_Canton = env_Canton;
-            Env_Distrito = env_Distrito;
-            Env_Direccion = env_Direccion;
-            Env_TelefonoContacto = env_TelefonoContacto;
-            Env_CorreoContacto = env_CorreoContacto;
+            this.env_codigo = env_codigo;
+            this.env_numeroGuia = env_numeroGuia;
+            this.env_nomCliente = env_nomCliente;
+            this.env_pApellCliente = env_pApellCliente;
+            this.env_codPostal = env_codPostal;
+            this.env_provincia = env_provincia;
+            this.env_canton = env_canton;
+            this.env_distrito = env_distrito;
+            this.env_direccion = env_direccion;
+            this.env_telefonoContacto = env_telefonoContacto;
+            this.env_correoContacto = env_correoContacto;
         }
 
-        public Envio(string env_Codigo, Double env_NumeroGuia, string env_nomCliente, string env_pApellCliente, string env_CodPostal, string env_Provincia, string env_Canton,
-            string env_Distrito, string env_Direccion, string env_TelefonoContacto, string env_CorreoContacto)
+        public Envio(string env_codigo, double env_numeroGuia, string env_nomCliente, string env_pApellCliente, string env_codPostal,
+            string env_provincia, string env_canton, string env_distrito, string env_direccion, string env_telefonoContacto, string env_correoContacto)
         {
-            Env_Codigo = env_Codigo;
-            Env_NumeroGuia = env_NumeroGuia;
-            Env_nomCliente = env_nomCliente;
-            Env_pApellCliente = env_pApellCliente;
-            Env_CodPostal = env_CodPostal;
-            Env_Provincia = env_Provincia;
-            Env_Canton = env_Canton;
-            Env_Distrito = env_Distrito;
-            Env_Direccion = env_Direccion;
-            Env_TelefonoContacto = env_TelefonoContacto;
-            Env_CorreoContacto = env_CorreoContacto;
+            this.env_codigo = env_codigo;
+            this.env_numeroGuia = env_numeroGuia;
+            this.env_nomCliente = env_nomCliente;
+            this.env_pApellCliente = env_pApellCliente;
+            this.env_codPostal = env_codPostal;
+            this.env_provincia = env_provincia;
+            this.env_canton = env_canton;
+            this.env_distrito = env_distrito;
+            this.env_direccion = env_direccion;
+            this.env_telefonoContacto = env_telefonoContacto;
+            this.env_correoContacto = env_correoContacto;
         }
 
+        #endregion
 
+        #region ATRIBUTOS
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
 
-        [BsonElement("Env_Codigo")]
-        public string Env_Codigo { get; set; }
+        [BsonElement("env_codigo")]
+        public string env_codigo { get; set; }
 
-        [BsonElement("Env_NumeroGuia")]
-        public Double Env_NumeroGuia { get; set; }
+        [BsonElement("env_numeroGuia")]
+        public Double env_numeroGuia { get; set; }
 
-        [BsonElement("Env_NomCliente")]
-        public string Env_nomCliente { get; set; }
+        [BsonElement("env_nomCliente")]
+        public string env_nomCliente { get; set; }
 
-        [BsonElement("Env_pApellCliente")]
-        public string Env_pApellCliente { get; set; }
+        [BsonElement("env_pApellCliente")]
+        public string env_pApellCliente { get; set; }
 
-        [BsonElement("Env_CodPostal")]
-        public string Env_CodPostal { get; set; }
+        [BsonElement("env_codPostal")]
+        public string env_codPostal { get; set; }
 
-        [BsonElement("Env_Provincia")]
-        public string Env_Provincia { get; set; }
+        [BsonElement("env_provincia")]
+        public string env_provincia { get; set; }
 
-        [BsonElement("Env_Canton")]
-        public string Env_Canton { get; set; }
+        [BsonElement("env_canton")]
+        public string env_canton { get; set; }
 
-        [BsonElement("Env_Distrito")]
-        public string Env_Distrito { get; set; }
+        [BsonElement("env_distrito")]
+        public string env_distrito { get; set; }
 
-        [BsonElement("Env_Direccion")]
-        public string Env_Direccion { get; set; }
+        [BsonElement("env_direccion")]
+        public string env_direccion { get; set; }
 
-        [BsonElement("Env_TelefonoContacto")]
-        public string Env_TelefonoContacto { get; set; }
+        [BsonElement("env_telefonoContacto")]
+        public string env_telefonoContacto { get; set; }
 
-        [BsonElement("Env_CorreoContacto")]
-        public string Env_CorreoContacto { get; set; }
+        [BsonElement("env_correoContacto")]
+        public string env_correoContacto { get; set; }
+
+        #endregion
 
     }
 }

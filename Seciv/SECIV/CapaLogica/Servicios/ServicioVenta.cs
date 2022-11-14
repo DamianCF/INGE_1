@@ -16,7 +16,7 @@ namespace CapaLogica.Servicios
 
         }
 
-        static IMongoCollection<Venta> collection = conexion.getDataBase().GetCollection<Venta>("Venta");
+        static IMongoCollection<Venta> collection = conexion.getDataBase().GetCollection<Venta>("SECIV_venta");
 
         public void InsertarVenta(Venta c)
         {
@@ -26,7 +26,7 @@ namespace CapaLogica.Servicios
         {
             return collection.AsQueryable().ToList<Venta>(); // collection.Find(x => true).ToList(); 
         }
-        public void ActualizarVentas(Venta c)
+        public void ActualizarVenta(Venta c)
         {
             collection.ReplaceOne(x => x.id == c.id, c);
         }

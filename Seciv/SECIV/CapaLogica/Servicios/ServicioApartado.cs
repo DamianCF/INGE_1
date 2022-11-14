@@ -19,7 +19,7 @@ namespace CapaLogica.Servicios
 
         public void Dispose() { }
 
-        static IMongoCollection<Apartado> collection = conexion.getDataBase().GetCollection<Apartado>("Apartado");
+        static IMongoCollection<Apartado> collection = conexion.getDataBase().GetCollection<Apartado>("SECIV_apartados");
 
         public void InsertarApartados(Apartado c)
         {

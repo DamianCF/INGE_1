@@ -9,36 +9,36 @@ using System.Threading.Tasks;
 
 namespace CapaLogica.Servicios
 {
-    public class ServicioEnvio : IDisposable
+    public class ServicioCierreCaja : IDisposable
     {
-
-        public ServicioEnvio()
+        public ServicioCierreCaja()
         {
 
         }
-
         public void Dispose()
         {
 
         }
 
-        static IMongoCollection<Envio> collection = conexion.getDataBase().GetCollection<Envio>("SECIV_envios");
+        static IMongoCollection<CierreCaja> collection = conexion.getDataBase().GetCollection<CierreCaja>("SECIV_cierreCajas");
 
-        public void InsertarEnvio(Envio c)
+        public void InsertarCierreCaja(CierreCaja c)
         {
             collection.InsertOne(c);
         }
-        public List<Envio> ListarEnvios()
+        public List<CierreCaja> ListarCierreCaja()
         {
-            return collection.AsQueryable().ToList<Envio>(); // collection.Find(x => true).ToList(); 
+            return collection.AsQueryable().ToList<CierreCaja>(); // collection.Find(x => true).ToList(); 
         }
-        public void ActualizarEnvio(Envio c)
+        public void ActualizarCierreCaja(CierreCaja c)
         {
             collection.ReplaceOne(x => x.id == c.id, c);
         }
-        public void EliminarEnvio(string id)
+        public void EliminarCierreCaja(string id)
         {
             collection.DeleteOne(x => x.id == id);
         }
+
+
     }
 }
