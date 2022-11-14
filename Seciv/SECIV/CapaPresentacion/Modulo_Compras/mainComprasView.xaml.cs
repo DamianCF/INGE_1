@@ -47,8 +47,19 @@ namespace CapaPresentacion.Modulo_Compras
             //{
             //    insertarCompra(idFact);
             //}
-            insertarCompra();
-            ListarCompras();
+            //insertarCompra();
+            //ListarCompras();
+
+
+            //Grid.Content = new Modulo_Compras.detalleCompraView();
+
+            //Window.GetWindow(this).Close();  // IMPORTANTE
+            Window.GetWindow(this).Content = new Modulo_Compras.detalleCompraView();
+
+
+            // cambiar al page detalleCompraView
+            //MainWindow main = new MainWindow();
+            //main.detalleCompra();
         }
 
         public void ListarCompras()
@@ -135,10 +146,6 @@ namespace CapaPresentacion.Modulo_Compras
             e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
         }
 
-        private void dgridFactCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
-        }
 
 
 

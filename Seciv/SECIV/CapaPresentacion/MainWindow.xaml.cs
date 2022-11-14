@@ -3,6 +3,7 @@ using CapaLogica.LogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,6 +31,11 @@ namespace CapaPresentacion
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Grid.Content = new Modulo_Compras.mainComprasView();
+        }
+
+        public void detalleCompra()
+        {
+            Grid.Content = new Modulo_Compras.detalleCompraView();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
