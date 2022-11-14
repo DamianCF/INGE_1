@@ -140,18 +140,5 @@ namespace CapaPresentacion.Modulo_Compras
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
         }
 
-
-
-        #region FacturasCompras
-
-        //public string insertarFactCompra()
-        //{
-        //    using (GestorFacturaCompras factura = new GestorFacturaCompras())
-        //    {
-        //       return factura.InsertarFacturaCompra(txtCodigoFact.Text, txtNomProveedorFact.Text, txtFechaFact.Text, txtDetalleFact.Text, txtMetodoPagoFact.Text);
-        //    }
-        //}
-
-        #endregion
     }
 }
