@@ -29,11 +29,21 @@ namespace CapaPresentacion.Modulo_Compras
             ListarCompras();
         }
 
-        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        public void insertarCompra(string idFact)
         {
+
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text);
+                Compra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, idFact , txtEstado.Text);
+            }
+        }
+
+
+        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        {   string idFact = insertarFactCompra();
+            if ( idFact != "-1")
+            {
+                insertarCompra(idFact);
             }
             ListarCompras();
         }
@@ -63,7 +73,8 @@ namespace CapaPresentacion.Modulo_Compras
                 txtMonto.Text = compra.com_monto.ToString();
                 txtFecha.Text = compra.com_fecha;
                 txtEstado.Text = compra.com_estado;
-           }
+                txtIDFACT.Text = compra.com_idFactCompra;
+            }
         }
 
         private void dgridCompras_MouseUp(object sender, MouseButtonEventArgs e)
@@ -75,11 +86,11 @@ namespace CapaPresentacion.Modulo_Compras
         {
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text);
+                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtIDFACT.Text ,txtEstado.Text);
             }
             ListarCompras();
         }
-
+        
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorCompras Compra = new GestorCompras())
@@ -99,6 +110,7 @@ namespace CapaPresentacion.Modulo_Compras
             txtMonto.Text = "";
             txtFecha.Text = "";
             txtEstado.Text = "";
+            txtIDFACT.Text = "";
         }
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
@@ -108,6 +120,27 @@ namespace CapaPresentacion.Modulo_Compras
         private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
         }
+
+        private void dgridFactCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+        }
+
+
+
+        #region FacturasCompras
+
+        public string insertarFactCompra()
+        {
+            using (GestorFacturaCompras factura = new GestorFacturaCompras())
+            {
+               return factura.InsertarFacturaCompra(txtCodigoFact.Text, txtNomProveedorFact.Text, txtFechaFact.Text, txtDetalleFact.Text, txtMetodoPagoFact.Text);
+            }
+        }
+
+        #endregion
     }
 }

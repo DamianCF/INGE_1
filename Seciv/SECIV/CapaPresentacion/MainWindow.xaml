@@ -11,6 +11,7 @@
     Height="{x:Static SystemParameters.PrimaryScreenHeight}"
     Icon="/Recursos/logo.ico"
     WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
     mc:Ignorable="d"
     >
 
@@ -106,7 +107,7 @@
 
             <!--  Main Section  -->
             <Grid Margin="10,102,10,0" Grid.Column="1">
-                <Frame x:Name="Grid"></Frame>
+                <Frame x:Name="Grid" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
         </Grid>
     </Border>
