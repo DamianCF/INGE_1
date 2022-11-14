@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CapaPresentacion.Modulo_Compras"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="mainComprasView"
     mc:Ignorable="d">
@@ -42,9 +43,10 @@
                 Grid.Column="1"
                 Width="90"
                 Height="30"
+                Margin="135,560,0,110"
                 HorizontalAlignment="Left"
                 Click="btnAgregar_Click"
-                Content="Agregar" Margin="135,560,0,110" />
+                Content="Agregar" />
 
             <Button
                 x:Name="btnActualizar"
@@ -161,9 +163,9 @@
                 Cursor=""
                 RenderTransformOrigin="2.736,0.207" />
             <TextBox
+                x:Name="txtEstado"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtEstado"
                 Width="120"
                 Margin="120,110,0,0"
                 HorizontalAlignment="Left"
@@ -179,9 +181,9 @@
                 Cursor=""
                 RenderTransformOrigin="2.736,0.207" />
             <TextBox
+                x:Name="txtDesc"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtDesc"
                 Width="120"
                 Margin="120,135,0,0"
                 HorizontalAlignment="Left"
@@ -195,9 +197,9 @@
                 VerticalAlignment="Top"
                 Content="Impuesto" />
             <TextBox
+                x:Name="txtImpuesto"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtImpuesto"
                 Width="120"
                 Margin="120,161,0,0"
                 HorizontalAlignment="Left"
@@ -212,9 +214,9 @@
                 Content="Total"
                 RenderTransformOrigin="1.046,1.23" />
             <TextBox
+                x:Name="txtTotal"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtTotal"
                 Width="120"
                 Margin="120,191,0,0"
                 HorizontalAlignment="Left"
@@ -228,9 +230,9 @@
                 VerticalAlignment="Top"
                 Content="Subtotal" />
             <TextBox
+                x:Name="txtSubtotal"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtSubtotal"
                 Width="120"
                 Margin="120,221,0,0"
                 HorizontalAlignment="Left"
@@ -244,9 +246,9 @@
                 VerticalAlignment="Top"
                 Content="Proveedor" />
             <TextBox
+                x:Name="txtProve"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtProve"
                 Width="120"
                 Margin="120,251,0,0"
                 HorizontalAlignment="Left"
@@ -260,9 +262,9 @@
                 VerticalAlignment="Top"
                 Content="Producto" />
             <TextBox
+                x:Name="txtProducto"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtProducto"
                 Width="120"
                 Margin="120,281,0,0"
                 HorizontalAlignment="Left"
@@ -276,9 +278,9 @@
                 VerticalAlignment="Top"
                 Content="Detalle" />
             <TextBox
+                x:Name="txtDetalle"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtDetalle"
                 Width="120"
                 Margin="120,311,0,0"
                 HorizontalAlignment="Left"
@@ -292,15 +294,14 @@
                 VerticalAlignment="Top"
                 Content="Metodo Pago" />
             <TextBox
+                x:Name="txtMetodoPago"
                 Grid.Row="0"
                 Grid.Column="1"
-                x:Name="txtMetodoPago"
                 Width="120"
                 Margin="120,343,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 TextWrapping="Wrap" />
-
 
         </Grid>
 

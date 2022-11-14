@@ -4,36 +4,125 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CapaPresentacion.Modulo_Contabilidad"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="mainContabilidadView"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Grid Margin="0,0,10,0" ShowGridLines="True">
+    <materialDesign:DrawerHost
+        x:Name="DrawerHost"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        OverlayBackground="Transparent"
+        RightDrawerCornerRadius="20 0 0 0">
+        <materialDesign:DrawerHost.Style>
+            <Style BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}" TargetType="materialDesign:DrawerHost">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}" Value="True">
+                        <Setter Property="OverlayBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </materialDesign:DrawerHost.Style>
+
+        <materialDesign:DrawerHost.RightDrawerContent>
+            <StackPanel Width="600" Margin="0,30,0,20">
+                <Button
+                    Margin="4"
+                    HorizontalAlignment="Center"
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Content="CLOSE THIS"
+                    Style="{StaticResource MaterialDesignFlatButton}" />
+            </StackPanel>
+        </materialDesign:DrawerHost.RightDrawerContent>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Grid
+                Margin="10,10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition SharedSizeGroup="FirstColumn" />
                     <ColumnDefinition SharedSizeGroup="SecondColumn" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" SharedSizeGroup="FirstRow" />
+                    <RowDefinition SharedSizeGroup="FirstRow" />
                 </Grid.RowDefinitions>
 
-                <Rectangle
+                <DataGrid
+                    x:Name="dgridCompras"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Width="200"
-                    Height="100"
-                    Fill="Silver" />
-                <Rectangle
+                    Width="950"
+                    Height="700"
+                    Padding="0,10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" />
+
+                <Button
+                    x:Name="btnActualizar"
                     Grid.Row="0"
                     Grid.Column="1"
-                    Width="150"
-                    Height="100"
-                    Fill="Blue" />
+                    Width="90"
+                    Height="30"
+                    Margin="34,320,0,350"
+                    HorizontalAlignment="Left"
+                    Content="Actualizar" />
+
+                <Button
+                    x:Name="BtnEliminar"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="90"
+                    Height="30"
+                    Margin="34,400,0,270"
+                    HorizontalAlignment="Left"
+                    Content="Eliminar" />
+
+                <Button
+                    x:Name="btnLimpiar"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="90"
+                    Height="30"
+                    Margin="34,232,0,438"
+                    HorizontalAlignment="Left"
+                    Content="Limpiar" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Height="40"
+                    Margin="20,0,0,165"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    materialDesign:ButtonAssist.CornerRadius="20"
+                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="33"
+                            Height="34"
+                            Kind="Plus" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            FontSize="18"
+                            Text="Nuevo" />
+                    </StackPanel>
+                </Button>
             </Grid>
+
         </StackPanel>
-    </Grid>
+
+
+
+
+    </materialDesign:DrawerHost>
+
 </Page>
