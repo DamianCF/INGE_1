@@ -18,7 +18,7 @@ namespace CapaLogica.Servicios
 
         public void Dispose() { }
 
-        static IMongoCollection<Usuario> collection = conexion.getDataBase().GetCollection<Usuario>("Usuarios");
+        static IMongoCollection<Usuario> collection = conexion.getDataBase().GetCollection<Usuario>("SECIV_usuarios");
 
         public void InsertarUsuario(Usuario u)
         {
