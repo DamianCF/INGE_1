@@ -25,80 +25,16 @@ namespace CapaPresentacion
         public MainWindow()
         {
             InitializeComponent();
-            ListarCompras();
         }
 
-        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (GestorCompras laCompra = new GestorCompras())
-            {
-                laCompra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text);
-            }
-            ListarCompras();
+            Grid.Content = new Modulo_Compras.mainComprasView();
         }
 
-        public void ListarCompras()
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            using (GestorCompras laCompra = new GestorCompras())
-            {
-                dgridCompras.ItemsSource = laCompra.ListarCompras();
-            }
-            cargarTxts();
+            Grid.Content = new Modulo_Contabilidad.mainContabilidadView();
         }
-
-        private void cargarTxts()
-        {
-            if (dgridCompras.Items.Count > 0)
-            {
-                Compra compra = (Compra)dgridCompras.SelectedItem;
-                if (compra == null)
-                {
-                    compra = (Compra)dgridCompras.Items.GetItemAt(0);
-                }
-                txtId.Text = compra.id;
-                txtCodigo.Text = compra.Cod_Compra;
-                txtMonto.Text = compra.Monto_Compra.ToString();
-                txtFecha.Text = compra.Fecha_Compra;
-            }
-        }
-        
-        private void dgridCompras_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-                cargarTxts();
-        }
-
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorCompras laCompra = new GestorCompras())
-            {
-                laCompra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text);
-            }
-            ListarCompras();
-        }
-
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorCompras laCompra = new GestorCompras())
-            {
-                if (txtId.Text != "")
-                {
-                    laCompra.EliminarCompra(txtId.Text);
-                }
-            }
-            ListarCompras();
-        }
-
-        private void LimpiarTxts()
-        {
-            txtId.Text = "";
-            txtCodigo.Text = "";
-            txtMonto.Text = "";
-            txtFecha.Text = "";
-        }
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            LimpiarTxts();
-        }
-    }
-    
+    }  
 }
