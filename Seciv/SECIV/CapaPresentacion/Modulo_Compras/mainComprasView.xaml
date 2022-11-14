@@ -19,14 +19,14 @@
             <DataGrid x:Name="dgridCompras" MouseUp="dgridCompras_MouseUp" IsReadOnly="True" AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn" Grid.RowSpan="2" Background="#FFDCF2F4" />
         </Grid>
 
-        <Grid Margin="366,224,112,28">
+        <Grid Margin="366,10,112,10">
             <Label
-                Margin="25,25,0,0"
+                Margin="30,2,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Id" />
             <Label
-                Margin="25,40,0,0"
+                Margin="24,31,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Codigo"
@@ -60,10 +60,10 @@
             <TextBox
                 x:Name="txtMonto"
                 Width="120"
-                Margin="120,72,0,0"
+                Margin="120,67,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                TextWrapping="Wrap" Height="13" />
+                TextWrapping="Wrap" Height="18" />
             <TextBox
                 x:Name="txtFecha"
                 Width="120"
@@ -88,15 +88,29 @@
                 Margin="24,146,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="idFact"
+                Content="Descuento"
                 Cursor="" RenderTransformOrigin="2.736,0.207" />
             <TextBox
-                x:Name="txtIDFACT"
+                x:Name="txtDesc"
                 Width="120"
-                Margin="120,145,0,0"
+                Margin="120,135,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 TextWrapping="Wrap" />
+            <Label Content="Impuesto" HorizontalAlignment="Left" Margin="25,182,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtImpuesto" HorizontalAlignment="Left" Margin="120,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Total" HorizontalAlignment="Left" Margin="30,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.046,1.23"/>
+            <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Margin="120,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Subtotal" HorizontalAlignment="Left" Margin="25,242,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtSubtotal" HorizontalAlignment="Left" Margin="120,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Proveedor" HorizontalAlignment="Left" Margin="30,271,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtProve" HorizontalAlignment="Left" Margin="120,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Producto" HorizontalAlignment="Left" Margin="30,295,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtProducto" HorizontalAlignment="Left" Margin="120,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Detalle" HorizontalAlignment="Left" Margin="30,319,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtDetalle" HorizontalAlignment="Left" Margin="120,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Metodo Pago" HorizontalAlignment="Left" Margin="30,343,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtMetodoPago" HorizontalAlignment="Left" Margin="120,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         </Grid>
 
         <Grid Margin="553,10,0,0">
@@ -143,7 +157,7 @@
                 Content="Limpiar"
                 RenderTransformOrigin="0.055,-0.29" />
         </Grid>
-        <Grid Margin="41,207,422,27">
+        <Grid Margin="41,176,422,27">
             <Label
                 Margin="29,16,0,0"
                 HorizontalAlignment="Left"
@@ -222,7 +236,6 @@
                 VerticalAlignment="Top"
                 TextWrapping="Wrap" />
         </Grid>
-        <Label Content="Factura" HorizontalAlignment="Left" Margin="96,207,0,0" VerticalAlignment="Top"/>
 
 
 
