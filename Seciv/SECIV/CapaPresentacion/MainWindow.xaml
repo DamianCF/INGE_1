@@ -11,7 +11,7 @@
     Height="{x:Static SystemParameters.PrimaryScreenHeight}"
     MinWidth="1350"
     MinHeight="750"
-    Icon="/Recursos/logo.ico"
+    Icon="/Recursos/iconoAzul.ico"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
@@ -37,22 +37,34 @@
 
                 <Border
                     Grid.Row="1"
-                    Background="#2196f3"
-                    CornerRadius="0 50 0 0" Margin="0,0,-45,0">
+                    Margin="0,0,-45,0"
+                    Background="#01D0FB"
+                    CornerRadius="0 50 0 0">
                     <DockPanel>
                         <!--  Menu Logo  -->
 
                         <!--  Menu Titles  -->
 
                         <!--  Menu Seprator  -->
-                        <Separator
-                            Height="0.8"
-                            Margin="25"
-                            Background="WHITE"
-                            DockPanel.Dock="Top" />
 
                         <!--  Menu Buttons  -->
                         <StackPanel DockPanel.Dock="Top">
+
+                            <Border
+                                Width="160"
+                                Height="160"
+                                Margin="-30,-80,0,0"
+                                HorizontalAlignment="Center"
+                                Background="#EFF2F7"
+                                CornerRadius="100"
+                                DockPanel.Dock="Top">
+                                <Ellipse>
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="\Recursos\iconoAzul.ico" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Border>
+
                             <Button
                                 Width="168"
                                 Height="99"
@@ -138,14 +150,22 @@
                         </StackPanel>
 
                         <Button
+                            Width="50"
+                            Height="50"
                             Margin="15,0,15,20"
+                            HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
-                            DockPanel.Dock="Bottom"
-                            Style="{StaticResource menuButton}">
+                            Style="{StaticResource userButton}">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Logout" />
+                                <materialDesign:PackIcon
+                                    Width="48"
+                                    Height="51"
+                                    VerticalAlignment="Bottom"
+                                    Foreground="White"
+                                    Kind="AccountCircle" />
                             </StackPanel>
                         </Button>
+
 
                     </DockPanel>
                 </Border>
@@ -154,7 +174,10 @@
 
             <!--  Main Section  -->
             <Grid Grid.Column="1" Margin="10,102,10,0">
-                <Frame x:Name="Grid" />
+                <Frame
+                    x:Name="Grid"
+                    Margin="45,0,0,0"
+                    NavigationUIVisibility="Hidden" />
             </Grid>
         </Grid>
     </Border>
