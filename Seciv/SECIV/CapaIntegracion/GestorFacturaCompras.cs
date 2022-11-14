@@ -18,12 +18,12 @@ namespace CapaIntegracion
         {
 
         }
-        public void InsertarFacturaCompra(string fc_codigo, string fc_nomProveedor, string fc_fecCompra, string fc_detalle, string fc_metodoPago)
+        public string InsertarFacturaCompra(string fc_codigo, string fc_nomProveedor, string fc_fecCompra, string fc_detalle, string fc_metodoPago)
         {
             FacturaCompra nuevaFacturaCompra = new FacturaCompra(fc_codigo, fc_nomProveedor, fc_fecCompra, fc_detalle, fc_metodoPago);
 
             using (ServicioFacturaCompra FacturaCompra = new ServicioFacturaCompra())
-                FacturaCompra.InsertarFacturaCompra(nuevaFacturaCompra);
+              return  FacturaCompra.InsertarFacturaCompra(nuevaFacturaCompra);
         }
 
         public List<FacturaCompra> ListarFacturaCompras()

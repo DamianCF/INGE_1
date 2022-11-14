@@ -18,21 +18,23 @@ namespace CapaLogica.LogicaNegocio
 
         }
 
-        public Compra(string id, string com_codigo, double com_monto, string com_fecha, string com_estado)
+        public Compra(string id, string com_codigo, double com_monto, string com_fecha, string idFact, string com_estado)
         {
             this.id = id;
             this.com_codigo = com_codigo;
             this.com_monto = com_monto;
             this.com_fecha = com_fecha;
             this.com_estado = com_estado;
+            this.com_idFactCompra = idFact;
         }
 
-        public Compra(string com_codigo, double com_monto, string com_fecha, string com_estado)
+        public Compra(string com_codigo, double com_monto, string com_fecha, string idFact, string com_estado)
         {
             this.com_codigo = com_codigo;
             this.com_monto = com_monto;
             this.com_fecha = com_fecha;
             this.com_estado = com_estado;
+            this.com_idFactCompra = idFact;
         }
 
         #endregion
@@ -55,8 +57,11 @@ namespace CapaLogica.LogicaNegocio
         [DisplayName("Fecha")]
         public string com_fecha { get; set; }
 
+        [BsonElement("com_idFactCompra")]
+        [DisplayName("idFactCompra")]
+        public string com_idFactCompra { get; set; }
+
         [BsonElement("com_estado")]
-        
         [DisplayName("Estado")]
         public string com_estado { get; set; }
 

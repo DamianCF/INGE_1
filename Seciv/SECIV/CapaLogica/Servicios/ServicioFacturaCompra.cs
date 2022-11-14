@@ -20,9 +20,17 @@ namespace CapaLogica.Servicios
 
         static IMongoCollection<FacturaCompra> collection = conexion.getDataBase().GetCollection<FacturaCompra>("SECIV_facturasCompras");
 
-        public void InsertarFacturaCompra(FacturaCompra c)
+        public string InsertarFacturaCompra(FacturaCompra c)
         {
             collection.InsertOne(c);
+            //System.Console.WriteLine(c.id);
+            if (c.id == "")
+            {
+                return "-1";
+            }
+            else { 
+                return c.id;
+            } 
         }
         public List<FacturaCompra> ListarFacturaCompras()
         {

@@ -18,9 +18,9 @@ namespace CapaIntegracion
         {
 
         }
-        public void InsertarCompra(string com_codigo, double com_monto, string com_fecha, string com_estado)
+        public void InsertarCompra(string com_codigo, double com_monto, string com_fecha, string idFact, string com_estado)
         {
-            Compra nuevaCompra = new Compra(com_codigo, com_monto, com_fecha, com_estado);
+            Compra nuevaCompra = new Compra(com_codigo, com_monto, com_fecha, idFact, com_estado);
 
             using (ServicioCompra Compra = new ServicioCompra())
                 Compra.InsertarCompra(nuevaCompra);
@@ -34,9 +34,9 @@ namespace CapaIntegracion
             }
         }
 
-        public void ActualizarCompra(string id, string com_codigo, double com_monto, string com_fecha, string com_estado)
+        public void ActualizarCompra(string id, string com_codigo, double com_monto, string com_fecha, string idFact, string com_estado)
         {
-            Compra ActCompra = new Compra(id, com_codigo, com_monto, com_fecha, com_estado);
+            Compra ActCompra = new Compra(id ,com_codigo, com_monto, com_fecha,id, com_estado);
             using (ServicioCompra Compra = new ServicioCompra())
                 Compra.ActualizarCompra(ActCompra);
         }
