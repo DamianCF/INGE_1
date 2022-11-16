@@ -31,7 +31,7 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Width="950"
-                Height="700"
+                Height="600"
                 Padding="0,10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
