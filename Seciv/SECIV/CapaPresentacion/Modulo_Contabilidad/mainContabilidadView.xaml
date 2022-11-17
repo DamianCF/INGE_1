@@ -26,14 +26,130 @@
         </materialDesign:DrawerHost.Style>
 
         <materialDesign:DrawerHost.RightDrawerContent>
-            <StackPanel Width="600" Margin="0,30,0,20">
-                <Button
-                    Margin="4"
-                    HorizontalAlignment="Center"
-                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Content="CLOSE THIS"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+            <StackPanel
+                Width="600"
+                Margin="0,30,0,20"
+                Background="#FFFDFDFD">
+                <Grid
+                    Width="600"
+                    Margin="0,30,0,20"
+                    Background="White">
+                    <Button
+                        Margin="232,323,0,45"
+                        HorizontalAlignment="Left"
+                        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Right}"
+                        Content="CLOSE THIS"
+                        Style="{StaticResource MaterialDesignFlatButton}" />
+
+                    <Button
+                        x:Name="btnAgregar"
+                        Grid.Row="0"
+                        Width="90"
+                        Height="30"
+                        Margin="373,280,0,90"
+                        HorizontalAlignment="Left"
+                        Content="Agregar" />
+
+                    <Button
+                        x:Name="btnActualizar"
+                        Grid.Row="0"
+                        Width="90"
+                        Height="30"
+                        Margin="492,280,0,90"
+                        HorizontalAlignment="Left"
+                        Content="Actualizar" />
+
+                    <Button
+                        x:Name="BtnEliminar"
+                        Grid.Row="0"
+                        Width="90"
+                        Height="30"
+                        Margin="492,347,0,23"
+                        HorizontalAlignment="Left"
+                        Content="Eliminar" />
+                    <Button
+                        x:Name="btnLimpiar"
+                        Width="90"
+                        Height="30"
+                        Margin="373,345,137,25"
+                        Content="Limpiar" />
+
+                    <TextBox
+                        Margin="16,19,415,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Código"
+                        RenderTransformOrigin="0.5,0.5"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,56,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Monto"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <DatePicker
+                        Margin="16,98,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Fecha"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                    <TextBox
+                        Margin="16,140,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Descuento"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,0,421,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="Impuesto"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Height="37"
+                        Margin="16,228,421,135"
+                        materialDesign:HintAssist.Hint="Subtotal"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,256,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Total"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,298,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Proveedor"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+                    <TextBox
+                        Width="384"
+                        Height="100"
+                        Margin="206,44,10,256"
+                        materialDesign:HintAssist.Hint="Descripcion de productos"
+                        materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                        MaxLength="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+
+                    <TextBox
+                        Margin="227,144,63,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Detalle"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <ComboBox
+                        Margin="227,200,63,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Metodo de pago"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem Content="Efectivo" />
+                        <ComboBoxItem Content="Sinpe" />
+                        <ComboBoxItem Content="Transferencia" />
+                        <ComboBoxItem Content="Cheke" />
+                    </ComboBox>
+
+                </Grid>
+
             </StackPanel>
         </materialDesign:DrawerHost.RightDrawerContent>
 
@@ -63,44 +179,39 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" />
 
-                <Button
-                    x:Name="btnActualizar"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="90"
-                    Height="30"
-                    Margin="34,320,0,350"
-                    HorizontalAlignment="Left"
-                    Content="Actualizar" />
+
 
                 <Button
-                    x:Name="BtnEliminar"
+                    x:Name="btnActualizarr"
                     Grid.Row="0"
                     Grid.Column="1"
-                    Width="90"
-                    Height="30"
-                    Margin="34,400,0,270"
-                    HorizontalAlignment="Left"
-                    Content="Eliminar" />
+                    Width="104"
+                    Height="34"
+                    Margin="25,0,10,314"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    materialDesign:ButtonAssist.CornerRadius="8"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
-                <Button
-                    x:Name="btnLimpiar"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="90"
-                    Height="30"
-                    Margin="34,232,0,438"
-                    HorizontalAlignment="Left"
-                    Content="Limpiar" />
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="Actualizar" />
+
+                </Button>
+
 
                 <Button
                     Grid.Row="0"
                     Grid.Column="1"
-                    Height="40"
-                    Margin="20,0,0,165"
+                    Height="90"
+                    Margin="20,0,0,159"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="20"
+                    Background="#FF2D92E6"
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}">
@@ -110,18 +221,57 @@
                             Height="34"
                             Kind="Plus" />
                         <TextBlock
-                            VerticalAlignment="Center"
                             HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
                             FontSize="18"
                             Text="Nuevo" />
                     </StackPanel>
                 </Button>
+
+                <Button
+                    x:Name="btnEditar"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="104"
+                    Height="33"
+                    Margin="25,0,10,388"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    materialDesign:ButtonAssist.CornerRadius="8"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="Editar" />
+
+                </Button>
+
+                <Button
+                    x:Name="btnEliminar"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="104"
+                    Height="33"
+                    Margin="25,0,10,451"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    materialDesign:ButtonAssist.CornerRadius="8"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="Eliminar" />
+
+                </Button>
             </Grid>
 
         </StackPanel>
-
-
-
 
     </materialDesign:DrawerHost>
 
