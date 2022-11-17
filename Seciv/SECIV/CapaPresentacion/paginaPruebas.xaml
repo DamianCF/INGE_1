@@ -17,8 +17,12 @@
             Width="600"
             Margin="0,30,0,20"
             Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="333*"/>
+                <RowDefinition Height="67*"/>
+            </Grid.RowDefinitions>
             <Button
-                Margin="-2,2,0,366"
+                Margin="-2,2,0,299"
                 HorizontalAlignment="Left"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
@@ -38,10 +42,10 @@
 
             <Button
                 x:Name="btnAgregar"
-                Grid.Row="0"
+                Grid.Row="1"
                 Width="316"
                 Height="30"
-                Margin="217,341,0,29"
+                Margin="217,8,0,29"
                 HorizontalAlignment="Left"
                 Content="Agregar" />
 
@@ -50,7 +54,7 @@
                 Grid.Row="0"
                 Width="90"
                 Height="30"
-                Margin="443,295,0,75"
+                Margin="443,295,0,8"
                 HorizontalAlignment="Left"
                 Content="Editar" />
 
@@ -59,14 +63,14 @@
                 Grid.Row="0"
                 Width="90"
                 Height="30"
-                Margin="217,295,0,75"
+                Margin="217,295,0,8"
                 HorizontalAlignment="Left"
                 Content="Eliminar" />
             <Button
                 x:Name="btnLimpiar"
                 Width="90"
                 Height="30"
-                Margin="330,295,180,75"
+                Margin="330,295,180,8"
                 Content="Limpiar" />
 
             <TextBox
@@ -99,24 +103,24 @@
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
                 Height="37"
-                Margin="36,248,405,115"
+                Margin="36,248,405,48"
                 materialDesign:HintAssist.Hint="Subtotal"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
                 Margin="36,300,405,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Total"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.RowSpan="2" />
             <TextBox
-                Margin="36,343,405,0"
+                Margin="36,10,405,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Proveedor"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                materialDesign:HintAssist.Hint="Cliente"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1" />
 
 
             <TextBox
                 Height="100"
-                Margin="227,150,63,150"
+                Margin="227,150,63,83"
                 materialDesign:HintAssist.Hint="Descripcion de productos"
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
                 MaxLength="200"
@@ -124,12 +128,12 @@
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
             <TextBox
-                Margin="227,42,63,0"
+                Margin="227,24,63,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Detalle"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <ComboBox
-                Margin="227,98,63,0"
+                Margin="227,61,63,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Metodo de pago"
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}">

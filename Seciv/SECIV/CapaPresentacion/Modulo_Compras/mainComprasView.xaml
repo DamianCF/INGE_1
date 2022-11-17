@@ -35,7 +35,8 @@
                 Padding="0,10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                MouseUp="dgridCompras_MouseUp" AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn" />
+                AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn"
+                MouseUp="dgridCompras_MouseUp" />
 
             <Button
                 x:Name="btnAgregar"

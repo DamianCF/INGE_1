@@ -34,7 +34,7 @@ namespace CapaPresentacion.Modulo_Usuarios
 
             using (GestorUsuarios Usuario = new GestorUsuarios())
             {
-                Usuario.InsertarUsuario(txtCedula.Text, txtNombre.Text,txtpApellido.Text, txtsApellido.Text, txtCorreo.Text, txtContraseña.Text, txtEstado.Text);
+                Usuario.InsertarUsuario(txtCedula.Text, txtNombre.Text, txtpApellido.Text, txtsApellido.Text, txtCorreo.Text, txtContraseña.Text, "A");
             }
         }
 
@@ -85,7 +85,7 @@ namespace CapaPresentacion.Modulo_Usuarios
         {
             using (GestorUsuarios Usuario = new GestorUsuarios())
             {
-                Usuario.ActualizarUsuario(txtId.Text, txtCedula.Text, txtNombre.Text,txtpApellido.Text, txtsApellido.Text, txtCorreo.Text, txtContraseña.Text, txtEstado.Text);
+                Usuario.ActualizarUsuario(txtId.Text, txtCedula.Text, txtNombre.Text, txtpApellido.Text, txtsApellido.Text, txtCorreo.Text, txtContraseña.Text, txtEstado.Text);
             }
             ListarUsuarios();
         }
@@ -124,5 +124,6 @@ namespace CapaPresentacion.Modulo_Usuarios
             e.Cancel = e.PropertyName == "id";
             e.Column.Visibility = e.PropertyName == "usu_estado" ? Visibility.Hidden : Visibility.Visible;
         }
+
     }
 }
