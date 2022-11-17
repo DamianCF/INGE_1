@@ -26,14 +26,145 @@
         </materialDesign:DrawerHost.Style>
 
         <materialDesign:DrawerHost.RightDrawerContent>
-            <StackPanel Width="600" Margin="0,30,0,20">
-                <Button
-                    Margin="4"
-                    HorizontalAlignment="Center"
-                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Content="CLOSE THIS"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+            <StackPanel
+                Width="600"
+                Margin="0,30,0,20"
+                Background="#FFFDFDFD">
+                <Grid
+                    Width="600"
+                    Margin="0,30,0,20"
+                    Background="White">
+                    <Button
+                        Margin="232,323,0,45"
+                        HorizontalAlignment="Left"
+                        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Right}"
+                        Content="CLOSE THIS"
+                        Style="{StaticResource MaterialDesignFlatButton}" />
+
+                    <Button
+                        x:Name="btnAgregar"
+                        Grid.Row="0"
+                        Width="90"
+                        Height="30"
+                        Margin="373,280,0,90"
+                        HorizontalAlignment="Left"
+                        Content="Agregar" />
+
+                    <Button
+                        x:Name="btnActualizar"
+                        Grid.Row="0"
+                        Width="90"
+                        Height="30"
+                        Margin="492,280,0,90"
+                        HorizontalAlignment="Left"
+                        Content="Actualizar" />
+
+                    <Button
+                        x:Name="BtnEliminar"
+                        Grid.Row="0"
+                        Width="90"
+                        Height="30"
+                        Margin="492,347,0,23"
+                        HorizontalAlignment="Left"
+                        Content="Eliminar" />
+                    <Button
+                        x:Name="btnLimpiar"
+                        Width="90"
+                        Height="30"
+                        Margin="373,345,137,25"
+                        Content="Limpiar" />
+
+                    <TextBox
+                        Height="37"
+                        Margin="16,228,421,135"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="211,24,66,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,19,415,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        RenderTransformOrigin="0.5,0.5"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <TextBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform AngleY="0.203" />
+                                <RotateTransform />
+                                <TranslateTransform Y="0.33" />
+                            </TransformGroup>
+                        </TextBox.RenderTransform>
+                    </TextBox>
+
+                    <TextBox
+                        Margin="16,56,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="224,91,66,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="224,200,147,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="224,142,163,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,256,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,347,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,298,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,0,421,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,98,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                        Margin="16,140,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Floating Hint"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                </Grid>
+
             </StackPanel>
         </materialDesign:DrawerHost.RightDrawerContent>
 
@@ -64,7 +195,7 @@
                     VerticalAlignment="Stretch" />
 
                 <Button
-                    x:Name="btnActualizar"
+                    x:Name="btnActualizarr"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="90"
@@ -74,7 +205,7 @@
                     Content="Actualizar" />
 
                 <Button
-                    x:Name="BtnEliminar"
+                    x:Name="BtnEliminarr"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="90"
@@ -84,7 +215,7 @@
                     Content="Eliminar" />
 
                 <Button
-                    x:Name="btnLimpiar"
+                    x:Name="btnLimpiarr"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="90"
@@ -110,8 +241,8 @@
                             Height="34"
                             Kind="Plus" />
                         <TextBlock
-                            VerticalAlignment="Center"
                             HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
                             FontSize="18"
                             Text="Nuevo" />
                     </StackPanel>
@@ -119,9 +250,6 @@
             </Grid>
 
         </StackPanel>
-
-
-
 
     </materialDesign:DrawerHost>
 
