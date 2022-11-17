@@ -10,30 +10,32 @@
     Height="938"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Margin="0,0,0,-504">
+    <StackPanel Margin="-1,17,1,-521">
 
         <!--  COMPRAS  -->
+
+
+        <!--  Ventas  -->
         <Grid
             Width="600"
-            Margin="0,30,0,20"
+            Height="450"
             Background="White">
             <Button
-                Margin="-2,2,0,366"
+                Width="76"
+                Height="60"
+                Margin="10,2,0,388"
                 HorizontalAlignment="Left"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
                 Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                CommandParameter="{x:Static Dock.Right}"
-                RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform Angle="179.147" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Button.RenderTransform>
-                <materialDesign:PackIcon Kind="ArrowLeft" />
+                CommandParameter="{x:Static Dock.Right}">
+
+                <materialDesign:PackIcon
+                    Width="72"
+                    Height="47"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="ArrowRight" />
             </Button>
 
             <Button
@@ -41,7 +43,7 @@
                 Grid.Row="0"
                 Width="316"
                 Height="30"
-                Margin="217,341,0,29"
+                Margin="237,388,0,32"
                 HorizontalAlignment="Left"
                 Content="Agregar" />
 
@@ -50,7 +52,7 @@
                 Grid.Row="0"
                 Width="90"
                 Height="30"
-                Margin="443,295,0,75"
+                Margin="463,342,0,78"
                 HorizontalAlignment="Left"
                 Content="Editar" />
 
@@ -59,64 +61,91 @@
                 Grid.Row="0"
                 Width="90"
                 Height="30"
-                Margin="217,295,0,75"
+                Margin="237,342,0,78"
                 HorizontalAlignment="Left"
                 Content="Eliminar" />
             <Button
                 x:Name="btnLimpiar"
                 Width="90"
                 Height="30"
-                Margin="330,295,180,75"
+                Margin="350,342,160,78"
                 Content="Limpiar" />
 
+            <!--No visibles-->
             <TextBox
-                Margin="36,24,399,0"
+                x:Name="txtId"
+                Margin="425,10,10,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Id"
+                RenderTransformOrigin="0.5,0.5"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Visibility="Hidden" />
+            <TextBox
+                x:Name="txtEstado"
+                Margin="227,10,208,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Estado"
+                RenderTransformOrigin="0.5,0.5"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Visibility="Hidden"/>
+            <!--No visibles-->
+
+
+            <TextBox
+                x:Name="txtCodigo"
+                Margin="36,62,399,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Código"
                 RenderTransformOrigin="0.5,0.5"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,61,405,0"
+                x:Name="txtMonto"
+                Margin="36,104,405,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Monto"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <DatePicker
-                Margin="36,103,405,0"
+                x:Name="txtFecha"
+                Margin="36,146,405,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Fecha"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
             <TextBox
-                Margin="36,153,405,0"
+                x:Name="txtDesc"
+                Margin="36,196,405,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Descuento"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,201,405,0"
+                x:Name="txtImpuesto"
+                Margin="36,244,405,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Impuesto"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
+                x:Name="txtSubtotal"
                 Height="37"
-                Margin="36,248,405,115"
+                Margin="36,337,405,76"
                 materialDesign:HintAssist.Hint="Subtotal"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,300,405,0"
+                x:Name="txtTotal"
+                Margin="36,295,405,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Total"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,343,405,0"
+                x:Name="txtProve"
+                Margin="255,62,47,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Proveedor"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
 
             <TextBox
+                x:Name="txtProducto"
                 Height="100"
-                Margin="227,150,63,150"
+                Margin="237,214,42,136"
                 materialDesign:HintAssist.Hint="Descripcion de productos"
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
                 MaxLength="200"
@@ -124,12 +153,14 @@
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
             <TextBox
-                Margin="227,42,63,0"
+                x:Name="txtDetalle"
+                Margin="255,104,47,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Detalle"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <ComboBox
-                Margin="227,98,63,0"
+                x:Name="txtMetodoPago"
+                Margin="255,146,44,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Metodo de pago"
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}">
