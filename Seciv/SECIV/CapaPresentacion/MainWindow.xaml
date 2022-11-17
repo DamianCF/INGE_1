@@ -13,7 +13,6 @@
     MinHeight="750"
     Icon="/Recursos/iconoAzul.ico"
     WindowStartupLocation="CenterScreen"
-    WindowState="Maximized"
     mc:Ignorable="d">
 
     <Border Background="#EFF2F7" CornerRadius="0">
@@ -67,9 +66,8 @@
                             </Border>
 
                             <Button
-                                Width="190"
-                                Height="70"
-                                Margin="0,10"
+                                Width="168"
+                                Height="99"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
@@ -85,8 +83,7 @@
 
                             <Button
                                 Width="190"
-                                Height="70"
-                                Margin="0,10"
+                                Height="99"
                                 Click="Button_Click"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
@@ -103,8 +100,8 @@
 
                             <Button
                                 Width="190"
-                                Height="70"
-                                Style="{StaticResource menuButton}">
+                                Height="99"
+                                Style="{StaticResource menuButton}" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="90"
@@ -119,8 +116,7 @@
 
                             <Button
                                 Width="190"
-                                Height="70"
-                                Margin="0,10"
+                                Height="99"
                                 Click="Button_Click_1"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
@@ -137,8 +133,7 @@
 
                             <Button
                                 Width="190"
-                                Height="70"
-                                Margin="0,10"
+                                Height="99"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
@@ -178,10 +173,10 @@
             </Grid>
 
             <!--  Main Section  -->
-            <Grid Grid.Column="1" Margin="10,10,10,0">
+            <Grid Grid.Column="1" Margin="10,102,10,0">
                 <Frame
                     x:Name="Grid"
-                    Margin="45,20,5,5"
+                    Margin="45,0,0,0"
                     NavigationUIVisibility="Hidden" />
             </Grid>
         </Grid>
