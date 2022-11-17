@@ -76,92 +76,77 @@
                         Content="Limpiar" />
 
                     <TextBox
-                        Height="37"
-                        Margin="16,228,421,135"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="211,24,66,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
                         Margin="16,19,415,0"
                         VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
+                        materialDesign:HintAssist.Hint="Código"
                         RenderTransformOrigin="0.5,0.5"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                        <TextBox.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform />
-                                <SkewTransform AngleY="0.203" />
-                                <RotateTransform />
-                                <TranslateTransform Y="0.33" />
-                            </TransformGroup>
-                        </TextBox.RenderTransform>
-                    </TextBox>
-
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         Margin="16,56,421,0"
                         VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
+                        materialDesign:HintAssist.Hint="Monto"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="224,91,66,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="224,200,147,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="224,142,163,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="16,256,421,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="16,347,421,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="16,298,421,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
-                        Margin="16,0,421,0"
-                        VerticalAlignment="Center"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                    <TextBox
+                    <DatePicker
                         Margin="16,98,421,0"
                         VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        materialDesign:HintAssist.Hint="Fecha"
+                        materialDesign:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
                     <TextBox
                         Margin="16,140,421,0"
                         VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Floating Hint"
+                        materialDesign:HintAssist.Hint="Descuento"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,0,421,0"
+                        VerticalAlignment="Center"
+                        materialDesign:HintAssist.Hint="Impuesto"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Height="37"
+                        Margin="16,228,421,135"
+                        materialDesign:HintAssist.Hint="Subtotal"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,256,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Total"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox
+                        Margin="16,298,421,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Proveedor"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+                    <TextBox
+                        Width="384"
+                        Height="100"
+                        Margin="206,44,10,256"
+                        materialDesign:HintAssist.Hint="Descripcion de productos"
+                        materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                        MaxLength="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+
+                    <TextBox
+                        Margin="227,144,63,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Detalle"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <ComboBox
+                        Margin="227,200,63,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Metodo de pago"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem Content="Efectivo" />
+                        <ComboBoxItem Content="Sinpe" />
+                        <ComboBoxItem Content="Transferencia" />
+                        <ComboBoxItem Content="Cheke" />
+                    </ComboBox>
 
                 </Grid>
 
@@ -200,19 +185,20 @@
                     x:Name="btnActualizarr"
                     Grid.Row="0"
                     Grid.Column="1"
+                    Width="104"
                     Height="34"
                     Margin="25,0,10,314"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="104">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                     <TextBlock
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            FontSize="16"
-                            Text="Actualizar" />
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="Actualizar" />
 
                 </Button>
 
@@ -225,9 +211,10 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="20"
+                    Background="#FF2D92E6"
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Background="#FF2D92E6">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                             Width="33"
@@ -245,19 +232,20 @@
                     x:Name="btnEditar"
                     Grid.Row="0"
                     Grid.Column="1"
+                    Width="104"
                     Height="33"
                     Margin="25,0,10,388"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="104">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                     <TextBlock
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="Editar" />
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="Editar" />
 
                 </Button>
 
@@ -265,19 +253,20 @@
                     x:Name="btnEliminar"
                     Grid.Row="0"
                     Grid.Column="1"
+                    Width="104"
                     Height="33"
                     Margin="25,0,10,451"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="104">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                     <TextBlock
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="Eliminar" />
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="Eliminar" />
 
                 </Button>
             </Grid>
