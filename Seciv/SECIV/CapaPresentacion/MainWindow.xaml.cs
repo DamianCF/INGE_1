@@ -55,6 +55,7 @@ namespace CapaPresentacion
             btnInventario.Foreground = Brushes.White;
             btnReportes.Foreground = Brushes.White;
             btnApartados.Foreground = Brushes.White;
+            Grid.Content = new Modulo_Ventas.mainVentasView();
         }
 
         private void btnContabilidad_Click(object sender, RoutedEventArgs e)
