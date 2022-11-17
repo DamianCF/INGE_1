@@ -16,8 +16,7 @@ namespace CapaLogica.LogicaNegocio
         {
 
         }
-        public Producto(string id, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad,
-            double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public Producto(string id, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, decimal prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
         {
             this.id = id;
             this.prd_codigo = prd_codigo;
@@ -32,8 +31,7 @@ namespace CapaLogica.LogicaNegocio
             this.prd_idDecoracion = prd_idDecoracion;
         }
 
-        public Producto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad,
-            double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public Producto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, decimal prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
         {
             this.prd_codigo = prd_codigo;
             this.prd_nombre = prd_nombre;
@@ -68,7 +66,7 @@ namespace CapaLogica.LogicaNegocio
         public double prd_precioCosto { get; set; }
 
         [BsonElement("prd_utilidad")]
-        public double prd_utilidad { get; set; }
+        public decimal prd_utilidad { get; set; }
 
         [BsonElement("prd_precioVenta")]
         public double prd_precioVenta { get; set; }
@@ -79,12 +77,10 @@ namespace CapaLogica.LogicaNegocio
         [BsonElement("prd_cantStock")]
         public int prd_cantStock { get; set; }
 
-        //[BsonRepresentation(BsonType.ObjectId)]
-        [BsonElement("prd_idCategoria")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string prd_idCategoria { get; set; }
 
-        //[BsonRepresentation(BsonType.ObjectId)]
-        [BsonElement("prd_idDecoracion")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string prd_idDecoracion { get; set; }
 
         #endregion

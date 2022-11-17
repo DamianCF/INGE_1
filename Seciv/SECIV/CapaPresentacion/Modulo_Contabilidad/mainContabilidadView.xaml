@@ -223,7 +223,7 @@
                     Background="#FF2D92E6"
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Cursor="Hand">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                             Width="33"

@@ -67,11 +67,10 @@
                             </Border>
 
                             <Button
-                                x:Name="btnVentas"
                                 Width="190"
                                 Height="70"
                                 Margin="0,10"
-                                Style="{StaticResource menuButton}" Click="btnVentas_Click">
+                                Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="94"
@@ -85,11 +84,10 @@
                             </Button>
 
                             <Button
-                                x:Name="btnCompras"
                                 Width="190"
                                 Height="70"
                                 Margin="0,10"
-                                Click="btnCompras_Click"
+                                Click="Button_Click"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
@@ -104,10 +102,9 @@
                             </Button>
 
                             <Button
-                                x:Name="btnInventario"
                                 Width="190"
                                 Height="70"
-                                Style="{StaticResource menuButton}" Click="btnInventario_Click">
+                                Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="90"
@@ -121,11 +118,10 @@
                             </Button>
 
                             <Button
-                                x:Name="btnReportes"
                                 Width="190"
                                 Height="70"
                                 Margin="0,10"
-                                Click="btnContabilidad_Click"
+                                Click="Button_Click_1"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
@@ -140,11 +136,10 @@
                             </Button>
 
                             <Button
-                                x:Name="btnApartados"
                                 Width="190"
                                 Height="70"
                                 Margin="0,10"
-                                Style="{StaticResource menuButton}" Click="btnApartados_Click">
+                                Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="90"
