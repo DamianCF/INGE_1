@@ -104,7 +104,7 @@
                             <Button
                                 Width="190"
                                 Height="70"
-                                Style="{StaticResource menuButton}">
+                                Style="{StaticResource menuButton}" Click="Button_Click_2">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="90"

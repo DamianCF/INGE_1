@@ -172,7 +172,7 @@
                 Height="30"
                 Margin="217,341,0,29"
                 HorizontalAlignment="Left"
-                Content="Agregar" />
+                Content="Agregar" Cursor="Hand" />
 
             <Button
                 Grid.Row="0"
@@ -196,73 +196,78 @@
                 Content="Limpiar" />
 
             <TextBox
+                x:Name="txtCodigo"
                 Margin="36,24,399,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Código"
                 RenderTransformOrigin="0.5,0.5"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
+                x:Name="txtNombre"
                 Margin="36,61,405,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Monto"
+                materialDesign:HintAssist.Hint="Nombre"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <DatePicker
+
+            <TextBox
+                x:Name="txtPrecioCost"
                 Margin="36,103,405,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Fecha"
-                materialDesign:TextFieldAssist.HasClearButton="True"
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-
-            <TextBox
-                Margin="36,153,405,0"
-                VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Descuento"
+                materialDesign:HintAssist.Hint="Precio Costo"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,201,405,0"
+                x:Name="txtUtilidad"
+                Margin="36,145,405,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Impuesto"
+                materialDesign:HintAssist.Hint="Utilidad"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
+                x:Name="txtPrecioVenta"
                 Height="37"
-                Margin="36,248,405,115"
-                materialDesign:HintAssist.Hint="Subtotal"
+                Margin="36,187,405,176"
+                materialDesign:HintAssist.Hint="Precio Venta"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,300,405,0"
+                x:Name="txtIVA"
+                Margin="36,229,405,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Total"
+                materialDesign:HintAssist.Hint="IVA"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
-                Margin="36,343,405,0"
+                x:Name="txtCantidad"
+                Margin="36,271,405,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Proveedor"
+                materialDesign:HintAssist.Hint="Cantidad Stock"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox
+                x:Name="txtDecoracion"
+                Margin="36,313,405,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Decoración"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
 
             <TextBox
+                x:Name="txtDescripcion"
                 Height="100"
-                Margin="227,150,63,150"
+                Margin="227,121,63,179"
                 materialDesign:HintAssist.Hint="Descripcion de productos"
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
                 MaxLength="200"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
-            <TextBox
-                Margin="227,42,63,0"
-                VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Detalle"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <ComboBox
-                Margin="227,98,63,0"
+                x:Name="cmbCategoria"
+                Margin="227,24,63,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Metodo de pago"
+                materialDesign:HintAssist.Hint="Categoria"
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem Content="Efectivo" />
-                <ComboBoxItem Content="Sinpe" />
-                <ComboBoxItem Content="Transferencia" />
-                <ComboBoxItem Content="Cheke" />
+                <ComboBoxItem Content="Peluches" />
+                <ComboBoxItem Content="Fiesta" />
+                <ComboBoxItem Content="Bisutería" />
+                <ComboBoxItem Content="Hogar" />
+                <ComboBoxItem Content="Moda" />
             </ComboBox>
 
         </Grid>
