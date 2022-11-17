@@ -16,6 +16,7 @@
     WindowState="Maximized"
     mc:Ignorable="d">
 
+    
     <Border Background="#EFF2F7" CornerRadius="0">
         <Grid>
             <Grid.ColumnDefinitions>
