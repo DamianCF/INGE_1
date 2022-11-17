@@ -90,10 +90,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modulo_Inventarios\mainInventarios.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modulo_Compras\mainComprasView.xaml.cs">
@@ -101,9 +97,6 @@
     </Compile>
     <Compile Include="Modulo_Contabilidad\mainContabilidadView.xaml.cs">
       <DependentUpon>mainContabilidadView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Inventarios\mainInventarios.xaml.cs">
-      <DependentUpon>mainInventarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -133,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modulo_EnviosyApartados\" />
+    <Folder Include="Modulo_Inventarios\" />
     <Folder Include="Modulo_Ventas\" />
   </ItemGroup>
   <ItemGroup>

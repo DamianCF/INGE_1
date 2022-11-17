@@ -36,10 +36,5 @@ namespace CapaPresentacion
         {
             Grid.Content = new Modulo_Contabilidad.mainContabilidadView();
         }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Grid.Content = new Modulo_Inventarios.mainInventarios();
-        }
     }  
 }
