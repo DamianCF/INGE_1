@@ -16,7 +16,7 @@ namespace CapaLogica.Servicios
 
         }
 
-        static IMongoCollection<Venta> collection = conexion.getDataBase().GetCollection<Venta>("SECIV_venta");
+        static IMongoCollection<Venta> collection = conexion.getDataBase().GetCollection<Venta>("SECIV_ventas");
 
         public void InsertarVenta(Venta c)
         {

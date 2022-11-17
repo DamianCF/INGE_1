@@ -90,7 +90,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Modulo_Inventarios\mainInventarioView.xaml">
+    <Page Include="Modulo_Usuarios\mainUsuarioView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modulo_Ventas\mainVentasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,8 +110,11 @@
     <Compile Include="Modulo_Contabilidad\mainContabilidadView.xaml.cs">
       <DependentUpon>mainContabilidadView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modulo_Inventarios\mainInventarioView.xaml.cs">
-      <DependentUpon>mainInventarioView.xaml</DependentUpon>
+    <Compile Include="Modulo_Usuarios\mainUsuarioView.xaml.cs">
+      <DependentUpon>mainUsuarioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\mainVentasView.xaml.cs">
+      <DependentUpon>mainVentasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="paginaPruebas.xaml.cs">
       <DependentUpon>paginaPruebas.xaml</DependentUpon>
@@ -140,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modulo_EnviosyApartados\" />
-    <Folder Include="Modulo_Ventas\" />
+    <Folder Include="Modulo_Inventarios\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\iconoAzul.ico" />

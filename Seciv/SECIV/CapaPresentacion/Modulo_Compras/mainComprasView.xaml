@@ -10,325 +10,308 @@
     mc:Ignorable="d">
 
 
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Orientation="Horizontal">
+        <Grid
+            Margin="10,10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="FirstColumn" />
+                <ColumnDefinition SharedSizeGroup="SecondColumn" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" SharedSizeGroup="FirstRow" />
+            </Grid.RowDefinitions>
 
-
-    <materialDesign:DrawerHost
-        x:Name="DrawerHost"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        MouseLeftButtonDown="DrawerHost_MouseLeftButtonDown"
-        OverlayBackground="Transparent"
-        RightDrawerCornerRadius="20 0 0 0">
-        <materialDesign:DrawerHost.Style>
-            <Style BasedOn="{StaticResource {x:Type materialDesign:DrawerHost}}" TargetType="materialDesign:DrawerHost">
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding IsChecked, ElementName=BackgroundToggle}" Value="False">
-                        <Setter Property="OverlayBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </materialDesign:DrawerHost.Style>
-
-
-        <materialDesign:DrawerHost.RightDrawerContent>
-            <StackPanel
-                Width="600"
-                Margin="0,30,0,20"
-                Background="#FFFDFDFD">
-                <Grid
-                    Width="600"
-                    Height="450"
-                    Margin="0,30,0,20"
-                    Background="White">
-                    <Button
-                        Width="76"
-                        Height="60"
-                        Margin="10,2,0,388"
-                        HorizontalAlignment="Left"
-                        Background="{x:Null}"
-                        BorderBrush="{x:Null}"
-                        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        CommandParameter="{x:Static Dock.Right}">
-
-                        <materialDesign:PackIcon
-                            Width="72"
-                            Height="47"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Kind="ArrowRight" />
-                    </Button>
-
-                    <Button
-                        x:Name="btnAgregar"
-                        Grid.Row="0"
-                        Width="316"
-                        Height="30"
-                        Margin="237,388,0,32"
-                        HorizontalAlignment="Left"
-                        Click="btnAgregar_Click"
-                        Content="Agregar" Foreground="White" />
-
-                    <Button
-                        x:Name="btnAplicar"
-                        Grid.Row="0"
-                        Width="90"
-                        Height="30"
-                        Margin="463,342,0,78"
-                        HorizontalAlignment="Left"
-                        Click="btnAplicar_Click"
-                        Content="Aplicar" Foreground="White" />
-
-                    <Button
-                        x:Name="BtnEliminar"
-                        Grid.Row="0"
-                        Width="90"
-                        Height="30"
-                        Margin="237,342,0,78"
-                        HorizontalAlignment="Left"
-                        Click="btnEliminar_Click"
-                        Content="Eliminar" Foreground="White" />
-                    <Button
-                        x:Name="btnLimpiar"
-                        Width="90"
-                        Height="30"
-                        Margin="350,342,160,78"
-                        Click="btnLimpiar_Click"
-                        Content="Limpiar" Foreground="White" />
-
-                    <!--  No visibles  -->
-                    <TextBox
-                        x:Name="txtId"
-                        Margin="425,10,10,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Id"
-                        RenderTransformOrigin="0.5,0.5"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Visibility="Hidden" />
-                    <TextBox
-                        x:Name="txtEstado"
-                        Margin="227,10,208,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Estado"
-                        RenderTransformOrigin="0.5,0.5"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Visibility="Hidden" />
-                    <!--  No visibles  -->
-
-
-                    <TextBox
-                        x:Name="txtCodigo"
-                        Margin="36,62,399,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Codigo"
-                        RenderTransformOrigin="0.5,0.5"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
-                        x:Name="txtMonto"
-                        Margin="36,104,405,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Monto"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <DatePicker
-                        x:Name="txtFecha"
-                        Margin="36,146,405,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Fecha"
-                        materialDesign:TextFieldAssist.HasClearButton="True"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-
-                    <TextBox
-                        x:Name="txtDesc"
-                        Margin="36,196,405,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Descuento"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
-                        x:Name="txtImpuesto"
-                        Margin="36,244,405,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Impuesto"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
-                        x:Name="txtSubtotal"
-                        Height="37"
-                        Margin="36,337,405,76"
-                        materialDesign:HintAssist.Hint="Subtotal"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
-                        x:Name="txtTotal"
-                        Margin="36,295,405,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Total"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
-                        x:Name="txtProve"
-                        Margin="255,62,47,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Proveedor"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-
-                    <TextBox
-                        x:Name="txtProducto"
-                        Height="100"
-                        Margin="237,214,42,136"
-                        materialDesign:HintAssist.Hint="Descripcion de productos"
-                        materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
-                        MaxLength="200"
-                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                        TextWrapping="Wrap"
-                        VerticalScrollBarVisibility="Auto" />
-                    <TextBox
-                        x:Name="txtDetalle"
-                        Margin="255,104,47,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Detalle"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <ComboBox
-                        x:Name="txtMetodoPago"
-                        Margin="255,146,44,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Metodo de pago"
-                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                        <ComboBoxItem Content="Efectivo" />
-                        <ComboBoxItem Content="Sinpe" />
-                        <ComboBoxItem Content="Transferencia" />
-                        <ComboBoxItem Content="Cheque" />
-                    </ComboBox>
-
-                </Grid>
-
-            </StackPanel>
-        </materialDesign:DrawerHost.RightDrawerContent>
-
-        <StackPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Orientation="Horizontal">
-            <Grid
-                Margin="10,10"
+            <DataGrid
+                x:Name="dgridCompras"
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="950"
+                Height="600"
+                Padding="0,10"
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition SharedSizeGroup="FirstColumn" />
-                    <ColumnDefinition SharedSizeGroup="SecondColumn" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition SharedSizeGroup="FirstRow" />
-                </Grid.RowDefinitions>
+                VerticalAlignment="Stretch"
+                AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn"
+                MouseUp="dgridCompras_MouseUp" />
 
-                <DataGrid
-                    x:Name="dgridCompras"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Width="950"
-                    Height="700"
-                    Padding="0,10"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn"
-                    IsReadOnly="True"
-                    MouseUp="dgridCompras_MouseUp" />
+            <Button
+                x:Name="btnAgregar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="135,560,0,110"
+                HorizontalAlignment="Left"
+                Click="btnAgregar_Click"
+                Content="Agregar" />
+
+            <Button
+                x:Name="btnActualizar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="135,506,0,164"
+                HorizontalAlignment="Left"
+                Click="btnActualizar_Click"
+                Content="Actualizar" />
+
+            <Button
+                x:Name="BtnEliminar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="25,560,0,110"
+                HorizontalAlignment="Left"
+                Click="BtnEliminar_Click"
+                Content="Eliminar" />
+
+            <Button
+                x:Name="btnLimpiar"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="90"
+                Height="30"
+                Margin="25,506,0,164"
+                HorizontalAlignment="Left"
+                Click="btnLimpiar_Click"
+                Content="Limpiar" />
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,25,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Id" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,40,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Codigo"
+                Cursor="" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,60,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Monto"
+                Cursor="" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,80,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Fecha"
+                Cursor="" />
+            <TextBox
+                x:Name="txtId"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,25,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Text="TextBox"
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txtCodigo"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,40,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Text="TextBox"
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txtMonto"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,60,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Text="TextBox"
+                TextWrapping="Wrap" />
+            <TextBox
+                x:Name="txtFecha"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,80,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Text="TextBox"
+                TextWrapping="Wrap" />
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,109,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Estado"
+                Cursor=""
+                RenderTransformOrigin="2.736,0.207" />
+            <TextBox
+                x:Name="txtEstado"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,110,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="24,146,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Descuento"
+                Cursor=""
+                RenderTransformOrigin="2.736,0.207" />
+            <TextBox
+                x:Name="txtDesc"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,135,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,182,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Impuesto" />
+            <TextBox
+                x:Name="txtImpuesto"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,161,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,213,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Total"
+                RenderTransformOrigin="1.046,1.23" />
+            <TextBox
+                x:Name="txtTotal"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,191,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="25,242,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Subtotal" />
+            <TextBox
+                x:Name="txtSubtotal"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,221,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,271,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Proveedor" />
+            <TextBox
+                x:Name="txtProve"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,251,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,295,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Producto" />
+            <TextBox
+                x:Name="txtProducto"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,281,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,319,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Detalle" />
+            <TextBox
+                x:Name="txtDetalle"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,311,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="30,343,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Metodo Pago" />
+            <TextBox
+                x:Name="txtMetodoPago"
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="120"
+                Margin="120,343,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                TextWrapping="Wrap" />
+
+        </Grid>
+
+
+    </StackPanel>
 
 
 
-                <Button
-                    x:Name="btnActualiza"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="104"
-                    Height="34"
-                    Margin="25,0,10,314"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="Actualizar" />
-
-                </Button>
-
-
-                <Button
-                    x:Name="btnAgrega"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Height="90"
-                    Margin="20,0,0,159"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="20"
-                    Background="#FF2D92E6"
-                    Click="btnAgrega_Click"
-                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon
-                            Width="33"
-                            Height="34"
-                            Kind="Plus" />
-                        <TextBlock
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="Nuevo" />
-                    </StackPanel>
-                </Button>
-
-                <Button
-                    x:Name="btnEdita"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="104"
-                    Height="33"
-                    Margin="25,0,10,388"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnEdita_Click_1">
-
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        Text="Editar" />
-
-                </Button>
-
-                <Button
-                    x:Name="btnElimina"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="104"
-                    Height="33"
-                    Margin="25,0,10,451"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    Click="btnElimina_Click"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
-
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        Text="Eliminar" />
-
-                </Button>
-            </Grid>
-
-        </StackPanel>
-
-    </materialDesign:DrawerHost>
 
 </Page>
 

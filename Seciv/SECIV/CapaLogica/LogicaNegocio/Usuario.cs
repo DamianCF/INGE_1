@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace CapaLogica.LogicaNegocio
 {
@@ -49,24 +50,31 @@ namespace CapaLogica.LogicaNegocio
         public string id { get; set; }
 
         [BsonElement("usu_cedula")]
+        [DisplayName("Cedula")]
         public string usu_cedula { get; set; }
 
         [BsonElement("usu_nombre")]
+        [DisplayName("Nombre")]
         public string usu_nombre { get; set; }
 
         [BsonElement("usu_primerApellido")]
+        [DisplayName("Primer Apellido")]
         public string usu_primerApellido { get; set; }
 
         [BsonElement("usu_segundoApellido")]
+        [DisplayName("Segundo Apellido")]
         public string usu_segundoApellido { get; set; }
 
         [BsonElement("usu_correo")]
+        [DisplayName("Correo")]
         public string usu_correo { get; set; }
 
         [BsonElement("usu_contrasena")]
+        [DisplayName("Contraseña")]
         public string usu_contrasena { get; set; }
 
         [BsonElement("usu_estado")]
+        [DisplayName("Estado")]
         public string usu_estado { get; set; }
 
         #endregion
