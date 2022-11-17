@@ -91,6 +91,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Modulo_Inventarios\mainInventarios.xaml">
+    <Page Include="paginaPruebas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,6 +105,8 @@
     </Compile>
     <Compile Include="Modulo_Inventarios\mainInventarios.xaml.cs">
       <DependentUpon>mainInventarios.xaml</DependentUpon>
+    <Compile Include="paginaPruebas.xaml.cs">
+      <DependentUpon>paginaPruebas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
