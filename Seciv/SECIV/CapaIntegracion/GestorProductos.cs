@@ -20,7 +20,7 @@ namespace CapaIntegracion
 
         }
 
-        public void InsertarProducto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, decimal prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public void InsertarProducto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
         {
             Producto nuevoProducto = new Producto(prd_codigo, prd_nombre, prd_descripcion, prd_precioCosto, prd_utilidad, prd_precioVenta, prd_porcIVA, prd_cantStock, prd_idCategoria, prd_idDecoracion);
 
@@ -36,7 +36,7 @@ namespace CapaIntegracion
             }
         }
 
-        public void ActualizarProducto(string id, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, decimal prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public void ActualizarProducto(string id, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
         {
             Producto ActProducto = new Producto(id, prd_codigo, prd_nombre, prd_descripcion, prd_precioCosto, prd_utilidad, prd_precioVenta, prd_porcIVA, prd_cantStock, prd_idCategoria, prd_idDecoracion);
             using (ServicioProducto Producto = new ServicioProducto())

@@ -13,6 +13,7 @@
     MinHeight="750"
     Icon="/Recursos/iconoAzul.ico"
     WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
     mc:Ignorable="d">
 
     <Border Background="#EFF2F7" CornerRadius="0">
@@ -66,9 +67,11 @@
                             </Border>
 
                             <Button
-                                Width="168"
-                                Height="99"
-                                Style="{StaticResource menuButton}">
+                                x:Name="btnVentas"
+                                Width="190"
+                                Height="70"
+                                Margin="0,10"
+                                Style="{StaticResource menuButton}" Click="btnVentas_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="94"
@@ -82,9 +85,11 @@
                             </Button>
 
                             <Button
+                                x:Name="btnCompras"
                                 Width="190"
-                                Height="99"
-                                Click="Button_Click"
+                                Height="70"
+                                Margin="0,10"
+                                Click="btnCompras_Click"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
@@ -99,9 +104,10 @@
                             </Button>
 
                             <Button
+                                x:Name="btnInventario"
                                 Width="190"
-                                Height="99"
-                                Style="{StaticResource menuButton}">
+                                Height="70"
+                                Style="{StaticResource menuButton}" Click="btnInventario_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="90"
@@ -115,9 +121,11 @@
                             </Button>
 
                             <Button
+                                x:Name="btnReportes"
                                 Width="190"
-                                Height="99"
-                                Click="Button_Click_1"
+                                Height="70"
+                                Margin="0,10"
+                                Click="btnContabilidad_Click"
                                 Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
@@ -132,9 +140,11 @@
                             </Button>
 
                             <Button
+                                x:Name="btnApartados"
                                 Width="190"
-                                Height="99"
-                                Style="{StaticResource menuButton}">
+                                Height="70"
+                                Margin="0,10"
+                                Style="{StaticResource menuButton}" Click="btnApartados_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon
                                         Width="90"
@@ -173,10 +183,10 @@
             </Grid>
 
             <!--  Main Section  -->
-            <Grid Grid.Column="1" Margin="10,102,10,0">
+            <Grid Grid.Column="1" Margin="10,10,10,0">
                 <Frame
                     x:Name="Grid"
-                    Margin="45,0,0,0"
+                    Margin="45,20,5,5"
                     NavigationUIVisibility="Hidden" />
             </Grid>
         </Grid>
