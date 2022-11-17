@@ -26,15 +26,55 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+        private void btnCompras_Click(object sender, RoutedEventArgs e)
         {
+            btnCompras.Foreground = Brushes.MidnightBlue;
+            btnVentas.Foreground = Brushes.White;
+            btnInventario.Foreground = Brushes.White;
+            btnReportes.Foreground = Brushes.White;
+            btnApartados.Foreground = Brushes.White;
             Grid.Content = new Modulo_Compras.mainComprasView();
+
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnInventario_Click(object sender, RoutedEventArgs e)
         {
+            btnCompras.Foreground = Brushes.White;
+            btnVentas.Foreground = Brushes.White;
+            btnInventario.Foreground = Brushes.MidnightBlue;
+            btnReportes.Foreground = Brushes.White;
+            btnApartados.Foreground = Brushes.White;
+            Grid.Content = new Modulo_Inventarios.mainInventarioView();
+        }
+
+        private void btnVentas_Click(object sender, RoutedEventArgs e)
+        {
+            btnCompras.Foreground = Brushes.White;
+            btnVentas.Foreground = Brushes.MidnightBlue;
+            btnInventario.Foreground = Brushes.White;
+            btnReportes.Foreground = Brushes.White;
+            btnApartados.Foreground = Brushes.White;
+        }
+
+        private void btnContabilidad_Click(object sender, RoutedEventArgs e)
+        {
+            btnCompras.Foreground = Brushes.White;
+            btnVentas.Foreground = Brushes.White;
+            btnInventario.Foreground = Brushes.White;
+            btnReportes.Foreground = Brushes.MidnightBlue;
+            btnApartados.Foreground = Brushes.White;
             Grid.Content = new Modulo_Contabilidad.mainContabilidadView();
+        }
+
+        private void btnApartados_Click(object sender, RoutedEventArgs e)
+        {
+            btnCompras.Foreground = Brushes.White;
+            btnVentas.Foreground = Brushes.White;
+            btnInventario.Foreground = Brushes.White;
+            btnReportes.Foreground = Brushes.White;
+            btnApartados.Foreground = Brushes.MidnightBlue;
+            
         }
 
     }  
