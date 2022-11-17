@@ -13,6 +13,7 @@
         x:Name="DrawerHost"
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
+        MouseLeftButtonDown="DrawerHost_MouseLeftButtonDown"
         OverlayBackground="Transparent"
         RightDrawerCornerRadius="20 0 0 0">
         <materialDesign:DrawerHost.Style>
@@ -60,28 +61,45 @@
                         Height="30"
                         Margin="217,341,0,29"
                         HorizontalAlignment="Left"
-                        Content="Agregar" Click="btnAgregar_Click" />
+                        Click="btnAgregar_Click"
+                        Content="Agregar" />
 
                     <Button
+                        x:Name="btnAplicar"
                         Grid.Row="0"
                         Width="90"
                         Height="30"
                         Margin="443,295,0,75"
                         HorizontalAlignment="Left"
-                        Content="Editar" />
+                        Click="btnAplicar_Click"
+                        Content="Aplicar"
+                        Cursor="Hand" />
 
                     <Button
+                        x:Name="btnEliminar"
                         Grid.Row="0"
                         Width="90"
                         Height="30"
                         Margin="217,295,0,75"
                         HorizontalAlignment="Left"
-                        Content="Eliminar" />
+                        Content="Eliminar"
+                        Cursor="Hand" Click="btnEliminar_Click" />
                     <Button
+                        x:Name="btnLimpiar"
                         Width="90"
                         Height="30"
                         Margin="330,295,180,75"
-                        Content="Limpiar" />
+                        Content="Limpiar" Click="btnLimpiar_Click" />
+
+                    <TextBox
+                        x:Name="txtId"
+                        Margin="425,10,10,0"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint="Id"
+                        RenderTransformOrigin="0.5,0.5"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Visibility="Hidden" />
+
 
                     <TextBox
                         x:Name="txtCodigo"
@@ -187,12 +205,14 @@
                     Height="700"
                     Padding="0,10"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch" />
+                    VerticalAlignment="Stretch"
+                    AutoGeneratingColumn="dgridInventarios_AutoGeneratingColumn"
+                    MouseUp="dgridInventarios_MouseUp" />
 
 
 
                 <Button
-                    x:Name="btnActualizarr"
+                    x:Name="btnActualiza"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="104"
@@ -222,6 +242,7 @@
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="20"
                     Background="#FF2D92E6"
+                    Click="btnAgrega_Click"
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
                     Cursor="Hand"
@@ -240,7 +261,7 @@
                 </Button>
 
                 <Button
-                    x:Name="btnEditar"
+                    x:Name="btnEdita"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="104"
@@ -249,7 +270,9 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
+                    Click="btnEdita_Click"
                     CommandParameter="{x:Static Dock.Right}"
+                    Cursor="Hand"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                     <TextBlock
@@ -261,7 +284,7 @@
                 </Button>
 
                 <Button
-                    x:Name="btnEliminar"
+                    x:Name="btnElimina"
                     Grid.Row="0"
                     Grid.Column="1"
                     Width="104"
@@ -270,7 +293,9 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
+                    Click="btnElimina_Click"
                     CommandParameter="{x:Static Dock.Right}"
+                    Cursor="Hand"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                     <TextBlock

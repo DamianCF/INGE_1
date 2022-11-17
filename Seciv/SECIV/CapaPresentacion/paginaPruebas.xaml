@@ -79,6 +79,7 @@
                 materialDesign:HintAssist.Hint="Id"
                 RenderTransformOrigin="0.5,0.5"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" Visibility="Hidden" />
+            
             <TextBox
                 x:Name="txtEstado"
                 Margin="227,10,208,0"
