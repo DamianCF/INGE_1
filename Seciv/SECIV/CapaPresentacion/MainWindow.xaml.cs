@@ -45,6 +45,7 @@ namespace CapaPresentacion
             btnInventario.Foreground = Brushes.MidnightBlue;
             btnReportes.Foreground = Brushes.White;
             btnApartados.Foreground = Brushes.White;
+            Grid.Content = new Modulo_Inventarios.mainInventarioView();
         }
 
         private void btnVentas_Click(object sender, RoutedEventArgs e)
@@ -58,14 +59,23 @@ namespace CapaPresentacion
 
         private void btnContabilidad_Click(object sender, RoutedEventArgs e)
         {
-            //Grid.Content = new Modulo_Inventarios.mainInventarioView();
             btnCompras.Foreground = Brushes.White;
             btnVentas.Foreground = Brushes.White;
             btnInventario.Foreground = Brushes.White;
             btnReportes.Foreground = Brushes.MidnightBlue;
             btnApartados.Foreground = Brushes.White;
-           // Grid.Content = new Modulo_Contabilidad.mainContabilidadView();
+            Grid.Content = new Modulo_Contabilidad.mainContabilidadView();
         }
+
+        private void btnApartados_Click(object sender, RoutedEventArgs e)
+        {
+            btnCompras.Foreground = Brushes.White;
+            btnVentas.Foreground = Brushes.White;
+            btnInventario.Foreground = Brushes.White;
+            btnReportes.Foreground = Brushes.White;
+            btnApartados.Foreground = Brushes.MidnightBlue;
             
+        }
+
     }  
 }

@@ -227,10 +227,10 @@
                 Content="Limpiar" />
 
             <TextBox
-                x:Name="txtCodigo"
+                x:Name="txtCodigos"
                 Margin="36,24,399,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Código"
+                materialDesign:HintAssist.Hint="Codigo"
                 RenderTransformOrigin="0.5,0.5"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
