@@ -54,12 +54,10 @@ namespace CapaPresentacion.Modulo_Compras
             //Grid.Content = new Modulo_Compras.detalleCompraView();
 
             //Window.GetWindow(this).Close();  // IMPORTANTE
-            Window.GetWindow(this).Content = new Modulo_Compras.detalleCompraView();
+            //Window.GetWindow(this).Content = new Modulo_Compras.detalleCompraView();
 
+            NavigationService.Navigate(new Modulo_Compras.detalleCompraView());
 
-            // cambiar al page detalleCompraView
-            //MainWindow main = new MainWindow();
-            //main.detalleCompra();
         }
 
         public void ListarCompras()

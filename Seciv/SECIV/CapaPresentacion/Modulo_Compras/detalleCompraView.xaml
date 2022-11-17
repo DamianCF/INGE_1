@@ -292,7 +292,7 @@
             Height="30"
             Margin="195,308,0,362"
             HorizontalAlignment="Left"
-            Content="Atras" />
+            Content="Atras" Click="btnAtras_Click" />
 
     </Grid>
 </Page>

@@ -25,5 +25,9 @@ namespace CapaPresentacion.Modulo_Compras
             InitializeComponent();
         }
 
+        private void btnAtras_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Modulo_Compras.mainComprasView());
+        }
     }
 }
