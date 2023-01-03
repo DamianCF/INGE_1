@@ -82,10 +82,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Modulo_Compras\detalleCompraView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Modulo_Compras\mainComprasView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,20 +90,38 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modulo_Inventarios\mainInventarioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modulo_Usuarios\mainUsuarioView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modulo_Ventas\mainVentasView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="paginaPruebas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modulo_Compras\detalleCompraView.xaml.cs">
-      <DependentUpon>detalleCompraView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Modulo_Compras\mainComprasView.xaml.cs">
       <DependentUpon>mainComprasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Contabilidad\mainContabilidadView.xaml.cs">
       <DependentUpon>mainContabilidadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Inventarios\mainInventarioView.xaml.cs">
+      <DependentUpon>mainInventarioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Usuarios\mainUsuarioView.xaml.cs">
+      <DependentUpon>mainUsuarioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\mainVentasView.xaml.cs">
+      <DependentUpon>mainVentasView.xaml</DependentUpon>
     </Compile>
     <Compile Include="paginaPruebas.xaml.cs">
       <DependentUpon>paginaPruebas.xaml</DependentUpon>
@@ -140,8 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modulo_EnviosyApartados\" />
-    <Folder Include="Modulo_Inventarios\" />
-    <Folder Include="Modulo_Ventas\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recursos\iconoAzul.ico" />

@@ -27,6 +27,8 @@ namespace CapaPresentacion.Modulo_Compras
         {
             InitializeComponent();
             ListarCompras();
+            btnEdita.IsEnabled = false;
+            btnElimina.IsEnabled = false;
         }
 
         public void insertarCompra()
@@ -40,25 +42,7 @@ namespace CapaPresentacion.Modulo_Compras
         }
 
 
-        private void btnAgregar_Click(object sender, RoutedEventArgs e)
-        {
-            //string idFact = insertarFactCompra();
-            //if (idFact != "-1")
-            //{
-            //    insertarCompra(idFact);
-            //}
-            //insertarCompra();
-            //ListarCompras();
-
-
-            //Grid.Content = new Modulo_Compras.detalleCompraView();
-
-            //Window.GetWindow(this).Close();  // IMPORTANTE
-            //Window.GetWindow(this).Content = new Modulo_Compras.detalleCompraView();
-
-            NavigationService.Navigate(new Modulo_Compras.detalleCompraView());
-
-        }
+        
 
         public void ListarCompras()
         {
@@ -100,28 +84,14 @@ namespace CapaPresentacion.Modulo_Compras
         private void dgridCompras_MouseUp(object sender, MouseButtonEventArgs e)
         {
             cargarTxts();
+
+            btnEdita.IsEnabled = true;
+            btnElimina.IsEnabled = true;
         }
 
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorCompras Compra = new GestorCompras())
-            {
-                //Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtIDFACT.Text ,txtEstado.Text);
-            }
-            ListarCompras();
-        }
+
         
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorCompras Compra = new GestorCompras())
-            {
-                if (txtId.Text != "")
-                {
-                    Compra.EliminarCompra(txtId.Text);
-                }
-            }
-            ListarCompras();
-        }
+        
 
         private void LimpiarTxts()
         {
@@ -131,11 +101,15 @@ namespace CapaPresentacion.Modulo_Compras
             txtFecha.Text = "";
             txtEstado.Text = "";
             txtDesc.Text = "";
+            txtImpuesto.Text = "";
+            txtTotal.Text = "";
+            txtSubtotal.Text = "";
+            txtProve.Text = "";
+            txtProducto.Text = "";
+            txtDetalle.Text = "";
+            txtMetodoPago.Text = "";   
         }
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            LimpiarTxts();
-        }
+      
 
         private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -144,6 +118,7 @@ namespace CapaPresentacion.Modulo_Compras
             e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
         }
 
+     
 
 
 
@@ -158,5 +133,93 @@ namespace CapaPresentacion.Modulo_Compras
         //}
 
         #endregion
+
+       
+
+        
+        //-----------------------------Botones en main de compras------------------------------------
+        private void btnAgrega_Click(object sender, RoutedEventArgs e)
+        {
+            btnAplicar.IsEnabled = false;
+            BtnEliminar.IsEnabled = false;
+            btnAplicar.IsEnabled = false;
+            LimpiarTxts();
+        }
+
+        private void btnElimina_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorCompras Compra = new GestorCompras())
+            {
+                if (txtId.Text != "")
+                {
+                    Compra.EliminarCompra(txtId.Text);
+                }
+            }
+            ListarCompras();
+        }
+        private void btnEdita_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //-----------------------Botones en el drawer de compras--------------------------------------------
+        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            //string idFact = insertarFactCompra();
+            //if (idFact != "-1")
+            //{
+            //    insertarCompra(idFact);
+            //}
+
+            if (txtCodigo.Text != "" && txtMonto.Text != "" && txtFecha.Text != "" && txtEstado.Text != "" && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
+            {
+                insertarCompra();
+                ListarCompras();
+                LimpiarTxts();
+            }
+            else
+            {
+                MessageBox.Show("Debe llenar todos los campos");
+
+            }
+ 
+        }
+
+        private void btnAplicar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorCompras Compra = new GestorCompras())
+            {
+                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
+                //(string id, string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
+                //string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
+            }
+            ListarCompras();
+        }
+        private void DrawerHost_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DrawerHost.RightDrawerCloseOnClickAway = false;
+        }
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            LimpiarTxts();
+        }
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorCompras Compra = new GestorCompras())
+            {
+                if (txtId.Text != "")
+                {
+                    Compra.EliminarCompra(txtId.Text);
+                }
+            }
+            ListarCompras();
+        }
+
+        private void btnEdita_Click_1(object sender, RoutedEventArgs e)
+        {
+            btnAplicar.IsEnabled = true;
+            BtnEliminar.IsEnabled = true;
+            btnAplicar.IsEnabled = true;
+        }
     }
 }
