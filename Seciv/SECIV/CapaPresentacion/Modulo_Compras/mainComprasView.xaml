@@ -31,6 +31,8 @@
 
 
         <materialDesign:DrawerHost.RightDrawerContent>
+
+
             <StackPanel
                 Width="600"
                 Margin="0,30,0,20"
@@ -130,6 +132,7 @@
                         x:Name="txtMonto"
                         Margin="36,104,405,0"
                         VerticalAlignment="Top"
+                        materialDesign:TextFieldAssist.PrefixText="?"
                         materialDesign:HintAssist.Hint="Monto"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <DatePicker
@@ -156,12 +159,14 @@
                         x:Name="txtSubtotal"
                         Height="37"
                         Margin="36,337,405,76"
+                        materialDesign:TextFieldAssist.PrefixText="?"
                         materialDesign:HintAssist.Hint="Subtotal"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtTotal"
                         Margin="36,295,405,0"
                         VerticalAlignment="Top"
+                        materialDesign:TextFieldAssist.PrefixText="?"
                         materialDesign:HintAssist.Hint="Total"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
@@ -205,136 +210,209 @@
             </StackPanel>
         </materialDesign:DrawerHost.RightDrawerContent>
 
-        <StackPanel
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Orientation="Horizontal">
-            <Grid
-                Margin="10,10"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition SharedSizeGroup="FirstColumn" />
-                    <ColumnDefinition SharedSizeGroup="SecondColumn" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition SharedSizeGroup="FirstRow" />
-                </Grid.RowDefinitions>
 
-                <DataGrid
-                    x:Name="dgridCompras"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Width="950"
-                    Height="700"
-                    Padding="0,10"
+        <materialDesign:DialogHost >
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="25">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Alert" Foreground="#FFCC512C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" Width="40" Height="40"  />
+                        <TextBlock Text="Se eliminara el objeto seleccionado" FontSize="16" Margin="0,10,0,0"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button
+                            Margin="0,8,8,0"
+                            Click="btnEliminar_Click"
+                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                            Content="Aceptar"
+                            IsDefault="True"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    True
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                        </Button>
+                        <Button
+                            Margin="0,8,8,0"
+                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                            Content="Cancelar"
+                            IsCancel="True"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                            <Button.CommandParameter>
+                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                    False
+                                </system:Boolean>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Grid
+                    Margin="10,10"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn"
-                    IsReadOnly="True"
-                    MouseUp="dgridCompras_MouseUp" />
+                    VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="FirstColumn" />
+                        <ColumnDefinition SharedSizeGroup="SecondColumn" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="FirstRow" />
+                    </Grid.RowDefinitions>
+
+                    <DataGrid
+                        x:Name="dgridCompras"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Width="950"
+                        Height="700"
+                        Padding="0,10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn"
+                        IsReadOnly="True"
+                        MouseUp="dgridCompras_MouseUp" />
 
 
+                    <Button
+                        x:Name="btnActualiza"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="104"
+                        Height="34"
+                        Margin="25,0,10,314"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        materialDesign:ButtonAssist.CornerRadius="8"
+                        CommandParameter="{x:Static Dock.Right}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
-                <Button
-                    x:Name="btnActualiza"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="104"
-                    Height="34"
-                    Margin="25,0,10,314"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="Actualizar" />
 
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="Actualizar" />
-
-                </Button>
+                    </Button>
 
 
-                <Button
-                    x:Name="btnAgrega"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Height="90"
-                    Margin="20,0,0,159"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="20"
-                    Background="#FF2D92E6"
-                    Click="btnAgrega_Click"
-                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon
-                            Width="33"
-                            Height="34"
-                            Kind="Plus" />
+                    <Button
+                        x:Name="btnAgrega"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Height="90"
+                        Margin="20,0,0,159"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        materialDesign:ButtonAssist.CornerRadius="20"
+                        Background="#FF2D92E6"
+                        Click="btnAgrega_Click"
+                        Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Right}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="33"
+                                Height="34"
+                                Kind="Plus" />
+                            <TextBlock
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Text="Nuevo" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        x:Name="btnEdita"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="104"
+                        Height="33"
+                        Margin="25,0,10,388"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        materialDesign:ButtonAssist.CornerRadius="8"
+                        Click="btnEdita_Click_1"
+                        Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                        CommandParameter="{x:Static Dock.Right}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}">
+
                         <TextBlock
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             FontSize="18"
-                            Text="Nuevo" />
-                    </StackPanel>
-                </Button>
+                            Text="Editar" />
 
-                <Button
-                    x:Name="btnEdita"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="104"
-                    Height="33"
-                    Margin="25,0,10,388"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    Click="btnEdita_Click_1"
-                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                    </Button>
 
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        Text="Editar" />
 
-                </Button>
 
-                <Button
-                    x:Name="btnElimina"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="104"
-                    Height="33"
-                    Margin="25,0,10,451"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    Click="btnElimina_Click"
-                    CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                    <!--<materialDesign:DialogHost Grid.Row="0" Grid.Column="1">
 
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="18"
-                        Text="Eliminar" />
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="16">
+                            <TextBlock Text="Add a new fruit." />
+                            <TextBox
+                                x:Name="FruitTextBox"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Stretch" />
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                <Button
+                                    Margin="0,8,8,0"
+                                    Click="btnEliminar_Click"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                    Content="ACCEPT"
+                                    IsDefault="True"
+                                    Style="{StaticResource MaterialDesignFlatButton}">
+                                    <Button.CommandParameter>
+                                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                            True
+                                        </system:Boolean>
+                                    </Button.CommandParameter>
+                                </Button>
+                                <Button
+                                    Margin="0,8,8,0"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                    Content="CANCEL"
+                                    IsCancel="True"
+                                    Style="{StaticResource MaterialDesignFlatButton}">
+                                    <Button.CommandParameter>
+                                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                            False
+                                        </system:Boolean>
+                                    </Button.CommandParameter>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>-->
 
-                </Button>
-            </Grid>
+                    <Button
+                        x:Name="btnElimina"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="104"
+                        Height="33"
+                        Margin="25,0,10,451"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        materialDesign:ButtonAssist.CornerRadius="8"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
-        </StackPanel>
-
+                        <TextBlock
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Text="Eliminar" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </materialDesign:DialogHost>
     </materialDesign:DrawerHost>
-
 </Page>
 
 

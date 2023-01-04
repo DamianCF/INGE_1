@@ -78,7 +78,7 @@ namespace CapaLogica.LogicaNegocio
         public string com_estado { get; set; }
 
         [BsonElement("com_nombreProveedor")]
-        [DisplayName("NombreProveedor")]
+        [DisplayName("Proveedor")]
         public string com_nombreProveedor { get; set; }
 
         [BsonElement("com_productos")]

@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace CapaPresentacion.Modulo_Compras
 {
     /// <summary>
@@ -171,7 +172,7 @@ namespace CapaPresentacion.Modulo_Compras
             //    insertarCompra(idFact);
             //}
 
-            if (txtCodigo.Text != "" && txtMonto.Text != "" && txtFecha.Text != "" && txtEstado.Text != "" && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
+            if (txtCodigo.Text != "" && txtMonto.Text != "" && txtFecha.Text != ""  && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
             {
                 insertarCompra();
                 ListarCompras();
@@ -202,6 +203,8 @@ namespace CapaPresentacion.Modulo_Compras
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             LimpiarTxts();
+            CapaPresentacion.MainWindow main = new CapaPresentacion.MainWindow();
+            Console.WriteLine(main.randomCode());
         }
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
