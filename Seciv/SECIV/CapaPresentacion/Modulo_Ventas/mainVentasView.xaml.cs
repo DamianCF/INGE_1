@@ -23,6 +23,7 @@ namespace CapaPresentacion.Modulo_Ventas
     /// </summary>
     public partial class mainVentasView : Page
     {
+        public bool actualizar = false;
         public mainVentasView()
         {
             InitializeComponent();
@@ -48,10 +49,18 @@ namespace CapaPresentacion.Modulo_Ventas
 
         public void ListarVentas()
         {
-            using (GestorVentas Ventas = new GestorVentas())
+            if (actualizar)
             {
-                dgridVentas.ItemsSource = Ventas.ListarVentas();
-
+                using (GestorVentas Ventas = new GestorVentas())
+                {
+                    Singleton.Instance.ventas = Ventas.ListarVentas();// actualizo ventas en singleton 
+                    dgridVentas.ItemsSource = Singleton.Instance.ventas;// cargo ventas en pantalla
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridVentas.ItemsSource = Singleton.Instance.ventas;
             }
             cargarTxts();
         }
@@ -92,6 +101,7 @@ namespace CapaPresentacion.Modulo_Ventas
                 Venta.ActualizarVentas(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
                     CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
             }
+            actualizar = true;
             ListarVentas();
         }
 

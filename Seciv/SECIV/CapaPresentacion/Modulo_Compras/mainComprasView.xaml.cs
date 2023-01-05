@@ -23,6 +23,7 @@ namespace CapaPresentacion.Modulo_Compras
     /// </summary>
     public partial class mainComprasView : Page
     {
+        public bool actualizar = false;
         public mainComprasView()
         {
             InitializeComponent();
@@ -42,21 +43,30 @@ namespace CapaPresentacion.Modulo_Compras
         }
 
 
-        
+
 
         public void ListarCompras()
         {
-            using (GestorCompras Compra = new GestorCompras())
+            if (actualizar)
             {
-                dgridCompras.ItemsSource = Compra.ListarCompras();
+                using (GestorCompras Compra = new GestorCompras())
+                {
+                    Singleton.Instance.compras = Compra.ListarCompras();
+                    dgridCompras.ItemsSource = Singleton.Instance.compras;
 
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridCompras.ItemsSource = Singleton.Instance.compras;
             }
             cargarTxts();
         }
 
         private void cargarTxts()
         {
-            
+
             if (dgridCompras.Items.Count > 0)
             {
                 Compra compra = (Compra)dgridCompras.SelectedItem;
@@ -90,8 +100,8 @@ namespace CapaPresentacion.Modulo_Compras
         }
 
 
-        
-        
+
+
 
         private void LimpiarTxts()
         {
@@ -107,9 +117,9 @@ namespace CapaPresentacion.Modulo_Compras
             txtProve.Text = "";
             txtProducto.Text = "";
             txtDetalle.Text = "";
-            txtMetodoPago.Text = "";   
+            txtMetodoPago.Text = "";
         }
-      
+
 
         private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -118,7 +128,7 @@ namespace CapaPresentacion.Modulo_Compras
             e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
         }
 
-     
+
 
 
 
@@ -134,9 +144,9 @@ namespace CapaPresentacion.Modulo_Compras
 
         #endregion
 
-       
 
-        
+
+
         //-----------------------------Botones en main de compras------------------------------------
         private void btnAgrega_Click(object sender, RoutedEventArgs e)
         {
@@ -182,17 +192,18 @@ namespace CapaPresentacion.Modulo_Compras
                 MessageBox.Show("Debe llenar todos los campos");
 
             }
- 
+
         }
 
         private void btnAplicar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
+                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text, txtProve.Text, txtProducto.Text, txtDetalle.Text, txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
                 //(string id, string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
                 //string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
             }
+            actualizar = true;
             ListarCompras();
         }
         private void DrawerHost_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
