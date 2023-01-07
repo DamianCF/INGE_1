@@ -11,7 +11,7 @@
 
 
 
-
+    <!--  Aqui se ubica el DrawerHost que es una plantilla para que se de el efecto de una pantalla emergente de lado derecho  -->
     <materialDesign:DrawerHost
         x:Name="DrawerHost"
         HorizontalAlignment="Stretch"
@@ -32,7 +32,12 @@
 
         <materialDesign:DrawerHost.RightDrawerContent>
 
-
+            <!--
+                Este stackpanel contiene la pantalla que emerge de lado derecho de la pantalla
+                Debe considerar que por efectos de la plantilla no se puede observar el contenido del stackpanel,
+                por lo tanto hay una pagina de pruebas donde estan todas las pantallas para hacer modificaciones de ser necesario,
+                si se hacen dichos cambios debe copiar el codigo XAML y pegarlo a continuacion
+            -->
             <StackPanel
                 Width="600"
                 Margin="0,30,0,20"
@@ -126,14 +131,15 @@
                         Margin="36,62,399,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Codigo"
+                        IsEnabled="False"
                         RenderTransformOrigin="0.5,0.5"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtMonto"
                         Margin="36,104,405,0"
                         VerticalAlignment="Top"
-                        materialDesign:TextFieldAssist.PrefixText="?"
                         materialDesign:HintAssist.Hint="Monto"
+                        materialDesign:TextFieldAssist.PrefixText="?"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <DatePicker
                         x:Name="txtFecha"
@@ -159,15 +165,15 @@
                         x:Name="txtSubtotal"
                         Height="37"
                         Margin="36,337,405,76"
-                        materialDesign:TextFieldAssist.PrefixText="?"
                         materialDesign:HintAssist.Hint="Subtotal"
+                        materialDesign:TextFieldAssist.PrefixText="?"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtTotal"
                         Margin="36,295,405,0"
                         VerticalAlignment="Top"
-                        materialDesign:TextFieldAssist.PrefixText="?"
                         materialDesign:HintAssist.Hint="Total"
+                        materialDesign:TextFieldAssist.PrefixText="?"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtProve"
@@ -211,12 +217,22 @@
         </materialDesign:DrawerHost.RightDrawerContent>
 
 
-        <materialDesign:DialogHost >
+        <materialDesign:DialogHost>
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="25">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <materialDesign:PackIcon Kind="Alert" Foreground="#FFCC512C" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" Width="40" Height="40"  />
-                        <TextBlock Text="Se eliminara el objeto seleccionado" FontSize="16" Margin="0,10,0,0"/>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="#FFCC512C"
+                            Kind="Alert" />
+                        <TextBlock
+                            Margin="0,10,0,0"
+                            FontSize="16"
+                            Text="Se eliminara el objeto seleccionado" />
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                         <Button

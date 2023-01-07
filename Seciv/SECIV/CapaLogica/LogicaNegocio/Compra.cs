@@ -17,8 +17,8 @@ namespace CapaLogica.LogicaNegocio
         {
 
         }
-
-        public Compra(string id, string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
+        
+        public Compra(string id, int com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
             string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
         {
             this.id = id;
@@ -36,10 +36,9 @@ namespace CapaLogica.LogicaNegocio
             this.com_subTotal = com_subTotal;
         }
 
-        public Compra(string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
+        public Compra( double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
             string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
         {
-            this.com_codigo = com_codigo;
             this.com_monto = com_monto;
             this.com_fecha = com_fecha;
             this.com_estado = com_estado;
@@ -63,7 +62,7 @@ namespace CapaLogica.LogicaNegocio
 
         [BsonElement("com_codigo")]
         [DisplayName("Código")]
-        public string com_codigo { get; set; }
+        public int com_codigo { get; set; }
 
         [BsonElement("com_monto")]
         [DisplayName("Monto")]

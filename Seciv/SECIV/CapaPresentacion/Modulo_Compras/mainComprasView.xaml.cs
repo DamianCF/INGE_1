@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,20 +33,29 @@ namespace CapaPresentacion.Modulo_Compras
             btnElimina.IsEnabled = false;
         }
 
+
+        //Metodo que controla los tipos de datos que se ingresan en los textbox
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+
         public void insertarCompra()
         {
 
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.InsertarCompra(txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,
+                Compra.InsertarCompra( Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,
                     txtProve.Text, txtProducto.Text, txtDetalle.Text, txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
+                
             }
         }
 
+       
 
-        
-
-        public void ListarCompras()
+    public void ListarCompras()
         {
             using (GestorCompras Compra = new GestorCompras())
             {
@@ -66,7 +76,7 @@ namespace CapaPresentacion.Modulo_Compras
                     compra = (Compra)dgridCompras.Items.GetItemAt(0);
                 }
                 txtId.Text = compra.id;
-                txtCodigo.Text = compra.com_codigo;
+                txtCodigo.Text = compra.com_codigo.ToString();
                 txtMonto.Text = compra.com_monto.ToString();
                 txtFecha.Text = compra.com_fecha;
                 txtEstado.Text = compra.com_estado;
@@ -90,9 +100,6 @@ namespace CapaPresentacion.Modulo_Compras
             btnElimina.IsEnabled = true;
         }
 
-
-        
-        
 
         private void LimpiarTxts()
         {
@@ -172,7 +179,7 @@ namespace CapaPresentacion.Modulo_Compras
             //    insertarCompra(idFact);
             //}
 
-            if (txtCodigo.Text != "" && txtMonto.Text != "" && txtFecha.Text != ""  && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
+            if (txtMonto.Text != "" && txtFecha.Text != ""  && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
             {
                 insertarCompra();
                 ListarCompras();
@@ -181,7 +188,6 @@ namespace CapaPresentacion.Modulo_Compras
             else
             {
                 MessageBox.Show("Debe llenar todos los campos");
-
             }
  
         }
@@ -190,7 +196,7 @@ namespace CapaPresentacion.Modulo_Compras
         {
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.ActualizarCompra(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
+                Compra.ActualizarCompra(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
                 //(string id, string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
                 //string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
             }
