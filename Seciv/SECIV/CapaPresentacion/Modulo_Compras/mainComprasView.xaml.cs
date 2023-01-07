@@ -42,9 +42,6 @@ namespace CapaPresentacion.Modulo_Compras
             }
         }
 
-
-
-
         public void ListarCompras()
         {
             if (actualizar)
@@ -98,10 +95,6 @@ namespace CapaPresentacion.Modulo_Compras
             btnEdita.IsEnabled = true;
             btnElimina.IsEnabled = true;
         }
-
-
-
-
 
         private void LimpiarTxts()
         {
@@ -165,6 +158,7 @@ namespace CapaPresentacion.Modulo_Compras
                     Compra.EliminarCompra(txtId.Text);
                 }
             }
+            actualizar = true;
             ListarCompras();
         }
         private void btnEdita_Click(object sender, RoutedEventArgs e)
@@ -184,6 +178,7 @@ namespace CapaPresentacion.Modulo_Compras
             if (txtCodigo.Text != "" && txtMonto.Text != "" && txtFecha.Text != "" && txtEstado.Text != "" && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
             {
                 insertarCompra();
+                actualizar = true;
                 ListarCompras();
                 LimpiarTxts();
             }
@@ -223,6 +218,7 @@ namespace CapaPresentacion.Modulo_Compras
                     Compra.EliminarCompra(txtId.Text);
                 }
             }
+            actualizar= true;
             ListarCompras();
         }
 
@@ -231,6 +227,12 @@ namespace CapaPresentacion.Modulo_Compras
             btnAplicar.IsEnabled = true;
             BtnEliminar.IsEnabled = true;
             btnAplicar.IsEnabled = true;
+        }
+
+        private void btnActualiza_Click(object sender, RoutedEventArgs e)
+        {
+            actualizar= true;
+            ListarCompras();
         }
     }
 }

@@ -44,6 +44,7 @@ namespace CapaPresentacion.Modulo_Ventas
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             insertarVenta();
+            actualizar= true;
             ListarVentas();
         }
 
@@ -114,6 +115,7 @@ namespace CapaPresentacion.Modulo_Ventas
                     Venta.EliminarVenta(txtId.Text);
                 }
             }
+            actualizar= true;
             ListarVentas();
         }
 
@@ -154,6 +156,7 @@ namespace CapaPresentacion.Modulo_Ventas
                     Venta.EliminarVenta(txtId.Text);
                 }
             }
+            actualizar = true;
             ListarVentas();
         }
 
@@ -164,7 +167,8 @@ namespace CapaPresentacion.Modulo_Ventas
 
         private void btnActualizarr_Click(object sender, RoutedEventArgs e)
         {
-
+            actualizar = true;
+            ListarVentas();
         }
     }
 }

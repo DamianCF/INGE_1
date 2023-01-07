@@ -45,6 +45,15 @@ namespace CapaPresentacion
             {
                 Singleton.Instance.compras = Compra.ListarCompras();
             }
+            using (GestorProductos Producto = new GestorProductos())
+            {
+                Singleton.Instance.productos = Producto.ListarProductos();
+            }
+            using (GestorUsuarios Usuario = new GestorUsuarios())
+            {
+                Singleton.Instance.usuarios = Usuario.ListarUsuarios();
+            }
+
             pgrsBar.IsIndeterminate = false;
             pgrsBar.Visibility = Visibility.Hidden;
 

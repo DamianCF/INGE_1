@@ -15,12 +15,17 @@ namespace CapaPresentacion
             public string estadoUsuario = "";
             public List<Venta> ventas = null;
             public List<Compra> compras = null;
+            public List<Producto> productos = null; // inventario
+            public List<Usuario> usuarios = null;
+
 
         protected Singleton()
-            {
-                estadoUsuario = "A";
-                ventas = null;
-                compras = null;
+        {
+            estadoUsuario = "A";
+            ventas = null;
+            compras = null;
+            productos = null;
+            usuarios = null;
         }
 
         public static Singleton Instance
