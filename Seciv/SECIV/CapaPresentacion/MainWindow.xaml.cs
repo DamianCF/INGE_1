@@ -41,10 +41,10 @@ namespace CapaPresentacion
             {
                 Singleton.Instance.ventas = Ventas.ListarVentas();
             }
-            using (GestorCompras Compra = new GestorCompras())
-            {
-                Singleton.Instance.compras = Compra.ListarCompras();
-            }
+            //using (GestorCompras Compra = new GestorCompras())
+            //{
+            //    Singleton.Instance.compras = Compra.ListarCompras();
+            //}
             using (GestorProductos Producto = new GestorProductos())
             {
                 Singleton.Instance.productos = Producto.ListarProductos();
