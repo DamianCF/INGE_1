@@ -48,7 +48,7 @@ namespace CapaPresentacion.Modulo_Compras
             using (GestorCompras Compra = new GestorCompras())
             {
                 Compra.InsertarCompra( Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,
-                    txtProve.Text, txtProducto.Text, txtDetalle.Text, txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
+                    txtProve.Text, txtProducto.Text, txtDetalle.Text, txtMetodoPago.Text, Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
                 
             }
         }
@@ -79,8 +79,7 @@ namespace CapaPresentacion.Modulo_Compras
                 txtCodigo.Text = compra.com_codigo.ToString();
                 txtMonto.Text = compra.com_monto.ToString();
                 txtFecha.Text = compra.com_fecha;
-                txtEstado.Text = compra.com_estado;
-                txtDesc.Text = compra.com_descuento.ToString();
+                txtEstado.Text = compra.com_estado;        
                 txtImpuesto.Text = compra.com_impuesto.ToString();
                 txtTotal.Text = compra.com_total.ToString();
                 txtSubtotal.Text = compra.com_subTotal.ToString();
@@ -108,7 +107,6 @@ namespace CapaPresentacion.Modulo_Compras
             txtMonto.Text = "";
             txtFecha.Text = "";
             txtEstado.Text = "";
-            txtDesc.Text = "";
             txtImpuesto.Text = "";
             txtTotal.Text = "";
             txtSubtotal.Text = "";
@@ -179,7 +177,7 @@ namespace CapaPresentacion.Modulo_Compras
             //    insertarCompra(idFact);
             //}
 
-            if (txtMonto.Text != "" && txtFecha.Text != ""  && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text != "" && txtDesc.Text != "" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
+            if (txtMonto.Text != "" && txtFecha.Text != ""  && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text !="" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
             {
                 insertarCompra();
                 ListarCompras();
@@ -196,7 +194,7 @@ namespace CapaPresentacion.Modulo_Compras
         {
             using (GestorCompras Compra = new GestorCompras())
             {
-                Compra.ActualizarCompra(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtDesc.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
+                Compra.ActualizarCompra(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtImpuesto.Text), Double.Parse(txtTotal.Text), Double.Parse(txtSubtotal.Text));
                 //(string id, string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
                 //string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
             }
@@ -230,5 +228,29 @@ namespace CapaPresentacion.Modulo_Compras
             BtnEliminar.IsEnabled = true;
             btnAplicar.IsEnabled = true;
         }
+
+        //Este metodo se encarga de restringir el ingreso de letras en el textbox
+  
+
+        private void txtMonto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
+
+            txtTotal.Text = txtMonto.Text;
+        }
+
     }
 }

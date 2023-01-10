@@ -19,7 +19,7 @@ namespace CapaLogica.LogicaNegocio
         }
         
         public Compra(string id, int com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
-            string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
+            string com_metodoPago, Double com_impuesto, Double com_total, Double com_subTotal)
         {
             this.id = id;
             this.com_codigo = com_codigo;
@@ -30,14 +30,13 @@ namespace CapaLogica.LogicaNegocio
             this.com_productos = com_productos;
             this.com_detalle = com_detalle;
             this.com_metodoPago = com_metodoPago;
-            this.com_descuento = com_descuento;
             this.com_impuesto = com_impuesto;
             this.com_total = com_total;
             this.com_subTotal = com_subTotal;
         }
 
         public Compra( double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
-            string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
+            string com_metodoPago, Double com_impuesto, Double com_total, Double com_subTotal)
         {
             this.com_monto = com_monto;
             this.com_fecha = com_fecha;
@@ -46,7 +45,6 @@ namespace CapaLogica.LogicaNegocio
             this.com_productos = com_productos;
             this.com_detalle = com_detalle;
             this.com_metodoPago = com_metodoPago;
-            this.com_descuento = com_descuento;
             this.com_impuesto = com_impuesto;
             this.com_total = com_total;
             this.com_subTotal = com_subTotal;
@@ -91,10 +89,6 @@ namespace CapaLogica.LogicaNegocio
         [BsonElement("com_metodoPago")]
         [DisplayName("MetodoPago")]
         public string com_metodoPago { get; set; }
-
-        [BsonElement("com_descuento")]
-        [DisplayName("Descuento")]
-        public Double com_descuento { get; set; }
 
         [BsonElement("com_impuesto")]
         [DisplayName("Impuesto")]

@@ -47,6 +47,15 @@
                     Height="450"
                     Margin="0,30,0,20"
                     Background="White">
+                    <Label
+                        Width="166"
+                        Height="32"
+                        Margin="0,15,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Content="Facturas de compras"
+                        FontSize="16"
+                        FontWeight="Bold" />
                     <Button
                         Width="76"
                         Height="60"
@@ -63,6 +72,24 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Kind="ArrowRight" />
+                    </Button>
+
+                    <Button
+                        Width="26"
+                        Height="27"
+                        Margin="550,10,0,0"
+                        Padding="0,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        HorizontalContentAlignment="Right"
+                        Background="#00000000"
+                        BorderBrush="#00000000">
+                        <materialDesign:PackIcon
+                            Width="32"
+                            Height="28"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="HelpCircle" />
                     </Button>
 
                     <Button
@@ -125,13 +152,12 @@
                         Visibility="Hidden" />
                     <!--  No visibles  -->
 
-
                     <TextBox
                         x:Name="txtCodigo"
                         Margin="36,62,399,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Codigo"
-                        IsEnabled="False"
+                        IsReadOnly="True"
                         RenderTransformOrigin="0.5,0.5"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
@@ -139,8 +165,10 @@
                         Margin="36,104,405,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Monto"
-                        materialDesign:TextFieldAssist.PrefixText="?"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        materialDesign:TextFieldAssist.SuffixText="colones"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        TextChanged="txtMonto_TextChanged" />
+
                     <DatePicker
                         x:Name="txtFecha"
                         Margin="36,146,405,0"
@@ -150,30 +178,26 @@
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
                     <TextBox
-                        x:Name="txtDesc"
-                        Margin="36,196,405,0"
-                        VerticalAlignment="Top"
-                        materialDesign:HintAssist.Hint="Descuento"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox
                         x:Name="txtImpuesto"
-                        Margin="36,244,405,0"
+                        Margin="36,195,405,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Impuesto"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Text="0" />
                     <TextBox
                         x:Name="txtSubtotal"
-                        Height="37"
-                        Margin="36,337,405,76"
+                        Margin="36,244,405,0"
+                        VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Subtotal"
-                        materialDesign:TextFieldAssist.PrefixText="?"
+                        materialDesign:TextFieldAssist.SuffixText="colones"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtTotal"
                         Margin="36,295,405,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Total"
-                        materialDesign:TextFieldAssist.PrefixText="?"
+                        materialDesign:TextFieldAssist.SuffixText="colones"
+                        IsReadOnly="True"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtProve"
@@ -181,8 +205,6 @@
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Proveedor"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-
                     <TextBox
                         x:Name="txtProducto"
                         Height="100"
@@ -210,7 +232,6 @@
                         <ComboBoxItem Content="Transferencia" />
                         <ComboBoxItem Content="Cheque" />
                     </ComboBox>
-
                 </Grid>
 
             </StackPanel>
