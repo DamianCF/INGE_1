@@ -152,9 +152,12 @@
                         Visibility="Hidden" />
                     <!--  No visibles  -->
 
+
+
+
                     <TextBox
                         x:Name="txtCodigo"
-                        Margin="36,62,399,0"
+                        Margin="37,86,398,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Codigo"
                         IsReadOnly="True"
@@ -162,53 +165,62 @@
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtMonto"
-                        Margin="36,104,405,0"
-                        VerticalAlignment="Top"
+                        Margin="37,0,398,0"
+                        VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Monto"
                         materialDesign:TextFieldAssist.SuffixText="colones"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         TextChanged="txtMonto_TextChanged" />
+                    <ToggleButton
+                        x:Name="tbtnIva"
+                        Width="25"
+                        Height="25"
+                        Margin="177,260,398,165"
+                        materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=CloseCircle}"
+                        Click="tbtnIva_Click"
+                        Content="{materialDesign:PackIcon Kind=Pencil}"
+                        Style="{StaticResource MaterialDesignActionToggleButton}"
+                        ToolTip="MaterialDesignActionLightToggleButton" />
 
                     <DatePicker
                         x:Name="txtFecha"
-                        Margin="36,146,405,0"
+                        Margin="37,128,398,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Fecha"
                         materialDesign:TextFieldAssist.HasClearButton="True"
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-
                     <TextBox
                         x:Name="txtImpuesto"
-                        Margin="36,195,405,0"
+                        Margin="37,248,449,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Impuesto"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Text="0" />
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtSubtotal"
-                        Margin="36,244,405,0"
+                        Margin="37,297,398,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Subtotal"
                         materialDesign:TextFieldAssist.SuffixText="colones"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox
                         x:Name="txtTotal"
-                        Margin="36,295,405,0"
+                        Margin="37,348,398,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Total"
                         materialDesign:TextFieldAssist.SuffixText="colones"
                         IsReadOnly="True"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
                     <TextBox
                         x:Name="txtProve"
-                        Margin="255,62,47,0"
+                        Margin="237,62,47,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Proveedor"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
                     <TextBox
                         x:Name="txtProducto"
-                        Height="100"
-                        Margin="237,214,42,136"
+                        Margin="237,225,42,136"
                         materialDesign:HintAssist.Hint="Descripcion de productos"
                         materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
                         MaxLength="200"
@@ -217,13 +229,13 @@
                         VerticalScrollBarVisibility="Auto" />
                     <TextBox
                         x:Name="txtDetalle"
-                        Margin="255,104,47,0"
+                        Margin="237,104,47,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Detalle"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <ComboBox
                         x:Name="txtMetodoPago"
-                        Margin="255,146,44,0"
+                        Margin="237,146,44,0"
                         VerticalAlignment="Top"
                         materialDesign:HintAssist.Hint="Metodo de pago"
                         Style="{StaticResource MaterialDesignFloatingHintComboBox}">

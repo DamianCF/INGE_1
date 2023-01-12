@@ -31,6 +31,15 @@ namespace CapaPresentacion.Modulo_Compras
             ListarCompras();
             btnEdita.IsEnabled = false;
             btnElimina.IsEnabled = false;
+            
+            txtSubtotal.Text = "0";
+            txtTotal.Text = "0";
+            txtMonto.Text = "0";
+
+            txtTotal.IsReadOnly = true;
+            txtImpuesto.IsReadOnly = true;
+            txtSubtotal.IsReadOnly = true;
+
         }
 
 
@@ -249,8 +258,31 @@ namespace CapaPresentacion.Modulo_Compras
             textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
                 selectionStart : textBox.Text.Length;
 
-            txtTotal.Text = txtMonto.Text;
+            //txtTotal.Text = txtMonto.Text;
+            
+            var textoMonto = txtMonto.Text;
+            if (textoMonto != "" && tbtnIva.IsChecked == false)
+            {
+                txtImpuesto.Text = (Double.Parse(txtMonto.Text) * 0.13).ToString();
+                txtTotal.Text = txtMonto.Text;
+                txtSubtotal.Text = (Double.Parse(txtMonto.Text) - Double.Parse(txtImpuesto.Text)).ToString();
+            }
+            
+
+            
         }
 
+        private void tbtnIva_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbtnIva.IsChecked == true)
+            {
+                txtImpuesto.IsReadOnly = false;    
+            }
+            else
+                txtImpuesto.IsReadOnly = true;
+            }
+
+        
     }
 }
+
