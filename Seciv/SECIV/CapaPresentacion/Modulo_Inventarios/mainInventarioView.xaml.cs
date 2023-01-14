@@ -67,5 +67,18 @@ namespace CapaPresentacion.Modulo_Inventarios
             }
             //cargarTxts();
         }
+
+        private void btnCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            GridProducto.Visibility= Visibility.Collapsed;
+            GridCategorias.Visibility= Visibility.Visible;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridCategorias.Visibility= Visibility.Collapsed;
+            GridProducto.Visibility= Visibility.Visible;
+        }
     }
 }

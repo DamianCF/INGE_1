@@ -30,7 +30,7 @@
                 Width="600"
                 Margin="0,30,0,20"
                 Background="#FFFDFDFD">
-                <Grid
+                <Grid x:Name="GridProducto"
                     Width="600"
                     Margin="0,30,0,20"
                     Background="White">
@@ -159,14 +159,45 @@
                     </ComboBox>
 
                 </Grid>
-
+                <Grid x:Name="GridCategorias" Height="100" Background="#FFF00E0E" />
             </StackPanel>
         </materialDesign:DrawerHost.RightDrawerContent>
 
         <StackPanel
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Orientation="Horizontal">
+            Orientation="Vertical">
+            <Grid
+               
+                Margin="10,10"
+                HorizontalAlignment="Stretch" Height="33">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition SharedSizeGroup="FirstColumn" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition SharedSizeGroup="FirstRow" />
+                </Grid.RowDefinitions>
+                <Button
+                    x:Name="btnCategorias"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="120"
+                    Height="34"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    materialDesign:ButtonAssist.CornerRadius="8"
+                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnCategorias_Click">
+
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="Categorias" />
+
+                </Button>
+            </Grid>
             <Grid
                 Margin="10,10"
                 HorizontalAlignment="Stretch"
@@ -201,6 +232,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
+                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
@@ -225,7 +257,7 @@
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
                     Cursor="Hand"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="Button_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon
                             Width="33"
