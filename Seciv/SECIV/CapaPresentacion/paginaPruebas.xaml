@@ -156,6 +156,7 @@
                 materialDesign:HintAssist.Hint="Fecha"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <Rectangle Fill="#FF2196F3" Margin="59,192,424,257"/>
             <TextBox
                 x:Name="txtImpuesto"
                 Margin="37,248,449,0"
