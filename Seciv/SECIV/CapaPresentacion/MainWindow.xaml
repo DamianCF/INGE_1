@@ -187,6 +187,10 @@
 
             <!--  Main Section  -->
             <Grid Grid.Column="1" Margin="10,10,10,0">
+                <ProgressBar x:Name="pgrsBar"
+                  IsIndeterminate="True"
+                  Style="{StaticResource MaterialDesignCircularProgressBar}"
+                  Value="35" />
                 <Frame
                     x:Name="Grid"
                     Margin="45,20,5,5"

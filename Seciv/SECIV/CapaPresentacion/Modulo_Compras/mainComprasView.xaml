@@ -247,7 +247,7 @@
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnActualiza_Click">
 
                     <TextBlock
                         HorizontalAlignment="Left"
