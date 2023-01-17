@@ -66,7 +66,8 @@
                         Margin="237,388,0,32"
                         HorizontalAlignment="Left"
                         Click="btnAgregar_Click"
-                        Content="Agregar" Foreground="White" />
+                        Content="Agregar"
+                        Foreground="White" />
 
                     <Button
                         x:Name="btnAplicar"
@@ -76,7 +77,8 @@
                         Margin="463,342,0,78"
                         HorizontalAlignment="Left"
                         Click="btnAplicar_Click"
-                        Content="Aplicar" Foreground="White" />
+                        Content="Aplicar"
+                        Foreground="White" />
 
                     <Button
                         x:Name="BtnEliminar"
@@ -86,14 +88,16 @@
                         Margin="237,342,0,78"
                         HorizontalAlignment="Left"
                         Click="btnEliminar_Click"
-                        Content="Eliminar" Foreground="White" />
+                        Content="Eliminar"
+                        Foreground="White" />
                     <Button
                         x:Name="btnLimpiar"
                         Width="90"
                         Height="30"
                         Margin="350,342,160,78"
                         Click="btnLimpiar_Click"
-                        Content="Limpiar" Foreground="White" />
+                        Content="Limpiar"
+                        Foreground="White" />
 
                     <!--  No visibles  -->
                     <TextBox
@@ -291,9 +295,10 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
+                    Click="btnEdita_Click_1"
                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnEdita_Click_1">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                     <TextBlock
                         HorizontalAlignment="Left"
