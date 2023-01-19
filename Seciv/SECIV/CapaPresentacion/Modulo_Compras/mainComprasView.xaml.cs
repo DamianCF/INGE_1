@@ -40,7 +40,6 @@ namespace CapaPresentacion.Modulo_Compras
             txtTotal.IsReadOnly = true;
             txtImpuesto.IsReadOnly = true;
             txtSubtotal.IsReadOnly = true;
-
         }
 
 
@@ -54,13 +53,14 @@ namespace CapaPresentacion.Modulo_Compras
 
         public void insertarCompra()
         {
-
             using (GestorCompras Compra = new GestorCompras())
             {
                 Compra.InsertarCompra( Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,
                     txtProve.Text, txtProducto.Text, txtDetalle.Text, txtMetodoPago.Text, Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text));
-                
-            }
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Compra registrada con exito";
+            }    
         }
 
        
@@ -136,7 +136,7 @@ namespace CapaPresentacion.Modulo_Compras
 
      
 
-
+        
 
         #region FacturasCompras
 
@@ -173,6 +173,7 @@ namespace CapaPresentacion.Modulo_Compras
             }
             ListarCompras();
         }
+        
         private void btnEdita_Click(object sender, RoutedEventArgs e)
         {
 
@@ -189,11 +190,13 @@ namespace CapaPresentacion.Modulo_Compras
             }
             else
             {
-                MessageBox.Show("Debe llenar todos los campos");
+                alrtCampos.Visibility = Visibility.Visible;
+                alrtConfirmacion.Visibility = Visibility.Collapsed;             
+                nmAlerta.Text = "Debe llenar todos los campos"; 
             }
- 
+            
         }
-
+  
         private void btnAplicar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorCompras Compra = new GestorCompras())
@@ -201,19 +204,23 @@ namespace CapaPresentacion.Modulo_Compras
                 Compra.ActualizarCompra(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtEstado.Text,txtProve.Text,txtProducto.Text,txtDetalle.Text,txtMetodoPago.Text, Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text));
                 //(string id, string com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
                 //string com_metodoPago, Double com_descuento, Double com_impuesto, Double com_total, Double com_subTotal)
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Cambios aplicados correctamente";
             }
             ListarCompras();
         }
+        
         private void DrawerHost_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DrawerHost.RightDrawerCloseOnClickAway = false;
         }
+        
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             LimpiarTxts();
-            CapaPresentacion.MainWindow main = new CapaPresentacion.MainWindow();
-            Console.WriteLine(main.randomCode());
         }
+        
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorCompras Compra = new GestorCompras())
@@ -261,21 +268,23 @@ namespace CapaPresentacion.Modulo_Compras
                 txtImpuesto.Text = (Double.Parse(txtMonto.Text) * 0.13).ToString();
                 txtTotal.Text = txtMonto.Text;
                 txtSubtotal.Text = (Double.Parse(txtMonto.Text) - Double.Parse(txtImpuesto.Text)).ToString();
-            }
-            
-
-            
+            }  
         }
 
         private void tbtnIva_Click(object sender, RoutedEventArgs e)
         {
             if (tbtnIva.IsChecked == true)
             {
-                txtImpuesto.IsReadOnly = false;    
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Asegurese de ingresar los datos correctos \r\n para  evitar futuros calculos incorrectos";
+                txtImpuesto.IsReadOnly = false;
+                txtSubtotal.IsReadOnly = false;
             }
             else
                 txtImpuesto.IsReadOnly = true;
-            }
+            txtSubtotal.IsReadOnly = true;
+        }
 
         private void txtImpuesto_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -288,7 +297,6 @@ namespace CapaPresentacion.Modulo_Compras
             {
                 if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
             }
-
             textBox.Text = newText;
 
             textBox.SelectionStart = selectionStart <= textBox.Text.Length ?

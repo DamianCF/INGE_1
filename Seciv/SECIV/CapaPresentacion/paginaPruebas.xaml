@@ -156,7 +156,7 @@
                 materialDesign:HintAssist.Hint="Fecha"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-            <Rectangle Fill="#FF2196F3" Margin="59,192,424,257"/>
+            <Rectangle Margin="59,192,424,257" Fill="#FF2196F3" />
             <TextBox
                 x:Name="txtImpuesto"
                 Margin="37,248,449,0"
@@ -345,7 +345,122 @@
             </ComboBox>
 
         </Grid>
+
+        <!--  Alertas  -->
+
+        <!--  Eliminar  -->
+        <StackPanel Margin="25" Background="Snow">
+            <StackPanel x:Name="alrtEliminar">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="40"
+                        Height="40"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#FFCC512C"
+                        Kind="Alert" />
+                    <TextBlock
+                        Margin="0,10,0,0"
+                        FontSize="16"
+                        Text="Se eliminara el objeto seleccionado" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        Margin="0,8,8,0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        Content="Aceptar"
+                        IsDefault="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                True
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                    <Button
+                        Margin="0,8,8,0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        Content="Cancelar"
+                        IsCancel="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!--  Aviso: campos incompletos  -->
+        <StackPanel x:Name="alrtAlerta" Background="Snow">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="#FFCC512C"
+                    Kind="AlertCircle" />
+                <TextBlock
+                    Margin="0,10,0,0"
+                    FontSize="16"
+                    Text="Debe llenar todos los campos" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button
+                    Margin="0,8,8,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="Aceptar"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <Separator />
+
+        <!--  Aviso: accion relizada con exito  -->
+        <StackPanel x:Name="alrtConfirmacion" Background="Snow">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="#FF65B724"
+                    Kind="CheckboxMarkedCircle" />
+                <TextBlock
+                    x:Name="nmAlerta"
+                    Margin="0,10,0,0"
+                    FontSize="16"
+                    Text="" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button
+                    Margin="0,8,8,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="Aceptar"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+
     </StackPanel>
-
-
 </Page>

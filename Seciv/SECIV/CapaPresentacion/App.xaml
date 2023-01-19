@@ -18,14 +18,12 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-
                 <materialDesign:CustomColorTheme
                     BaseTheme="Light"
                     PrimaryColor="#2196f3"
                     SecondaryColor="#4fc3f7" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
 
             <Style x:Key="topButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />
@@ -146,7 +144,6 @@
                 </Setter>
             </Style>
 
-
             <Style x:Key="addButton" TargetType="Button">
                 <Setter Property="Background" Value="#6741D9" />
                 <Setter Property="Foreground" Value="#ffffff" />
@@ -174,7 +171,6 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
 
             <Style x:Key="tabButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />
@@ -204,7 +200,6 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
 
             <Style
                 x:Key="filterTextBox"
@@ -241,7 +236,6 @@
                 </Setter>
             </Style>
 
-
             <Style x:Key="pagingButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="Foreground" Value="#6C7682" />
@@ -272,10 +266,6 @@
                 </Style.Triggers>
             </Style>
 
-
-
-
-
             <Style x:Key="gridEditButton" TargetType="Button">
                 <Setter Property="Background" Value="#512DA8" />
                 <Setter Property="BorderBrush" Value="#4A148C" />
@@ -302,7 +292,6 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
 
             <Style
                 x:Key="gridRemoveButton"

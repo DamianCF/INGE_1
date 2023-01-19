@@ -41,10 +41,12 @@
 
             <materialDesign:DialogHost>
                 <materialDesign:DialogHost.DialogContent>
-                    <StackPanel Margin="25">
-                        <StackPanel x:Name="alrtAlerta">
+                    <StackPanel x:Name="alertas" Margin="25">
+                        <!--  Avisod de faltan campos  -->
+                        <StackPanel x:Name="alrtCampos">
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <materialDesign:PackIcon
+                                    x:Name="iconoDialogo"
                                     Width="40"
                                     Height="40"
                                     Margin="0,0,10,0"
@@ -56,6 +58,38 @@
                                     Margin="0,10,0,0"
                                     FontSize="16"
                                     Text="Debe llenar todos los campos" />
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button
+                                    Margin="0,8,8,0"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                    Content="Aceptar"
+                                    IsCancel="True"
+                                    Style="{StaticResource MaterialDesignFlatButton}">
+                                    <Button.CommandParameter>
+                                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                            False
+                                        </system:Boolean>
+                                    </Button.CommandParameter>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel x:Name="alrtConfirmacion">
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    Width="40"
+                                    Height="40"
+                                    Margin="0,0,10,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="#FF65B724"
+                                    Kind="CheckboxMarkedCircle" />
+                                <TextBlock
+                                    x:Name="nmAlerta"
+                                    Margin="0,10,0,0"
+                                    FontSize="16"
+                                    Text="" />
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <Button
@@ -157,6 +191,7 @@
                             Margin="463,342,0,78"
                             HorizontalAlignment="Left"
                             Click="btnAplicar_Click"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                             Content="Aplicar"
                             Foreground="White" />
                         <Button
@@ -232,6 +267,7 @@
                             Margin="177,260,398,165"
                             materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=CloseCircle}"
                             Click="tbtnIva_Click"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                             Content="{materialDesign:PackIcon Kind=Pencil}"
                             Style="{StaticResource MaterialDesignActionToggleButton}"
                             ToolTip="MaterialDesignActionLightToggleButton" />
@@ -286,7 +322,6 @@
                 </StackPanel>
             </materialDesign:DialogHost>
         </materialDesign:DrawerHost.RightDrawerContent>
-
 
         <materialDesign:DialogHost>
             <materialDesign:DialogHost.DialogContent>
@@ -358,12 +393,19 @@
                         Grid.Column="0"
                         Width="950"
                         Height="700"
-                        Padding="0,10"
+                        Padding="10,10,10,10"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn"
                         IsReadOnly="True"
-                        MouseUp="dgridCompras_MouseUp" />
+                        MouseUp="dgridCompras_MouseUp">
+                        <DataGrid.Resources>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FF2196F3" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
 
                     <Button
                         x:Name="btnActualiza"
