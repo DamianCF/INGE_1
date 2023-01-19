@@ -53,6 +53,10 @@ namespace CapaPresentacion
             {
                 Singleton.Instance.usuarios = Usuario.ListarUsuarios();
             }
+            using (GestorCategorias Categoria = new GestorCategorias())
+            {
+                Singleton.Instance.categorias = Categoria.ListarCategorias();
+            }
 
             pgrsBar.IsIndeterminate = false;
             pgrsBar.Visibility = Visibility.Hidden;

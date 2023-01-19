@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestorApartados.cs" />
+    <Compile Include="GestorCategorias.cs" />
     <Compile Include="GestorCierreCajas.cs" />
     <Compile Include="GestorCompras.cs" />
     <Compile Include="GestorDecoraciones.cs" />

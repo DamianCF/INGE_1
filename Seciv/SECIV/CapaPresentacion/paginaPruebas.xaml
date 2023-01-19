@@ -305,6 +305,97 @@
             </ComboBox>
 
         </Grid>
+
+
+        <!--  Categorias  -->
+        <Grid
+            Width="600"
+            Height="450"
+            Background="White">
+            <Button
+                Width="76"
+                Height="60"
+                Margin="10,2,0,388"
+                HorizontalAlignment="Left"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                CommandParameter="{x:Static Dock.Right}">
+
+                <materialDesign:PackIcon
+                    Width="72"
+                    Height="47"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="ArrowRight" />
+            </Button>
+            <!--
+            <Button
+                x:Name="btnAgregar"
+                Grid.Row="0"
+                Width="316"
+                Height="30"
+                Margin="237,388,0,32"
+                HorizontalAlignment="Left"
+                Content="Agregar" />
+
+            <Button
+                x:Name="btnEditar"
+                Grid.Row="0"
+                Width="90"
+                Height="30"
+                Margin="463,342,0,78"
+                HorizontalAlignment="Left"
+                Content="Editar" />
+
+            <Button
+                x:Name="BtnEliminar"
+                Grid.Row="0"
+                Width="90"
+                Height="30"
+                Margin="237,342,0,78"
+                HorizontalAlignment="Left"
+                Content="Eliminar" />
+            <Button
+                x:Name="btnLimpiar"
+                Width="90"
+                Height="30"
+                Margin="350,342,160,78"
+                Content="Limpiar" />
+
+            -->
+            <!--  No visibles  -->
+            <TextBox
+                Margin="73,67,209,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Buscar Cartegoria"
+                RenderTransformOrigin="0.5,0.5"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto"
+                />
+
+            <Button
+                Width="167"
+                Height="30"
+                Margin="411,17,0,403"
+                HorizontalAlignment="Left"
+                Content="Agregar Categoria" />
+
+            <DataGrid
+                    x:Name="dgridCategorias"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="0,10" Margin="73,142,209,29" />
+
+
+
+        </Grid>
+
+
+        <!--  Categorias  -->
+
+
     </StackPanel>
 
 

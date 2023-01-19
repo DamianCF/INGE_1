@@ -17,6 +17,7 @@ namespace CapaPresentacion
             public List<Compra> compras = null;
             public List<Producto> productos = null; // inventario
             public List<Usuario> usuarios = null;
+            public List<Categoria> categorias = null;
 
 
         protected Singleton()
@@ -26,6 +27,7 @@ namespace CapaPresentacion
             compras = null;
             productos = null;
             usuarios = null;
+            categorias= null;
         }
 
         public static Singleton Instance

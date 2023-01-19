@@ -26,6 +26,7 @@ namespace CapaPresentacion.Modulo_Inventarios
         {
             InitializeComponent();
             ListarProductos();
+            ListarCategorias();
         }
         
         public void InsertarProducto()
@@ -67,6 +68,27 @@ namespace CapaPresentacion.Modulo_Inventarios
             }
             //cargarTxts();
         }
+
+        public void ListarCategorias()
+        {
+            if (actualizar)
+            {
+                using (GestorCategorias Categoria = new GestorCategorias())
+                {
+                    Singleton.Instance.categorias = Categoria.ListarCategorias();
+                    dgridCategorias.ItemsSource = Singleton.Instance.categorias;
+
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridCategorias.ItemsSource = Singleton.Instance.categorias;
+            }
+            //cargarTxts();
+        }
+
+
 
         private void btnCategorias_Click(object sender, RoutedEventArgs e)
         {
