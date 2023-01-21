@@ -67,10 +67,10 @@ namespace CapaPresentacion.Modulo_Inventarios
                 dgridInventarios.ItemsSource = Singleton.Instance.productos;
             }
             //cargarTxts();
-        }
-
+        }
+
         public void ListarCategorias()
-        {
+        {
             if (actualizar)
             {
                 using (GestorCategorias Categoria = new GestorCategorias())
@@ -86,21 +86,21 @@ namespace CapaPresentacion.Modulo_Inventarios
                 dgridCategorias.ItemsSource = Singleton.Instance.categorias;
             }
             //cargarTxts();
-        }
-
-
-
-        private void btnCategorias_Click(object sender, RoutedEventArgs e)
-        {
-            GridProducto.Visibility= Visibility.Collapsed;
-            GridCategorias.Visibility= Visibility.Visible;
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            GridCategorias.Visibility= Visibility.Collapsed;
-            GridProducto.Visibility= Visibility.Visible;
-        }
+        }
+
+
+
+        private void btnCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            GridProducto.Visibility= Visibility.Collapsed;
+            GridCategorias.Visibility= Visibility.Visible;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridCategorias.Visibility= Visibility.Collapsed;
+            GridProducto.Visibility= Visibility.Visible;
+        }
     }
 }

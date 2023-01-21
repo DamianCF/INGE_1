@@ -168,7 +168,7 @@
                             Margin="15,0,15,20"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
-                            Style="{StaticResource userButton}">
+                            Style="{StaticResource userButton}" Click="Button_Click">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
                                     Width="48"
