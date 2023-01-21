@@ -19,7 +19,17 @@
         <Grid
             Width="600"
             Height="450"
+            Margin="0,30,0,20"
             Background="White">
+            <Label
+                Width="166"
+                Height="32"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Content="Facturas de compras"
+                FontSize="16"
+                FontWeight="Bold" />
             <Button
                 Width="76"
                 Height="60"
@@ -39,22 +49,42 @@
             </Button>
 
             <Button
+                Width="26"
+                Height="27"
+                Margin="550,10,0,0"
+                Padding="0,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Background="#00000000"
+                BorderBrush="#00000000">
+                <materialDesign:PackIcon
+                    Width="32"
+                    Height="28"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="HelpCircle" />
+            </Button>
+
+            <Button
                 x:Name="btnAgregar"
                 Grid.Row="0"
                 Width="316"
                 Height="30"
                 Margin="237,388,0,32"
                 HorizontalAlignment="Left"
-                Content="Agregar" />
+                Content="Agregar"
+                Foreground="White" />
 
             <Button
-                x:Name="btnEditar"
+                x:Name="btnAplicar"
                 Grid.Row="0"
                 Width="90"
                 Height="30"
                 Margin="463,342,0,78"
                 HorizontalAlignment="Left"
-                Content="Editar" />
+                Content="Aplicar"
+                Foreground="White" />
 
             <Button
                 x:Name="BtnEliminar"
@@ -63,13 +93,15 @@
                 Height="30"
                 Margin="237,342,0,78"
                 HorizontalAlignment="Left"
-                Content="Eliminar" />
+                Content="Eliminar"
+                Foreground="White" />
             <Button
                 x:Name="btnLimpiar"
                 Width="90"
                 Height="30"
                 Margin="350,342,160,78"
-                Content="Limpiar" />
+                Content="Limpiar"
+                Foreground="White" />
 
             <!--  No visibles  -->
             <TextBox
@@ -91,51 +123,62 @@
             <!--  No visibles  -->
 
 
+
+
             <TextBox
                 x:Name="txtCodigo"
-                Margin="36,62,399,0"
+                Margin="37,86,398,0"
                 VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Código"
+                materialDesign:HintAssist.Hint="Codigo"
+                IsReadOnly="True"
                 RenderTransformOrigin="0.5,0.5"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
                 x:Name="txtMonto"
-                Margin="36,104,405,0"
-                VerticalAlignment="Top"
+                Margin="37,0,398,0"
+                VerticalAlignment="Center"
                 materialDesign:HintAssist.Hint="Monto"
+                materialDesign:TextFieldAssist.SuffixText="colones"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <ToggleButton
+                Width="25"
+                Height="25"
+                Margin="177,260,398,165"
+                materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=CloseCircle}"
+                Content="{materialDesign:PackIcon Kind=Pencil}"
+                Style="{StaticResource MaterialDesignActionToggleButton}"
+                ToolTip="MaterialDesignActionLightToggleButton" />
+
             <DatePicker
                 x:Name="txtFecha"
-                Margin="36,146,405,0"
+                Margin="37,128,398,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Fecha"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-
-            <TextBox
-                x:Name="txtDesc"
-                Margin="36,196,405,0"
-                VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Descuento"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Rectangle Margin="59,192,424,257" Fill="#FF2196F3" />
             <TextBox
                 x:Name="txtImpuesto"
-                Margin="36,244,405,0"
+                Margin="37,248,449,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Impuesto"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
                 x:Name="txtSubtotal"
-                Height="37"
-                Margin="36,337,405,76"
+                Margin="37,297,398,0"
+                VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Subtotal"
+                materialDesign:TextFieldAssist.SuffixText="colones"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox
                 x:Name="txtTotal"
-                Margin="36,295,405,0"
+                Margin="37,348,398,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Total"
+                materialDesign:TextFieldAssist.SuffixText="colones"
+                IsReadOnly="True"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
             <TextBox
                 x:Name="txtProve"
                 Margin="255,62,47,0"
@@ -143,11 +186,9 @@
                 materialDesign:HintAssist.Hint="Proveedor"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-
             <TextBox
                 x:Name="txtProducto"
-                Height="100"
-                Margin="237,214,42,136"
+                Margin="237,225,42,136"
                 materialDesign:HintAssist.Hint="Descripcion de productos"
                 materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
                 MaxLength="200"
@@ -169,9 +210,8 @@
                 <ComboBoxItem Content="Efectivo" />
                 <ComboBoxItem Content="Sinpe" />
                 <ComboBoxItem Content="Transferencia" />
-                <ComboBoxItem Content="Cheke" />
+                <ComboBoxItem Content="Cheque" />
             </ComboBox>
-
         </Grid>
 
 
@@ -305,7 +345,209 @@
             </ComboBox>
 
         </Grid>
+        <!--  Categorias  -->
+        <Grid
+            Width="600"
+            Height="450"
+            Background="White">
+            <Button
+                Width="76"
+                Margin="10,2,0,388"
+                Height="60"
+                HorizontalAlignment="Left"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                CommandParameter="{x:Static Dock.Right}">
+
+                <materialDesign:PackIcon
+                    Width="72"
+                    Height="47"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="ArrowRight" />
+            </Button>
+            <!--
+            <Button
+                x:Name="btnAgregar"
+                Grid.Row="0"
+                Width="316"
+                Height="30"
+                Margin="237,388,0,32"
+                HorizontalAlignment="Left"
+                Content="Agregar" />
+
+            <Button
+                x:Name="btnEditar"
+                Grid.Row="0"
+                Width="90"
+                Height="30"
+                Margin="463,342,0,78"
+                HorizontalAlignment="Left"
+                Content="Editar" />
+
+            <Button
+                x:Name="BtnEliminar"
+                Grid.Row="0"
+                Width="90"
+                Height="30"
+                Margin="237,342,0,78"
+                HorizontalAlignment="Left"
+                Content="Eliminar" />
+            <Button
+                x:Name="btnLimpiar"
+                Width="90"
+                Height="30"
+                Margin="350,342,160,78"
+                Content="Limpiar" />
+
+            -->
+            <!--  No visibles  -->
+            <TextBox
+                Margin="73,67,209,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Buscar Cartegoria"
+                RenderTransformOrigin="0.5,0.5"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto"
+                />
+
+            <Button
+                Width="167"
+                Height="30"
+                Margin="411,17,0,403"
+                HorizontalAlignment="Left"
+                Content="Agregar Categoria" />
+
+            <DataGrid
+                    x:Name="dgridCategorias"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="0,10" Margin="73,142,209,29" />
+
+
+
+        </Grid>
+
+
+        <!--  Categorias  -->
+
+        <!--  Alertas  -->
+
+        <!--  Eliminar  -->
+        <StackPanel Margin="25" Background="Snow">
+            <StackPanel x:Name="alrtEliminar">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <materialDesign:PackIcon
+                        Width="40"
+                        Height="40"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#FFCC512C"
+                        Kind="Alert" />
+                    <TextBlock
+                        Margin="0,10,0,0"
+                        FontSize="16"
+                        Text="Se eliminara el objeto seleccionado" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        Margin="0,8,8,0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        Content="Aceptar"
+                        IsDefault="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                True
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                    <Button
+                        Margin="0,8,8,0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        Content="Cancelar"
+                        IsCancel="True"
+                        Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!--  Aviso: campos incompletos  -->
+        <StackPanel x:Name="alrtAlerta" Background="Snow">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="#FFCC512C"
+                    Kind="AlertCircle" />
+                <TextBlock
+                    Margin="0,10,0,0"
+                    FontSize="16"
+                    Text="Debe llenar todos los campos" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button
+                    Margin="0,8,8,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="Aceptar"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <Separator />
+
+        <!--  Aviso: accion relizada con exito  -->
+        <StackPanel x:Name="alrtConfirmacion" Background="Snow">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="40"
+                    Height="40"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="#FF65B724"
+                    Kind="CheckboxMarkedCircle" />
+                <TextBlock
+                    x:Name="nmAlerta"
+                    Margin="0,10,0,0"
+                    FontSize="16"
+                    Text="" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button
+                    Margin="0,8,8,0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="Aceptar"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignFlatButton}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+
     </StackPanel>
-
-
 </Page>

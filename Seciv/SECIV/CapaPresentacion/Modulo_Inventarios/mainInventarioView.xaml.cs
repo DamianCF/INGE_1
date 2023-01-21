@@ -21,20 +21,12 @@ namespace CapaPresentacion.Modulo_Inventarios
     /// </summary>
     public partial class mainInventarioView : Page
     {
+        public bool actualizar = false;
         public mainInventarioView()
         {
             InitializeComponent();
             ListarProductos();
-        }
-
-        public void ListarProducto()
-        {
-            using (GestorProductos Producto = new GestorProductos())
-            {
-                dgridInventarios.ItemsSource = Producto.ListarProductos();
-
-            }
-            //cargarTxts();
+            ListarCategorias();
         }
         
         public void InsertarProducto()
@@ -54,17 +46,61 @@ namespace CapaPresentacion.Modulo_Inventarios
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             InsertarProducto();
+            actualizar  = true;
             ListarProductos();
         }
 
         public void ListarProductos()
         {
-            using (GestorProductos Productos = new GestorProductos())
+            if (actualizar)
             {
-                dgridInventarios.ItemsSource = Productos.ListarProductos();
+                using (GestorProductos Producto = new GestorProductos())
+                {
+                    Singleton.Instance.productos = Producto.ListarProductos();
+                    dgridInventarios.ItemsSource = Singleton.Instance.productos;
 
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridInventarios.ItemsSource = Singleton.Instance.productos;
             }
             //cargarTxts();
-        }
+        }
+
+        public void ListarCategorias()
+        {
+            if (actualizar)
+            {
+                using (GestorCategorias Categoria = new GestorCategorias())
+                {
+                    Singleton.Instance.categorias = Categoria.ListarCategorias();
+                    dgridCategorias.ItemsSource = Singleton.Instance.categorias;
+
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridCategorias.ItemsSource = Singleton.Instance.categorias;
+            }
+            //cargarTxts();
+        }
+
+
+
+        private void btnCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            GridProducto.Visibility= Visibility.Collapsed;
+            GridCategorias.Visibility= Visibility.Visible;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridCategorias.Visibility= Visibility.Collapsed;
+            GridProducto.Visibility= Visibility.Visible;
+        }
     }
 }

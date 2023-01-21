@@ -168,7 +168,7 @@
                             Margin="15,0,15,20"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Bottom"
-                            Style="{StaticResource userButton}">
+                            Style="{StaticResource userButton}" Click="Button_Click">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
                                     Width="48"
@@ -187,6 +187,10 @@
 
             <!--  Main Section  -->
             <Grid Grid.Column="1" Margin="10,10,10,0">
+                <ProgressBar x:Name="pgrsBar"
+                  IsIndeterminate="True"
+                  Style="{StaticResource MaterialDesignCircularProgressBar}"
+                  Value="35" />
                 <Frame
                     x:Name="Grid"
                     Margin="45,20,5,5"

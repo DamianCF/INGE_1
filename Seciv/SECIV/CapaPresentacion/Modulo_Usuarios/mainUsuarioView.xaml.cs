@@ -23,6 +23,7 @@ namespace CapaPresentacion.Modulo_Usuarios
     /// </summary>
     public partial class mainUsuarioView : Page
     {
+        public bool actualizar = false;
         public mainUsuarioView()
         {
             InitializeComponent();
@@ -42,15 +43,25 @@ namespace CapaPresentacion.Modulo_Usuarios
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             insertarUsuario();
+            actualizar= true;
             ListarUsuarios();
         }
 
         public void ListarUsuarios()
         {
-            using (GestorUsuarios Usuario = new GestorUsuarios())
+            if (actualizar)
             {
-                dgridUsuarios.ItemsSource = Usuario.ListarUsuarios();
+                using (GestorUsuarios Usuario = new GestorUsuarios())
+                {
+                    Singleton.Instance.usuarios = Usuario.ListarUsuarios();
+                    dgridUsuarios.ItemsSource = Singleton.Instance.usuarios;
 
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridUsuarios.ItemsSource = Singleton.Instance.usuarios;
             }
             cargarTxts();
         }
@@ -87,6 +98,7 @@ namespace CapaPresentacion.Modulo_Usuarios
             {
                 Usuario.ActualizarUsuario(txtId.Text, txtCedula.Text, txtNombre.Text, txtpApellido.Text, txtsApellido.Text, txtCorreo.Text, txtContraseña.Text, txtEstado.Text);
             }
+            actualizar = true;
             ListarUsuarios();
         }
 
@@ -99,6 +111,7 @@ namespace CapaPresentacion.Modulo_Usuarios
                     Usuario.EliminarUsuario(txtId.Text);
                 }
             }
+            actualizar = true;
             ListarUsuarios();
         }
 
