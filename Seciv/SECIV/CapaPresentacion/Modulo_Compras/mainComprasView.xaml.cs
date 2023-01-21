@@ -25,6 +25,7 @@ namespace CapaPresentacion.Modulo_Compras
     /// </summary>
     public partial class mainComprasView : Page
     {
+        public bool actualizar = false;
         public mainComprasView()
         {
             InitializeComponent();
@@ -67,17 +68,26 @@ namespace CapaPresentacion.Modulo_Compras
 
     public void ListarCompras()
         {
-            using (GestorCompras Compra = new GestorCompras())
+            if (actualizar)
             {
-                dgridCompras.ItemsSource = Compra.ListarCompras();
+                using (GestorCompras Compra = new GestorCompras())
+                {
+                    Singleton.Instance.compras = Compra.ListarCompras();
+                    dgridCompras.ItemsSource = Singleton.Instance.compras;
 
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridCompras.ItemsSource = Singleton.Instance.compras;
             }
             cargarTxts();
         }
 
         private void cargarTxts()
         {
-            
+
             if (dgridCompras.Items.Count > 0)
             {
                 Compra compra = (Compra)dgridCompras.SelectedItem;
@@ -123,9 +133,9 @@ namespace CapaPresentacion.Modulo_Compras
             txtProve.Text = "";
             txtProducto.Text = "";
             txtDetalle.Text = "";
-            txtMetodoPago.Text = "";   
+            txtMetodoPago.Text = "";
         }
-      
+
 
         private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -134,7 +144,6 @@ namespace CapaPresentacion.Modulo_Compras
             e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
         }
 
-     
 
         
 
@@ -150,9 +159,9 @@ namespace CapaPresentacion.Modulo_Compras
 
         #endregion
 
-       
 
-        
+
+
         //-----------------------------Botones en main de compras------------------------------------
         private void btnAgrega_Click(object sender, RoutedEventArgs e)
         {
@@ -171,6 +180,7 @@ namespace CapaPresentacion.Modulo_Compras
                     Compra.EliminarCompra(txtId.Text);
                 }
             }
+            actualizar = true;
             ListarCompras();
         }
         
@@ -185,6 +195,7 @@ namespace CapaPresentacion.Modulo_Compras
             if (txtMonto.Text != "" && txtFecha.Text != ""  && txtProve.Text != "" && txtProducto.Text != "" && txtDetalle.Text != "" && txtMetodoPago.Text !="" && txtImpuesto.Text != "" && txtTotal.Text != "" && txtSubtotal.Text != "")
             {
                 insertarCompra();
+                actualizar = true;
                 ListarCompras();
                 LimpiarTxts();
             }
@@ -208,6 +219,7 @@ namespace CapaPresentacion.Modulo_Compras
                 alrtConfirmacion.Visibility = Visibility.Visible;
                 nmAlerta.Text = "Cambios aplicados correctamente";
             }
+            actualizar = true;
             ListarCompras();
         }
         
@@ -230,6 +242,7 @@ namespace CapaPresentacion.Modulo_Compras
                     Compra.EliminarCompra(txtId.Text);
                 }
             }
+            actualizar= true;
             ListarCompras();
         }
 
