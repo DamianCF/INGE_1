@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogicaNegocio\Apartado.cs" />
+    <Compile Include="LogicaNegocio\Categoria.cs" />
     <Compile Include="LogicaNegocio\CierreCaja.cs" />
     <Compile Include="LogicaNegocio\Compra.cs" />
     <Compile Include="LogicaNegocio\Decoracion.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="LogicaNegocio\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\ServicioApartado.cs" />
+    <Compile Include="Servicios\ServicioCategoria.cs" />
     <Compile Include="Servicios\ServicioCierreCaja.cs" />
     <Compile Include="Servicios\ServicioCompra.cs" />
     <Compile Include="Servicios\ServicioDecoracion.cs" />

@@ -26,6 +26,7 @@ namespace CapaPresentacion.Modulo_Inventarios
         {
             InitializeComponent();
             ListarProductos();
+            ListarCategorias();
         }
         
         public void InsertarProducto()
@@ -66,19 +67,40 @@ namespace CapaPresentacion.Modulo_Inventarios
                 dgridInventarios.ItemsSource = Singleton.Instance.productos;
             }
             //cargarTxts();
-        }
+        }
+
+        public void ListarCategorias()
+        {
+            if (actualizar)
+            {
+                using (GestorCategorias Categoria = new GestorCategorias())
+                {
+                    Singleton.Instance.categorias = Categoria.ListarCategorias();
+                    dgridCategorias.ItemsSource = Singleton.Instance.categorias;
 
-        private void btnCategorias_Click(object sender, RoutedEventArgs e)
-        {
-            GridProducto.Visibility= Visibility.Collapsed;
-            GridCategorias.Visibility= Visibility.Visible;
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            GridCategorias.Visibility= Visibility.Collapsed;
-            GridProducto.Visibility= Visibility.Visible;
-        }
+                }
+                actualizar = false;
+            }
+            else
+            {
+                dgridCategorias.ItemsSource = Singleton.Instance.categorias;
+            }
+            //cargarTxts();
+        }
+
+
+
+        private void btnCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            GridProducto.Visibility= Visibility.Collapsed;
+            GridCategorias.Visibility= Visibility.Visible;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridCategorias.Visibility= Visibility.Collapsed;
+            GridProducto.Visibility= Visibility.Visible;
+        }
     }
 }

@@ -52,13 +52,14 @@ namespace CapaPresentacion
             using (GestorUsuarios Usuario = new GestorUsuarios())
             {
                 Singleton.Instance.usuarios = Usuario.ListarUsuarios();
-            }
-
-            pgrsBar.IsIndeterminate = false;
-            pgrsBar.Visibility = Visibility.Hidden;
-
-        }
-
+            using (GestorCategorias Categoria = new GestorCategorias())
+            {
+                Singleton.Instance.categorias = Categoria.ListarCategorias();
+            }
+
+            pgrsBar.IsIndeterminate = false;
+            pgrsBar.Visibility = Visibility.Hidden;
+
         private void btnCompras_Click(object sender, RoutedEventArgs e)
         {
             btnCompras.Foreground = Brushes.MidnightBlue;
