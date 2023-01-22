@@ -160,14 +160,15 @@
 
                 </Grid>
                 <!--<Grid x:Name="GridCategorias" Height="100" Background="#FFF00E0E" />-->
+                <!--  Categorias  -->
                 <Grid x:Name="GridCategorias"
             Width="600"
             Height="450"
-            Background="White">
+            Background="White" Cursor="Hand">
                     <Button
                 Width="76"
-                Height="60"
                 Margin="10,2,0,388"
+                Height="60"
                 HorizontalAlignment="Left"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
@@ -181,69 +182,73 @@
                     VerticalAlignment="Center"
                     Kind="ArrowRight" />
                     </Button>
-                    <!--
-            <Button
-                x:Name="btnAgregar"
-                Grid.Row="0"
-                Width="316"
-                Height="30"
-                Margin="237,388,0,32"
-                HorizontalAlignment="Left"
-                Content="Agregar" />
-
-            <Button
-                x:Name="btnEditar"
-                Grid.Row="0"
-                Width="90"
-                Height="30"
-                Margin="463,342,0,78"
-                HorizontalAlignment="Left"
-                Content="Editar" />
-
-            <Button
-                x:Name="BtnEliminar"
-                Grid.Row="0"
-                Width="90"
-                Height="30"
-                Margin="237,342,0,78"
-                HorizontalAlignment="Left"
-                Content="Eliminar" />
-            <Button
-                x:Name="btnLimpiar"
-                Width="90"
-                Height="30"
-                Margin="350,342,160,78"
-                Content="Limpiar" />
-
-            -->
+
                     <!--  No visibles  -->
                     <TextBox
-                Margin="73,67,209,0"
+                Margin="141,32,141,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Buscar Cartegoria"
                 RenderTransformOrigin="0.5,0.5"
-                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                TextWrapping="Wrap"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto"
                 />
 
-                    <Button
-                Width="167"
+                    <Button x:Name="btnAgregarCategoria"
+                Width="155"
                 Height="30"
-                Margin="411,17,0,403"
+                Margin="26,366,0,54"
                 HorizontalAlignment="Left"
                 Content="Agregar Categoria" />
+
+                    <Button
+                x:Name="btnEditarCategoria"
+                Grid.Row="0"
+                Width="111"
+                Height="30"
+                Margin="202,368,0,52"
+                HorizontalAlignment="Left"
+                Content="Editar" />
+
+                    <Button
+                x:Name="btnLimpiarCategoria"
+                Height="30"
+                Margin="340,368,162,52"
+                Content="Limpiar" />
+
+                    <Button
+                x:Name="BtnEliminarCategoria"
+                Grid.Row="0"
+                Width="90"
+                Height="30"
+                Margin="467,368,0,52"
+                HorizontalAlignment="Left"
+                Content="Eliminar" />
+
+                    <TextBox
+                x:Name="txtNomCategoria"
+                Margin="36,403,321,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Nombre"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                    <TextBox
+                x:Name="txtdescCategoria"
+                Margin="318,403,43,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Descripcion"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                     <DataGrid
                     x:Name="dgridCategorias"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Padding="0,10" Margin="73,142,209,29" />
+                    Padding="0,10" Margin="141,109,141,109" />
 
 
 
                 </Grid>
-
+                <!--  Categorias  -->
             </StackPanel>
         </materialDesign:DrawerHost.RightDrawerContent>
 
