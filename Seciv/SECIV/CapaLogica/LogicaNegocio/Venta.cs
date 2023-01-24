@@ -16,10 +16,10 @@ namespace CapaLogica.LogicaNegocio
 
         public Venta()
         {
-
+            
         }
 
-        public Venta(string id, string vent_codigo, Double vent_monto, string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
+        public Venta(string id, int vent_codigo, Double vent_monto, string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
             string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
         {
             this.id = id;
@@ -37,10 +37,9 @@ namespace CapaLogica.LogicaNegocio
             this.vent_estado = vent_estado;
         }
 
-        public Venta(string vent_codigo, Double vent_monto, string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
+        public Venta( Double vent_monto, string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
             string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
         {
-            this.vent_codigo = vent_codigo;
             this.vent_monto = vent_monto;
             this.vent_fecha = vent_fecha;
             this.vent_nombreComprador = vent_nombreComprador;
@@ -64,7 +63,7 @@ namespace CapaLogica.LogicaNegocio
 
         [BsonElement("vent_codigo")]
         [DisplayName("Código")]
-        public string vent_codigo { get; set; }
+        public int vent_codigo { get; set; }
 
         [BsonElement("vent_monto")]
         [DisplayName("Monto")]

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,14 +29,31 @@ namespace CapaPresentacion.Modulo_Ventas
         {
             InitializeComponent();
             ListarVentas();
+            txtFecha.SelectedDate = DateTime.Now;
+            btnEdita.IsEnabled = false;
+            btnEliminar.IsEnabled = false;
+
+            txtSubtotal.Text = "0";
+            txtTotal.Text = "0";
+            txtMonto.Text = "0";
+
+            txtTotal.IsReadOnly = true;
+            txtImpuesto.IsReadOnly = true;
+            txtSubtotal.IsReadOnly = true;
         }
 
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        
         public void insertarVenta()
         {
 
             using (GestorVentas Venta = new GestorVentas())
             {
-                Venta.InsertarVenta(txtCodigo.Text, Double.Parse(txtMonto.Text) , txtFecha.Text, txtCliente.Text,txtDescripcion.Text,txtDetalle.Text,
+                Venta.InsertarVenta(Double.Parse(txtMonto.Text) , txtFecha.Text, txtCliente.Text,txtDescripcion.Text,txtDetalle.Text,
                     CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
             }
         }
@@ -62,8 +80,7 @@ namespace CapaPresentacion.Modulo_Ventas
             else
             {
                 dgridVentas.ItemsSource = Singleton.Instance.ventas;
-            }
-            cargarTxts();
+            }  
         }
 
         private void cargarTxts()
@@ -76,7 +93,7 @@ namespace CapaPresentacion.Modulo_Ventas
                 {
                     Ventas = (Venta)dgridVentas.Items.GetItemAt(0);
                 }
-                txtCodigo.Text = Ventas.vent_codigo;
+                txtCodigo.Text = Ventas.vent_codigo.ToString();
                 txtMonto.Text = Ventas.vent_monto.ToString();
                 txtFecha.Text = Ventas.vent_fecha;
                 txtCliente.Text = Ventas.vent_nombreComprador;
@@ -93,13 +110,15 @@ namespace CapaPresentacion.Modulo_Ventas
         private void dgridVentas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             cargarTxts();
+            btnEdita.IsEnabled = true;
+            btnEliminar.IsEnabled = true;
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorVentas Venta = new GestorVentas())
             {
-                Venta.ActualizarVentas(txtId.Text, txtCodigo.Text, Double.Parse(txtMonto.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
+                Venta.ActualizarVentas(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
                     CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
             }
             actualizar = true;
@@ -169,6 +188,32 @@ namespace CapaPresentacion.Modulo_Ventas
         {
             actualizar = true;
             ListarVentas();
+        }
+
+        private void txtMonto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
+
+            var textoMonto = txtMonto.Text;
+            if (textoMonto != "")
+            {
+                txtImpuesto.Text = (Double.Parse(txtMonto.Text) * 0.13).ToString();
+                txtTotal.Text = txtMonto.Text;
+                txtSubtotal.Text = (Double.Parse(txtMonto.Text) - Double.Parse(txtImpuesto.Text)).ToString();
+            }
         }
     }
 }
