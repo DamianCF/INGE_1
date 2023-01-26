@@ -33,10 +33,6 @@ namespace CapaPresentacion.Modulo_Ventas
             btnEdita.IsEnabled = false;
             btnEliminar.IsEnabled = false;
 
-            txtSubtotal.Text = "0";
-            txtTotal.Text = "0";
-            txtMonto.Text = "0";
-
             txtTotal.IsReadOnly = true;
             txtImpuesto.IsReadOnly = true;
             txtSubtotal.IsReadOnly = true;
@@ -61,9 +57,19 @@ namespace CapaPresentacion.Modulo_Ventas
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            insertarVenta();
-            actualizar= true;
-            ListarVentas();
+            if (txtFecha.Text != "" && txtCliente.Text != "" && txtDescripcion.Text != "" && txtDetalle.Text != "" && CbxPago.Text != "" && txtDescuento.Text != "" && txtImpuesto.Text != "" && txtSubtotal.Text != "" && txtTotal.Text != "")
+            {
+                insertarVenta();
+                actualizar = true;
+                ListarVentas();
+                LimpiarTxts();
+            }
+            else
+            {
+                alrtCampos.Visibility = Visibility.Visible;
+                alrtConfirmacion.Visibility = Visibility.Collapsed;
+                nmAlerta.Text = "Debe llenar todos los campos";
+            }
         }
 
         public void ListarVentas()
@@ -93,6 +99,7 @@ namespace CapaPresentacion.Modulo_Ventas
                 {
                     Ventas = (Venta)dgridVentas.Items.GetItemAt(0);
                 }
+                txtId.Text = Ventas.id;
                 txtCodigo.Text = Ventas.vent_codigo.ToString();
                 txtMonto.Text = Ventas.vent_monto.ToString();
                 txtFecha.Text = Ventas.vent_fecha;
@@ -104,6 +111,7 @@ namespace CapaPresentacion.Modulo_Ventas
                 txtImpuesto.Text = Ventas.vent_impuesto.ToString();
                 txtSubtotal.Text = Ventas.vent_subTotal.ToString();
                 txtTotal.Text = Ventas.vent_total.ToString();
+                CbxPago.Text = Ventas.vent_metodoPago;
             }
         }
 
@@ -181,6 +189,8 @@ namespace CapaPresentacion.Modulo_Ventas
 
         private void btnEdita_Click(object sender, RoutedEventArgs e)
         {
+            btnAplicar.IsEnabled = true;
+            BtnEliminar.IsEnabled = true;
 
         }
 
@@ -213,6 +223,38 @@ namespace CapaPresentacion.Modulo_Ventas
                 txtImpuesto.Text = (Double.Parse(txtMonto.Text) * 0.13).ToString();
                 txtTotal.Text = txtMonto.Text;
                 txtSubtotal.Text = (Double.Parse(txtMonto.Text) - Double.Parse(txtImpuesto.Text)).ToString();
+            }
+        }
+
+        private void btnAplicar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorVentas Venta = new GestorVentas())
+            {
+                Venta.ActualizarVentas(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
+                    CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Cambios aplicados correctamente";
+            }
+            actualizar = true;
+            ListarVentas();
+        }
+
+        private void txtDescuento_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (txtDescuento.Text == "")
+            {
+                txtDescuento.Text = "0";
+            }
+            var textoDescuento = txtDescuento.Text;
+            
+            var descuento = Double.Parse(txtDescuento.Text)/100;
+            descuento = descuento * Double.Parse(txtMonto.Text);
+            
+            if (textoDescuento != "")
+            {
+                txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
             }
         }
     }

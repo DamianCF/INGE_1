@@ -125,21 +125,15 @@
                             FontSize="16"
                             FontWeight="Bold" />
                         <Button
-                            Margin="-2,2,0,299"
+                            Width="76"
+                            Height="60"
+                            Margin="10,2,0,388"
                             HorizontalAlignment="Left"
                             Background="{x:Null}"
                             BorderBrush="{x:Null}"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                            CommandParameter="{x:Static Dock.Right}"
-                            RenderTransformOrigin="0.5,0.5">
-                            <Button.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform />
-                                    <SkewTransform />
-                                    <RotateTransform Angle="179.147" />
-                                    <TranslateTransform />
-                                </TransformGroup>
-                            </Button.RenderTransform>
+                            CommandParameter="{x:Static Dock.Right}">
+
                             <materialDesign:PackIcon
                                 Width="72"
                                 Height="47"
@@ -148,42 +142,46 @@
                                 Kind="ArrowRight" />
                         </Button>
 
+
                         <Button
                             x:Name="BtnEliminar"
                             Grid.Row="0"
+                            Grid.RowSpan="2"
                             Width="90"
                             Height="30"
-                            Margin="217,295,0,8"
+                            Margin="247,313,0,57"
                             HorizontalAlignment="Left"
                             Click="btnEliminar_Click"
                             Content="Eliminar"
                             Foreground="White" />
                         <Button
                             x:Name="btnLimpiar"
-                            Width="90"
+                            Grid.RowSpan="2"
                             Height="30"
-                            Margin="330,295,180,8"
+                            Margin="359,313,153,57"
                             Click="btnLimpiar_Click"
                             Content="Limpiar"
                             Foreground="White" />
                         <Button
-                            x:Name="btnEditar"
+                            x:Name="btnAplicar"
                             Grid.Row="0"
-                            Width="90"
+                            Grid.RowSpan="2"
+                            Width="88"
                             Height="30"
-                            Margin="443,295,0,8"
+                            Margin="469,313,0,57"
                             HorizontalAlignment="Left"
-                            Click="btnActualizar_Click"
-                            Content="Editar"
+                            Click="btnAplicar_Click"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                            Content="Aplicar"
                             Foreground="White" />
                         <Button
                             x:Name="btnAgregar"
-                            Grid.Row="1"
-                            Width="316"
+                            Width="310"
                             Height="30"
-                            Margin="217,8,0,29"
+                            Margin="247,386,0,34"
                             HorizontalAlignment="Left"
                             Click="btnAgregar_Click"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                             Content="Agregar"
                             Foreground="White" />
 
@@ -205,19 +203,9 @@
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                             Visibility="Hidden" />
                         <!--  **********************************  -->
-
-                        <TextBox
-                            x:Name="txtCodigo"
-                            Margin="36,24,399,0"
-                            VerticalAlignment="Top"
-                            materialDesign:HintAssist.Hint="Código"
-                            Focusable="False"
-                            IsReadOnly="True"
-                            RenderTransformOrigin="0.5,0.5"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <DatePicker
                             x:Name="txtFecha"
-                            Margin="36,61,405,0"
+                            Margin="36,118,405,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Fecha"
                             materialDesign:TextFieldAssist.HasClearButton="True"
@@ -227,7 +215,7 @@
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                         <TextBox
                             x:Name="txtMonto"
-                            Margin="36,103,405,0"
+                            Margin="36,160,405,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Monto"
                             materialDesign:TextFieldAssist.SuffixText="colones"
@@ -235,44 +223,48 @@
                             TextChanged="txtMonto_TextChanged" />
                         <TextBox
                             x:Name="txtDescuento"
-                            Margin="36,153,405,0"
+                            Margin="36,211,465,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Descuento"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            materialDesign:TextFieldAssist.SuffixText="%"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            TextChanged="txtDescuento_TextChanged" />
+
                         <TextBox
                             x:Name="txtImpuesto"
-                            Margin="36,201,405,0"
+                            Margin="36,258,405,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Impuesto"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBox
                             x:Name="txtSubtotal"
                             Height="37"
-                            Margin="36,248,405,48"
+                            Margin="36,307,405,106"
                             materialDesign:HintAssist.Hint="Subtotal"
+                            materialDesign:TextFieldAssist.SuffixText="colones"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBox
                             x:Name="txtTotal"
-                            Grid.RowSpan="2"
-                            Margin="36,300,405,0"
+                            Margin="36,364,405,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Total"
+                            materialDesign:TextFieldAssist.SuffixText="colones"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBox
                             x:Name="txtCliente"
-                            Margin="227,24,63,0"
+                            Margin="248,67,42,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Cliente"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <TextBox
                             x:Name="txtDetalle"
-                            Margin="227,61,63,0"
+                            Margin="247,118,43,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Detalle"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <ComboBox
                             x:Name="CbxPago"
-                            Margin="227,103,63,0"
+                            Margin="247,160,43,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Metodo de pago"
                             Style="{StaticResource MaterialDesignFloatingHintComboBox}">
@@ -284,13 +276,30 @@
                         <TextBox
                             x:Name="txtDescripcion"
                             Height="100"
-                            Margin="227,166,63,67"
+                            Margin="247,225,43,125"
                             materialDesign:HintAssist.Hint="Descripcion de productos"
                             materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
                             MaxLength="200"
                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto" />
+                        <ToggleButton
+                            Width="25"
+                            Height="25"
+                            Margin="170,228,405,196"
+                            materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=CloseCircle}"
+                            Content="{materialDesign:PackIcon Kind=Pencil}"
+                            Style="{StaticResource MaterialDesignActionToggleButton}"
+                            ToolTip="MaterialDesignActionLightToggleButton" />
+                        <TextBox
+                            x:Name="txtCodigo"
+                            Margin="36,67,399,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Código"
+                            Focusable="False"
+                            IsReadOnly="True"
+                            RenderTransformOrigin="0.5,0.5"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     </Grid>
                 </StackPanel>
             </materialDesign:DialogHost>
@@ -371,10 +380,10 @@
                         Height="700"
                         Padding="10,10,10,10"
                         HorizontalAlignment="Stretch"
-                        MouseUp="dgridVentas_MouseUp"
                         VerticalAlignment="Stretch"
                         AutoGeneratingColumn="dgridVentas_AutoGeneratingColumn"
-                        IsReadOnly="True">
+                        IsReadOnly="True"
+                        MouseUp="dgridVentas_MouseUp">
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                 <Setter Property="Background" Value="#FF2196F3" />
@@ -444,6 +453,7 @@
                         VerticalAlignment="Bottom"
                         materialDesign:ButtonAssist.CornerRadius="8"
                         Click="btnEdita_Click"
+                        Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                         CommandParameter="{x:Static Dock.Right}"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
