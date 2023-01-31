@@ -192,6 +192,8 @@ namespace CapaPresentacion.Modulo_Ventas
             btnAplicar.IsEnabled = true;
             BtnEliminar.IsEnabled = true;
 
+            editScreen.Visibility = Visibility.Visible;
+            nuevaScreeen.Visibility = Visibility.Collapsed;
         }
 
         private void btnActualizarr_Click(object sender, RoutedEventArgs e)
@@ -256,6 +258,12 @@ namespace CapaPresentacion.Modulo_Ventas
             {
                 txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
             }
+        }
+
+        private void btnNuevaVenta_Click(object sender, RoutedEventArgs e)
+        {
+            editScreen.Visibility = Visibility.Collapsed;
+            nuevaScreeen.Visibility = Visibility.Visible;
         }
     }
 }
