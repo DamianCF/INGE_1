@@ -37,10 +37,10 @@ namespace CapaPresentacion
             //Console.WriteLine(Singleton.Instance.estadoUsuario);
             //Singleton.Instance.estadoUsuario = "A";
 
-            using (GestorVentas Ventas = new GestorVentas())// precargar ventas
-            {
-                Singleton.Instance.ventas = Ventas.ListarVentas();
-            }
+            //using (GestorVentas Ventas = new GestorVentas())// precargar ventas
+            //{
+            //    Singleton.Instance.ventas = Ventas.ListarVentas();
+            //}
             using (GestorCompras Compra = new GestorCompras())
             {
                 Singleton.Instance.compras = Compra.ListarCompras();
