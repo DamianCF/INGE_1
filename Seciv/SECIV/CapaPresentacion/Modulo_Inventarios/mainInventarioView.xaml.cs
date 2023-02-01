@@ -48,9 +48,9 @@ namespace CapaPresentacion.Modulo_Inventarios
 
                     Producto.InsertarProducto(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text), Double.Parse(txtIVA.Text),
                         Int32.Parse(txtCantidad.Text),cmbCategoria.Text, txtDecoracion.Text);
-                //alrtCampos.Visibility = Visibility.Collapsed;
-                //alrtConfirmacion.Visibility = Visibility.Visible;
-                //nmAlerta.Text = "Compra registrada con exito";
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Producto registrado con exito";
             }
             
         }
