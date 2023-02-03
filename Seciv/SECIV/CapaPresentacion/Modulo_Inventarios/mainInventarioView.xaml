@@ -242,7 +242,7 @@
                 Margin="237,388,0,32"
                 HorizontalAlignment="Left"
                 Content="Agregar"
-                Foreground="White" />
+                Foreground="White" Click="btnAgregar_Click_1" />
                     <Button
                 x:Name="btnAplicar"
                 Grid.Row="0"
@@ -251,7 +251,7 @@
                 Margin="463,342,0,78"
                 HorizontalAlignment="Left"
                 Content="Aplicar"
-                Foreground="White" />
+                Foreground="White" Click="btnAplicar_Click" />
                     <Button
                 x:Name="BtnEliminar"
                 Grid.Row="0"
@@ -260,14 +260,14 @@
                 Margin="237,342,0,78"
                 HorizontalAlignment="Left"
                 Content="Eliminar"
-                Foreground="White" />
+                Foreground="White" Click="BtnEliminar_Click" />
                     <Button
                 x:Name="btnLimpiar"
                 Width="90"
                 Height="30"
                 Margin="350,342,160,78"
                 Content="Limpiar"
-                Foreground="White" />
+                Foreground="White" Click="btnLimpiar_Click" />
 
                 </Grid>
 
@@ -401,7 +401,7 @@
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                                 Content="Aceptar"
                                 IsDefault="True"
-                                Style="{StaticResource MaterialDesignFlatButton}">
+                                Style="{StaticResource MaterialDesignFlatButton}" Click="btnEliminarClick">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                         True
@@ -562,7 +562,7 @@
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnEliminar_Click_1">
 
                         <TextBlock
                         HorizontalAlignment="Left"

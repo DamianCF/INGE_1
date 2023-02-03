@@ -19,6 +19,20 @@ using System.Windows.Shapes;
 
 namespace CapaPresentacion.Modulo_Inventarios
 {
+    /// <summary>
+    /// 
+    /// Pasos Para realizar el Crud de los productos
+    /// faltarian las relaciones con idCategoria . mensajes emergentes y eliminar que no funciona
+    /// 
+    /// Pasos Para realizar el Crus de las categorias
+    /// Cargar una lista de catgorias en el dataGrid : Listo
+    /// agregar
+    /// editar
+    /// eliminar
+    /// 
+    /// 
+    /// </summary>
+
     public partial class mainInventarioView : Page
     {
         public bool actualizar = false;
@@ -40,27 +54,24 @@ namespace CapaPresentacion.Modulo_Inventarios
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        #region Productos
-        public void InsertarProducto()
-        {
-            using (GestorProductos Producto = new GestorProductos())
-            {
+        #region Productos 
 
-                    Producto.InsertarProducto(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text), Double.Parse(txtIVA.Text),
-                        Int32.Parse(txtCantidad.Text),cmbCategoria.Text, txtDecoracion.Text);
-                alrtCampos.Visibility = Visibility.Collapsed;
-                alrtConfirmacion.Visibility = Visibility.Visible;
-                nmAlerta.Text = "Producto registrado con exito";
-            }
-            
+        private void dgridInventarios_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "prd_idCategoria" ? Visibility.Hidden : Visibility.Visible;
+            e.Column.Visibility = e.PropertyName == "prd_idDecoracion" ? Visibility.Hidden : Visibility.Visible;
+        }
+
+        private void dgridInventarios_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            cargarTxtsProducto();
+            btnEditar.IsEnabled = true;
+            btnEliminar.IsEnabled = true;
         }
         
-        private void btnAgregar_Click(object sender, RoutedEventArgs e)
-        {
-            InsertarProducto();
-            actualizar  = true;
-            ListarProductos();
-        }
+        //Listar los productos
         public void ListarProductos()
         {
             if (actualizar)
@@ -69,7 +80,6 @@ namespace CapaPresentacion.Modulo_Inventarios
                 {
                     Singleton.Instance.productos = Producto.ListarProductos();
                     dgridInventarios.ItemsSource = Singleton.Instance.productos;
-
                 }
                 actualizar = false;
             }
@@ -77,33 +87,140 @@ namespace CapaPresentacion.Modulo_Inventarios
             {
                 dgridInventarios.ItemsSource = Singleton.Instance.productos;
             }
-            //cargarTxts();
-        }
-        private void cargarTxts()
-        {
-
-            //if (dgridInventarios.Items.Count > 0)
-            //{
-            //    Producto producto = (Producto)dgridInventarios.SelectedItem;
-            //    if (producto == null)
-            //    {
-            //        producto = (Producto)dgridInventarios.Items.GetItemAt(0);
-            //    }
-            //    //txtId.Text = producto.id;
-            //    txtCodigo.Text = producto.prd_codigo;
-            //    txtNombre.Text = producto.prd_nombre;
-            //    txtDescripcion.Text = producto.prd_descripcion;
-            //    txtPrecioCost.Text = producto.prd_precioCosto.ToString();
-            //    txtUtilidad.Text = producto.prd_utilidad.ToString();
-            //    txtPrecioVenta.Text = producto.prd_precioVenta.ToString();
-            //    //txtIVA.Text = producto.prd_impuesto.ToString();
-            //    //txtCantidad.Text = producto.prd_cantidad.ToString();
-            //    cmbCategoria.Text = producto.prd_idCategoria;
-            //    txtDecoracion.Text = producto.prd_idDecoracion;
-            //}
+            cargarTxtsProducto();
         }
 
+        //Insertar un producto
+        public void InsertarProducto()
+        {
+            using (GestorProductos Producto = new GestorProductos())
+            {
+                    Producto.InsertarProducto(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text), Double.Parse(txtIVA.Text),
+                        Int32.Parse(txtCantidad.Text),cmbCategoria.Text, txtDecoracion.Text);
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Producto registrado con exito";
+            }
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridCategorias.Visibility = Visibility.Collapsed;
+            GridProducto.Visibility = Visibility.Visible;
+            btnAplicar.IsEnabled = false;
+            BtnEliminar.IsEnabled = false;
+            btnAplicar.IsEnabled = false;
+            LimpiarTxtsProducto();
+        }
+        private void btnAgregar_Click_1(object sender, RoutedEventArgs e)
+        {
+            InsertarProducto();
+            actualizar = true;
+            ListarProductos();
+            LimpiarTxtsProducto();
+        }
+
+        //Limpiar Texto Procucto
+        private void LimpiarTxtsProducto()
+        {
+            txtId.Text = "";
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtPrecioCost.Text = "";
+            txtUtilidad.Text = "";
+            txtPrecioVenta.Text = "";
+            txtCantidad.Text = "";
+            txtDecoracion.Text = "";
+            cmbCategoria.Text = "Seleccione una categoria";
+            txtDescripcion.Text = "";
+            txtIVA.Text = "";
+        }
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            LimpiarTxtsProducto();
+        }
+
+        private void btnActualizarr_Click(object sender, RoutedEventArgs e)
+        {
+            actualizar = true;
+            ListarProductos();
+        }
+
+        //Cargar los datos del producto seleccionado
+        private void cargarTxtsProducto()
+        {
+            if (dgridInventarios.Items.Count > 0)
+            {
+                Producto produto = (Producto)dgridInventarios.SelectedItem;
+                if (produto == null)
+                {
+                    produto = (Producto)dgridInventarios.Items.GetItemAt(0);
+                }
+                txtId.Text = produto.id;
+                txtCodigo.Text = produto.prd_codigo.ToString();
+                txtNombre.Text = produto.prd_nombre.ToString();
+                txtPrecioCost.Text = produto.prd_precioCosto.ToString();
+                txtUtilidad.Text = produto.prd_utilidad.ToString();
+                txtPrecioVenta.Text = produto.prd_precioVenta.ToString();
+                txtIVA.Text = produto.prd_porcIVA.ToString();
+                txtCantidad.Text = produto.prd_cantStock.ToString();
+                txtDecoracion.Text = produto.prd_idDecoracion.ToString();
+                cmbCategoria.Text = produto.prd_idCategoria.ToString();
+                txtDescripcion.Text = produto.prd_descripcion.ToString();
+            }
+        }
+
+        //Editar un producto Seleccionado
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            GridCategorias.Visibility = Visibility.Collapsed;
+            GridProducto.Visibility = Visibility.Visible;
+            btnAplicar.IsEnabled = true;
+            btnEliminar.IsEnabled = true;
+            btnAplicar.IsEnabled = true;
+            cargarTxtsProducto();
+        }
+        private void btnAplicar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorProductos Compra = new GestorProductos())
+            {
+                Compra.ActualizarProducto(txtId.Text, txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text), Double.Parse(txtIVA.Text), int.Parse(txtCantidad.Text),cmbCategoria.Text, txtDecoracion.Text);
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Cambios aplicados correctamente";
+            }
+            actualizar = true;
+            ListarProductos();
+        }
+
+        //Eliminar un producto
+        public void eliminarProducto()
+        {
+            using (GestorCompras Compra = new GestorCompras())
+            {
+                if (txtId.Text != "")
+                {
+                    Compra.EliminarCompra(txtId.Text);
+                }
+            }
+            actualizar = true;
+            ListarProductos();
+            
+        }
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            eliminarProducto();
+        }
+        private void btnEliminar_Click_1(object sender, RoutedEventArgs e)
+        {
+            eliminarProducto();
+        }
+        private void btnEliminarClick(object sender, RoutedEventArgs e)
+        {
+            eliminarProducto();
+        }
         #endregion
+
+
 
         #region Categorias
 
@@ -130,38 +247,13 @@ namespace CapaPresentacion.Modulo_Inventarios
             GridProducto.Visibility= Visibility.Collapsed;
             GridCategorias.Visibility= Visibility.Visible;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            GridCategorias.Visibility= Visibility.Collapsed;
-            GridProducto.Visibility= Visibility.Visible;
-            //btnAplicar.IsEnabled = false;
-            //BtnEliminar.IsEnabled = false;
-            //btnAplicar.IsEnabled = false;
-            //LimpiarTxts();
-        }
 
-        private void dgridInventarios_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
-            e.Cancel = e.PropertyName == "id";
-            e.Column.Visibility = e.PropertyName == "prd_idCategoria" ? Visibility.Hidden : Visibility.Visible;
-            e.Column.Visibility = e.PropertyName == "prd_idDecoracion" ? Visibility.Hidden : Visibility.Visible;
 
-        }
 
-        private void dgridInventarios_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            //cargarTxts();
 
-            btnEditar.IsEnabled = true;
-            btnEliminar.IsEnabled = true;
-        }
 
-        private void btnActualizarr_Click(object sender, RoutedEventArgs e)
-        {
-            actualizar |= true;
-            ListarProductos();
-        }
+
+
 
         private void dgridCategorias_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -178,13 +270,14 @@ namespace CapaPresentacion.Modulo_Inventarios
             BtnEliminarCategoria.IsEnabled = true;
         }
 
+
+
+
+
+
+
         #endregion
 
-        private void btnEditar_Click(object sender, RoutedEventArgs e)
-        {
-            btnAplicar.IsEnabled = true;
-            btnEliminar.IsEnabled = true;
-            btnAplicar.IsEnabled = true;
-        }
+
     }
 }
