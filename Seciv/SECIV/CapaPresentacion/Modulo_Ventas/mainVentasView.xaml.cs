@@ -49,12 +49,58 @@ namespace CapaPresentacion.Modulo_Ventas
 
             using (GestorVentas Venta = new GestorVentas())
             {
-                Venta.InsertarVenta(Double.Parse(txtMonto.Text) , txtFecha.Text, txtCliente.Text,txtDescripcion.Text,txtDetalle.Text,
+                Venta.InsertarVenta(txtFecha.Text, txtCliente.Text,txtDescripcion.Text,txtDetalle.Text,
                     CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
             }
         }
 
+        // -------------------------------------Elementos que pertenecen al view principal--------------------------------------- //
 
+        private void btnEliminar_Click_1(object sender, RoutedEventArgs e)
+        {
+            using (GestorVentas Venta = new GestorVentas())
+            {
+                if (txtId.Text != "")
+                {
+                    Venta.EliminarVenta(txtId.Text);
+                }
+            }
+            actualizar = true;
+            ListarVentas();
+        }
+        private void btnEdita_Click(object sender, RoutedEventArgs e)
+        {
+            btnAplicar.IsEnabled = true;
+            BtnEliminar.IsEnabled = true;
+
+            editScreen.Visibility = Visibility.Visible;
+            nuevaScreeen.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorVentas Venta = new GestorVentas())
+            {
+                Venta.ActualizarVentas(txtId.Text, int.Parse(txtCodigo.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
+                    CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
+            }
+            actualizar = true;
+            ListarVentas();
+        }
+
+        private void btnNuevaVenta_Click(object sender, RoutedEventArgs e)
+        {
+            editScreen.Visibility = Visibility.Collapsed;
+            nuevaScreeen.Visibility = Visibility.Visible;
+        }
+        // ------------------------------------------------------------------------------------------------------------------------ //
+
+
+        
+        
+        // -------------------------------------Elementos que pertenecen al view del drawer---------------------------------------- //
+        
+        ///INICIO EVENTOS DE BOTONES/
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             if (txtFecha.Text != "" && txtCliente.Text != "" && txtDescripcion.Text != "" && txtDetalle.Text != "" && CbxPago.Text != "" && txtDescuento.Text != "" && txtImpuesto.Text != "" && txtSubtotal.Text != "" && txtTotal.Text != "")
@@ -72,6 +118,55 @@ namespace CapaPresentacion.Modulo_Ventas
             }
         }
 
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorVentas Venta = new GestorVentas())
+            {
+                if (txtId.Text != "")
+                {
+                    Venta.EliminarVenta(txtId.Text);
+                }
+            }
+            actualizar = true;
+            ListarVentas();
+        }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            LimpiarTxts();
+        }
+
+        private void btnActualizarr_Click(object sender, RoutedEventArgs e)
+        {
+            actualizar = true;
+            ListarVentas();
+        }
+
+        private void btnAplicar_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorVentas Venta = new GestorVentas())
+            {
+                Venta.ActualizarVentas(txtId.Text, int.Parse(txtCodigo.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
+                    CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Cambios aplicados correctamente";
+            }
+            actualizar = true;
+            ListarVentas();
+        }
+
+        //FIN EVENTOS DE BOTONES
+
+
+        //INICIO METODOS DE CARGA Y LIMPIEZA
+        private void dgridVentas_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            cargarTxts();
+            btnEdita.IsEnabled = true;
+            btnEliminar.IsEnabled = true;
+        }
+        
         public void ListarVentas()
         {
             if (actualizar)
@@ -101,7 +196,6 @@ namespace CapaPresentacion.Modulo_Ventas
                 }
                 txtId.Text = Ventas.id;
                 txtCodigo.Text = Ventas.vent_codigo.ToString();
-                txtMonto.Text = Ventas.vent_monto.ToString();
                 txtFecha.Text = Ventas.vent_fecha;
                 txtCliente.Text = Ventas.vent_nombreComprador;
                 txtDescripcion.Text = Ventas.vent_productos;
@@ -115,42 +209,10 @@ namespace CapaPresentacion.Modulo_Ventas
             }
         }
 
-        private void dgridVentas_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            cargarTxts();
-            btnEdita.IsEnabled = true;
-            btnEliminar.IsEnabled = true;
-        }
-
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorVentas Venta = new GestorVentas())
-            {
-                Venta.ActualizarVentas(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
-                    CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
-            }
-            actualizar = true;
-            ListarVentas();
-        }
-
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorVentas Venta = new GestorVentas())
-            {
-                if (txtId.Text != "")
-                {
-                    Venta.EliminarVenta(txtId.Text);
-                }
-            }
-            actualizar= true;
-            ListarVentas();
-        }
-
         private void LimpiarTxts()
         {
             txtId.Text = "";
             txtCodigo.Text = "";
-            txtMonto.Text = "";
             txtFecha.Text = "";
             txtCliente.Text = "";
             txtDescripcion.Text = "";
@@ -162,46 +224,17 @@ namespace CapaPresentacion.Modulo_Ventas
             txtTotal.Text = "";
             txtEstado.Text = "";
         }
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            LimpiarTxts();
-        }
-
+     
         private void dgridVentas_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
             e.Cancel = e.PropertyName == "id";
             e.Column.Visibility = e.PropertyName == "vent_estado" ? Visibility.Hidden : Visibility.Visible;
         }
+        //FIN METODOS DE CARGA Y LIMPIEZA
 
-        private void btnEliminar_Click_1(object sender, RoutedEventArgs e)
-        {
-            using (GestorVentas Venta = new GestorVentas())
-            {
-                if (txtId.Text != "")
-                {
-                    Venta.EliminarVenta(txtId.Text);
-                }
-            }
-            actualizar = true;
-            ListarVentas();
-        }
 
-        private void btnEdita_Click(object sender, RoutedEventArgs e)
-        {
-            btnAplicar.IsEnabled = true;
-            BtnEliminar.IsEnabled = true;
-
-            editScreen.Visibility = Visibility.Visible;
-            nuevaScreeen.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnActualizarr_Click(object sender, RoutedEventArgs e)
-        {
-            actualizar = true;
-            ListarVentas();
-        }
-
+        //INICIO DE METODOS DE VALIDACION Y CALCULOS
         private void txtMonto_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -228,20 +261,6 @@ namespace CapaPresentacion.Modulo_Ventas
             }
         }
 
-        private void btnAplicar_Click(object sender, RoutedEventArgs e)
-        {
-            using (GestorVentas Venta = new GestorVentas())
-            {
-                Venta.ActualizarVentas(txtId.Text, int.Parse(txtCodigo.Text), Double.Parse(txtMonto.Text), txtFecha.Text, txtCliente.Text, txtDescripcion.Text, txtDetalle.Text,
-                    CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
-                alrtCampos.Visibility = Visibility.Collapsed;
-                alrtConfirmacion.Visibility = Visibility.Visible;
-                nmAlerta.Text = "Cambios aplicados correctamente";
-            }
-            actualizar = true;
-            ListarVentas();
-        }
-
         private void txtDescuento_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -259,11 +278,9 @@ namespace CapaPresentacion.Modulo_Ventas
                 txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
             }
         }
-
-        private void btnNuevaVenta_Click(object sender, RoutedEventArgs e)
-        {
-            editScreen.Visibility = Visibility.Collapsed;
-            nuevaScreeen.Visibility = Visibility.Visible;
-        }
+        ////FIN DE METODOS DE VALIDACION Y CALCULOS
+        
+        
+        // ------------------------------------------------------------------------------------------------------------------------ //
     }
 }
