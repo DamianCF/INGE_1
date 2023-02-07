@@ -10,11 +10,8 @@
     Height="938"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel Margin="-1,17,1,-1501">
 
-
-
-
+    <StackPanel Margin="-1,17,1,-2947">
         <!--  Ventas  -->
         <Grid
             Width="600"
@@ -216,7 +213,7 @@
 
 
         <!--  Ventas  -->
-        <Grid x:Name="GridProducto"
+        <Grid
             Width="600"
             Margin="0,30,0,20"
             Background="White">
@@ -504,9 +501,12 @@
                 Content="Agregar"
                 Foreground="White" />
 
-            <Border Margin="23,349,23,10" CornerRadius="10,10,10,10" Opacity="0.3">
+            <Border
+                Margin="23,349,23,10"
+                CornerRadius="10,10,10,10"
+                Opacity="0.3">
                 <Border.Background>
-                    <SolidColorBrush Color="#FF2196F3" Opacity="0.3"/>
+                    <SolidColorBrush Opacity="0.3" Color="#FF2196F3" />
                 </Border.Background>
             </Border>
             <Button
@@ -515,8 +515,9 @@
                 Height="70"
                 Margin="64,365,0,58"
                 HorizontalAlignment="Left"
+                Background="#FF176EC6"
                 Content="Facturar"
-                Foreground="White" Background="#FF176EC6" />
+                Foreground="White" />
 
             <Button
                 x:Name="BtnEliminarxx_Copy"
@@ -525,8 +526,10 @@
                 Height="30"
                 Margin="63,440,0,23"
                 HorizontalAlignment="Left"
+                Background="#FFFF8A65"
+                BorderBrush="#FFFF8A65"
                 Content="Cancelar"
-                Foreground="White" Background="#FFFF8A65" BorderBrush="#FFFF8A65" />
+                Foreground="White" />
 
             <TextBox
                 x:Name="txtDescuentoxx"
@@ -591,59 +594,45 @@
                     VerticalAlignment="Center"
                     Kind="ArrowRight" />
             </Button>
-            <materialDesign:PackIcon
-                Width="32"
-                Height="28"
-                Kind="HelpCircle" Margin="558,10,0,0" />
-            <Label
-                Width="201"
-                Height="32"
-                Margin="0,15,0,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Content="Informacion del Producto"
-                FontSize="16"
-                FontWeight="Bold" />
+            <!--
             <Button
-                x:Name="btnAgregar_Copy"
+                x:Name="btnAgregar"
                 Grid.Row="0"
                 Width="316"
                 Height="30"
                 Margin="237,388,0,32"
                 HorizontalAlignment="Left"
-                Content="Agregar"
-                Foreground="White" />
+                Content="Agregar" />
+
             <Button
-                x:Name="btnAplicar_Copy"
+                x:Name="btnEditar"
                 Grid.Row="0"
                 Width="90"
                 Height="30"
                 Margin="463,342,0,78"
                 HorizontalAlignment="Left"
-                Content="Aplicar"
-                Foreground="White" />
+                Content="Editar" />
+
             <Button
-                x:Name="BtnEliminar_Copy"
+                x:Name="BtnEliminar"
                 Grid.Row="0"
                 Width="90"
                 Height="30"
                 Margin="237,342,0,78"
                 HorizontalAlignment="Left"
-                Content="Eliminar"
-                Foreground="White" />
+                Content="Eliminar" />
             <Button
-                x:Name="btnLimpiar_Copy"
+                x:Name="btnLimpiar"
                 Width="90"
                 Height="30"
                 Margin="350,342,160,78"
-                Content="Limpiar"
-                Foreground="White" />
+                Content="Limpiar" />
 
             -->
 
             <!--  No visibles  -->
             <TextBox
-                Margin="141,32,141,0"
+                Margin="73,67,209,0"
                 VerticalAlignment="Top"
                 materialDesign:HintAssist.Hint="Buscar Cartegoria"
                 RenderTransformOrigin="0.5,0.5"
@@ -651,50 +640,12 @@
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
 
-            <Button x:Name="btnAgregarCategoria"
-                Width="155"
+            <Button
+                Width="167"
                 Height="30"
-                Margin="26,366,0,54"
+                Margin="411,17,0,403"
                 HorizontalAlignment="Left"
                 Content="Agregar Categoria" />
-
-            <Button
-                x:Name="btnEditarCategoria"
-                Grid.Row="0"
-                Width="111"
-                Height="30"
-                Margin="202,368,0,52"
-                HorizontalAlignment="Left"
-                Content="Editar" />
-
-            <Button
-                x:Name="btnLimpiarCategoria"
-                Height="30"
-                Margin="340,368,162,52"
-                Content="Limpiar" />
-
-            <Button
-                x:Name="BtnEliminarCategoria"
-                Grid.Row="0"
-                Width="90"
-                Height="30"
-                Margin="467,368,0,52"
-                HorizontalAlignment="Left"
-                Content="Eliminar" />
-
-            <TextBox
-                x:Name="txtNomCategoria"
-                Margin="36,403,321,0"
-                VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Nombre"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-            <TextBox
-                x:Name="txtdescCategoria"
-                Margin="318,403,43,0"
-                VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Descripcion"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
             <DataGrid
                 x:Name="dgridCategorias"
@@ -706,55 +657,9 @@
 
 
         </Grid>
+
+
         <!--  Categorias  -->
-
-        <!--  Alertas  -->
-
-        <!--  Eliminar  -->
-        <StackPanel Margin="25" Background="Snow">
-            <StackPanel x:Name="alrtEliminar">
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <materialDesign:PackIcon
-                        Width="40"
-                        Height="40"
-                        Margin="0,0,10,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Foreground="#FFCC512C"
-                        Kind="Alert" />
-                    <TextBlock
-                        Margin="0,10,0,0"
-                        FontSize="16"
-                        Text="Se eliminara el objeto seleccionado" />
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Button
-                        Margin="0,8,8,0"
-                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                        Content="Aceptar"
-                        IsDefault="True"
-                        Style="{StaticResource MaterialDesignFlatButton}">
-                        <Button.CommandParameter>
-                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                True
-                            </system:Boolean>
-                        </Button.CommandParameter>
-                    </Button>
-                    <Button
-                        Margin="0,8,8,0"
-                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                        Content="Cancelar"
-                        IsCancel="True"
-                        Style="{StaticResource MaterialDesignFlatButton}">
-                        <Button.CommandParameter>
-                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
-                                False
-                            </system:Boolean>
-                        </Button.CommandParameter>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
 
         <!--  Alertas  -->
 
@@ -871,6 +776,339 @@
             </StackPanel>
         </StackPanel>
 
+        <StackPanel>
+            <Grid
+                x:Name="GridProducto"
+                Width="600"
+                Margin="0,30,0,20"
+                Background="White">
 
+                <TextBox
+                    x:Name="txtCodigos"
+                    Margin="33,61,402,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Codigo"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="txtNombre"
+                    Margin="227,61,63,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Nombre"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <TextBox
+                    x:Name="txtPrecioCost"
+                    Margin="33,111,408,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Precio Costo"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="txtUtilidad"
+                    Margin="33,153,408,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Utilidad"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="txtPrecioVenta"
+                    Height="37"
+                    Margin="33,242,408,171"
+                    materialDesign:HintAssist.Hint="Precio Venta"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="txtIVA"
+                    Margin="33,195,408,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="IVA"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="txtCantidad"
+                    Margin="33,284,408,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Cantidad Stock"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox
+                    x:Name="txtDecoracion"
+                    Margin="33,334,408,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Decoración"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+                <TextBox
+                    x:Name="txtDescripcion"
+                    Height="100"
+                    Margin="227,166,63,134"
+                    materialDesign:HintAssist.Hint="Descripcion de producto"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                    MaxLength="200"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" />
+
+                <ComboBox
+                    x:Name="cmbCategoria"
+                    Margin="227,111,63,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Categoria"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem Content="Peluches" />
+                    <ComboBoxItem Content="Fiesta" />
+                    <ComboBoxItem Content="Bisutería" />
+                    <ComboBoxItem Content="Hogar" />
+                    <ComboBoxItem Content="Moda" />
+                </ComboBox>
+                <Button
+                    Width="76"
+                    Height="60"
+                    Margin="10,2,0,388"
+                    HorizontalAlignment="Left"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}">
+
+                    <materialDesign:PackIcon
+                        Width="72"
+                        Height="47"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="ArrowRight" />
+                </Button>
+                <materialDesign:PackIcon
+                    Width="32"
+                    Height="28"
+                    Margin="558,10,0,0"
+                    Kind="HelpCircle" />
+                <Label
+                    Width="201"
+                    Height="32"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Content="Informacion del Producto"
+                    FontSize="16"
+                    FontWeight="Bold" />
+                <Button
+                    x:Name="btnAgregar_Copy"
+                    Grid.Row="0"
+                    Width="316"
+                    Height="30"
+                    Margin="237,388,0,32"
+                    HorizontalAlignment="Left"
+                    Content="Agregar"
+                    Foreground="White" />
+                <Button
+                    x:Name="btnAplicar_Copy"
+                    Grid.Row="0"
+                    Width="90"
+                    Height="30"
+                    Margin="463,342,0,78"
+                    HorizontalAlignment="Left"
+                    Content="Aplicar"
+                    Foreground="White" />
+                <Button
+                    x:Name="BtnEliminar_Copy"
+                    Grid.Row="0"
+                    Width="90"
+                    Height="30"
+                    Margin="237,342,0,78"
+                    HorizontalAlignment="Left"
+                    Content="Eliminar"
+                    Foreground="White" />
+                <Button
+                    x:Name="btnLimpiar_Copy"
+                    Width="90"
+                    Height="30"
+                    Margin="350,342,160,78"
+                    Content="Limpiar"
+                    Foreground="White" />
+
+            </Grid>
+            <!--  Categorias  -->
+            <Grid
+                x:Name="GridCategorias"
+                Width="600"
+                Height="450"
+                Background="White"
+                Cursor="Hand">
+                <Button
+                    Width="76"
+                    Height="60"
+                    Margin="10,2,0,388"
+                    HorizontalAlignment="Left"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}">
+
+                    <materialDesign:PackIcon
+                        Width="72"
+                        Height="47"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="ArrowRight" />
+                </Button>
+
+
+                <!--  No visibles  -->
+                <TextBox
+                    Margin="141,32,141,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Buscar Cartegoria"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto" />
+
+                <Button
+                    x:Name="btnAgregarCategoria"
+                    Width="155"
+                    Height="30"
+                    Margin="26,366,0,54"
+                    HorizontalAlignment="Left"
+                    Content="Agregar Categoria" />
+
+                <Button
+                    x:Name="btnEditarCategoria"
+                    Grid.Row="0"
+                    Width="111"
+                    Height="30"
+                    Margin="202,368,0,52"
+                    HorizontalAlignment="Left"
+                    Content="Editar" />
+
+                <Button
+                    x:Name="btnLimpiarCategoria"
+                    Height="30"
+                    Margin="340,368,162,52"
+                    Content="Limpiar" />
+
+                <Button
+                    x:Name="BtnEliminarCategoria"
+                    Grid.Row="0"
+                    Width="90"
+                    Height="30"
+                    Margin="467,368,0,52"
+                    HorizontalAlignment="Left"
+                    Content="Eliminar" />
+
+                <TextBox
+                    x:Name="txtNomCategoria"
+                    Margin="36,403,321,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Nombre"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <TextBox
+                    x:Name="txtdescCategoria"
+                    Margin="318,403,43,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Descripcion"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <DataGrid
+                    x:Name="dgridCategoriasx"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="141,109,141,109"
+                    Padding="0,10" />
+
+
+
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Margin="20">
+            <Grid
+                x:Name="BusquedaProductos"
+                Width="600"
+                Height="450"
+                Background="White"
+                Cursor="Hand">
+
+                <!--  No visibles  -->
+                <StackPanel Margin="19,31,150,370">
+                    <TextBox
+                        
+                        materialDesign:HintAssist.Hint="Buscar producto"
+                        AcceptsReturn="True"
+                        IsEnabled="{Binding IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
+                        Style="{StaticResource MaterialDesignFilledTextBox}"
+                        TextChanged="TextBox_TextChanged"
+                        TextWrapping="Wrap" Width="515" />
+                </StackPanel>
+
+                <Button
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    ToolTip="MaterialDesignFloatingActionButton" Margin="467,38,98,377" Width="35" Height="35">
+                    <materialDesign:PackIcon Kind="Search" Height="28" Width="31" />
+                </Button>
+                <Button
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                   Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="MaterialDesignFloatingActionButton" Margin="519,38,10,380">
+                    Filtros
+                </Button>
+
+                <Button
+                    x:Name="btnAgregarCategoria1"
+                    Width="155"
+                    Height="30"
+                    Margin="26,366,0,54"
+                    HorizontalAlignment="Left"
+                    Content="Agregar Categoria" />
+
+                <Button
+                    x:Name="btnEditarCategoria1"
+                    Grid.Row="0"
+                    Width="111"
+                    Height="30"
+                    Margin="202,368,0,52"
+                    HorizontalAlignment="Left"
+                    Content="Editar" />
+
+                <Button
+                    x:Name="btnLimpiarCategoria1"
+                    Height="30"
+                    Margin="340,368,162,52"
+                    Content="Limpiar" />
+
+                <Button
+                    x:Name="BtnEliminarCategoria1"
+                    Grid.Row="0"
+                    Width="90"
+                    Height="30"
+                    Margin="467,368,0,52"
+                    HorizontalAlignment="Left"
+                    Content="Eliminar" />
+
+                <TextBox
+                    x:Name="txtNomCategoria1"
+                    Margin="36,403,321,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Nombre"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <TextBox
+                    x:Name="txtdescCategoria1"
+                    Margin="318,403,43,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Descripcion"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <DataGrid
+                    x:Name="dgridCategoriasx1"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="19,109,19,109"
+                    Padding="0,10" />
+            </Grid>
+        </StackPanel>
     </StackPanel>
 </Page>

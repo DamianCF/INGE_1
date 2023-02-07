@@ -208,7 +208,8 @@
                             Margin="659,258,0,155"
                             HorizontalAlignment="Left"
                             Content="Agregar"
-                            Foreground="White" />
+                            Foreground="White" 
+                            Click="btnAgregaProductosClick"/>
 
                         <Border
                             Margin="23,349,23,10"

@@ -156,9 +156,16 @@ namespace CapaPresentacion.Modulo_Ventas
             ListarVentas();
         }
 
+        private void btnAgregaProductosClick(object sender, RoutedEventArgs e)
+        {
+            Window form = new Window();
+            form.Icon = new BitmapImage(new Uri("pack://application:,,,/Recursos/iconoAzul.ico"));
+            form.ShowDialog(); 
+        }
         //FIN EVENTOS DE BOTONES
 
 
+        
         //INICIO METODOS DE CARGA Y LIMPIEZA
         private void dgridVentas_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -279,8 +286,8 @@ namespace CapaPresentacion.Modulo_Ventas
             }
         }
         ////FIN DE METODOS DE VALIDACION Y CALCULOS
-        
-        
+
+
         // ------------------------------------------------------------------------------------------------------------------------ //
     }
 }
