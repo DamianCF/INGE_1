@@ -195,38 +195,76 @@ namespace CapaPresentacion.Modulo_Inventarios
         //Eliminar un producto
         public void eliminarProducto()
         {
-            using (GestorCompras Compra = new GestorCompras())
+            using (GestorProductos Producto = new GestorProductos())
             {
                 if (txtId.Text != "")
                 {
-                    Compra.EliminarCompra(txtId.Text);
+                    Producto.EliminarProducto(txtId.Text);
                 }
             }
+            LimpiarTxtsProducto();
             actualizar = true;
             ListarProductos();
-            
         }
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             eliminarProducto();
         }
-        private void btnEliminar_Click_1(object sender, RoutedEventArgs e)
-        {
-            eliminarProducto();
-        }
-        private void btnEliminarClick(object sender, RoutedEventArgs e)
-        {
-            eliminarProducto();
-        }
+
         #endregion
-
-
 
         #region Categorias
 
+        private void btnCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            GridProducto.Visibility = Visibility.Collapsed;
+            GridCategorias.Visibility = Visibility.Visible;
+        }
+
+        private void dgridCategorias_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+        }
+        
+        private void dgridCategorias_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            cargarTxtsCategoria();
+            btnEditarCategoria.IsEnabled = true;
+            BtnEliminarCategoria.IsEnabled = true;
+        }
+
+        //Cargar Campos categoria
+        private void cargarTxtsCategoria()
+        {
+            if (dgridCategorias.Items.Count > 0)
+            {
+                Categoria categoria = (Categoria)dgridCategorias.SelectedItem;
+                if (categoria == null)
+                {
+                    categoria = (Categoria)dgridCategorias.Items.GetItemAt(0);
+                }
+                txtIdCategoria.Text = categoria.id;
+                txtdescCategoria.Text = categoria.cat_descripcion.ToString();
+                txtNomCategoria.Text = categoria.cat_nombre.ToString();
+            }
+        }
+
+        //Limpiar Campos
+        private void LimpiarTxtsCategoria()
+        {
+            txtIdCategoria.Text = "";
+            txtNomCategoria.Text = "";
+            txtdescCategoria.Text = "";
+        }
+        private void btnLimpiarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            LimpiarTxtsCategoria();
+        }
+
+        //Listar Categorias
         public void ListarCategorias()
-        {
-            if (actualizar)
+        {            if (actualizar)
             {
                 using (GestorCategorias Categoria = new GestorCategorias())
                 {
@@ -240,41 +278,61 @@ namespace CapaPresentacion.Modulo_Inventarios
             {
                 dgridCategorias.ItemsSource = Singleton.Instance.categorias;
             }
-            //cargarTxts();
-        }
-        private void btnCategorias_Click(object sender, RoutedEventArgs e)
-        {
-            GridProducto.Visibility= Visibility.Collapsed;
-            GridCategorias.Visibility= Visibility.Visible;
-        }
-
-
-
-
-
-
-
-
-        private void dgridCategorias_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
-            e.Cancel = e.PropertyName == "id";
-            e.Column.Visibility = e.PropertyName == "cat_estado" ? Visibility.Hidden : Visibility.Visible;
-        }
-
-        private void dgridCategorias_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            //cargarTxts();
-
-            btnEditarCategoria.IsEnabled = true;
-            BtnEliminarCategoria.IsEnabled = true;
+            cargarTxtsCategoria();
         }
 
 
+        //Agregar Categoria
+
+        private void InsertarCategoria()
+        {
+            using (GestorCategorias Categoria = new GestorCategorias())
+            {
+                Categoria.InsertarCategoria(txtNomCategoria.Text, txtdescCategoria.Text);
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Categoria registrada con exito";
+            }
+        }
+        private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            InsertarCategoria();
+            actualizar = true;
+            ListarCategorias();
+            LimpiarTxtsCategoria();
+        }
+
+
+        //Editar Categoria
+        private void btnEditarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorCategorias Categoria = new GestorCategorias())
+            {
+                Categoria.ActualizarCategoria(txtIdCategoria.Text, txtNomCategoria.Text, txtdescCategoria.Text);   
+                alrtCampos.Visibility = Visibility.Collapsed;
+                alrtConfirmacion.Visibility = Visibility.Visible;
+                nmAlerta.Text = "Cambios aplicados correctamente";
+            }
+            actualizar = true;
+            ListarCategorias();
+        }
 
 
 
-
+        //Eliminar Categoria
+        private void BtnEliminarCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            using (GestorCategorias Categoria = new GestorCategorias())
+            {
+                if (txtId.Text != "")
+                {
+                    Categoria.EliminarCategoria(txtIdCategoria.Text);
+                }
+            }
+            LimpiarTxtsCategoria();
+            actualizar = true;
+            ListarCategorias();
+        }
 
         #endregion
 

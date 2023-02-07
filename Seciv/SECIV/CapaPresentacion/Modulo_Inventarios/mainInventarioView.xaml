@@ -260,7 +260,9 @@
                 Margin="237,342,0,78"
                 HorizontalAlignment="Left"
                 Content="Eliminar"
-                Foreground="White" Click="BtnEliminar_Click" />
+                Foreground="White"
+                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}" />
                     <Button
                 x:Name="btnLimpiar"
                 Width="90"
@@ -310,7 +312,7 @@
                 Height="30"
                 Margin="26,366,0,54"
                 HorizontalAlignment="Left"
-                Content="Agregar Categoria" />
+                Content="Agregar Categoria" Click="btnAgregarCategoria_Click" />
 
                     <Button
                 x:Name="btnEditarCategoria"
@@ -319,13 +321,13 @@
                 Height="30"
                 Margin="202,368,0,52"
                 HorizontalAlignment="Left"
-                Content="Editar" />
+                Content="Editar" Click="btnEditarCategoria_Click" />
 
                     <Button
                 x:Name="btnLimpiarCategoria"
                 Height="30"
                 Margin="340,368,162,52"
-                Content="Limpiar" />
+                Content="Limpiar" Click="btnLimpiarCategoria_Click" />
 
                     <Button
                 x:Name="BtnEliminarCategoria"
@@ -334,9 +336,18 @@
                 Height="30"
                 Margin="467,368,0,52"
                 HorizontalAlignment="Left"
-                Content="Eliminar" />
+                Content="Eliminar" Click="BtnEliminarCategoria_Click" />
 
-                    <TextBox
+                <TextBox
+                x:Name="txtIdCategoria"
+                Margin="425,10,10,0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Id"
+                RenderTransformOrigin="0.5,0.5"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Visibility="Hidden" />
+
+                        <TextBox
                 x:Name="txtNomCategoria"
                 Margin="36,403,321,0"
                 VerticalAlignment="Top"
@@ -401,7 +412,7 @@
                                 Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                                 Content="Aceptar"
                                 IsDefault="True"
-                                Style="{StaticResource MaterialDesignFlatButton}" Click="btnEliminarClick">
+                                Style="{StaticResource MaterialDesignFlatButton}" Click="Button_Click_1">
                                 <Button.CommandParameter>
                                     <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                                         True
@@ -562,7 +573,7 @@
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="btnEliminar_Click_1">
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
 
                         <TextBlock
                         HorizontalAlignment="Left"

@@ -17,19 +17,17 @@ namespace CapaLogica.LogicaNegocio
 
         }
 
-        public Categoria(string id, string cat_nombre, string cat_descripcion, string cat_estado)
+        public Categoria(string id, string cat_nombre, string cat_descripcion)
         {
             this.id = id;
             this.cat_nombre = cat_nombre;
             this.cat_descripcion = cat_descripcion;
-            this.cat_estado = cat_estado;
         }
 
-        public Categoria(string cat_nombre, string cat_descripcion, string cat_estado)
+        public Categoria(string cat_nombre, string cat_descripcion)
         {
             this.cat_nombre = cat_nombre;
             this.cat_descripcion = cat_descripcion;
-            this.cat_estado = cat_estado;
         }
 
         #endregion
@@ -47,10 +45,6 @@ namespace CapaLogica.LogicaNegocio
         [BsonElement("cat_descripcion")]
         [DisplayName("Descripcion")]
         public string cat_descripcion { get; set; }
-
-        [BsonElement("cat_estado")]
-        [DisplayName("Estado")]
-        public string cat_estado { get; set; }
 
         #endregion
 
