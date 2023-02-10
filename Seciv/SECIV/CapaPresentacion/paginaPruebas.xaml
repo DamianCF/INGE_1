@@ -1034,25 +1034,31 @@
                 <!--  No visibles  -->
                 <StackPanel Margin="19,31,150,370">
                     <TextBox
-                        
+                        Width="515"
                         materialDesign:HintAssist.Hint="Buscar producto"
                         AcceptsReturn="True"
                         IsEnabled="{Binding IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
-                        TextChanged="TextBox_TextChanged"
-                        TextWrapping="Wrap" Width="515" />
+                        TextWrapping="Wrap" />
                 </StackPanel>
 
                 <Button
+                    Width="35"
+                    Height="35"
+                    Margin="467,38,98,377"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
-                    ToolTip="MaterialDesignFloatingActionButton" Margin="467,38,98,377" Width="35" Height="35">
-                    <materialDesign:PackIcon Kind="Search" Height="28" Width="31" />
+                    ToolTip="MaterialDesignFloatingActionButton">
+                    <materialDesign:PackIcon
+                        Width="31"
+                        Height="28"
+                        Kind="Search" />
                 </Button>
                 <Button
+                    Margin="519,38,10,380"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                   Style="{StaticResource MaterialDesignRaisedButton}"
-                    ToolTip="MaterialDesignFloatingActionButton" Margin="519,38,10,380">
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    ToolTip="MaterialDesignFloatingActionButton">
                     Filtros
                 </Button>
 
