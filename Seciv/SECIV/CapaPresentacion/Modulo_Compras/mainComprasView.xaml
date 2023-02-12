@@ -109,6 +109,9 @@
                     </StackPanel>
                 </materialDesign:DialogHost.DialogContent>
 
+                
+                <!--******************************************************************************************************************************-->
+                                                                    <!--INICIO STACKPANEL DE PANTALLA EMERGENTE-->
                 <StackPanel
                     Width="600"
                     Margin="0,30,0,20"
@@ -126,7 +129,7 @@
                             VerticalAlignment="Top"
                             Content="Facturas de compras"
                             FontSize="16"
-                            FontWeight="Bold" Cursor="Hand" />
+                            FontWeight="Bold" />
 
                         <!--  Boton para salir  -->
                         <Button
@@ -320,6 +323,9 @@
                             VerticalScrollBarVisibility="Auto" />
                     </Grid>
                 </StackPanel>
+                                                         <!--FIN STACKPANEL DE PANTALLA EMERGENTE-->
+                <!--******************************************************************************************************************************-->
+                
             </materialDesign:DialogHost>
         </materialDesign:DrawerHost.RightDrawerContent>
 
@@ -371,6 +377,8 @@
                     </StackPanel>
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
+            
+            
             <StackPanel
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"

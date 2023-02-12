@@ -33,10 +33,6 @@ namespace CapaPresentacion.Modulo_Compras
             txtFecha.SelectedDate = DateTime.Now;
             btnEdita.IsEnabled = false;
             btnElimina.IsEnabled = false;
-            
-            txtSubtotal.Text = "0";
-            txtTotal.Text = "0";
-            txtMonto.Text = "0";
 
             txtTotal.IsReadOnly = true;
             txtImpuesto.IsReadOnly = true;
@@ -183,11 +179,12 @@ namespace CapaPresentacion.Modulo_Compras
             actualizar = true;
             ListarCompras();
         }
-        
-        private void btnEdita_Click(object sender, RoutedEventArgs e)
+        private void btnEdita_Click_1(object sender, RoutedEventArgs e)
         {
-
+            btnAplicar.IsEnabled = true;
+            BtnEliminar.IsEnabled = true;
         }
+
 
         //-----------------------Botones en el drawer de compras--------------------------------------------
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -222,17 +219,11 @@ namespace CapaPresentacion.Modulo_Compras
             actualizar = true;
             ListarCompras();
         }
-        
-        private void DrawerHost_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DrawerHost.RightDrawerCloseOnClickAway = false;
-        }
-        
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             LimpiarTxts();
         }
-        
+
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             using (GestorCompras Compra = new GestorCompras())
@@ -242,20 +233,17 @@ namespace CapaPresentacion.Modulo_Compras
                     Compra.EliminarCompra(txtId.Text);
                 }
             }
-            actualizar= true;
+            actualizar = true;
             ListarCompras();
         }
 
-        private void btnEdita_Click_1(object sender, RoutedEventArgs e)
+        private void DrawerHost_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            btnAplicar.IsEnabled = true;
-            BtnEliminar.IsEnabled = true;
-            btnAplicar.IsEnabled = true;
+            DrawerHost.RightDrawerCloseOnClickAway = false;
         }
-
+ 
+ 
         //Este metodo se encarga de restringir el ingreso de letras en el textbox
-  
-
         private void txtMonto_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
