@@ -277,13 +277,13 @@ namespace CapaPresentacion.Modulo_Ventas
             }
             var textoDescuento = txtDescuento.Text;
             
-            var descuento = Double.Parse(txtDescuento.Text)/100;
-            descuento = descuento * Double.Parse(txtMonto.Text);
+           // var descuento = Double.Parse(txtDescuento.Text)/100;
+           // descuento = descuento * Double.Parse(txtMonto.Text);
             
-            if (textoDescuento != "")
-            {
-                txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
-            }
+            //if (textoDescuento != "")
+           // {
+            //    txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
+           // }
         }
         ////FIN DE METODOS DE VALIDACION Y CALCULOS
 

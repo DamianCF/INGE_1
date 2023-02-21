@@ -1025,27 +1025,63 @@
 
         <StackPanel Margin="20">
             <Grid
-                x:Name="BusquedaProductos"
-                Width="600"
+                x:Name="nuevaScreeen"
+                Width="800"
                 Height="450"
                 Background="White"
                 Cursor="Hand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="223*" />
+                </Grid.RowDefinitions>
 
                 <!--  No visibles  -->
-                <StackPanel Margin="19,31,394,370">
+
+                <Button
+                    Width="76"
+                    Height="60"
+                    Margin="10,5,0,381"
+                    HorizontalAlignment="Left"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                    CommandParameter="{x:Static Dock.Right}" Grid.Row="1">
+
+                    <materialDesign:PackIcon
+                        Width="72"
+                        Height="47"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="ArrowRight" />
+                </Button>
+
+                <Label
+                    Width="127"
+                    Height="32"
+                    Margin="318,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Nueva venta"
+                    FontSize="19"
+                    FontWeight="Bold" Grid.Row="1" />
+                <StackPanel Grid.Row="1" Margin="19,69,549,328">
                     <TextBox
-                        Width="290"
+                        Width="232"
                         materialDesign:HintAssist.Hint="Buscar producto"
                         AcceptsReturn="True"
+                        Background="#0F000000"
+                        BorderBrush="#89000000"
+                        Foreground="Black"
                         IsEnabled="{Binding IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
                         Style="{StaticResource MaterialDesignFilledTextBox}"
                         TextWrapping="Wrap" />
                 </StackPanel>
 
                 <Button
+                    Grid.Row="1"
                     Width="35"
                     Height="35"
-                    Margin="222,38,342,377"
+                    Margin="272,76,492,335"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                     ToolTip="MaterialDesignFloatingActionButton">
@@ -1055,7 +1091,9 @@
                         Kind="Search" />
                 </Button>
                 <Button
-                    Margin="270,38,259,380"
+                    Grid.Row="1"
+                    Margin="329,78,400,336"
+                    Foreground="White"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     ToolTip="MaterialDesignFloatingActionButton">
@@ -1064,26 +1102,68 @@
 
                 <Button
                     x:Name="btnAgregarCategoria1"
-                    Width="322"
+                    Grid.Row="1"
+                    Width="381"
                     Height="30"
-                    Margin="19,410,0,10"
+                    Margin="19,406,0,10"
                     HorizontalAlignment="Left"
-                    Content="Agregar" />
+                    Content="Agregar"
+                    Foreground="White" />
 
-                <Label
-                    Width="152"
-                    Height="32"
-                    Margin="0,34,49,0"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Content="Carrito de compras"
-                    FontSize="16"
-                    FontWeight="Bold" />
+                <Border
+                    Grid.Row="1"
+                    Margin="430,69,84,338"
+                    BorderBrush="#FF000000"
+                    BorderThickness="0.5"
+                    CornerRadius="8">
+                    <Label
+                        Width="152"
+                        Height="32"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Carrito de compras"
+                        FontSize="16"
+                        FontWeight="Bold" />
+
+                </Border>
+
+
 
                 <Button
+                    x:Name="btnLimpiarCategoria1"
+                    Grid.Row="1"
+                    Height="30"
+                    Margin="430,406,84,10"
+                    Content="Confirmar"
+                    Foreground="White" />
+
+                <DataGrid
+                    x:Name="dgridCategoriasx1"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="19,123,400,54"
+                    Padding="0,10" />
+                <DataGrid
+                    x:Name="dgridCategoriasx12"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="430,123,84,97"
+                    Padding="0,10" />
+                <TextBox
+                    x:Name="txtMontoTotal"
+                    Grid.Row="1"
+                    Height="38"
+                    Margin="452,349,103,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Total"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                <Button
+                    Grid.Row="1"
                     Width="35"
                     Height="35"
-                    Margin="413,346,152,69"
+                    Margin="721,148,44,263"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                     ToolTip="MaterialDesignFloatingActionButton">
@@ -1092,41 +1172,24 @@
                         Height="28"
                         Kind="PencilOutline" />
                 </Button>
-
                 <Button
-                    x:Name="btnLimpiarCategoria1"
-                    Height="30"
-                    Margin="360,410,10,10"
-                    Content="Limpiar" />
-
-                <DataGrid
-                    x:Name="dgridCategoriasx1"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="19,85,259,54"
-                    Padding="0,10" />
-                <DataGrid
-                    x:Name="dgridCategoriasx12"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="360,85,19,109"
-                    Padding="0,10" />
-                <Button
+                    Grid.Row="1"
                     Width="35"
                     Height="35"
-                    Margin="453,346,112,69"
+                    Margin="721,211,44,200"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                     ToolTip="MaterialDesignFloatingActionButton">
                     <materialDesign:PackIcon
                         Width="31"
                         Height="28"
-                        Kind="Eraser" />
+                        Kind="Broom" />
                 </Button>
                 <Button
+                    Grid.Row="1"
                     Width="35"
                     Height="35"
-                    Margin="493,346,72,69"
+                    Margin="721,280,44,131"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
                     ToolTip="MaterialDesignFloatingActionButton">
