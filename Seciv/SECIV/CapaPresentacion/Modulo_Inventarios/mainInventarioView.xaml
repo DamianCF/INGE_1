@@ -192,18 +192,7 @@
                         Visibility="Hidden" />
                     <!--  No visibles  -->
 
-                    <ComboBox
-                x:Name="cmbCategoria"
-                Margin="227,111,63,0"
-                VerticalAlignment="Top"
-                materialDesign:HintAssist.Hint="Categoria"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                        <ComboBoxItem Content="Peluches" />
-                        <ComboBoxItem Content="Fiesta" />
-                        <ComboBoxItem Content="Bisutería" />
-                        <ComboBoxItem Content="Hogar" />
-                        <ComboBoxItem Content="Moda" />
-                    </ComboBox>
+                    <ComboBox                        x:Name="cmbCategoria"                        Margin="227,111,63,0"                        VerticalAlignment="Top"                        materialDesign:HintAssist.Hint="Categoria"                        Style="{StaticResource MaterialDesignFloatingHintComboBox}" DropDownClosed="cmbCategoria_DropDownClosed">                            <ComboBox.ItemTemplate>                                <DataTemplate>                                    <StackPanel Orientation="Horizontal">                                        <TextBlock Text="{Binding cat_nombre}"></TextBlock>                                    </StackPanel>                                </DataTemplate>                            </ComboBox.ItemTemplate>                    </ComboBox>
                     <Button
                 Width="76"
                 Height="60"

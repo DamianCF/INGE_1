@@ -21,14 +21,7 @@ namespace CapaPresentacion.Modulo_Inventarios
 {
     /// <summary>
     /// 
-    /// Pasos Para realizar el Crud de los productos
-    /// faltarian las relaciones con idCategoria . mensajes emergentes y eliminar que no funciona
-    /// 
-    /// Pasos Para realizar el Crus de las categorias
-    /// Cargar una lista de catgorias en el dataGrid : Listo
-    /// agregar
-    /// editar
-    /// eliminar
+    /// Pasos para cargar la informacion de un producto
     /// 
     /// 
     /// </summary>
@@ -45,6 +38,7 @@ namespace CapaPresentacion.Modulo_Inventarios
             btnEliminar.IsEnabled = false;
             btnEditarCategoria.IsEnabled = false;
             BtnEliminarCategoria.IsEnabled = false;
+
         }
 
         //Metodo que controla los tipos de datos que se ingresan en los textbox
@@ -54,6 +48,10 @@ namespace CapaPresentacion.Modulo_Inventarios
             e.Handled = regex.IsMatch(e.Text);
         }
 
+
+
+
+        
         #region Productos 
 
         private void dgridInventarios_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -164,7 +162,7 @@ namespace CapaPresentacion.Modulo_Inventarios
                 txtIVA.Text = produto.prd_porcIVA.ToString();
                 txtCantidad.Text = produto.prd_cantStock.ToString();
                 txtDecoracion.Text = produto.prd_idDecoracion.ToString();
-                cmbCategoria.Text = produto.prd_idCategoria.ToString();
+                txtIdCategoria.Text = produto.prd_idCategoria.ToString();
                 txtDescripcion.Text = produto.prd_descripcion.ToString();
             }
         }
@@ -178,6 +176,9 @@ namespace CapaPresentacion.Modulo_Inventarios
             btnEliminar.IsEnabled = true;
             btnAplicar.IsEnabled = true;
             cargarTxtsProducto();
+
+            actualizar = true;
+            cargarCategoriasCmBox();
         }
         private void btnAplicar_Click(object sender, RoutedEventArgs e)
         {
@@ -264,7 +265,8 @@ namespace CapaPresentacion.Modulo_Inventarios
 
         //Listar Categorias
         public void ListarCategorias()
-        {            if (actualizar)
+        {
+            if (actualizar)
             {
                 using (GestorCategorias Categoria = new GestorCategorias())
                 {
@@ -278,9 +280,39 @@ namespace CapaPresentacion.Modulo_Inventarios
             {
                 dgridCategorias.ItemsSource = Singleton.Instance.categorias;
             }
-            cargarTxtsCategoria();
+            cargarTxtsCategoria();  
         }
 
+        
+        //Listar Categorias en el ComboBox 
+        public void cargarCategoriasCmBox()
+        {
+            cmbCategoria.Items.Clear();
+            List<Categoria> categoriasAUX = new List<Categoria>();
+            List<ItemComboxCategoria> itemsCategorias = new List<ItemComboxCategoria>();
+
+            if (actualizar)
+            {
+                using (GestorCategorias Categoria = new GestorCategorias())
+                {
+                    Singleton.Instance.categorias = Categoria.ListarCategorias();
+                    categoriasAUX  = Singleton.Instance.categorias;
+
+                }
+                actualizar = false;
+            }
+            else
+            {
+                categoriasAUX = Singleton.Instance.categorias;
+            }
+
+            foreach (Categoria categoria in categoriasAUX)
+            {
+                itemsCategorias.Add(new ItemComboxCategoria(categoria.id, categoria.cat_nombre, categoria.cat_descripcion));
+            }
+            cmbCategoria.ItemsSource = itemsCategorias;
+
+        }
 
         //Agregar Categoria
 
@@ -334,7 +366,41 @@ namespace CapaPresentacion.Modulo_Inventarios
             ListarCategorias();
         }
 
+
         #endregion
+
+        private void cmbCategoria_DropDownClosed(object sender, EventArgs e)
+        {
+
+
+            // seleccionar el la categoria que posee el producto en el combobox
+            
+            cmbCategoria.Items.ToString();
+            ItemComboxCategoria item = cmbCategoria.SelectedItem as ItemComboxCategoria;
+            Console.WriteLine(item.cat_nombre + "   " + item.id);
+
+        }
+    }   
+    
+
+    public class ItemComboxCategoria
+    {
+        public string id { get; set; }
+        public string cat_nombre { get; set; }
+        public string cat_descripcion { get; set; }
+
+        // crate a constructor to initialize the properties
+        public ItemComboxCategoria(string id, string cat_nombre, string cat_descripcion)
+        {
+            this.id = id;
+            this.cat_nombre = cat_nombre;
+            this.cat_descripcion = cat_descripcion;
+        }
+        public ItemComboxCategoria(string cat_nombre)
+        {
+            this.cat_nombre = cat_nombre;
+        }
+
 
 
     }
