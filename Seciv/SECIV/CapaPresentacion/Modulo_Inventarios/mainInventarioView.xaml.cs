@@ -20,10 +20,6 @@ using System.Windows.Shapes;
 namespace CapaPresentacion.Modulo_Inventarios
 {
     /// <summary>
-    /// 
-    /// Pasos para cargar la informacion de un producto
-    /// 
-    /// 
     /// </summary>
 
     public partial class mainInventarioView : Page
@@ -49,9 +45,6 @@ namespace CapaPresentacion.Modulo_Inventarios
         }
 
 
-
-
-        
         #region Productos 
 
         private void dgridInventarios_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -128,7 +121,7 @@ namespace CapaPresentacion.Modulo_Inventarios
             txtPrecioVenta.Text = "";
             txtCantidad.Text = "";
             txtDecoracion.Text = "";
-            cmbCategoria.Text = "Seleccione una categoria";
+            cmbCategoria.Items.Clear(); 
             txtDescripcion.Text = "";
             txtIVA.Text = "";
         }
@@ -162,8 +155,11 @@ namespace CapaPresentacion.Modulo_Inventarios
                 txtIVA.Text = produto.prd_porcIVA.ToString();
                 txtCantidad.Text = produto.prd_cantStock.ToString();
                 txtDecoracion.Text = produto.prd_idDecoracion.ToString();
-                txtIdCategoria.Text = produto.prd_idCategoria.ToString();
                 txtDescripcion.Text = produto.prd_descripcion.ToString();
+                txtIdCategoria.Text = produto.prd_idCategoria.ToString();
+                
+                
+
             }
         }
 
@@ -179,6 +175,22 @@ namespace CapaPresentacion.Modulo_Inventarios
 
             actualizar = true;
             cargarCategoriasCmBox();
+
+            // seleccionar el la categoria que posee el producto en el combobox
+
+            //actualizar = true;
+            //cargarCategoriasCmBox();
+
+            ////detectar la cantidad de componentes denetro de cmbCategoria
+
+            foreach (ItemComboxCategoria categoria in cmbCategoria.ItemsSource)
+            {
+                if (categoria.id == txtIdCategoria.Text)
+                {
+                    cmbCategoria.SelectedItem = categoria;
+                }
+            }
+
         }
         private void btnAplicar_Click(object sender, RoutedEventArgs e)
         {
@@ -283,11 +295,11 @@ namespace CapaPresentacion.Modulo_Inventarios
             cargarTxtsCategoria();  
         }
 
-        
+
         //Listar Categorias en el ComboBox 
         public void cargarCategoriasCmBox()
         {
-            cmbCategoria.Items.Clear();
+            //cmbCategoria.Items.Clear();
             List<Categoria> categoriasAUX = new List<Categoria>();
             List<ItemComboxCategoria> itemsCategorias = new List<ItemComboxCategoria>();
 
@@ -311,7 +323,6 @@ namespace CapaPresentacion.Modulo_Inventarios
                 itemsCategorias.Add(new ItemComboxCategoria(categoria.id, categoria.cat_nombre, categoria.cat_descripcion));
             }
             cmbCategoria.ItemsSource = itemsCategorias;
-
         }
 
         //Agregar Categoria
@@ -367,19 +378,21 @@ namespace CapaPresentacion.Modulo_Inventarios
         }
 
 
-        #endregion
-
         private void cmbCategoria_DropDownClosed(object sender, EventArgs e)
         {
 
 
-            // seleccionar el la categoria que posee el producto en el combobox
-            
-            cmbCategoria.Items.ToString();
+            //// seleccionar el la categoria que posee el producto en el combobox
+
+            //cmbCategoria.Items.ToString();
             ItemComboxCategoria item = cmbCategoria.SelectedItem as ItemComboxCategoria;
             Console.WriteLine(item.cat_nombre + "   " + item.id);
 
         }
+
+        #endregion
+
+
     }   
     
 
