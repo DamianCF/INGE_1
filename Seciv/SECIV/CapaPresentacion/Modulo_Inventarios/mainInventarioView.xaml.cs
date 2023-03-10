@@ -264,7 +264,8 @@ namespace CapaPresentacion.Modulo_Inventarios
 
         //Listar Categorias
         public void ListarCategorias()
-        {            if (actualizar)
+        {
+            if (actualizar)
             {
                 using (GestorCategorias Categoria = new GestorCategorias())
                 {

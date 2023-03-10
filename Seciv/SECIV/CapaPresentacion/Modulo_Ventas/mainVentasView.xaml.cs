@@ -25,10 +25,13 @@ namespace CapaPresentacion.Modulo_Ventas
     public partial class mainVentasView : Page
     {
         public bool actualizar = false;
+        List<Producto> productos = new List<Producto>();
+
         public mainVentasView()
         {
             InitializeComponent();
             ListarVentas();
+            ListarProductos();
             txtFecha.SelectedDate = DateTime.Now;
             btnEdita.IsEnabled = false;
             btnEliminar.IsEnabled = false;
@@ -37,6 +40,7 @@ namespace CapaPresentacion.Modulo_Ventas
             txtImpuesto.IsReadOnly = true;
             txtSubtotal.IsReadOnly = true;
         }
+        
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -176,6 +180,7 @@ namespace CapaPresentacion.Modulo_Ventas
         
         public void ListarVentas()
         {
+            
             if (actualizar)
             {
                 using (GestorVentas Ventas = new GestorVentas())
@@ -191,9 +196,56 @@ namespace CapaPresentacion.Modulo_Ventas
             }  
         }
 
-        private void cargarTxts()
+        private void dgridCarrito_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
+        }
+
+        //PRODUCTOS
+        private void dgridProductos_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            
+            // hide the column
+            if (   e.PropertyName == "prd_descripcion" 
+                || e.PropertyName == "prd_precioCosto"
+                || e.PropertyName == "prd_utilidad" 
+                || e.PropertyName == "prd_porcIVA"
+                || e.PropertyName == "prd_idDecoracion")
+            {
+                e.Column.Visibility = Visibility.Collapsed;
+            }        
+        }
+        
+        public void ListarProductos()
+        { // carga los productos en el datagrid          
+                using (GestorProductos Productos = new GestorProductos())
+                {
+                    dgridProductos.ItemsSource = Productos.ListarProductos();
+                }
+        }
+        
+        private void dgridProductos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {                 
+            productos.Add((Producto)dgridProductos.SelectedItem);
+
+        }
+
+        private void btnAgregarCategoria1_Click(object sender, RoutedEventArgs e)
+        {
+            dgridCarrito.ItemsSource = null;
+            dgridCarrito.ItemsSource = productos;
+        }
+
+
+        private void dgridProductos_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void cargarTxts()
+        {
             if (dgridVentas.Items.Count > 0)
             {
                 Venta Ventas = (Venta)dgridVentas.SelectedItem;
@@ -230,6 +282,7 @@ namespace CapaPresentacion.Modulo_Ventas
             txtSubtotal.Text = "";
             txtTotal.Text = "";
             txtEstado.Text = "";
+            
         }
      
         private void dgridVentas_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -237,6 +290,7 @@ namespace CapaPresentacion.Modulo_Ventas
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
             e.Cancel = e.PropertyName == "id";
             e.Column.Visibility = e.PropertyName == "vent_estado" ? Visibility.Hidden : Visibility.Visible;
+            
         }
         //FIN METODOS DE CARGA Y LIMPIEZA
 
@@ -285,8 +339,14 @@ namespace CapaPresentacion.Modulo_Ventas
             //    txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
            // }
         }
-        ////FIN DE METODOS DE VALIDACION Y CALCULOS
 
+       
+
+        
+
+
+
+        ////FIN DE METODOS DE VALIDACION Y CALCULOS
 
         // ------------------------------------------------------------------------------------------------------------------------ //
     }

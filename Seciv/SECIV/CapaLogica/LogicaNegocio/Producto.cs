@@ -90,6 +90,7 @@ namespace CapaLogica.LogicaNegocio
 
         //[BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("prd_idCategoria")]
+        [DisplayName("Categoria")]
         public string prd_idCategoria { get; set; }
 
         //[BsonRepresentation(BsonType.ObjectId)]

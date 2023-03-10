@@ -194,6 +194,7 @@
                             Height="30"
                             Margin="19,406,0,10"
                             HorizontalAlignment="Left"
+                            Click="btnAgregarCategoria1_Click"
                             Content="Agregar"
                             Foreground="White" />
 
@@ -225,17 +226,21 @@
                             Foreground="White" />
 
                         <DataGrid
-                            x:Name="dgridCategoriasx1"
+                            x:Name="dgridProductos"
                             Grid.Row="1"
                             Grid.Column="0"
                             Margin="19,123,400,54"
-                            Padding="0,10" />
+                            Padding="0,10"
+                            AutoGeneratingColumn="dgridProductos_AutoGeneratingColumn"
+                            IsReadOnly="True"
+                            MouseDoubleClick="dgridProductos_MouseDoubleClick" />
                         <DataGrid
-                            x:Name="dgridCategoriasx12"
+                            x:Name="dgridCarrito"
                             Grid.Row="1"
                             Grid.Column="0"
                             Margin="430,123,84,97"
-                            Padding="0,10" />
+                            Padding="0,10"
+                            AutoGeneratingColumn="dgridCarrito_AutoGeneratingColumn" IsReadOnly="True" />
                         <TextBox
                             x:Name="txtMontoTotal"
                             Grid.Row="1"
@@ -485,7 +490,6 @@
                 </StackPanel>
             </materialDesign:DialogHost>
         </materialDesign:DrawerHost.RightDrawerContent>
-
 
 
         <materialDesign:DialogHost>
