@@ -111,7 +111,7 @@
 
                     <Grid
                         x:Name="nuevaScreeen"
-                        Width="1200"
+                        Width="1100"
                         Height="450"
                         Background="White"
                         Cursor="Hand">
@@ -145,8 +145,8 @@
                             Grid.Row="1"
                             Width="128"
                             Height="32"
-                            Margin="510,19,0,0"
-                            HorizontalAlignment="Left"
+                            Margin="0,19,0,0"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Top"
                             Content="Nueva venta"
                             FontSize="19"
@@ -168,7 +168,7 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="410,76,755,335"
+                            Margin="371,73,694,338"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
@@ -179,7 +179,7 @@
                         </Button>
                         <Button
                             Grid.Row="1"
-                            Margin="300,78,818,336"
+                            Margin="259,74,743,340"
                             Foreground="White"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedButton}"
@@ -189,7 +189,7 @@
 
                         <Border
                             Grid.Row="1"
-                            Margin="536,69,57,338"
+                            Margin="441,69,110,338"
                             BorderBrush="#FF000000"
                             BorderThickness="0.5"
                             CornerRadius="8">
@@ -210,7 +210,7 @@
                             x:Name="btnLimpiarCategoria1"
                             Grid.Row="1"
                             Height="30"
-                            Margin="536,406,57,10"
+                            Margin="441,406,110,10"
                             Content="Confirmar"
                             Foreground="White" />
 
@@ -220,6 +220,7 @@
                             Grid.Column="0"
                             Margin="19,123,678,10"
                             Padding="0,10"
+                            AutoGeneratingColumn="dgridProductos_AutoGeneratingColumn"
                             FrozenColumnCount="1"
                             IsReadOnly="True">
                             <DataGrid.Columns>
@@ -244,14 +245,14 @@
                             x:Name="dgridCarrito"
                             Grid.Row="1"
                             Grid.Column="0"
-                            Margin="536,123,57,97"
+                            Margin="441,123,110,97"
                             Padding="0,10"
                             IsReadOnly="True" />
                         <TextBox
                             x:Name="txtMontoTotal"
                             Grid.Row="1"
                             Height="38"
-                            Margin="652,354,172,0"
+                            Margin="601,354,345,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Total"
                             materialDesign:TextFieldAssist.SuffixText="colones"
@@ -261,7 +262,8 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="1156,142,9,269"
+                            Margin="1032,132,0,279"
+                            HorizontalAlignment="Left"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
@@ -274,7 +276,8 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="1156,218,9,192"
+                            Margin="1032,218,0,192"
+                            HorizontalAlignment="Left"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
@@ -287,7 +290,8 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="1156,284,9,126"
+                            Margin="1032,298,0,113"
+                            HorizontalAlignment="Left"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
