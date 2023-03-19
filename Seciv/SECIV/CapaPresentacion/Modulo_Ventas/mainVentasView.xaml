@@ -105,13 +105,13 @@
 
 
                 <StackPanel
-                    Width="1000"
+                    Width="1250"
                     Margin="0,30,0,20"
                     Background="#FFFDFDFD">
 
                     <Grid
                         x:Name="nuevaScreeen"
-                        Width="800"
+                        Width="1200"
                         Height="450"
                         Background="White"
                         Cursor="Hand">
@@ -143,15 +143,15 @@
 
                         <Label
                             Grid.Row="1"
-                            Width="127"
+                            Width="128"
                             Height="32"
-                            Margin="318,10,0,0"
+                            Margin="510,19,0,0"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Nueva venta"
                             FontSize="19"
                             FontWeight="Bold" />
-                        <StackPanel Grid.Row="1" Margin="19,69,549,328">
+                        <StackPanel Grid.Row="1" Margin="19,69,871,328">
                             <TextBox
                                 Width="232"
                                 materialDesign:HintAssist.Hint="Buscar producto"
@@ -168,7 +168,7 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="272,76,492,335"
+                            Margin="410,76,755,335"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
@@ -179,7 +179,7 @@
                         </Button>
                         <Button
                             Grid.Row="1"
-                            Margin="329,78,400,336"
+                            Margin="300,78,818,336"
                             Foreground="White"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignRaisedButton}"
@@ -187,20 +187,9 @@
                             Filtros
                         </Button>
 
-                        <Button
-                            x:Name="btnAgregarCategoria1"
-                            Grid.Row="1"
-                            Width="381"
-                            Height="30"
-                            Margin="19,406,0,10"
-                            HorizontalAlignment="Left"
-                            Click="btnAgregarCategoria1_Click"
-                            Content="Agregar"
-                            Foreground="White" />
-
                         <Border
                             Grid.Row="1"
-                            Margin="430,69,84,338"
+                            Margin="536,69,57,338"
                             BorderBrush="#FF000000"
                             BorderThickness="0.5"
                             CornerRadius="8">
@@ -221,7 +210,7 @@
                             x:Name="btnLimpiarCategoria1"
                             Grid.Row="1"
                             Height="30"
-                            Margin="430,406,84,10"
+                            Margin="536,406,57,10"
                             Content="Confirmar"
                             Foreground="White" />
 
@@ -229,23 +218,40 @@
                             x:Name="dgridProductos"
                             Grid.Row="1"
                             Grid.Column="0"
-                            Margin="19,123,400,54"
+                            Margin="19,123,678,10"
                             Padding="0,10"
-                            AutoGeneratingColumn="dgridProductos_AutoGeneratingColumn"
-                            IsReadOnly="True"
-                            MouseDoubleClick="dgridProductos_MouseDoubleClick" />
+                            FrozenColumnCount="1"
+                            IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                x:Name="Btn_Agregar_Carrito"
+                                                HorizontalAlignment="Left"
+                                                Click="Btn_Agregar_Carrito_Click"
+                                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                                ToolTip="Agregar al carrito">
+                                                <materialDesign:PackIcon Kind="Add" />
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                         <DataGrid
                             x:Name="dgridCarrito"
                             Grid.Row="1"
                             Grid.Column="0"
-                            Margin="430,123,84,97"
+                            Margin="536,123,57,97"
                             Padding="0,10"
-                            AutoGeneratingColumn="dgridCarrito_AutoGeneratingColumn" IsReadOnly="True" />
+                            IsReadOnly="True" />
                         <TextBox
                             x:Name="txtMontoTotal"
                             Grid.Row="1"
                             Height="38"
-                            Margin="452,349,103,0"
+                            Margin="652,354,172,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Total"
                             materialDesign:TextFieldAssist.SuffixText="colones"
@@ -255,7 +261,7 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="721,148,44,263"
+                            Margin="1156,142,9,269"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
@@ -268,7 +274,7 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="721,211,44,200"
+                            Margin="1156,218,9,192"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">
@@ -281,7 +287,7 @@
                             Grid.Row="1"
                             Width="35"
                             Height="35"
-                            Margin="721,280,44,131"
+                            Margin="1156,284,9,126"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
                             ToolTip="MaterialDesignFloatingActionButton">

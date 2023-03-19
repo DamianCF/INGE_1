@@ -238,10 +238,11 @@ namespace CapaPresentacion.Modulo_Ventas
             dgridCarrito.ItemsSource = productos;
         }
 
-
-        private void dgridProductos_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Btn_Agregar_Carrito_Click(object sender, RoutedEventArgs e)
         {
-
+            productos.Add((Producto)dgridProductos.SelectedItem);
+            dgridCarrito.ItemsSource = null;
+            dgridCarrito.ItemsSource = productos;
         }
 
         private void cargarTxts()
@@ -342,7 +343,10 @@ namespace CapaPresentacion.Modulo_Ventas
 
        
 
-        
+
+
+
+
 
 
 
