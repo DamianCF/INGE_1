@@ -229,7 +229,6 @@ namespace CapaPresentacion.Modulo_Ventas
         private void dgridProductos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {                 
             productos.Add((Producto)dgridProductos.SelectedItem);
-
         }
 
         private void btnAgregarCategoria1_Click(object sender, RoutedEventArgs e)
@@ -341,7 +340,18 @@ namespace CapaPresentacion.Modulo_Ventas
            // }
         }
 
-       
+        private void btnEditarCarrito_Click(object sender, RoutedEventArgs e)
+        {
+           
+            dgridCarrito.UnselectAllCells();
+            
+        }
+
+
+
+
+
+
 
 
 

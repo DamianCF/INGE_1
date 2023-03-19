@@ -1161,21 +1161,12 @@
                     Margin="441,123,110,97"
                     Padding="0,10"
                     IsReadOnly="True" />
-                <TextBox
-                    x:Name="txtMontoTotal"
-                    Grid.Row="1"
-                    Height="38"
-                    Margin="601,354,345,0"
-                    VerticalAlignment="Top"
-                    materialDesign:HintAssist.Hint="Total"
-                    materialDesign:TextFieldAssist.SuffixText="colones"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                 <Button
                     Grid.Row="1"
                     Width="35"
                     Height="35"
-                    Margin="1032,132,0,279"
+                    Margin="623,357,0,54"
                     HorizontalAlignment="Left"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
@@ -1189,7 +1180,7 @@
                     Grid.Row="1"
                     Width="35"
                     Height="35"
-                    Margin="1032,218,0,192"
+                    Margin="698,357,0,54"
                     HorizontalAlignment="Left"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
@@ -1201,9 +1192,9 @@
                 </Button>
                 <Button
                     Grid.Row="1"
-                    Width="35"
+                    Width="34"
                     Height="35"
-                    Margin="1032,298,0,113"
+                    Margin="774,357,0,54"
                     HorizontalAlignment="Left"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
                     Style="{StaticResource MaterialDesignFloatingActionButton}"
