@@ -18,6 +18,10 @@ namespace CapaLogica.Servicios
 
         static IMongoCollection<Categoria> collection = conexion.getDataBase().GetCollection<Categoria>("SECIV_categorias");
 
+        public IMongoCollection<Categoria>  getCollectionCategoria(){
+            return collection;
+        }
+
         public void InsertarCategoria(Categoria c)
         {
             collection.InsertOne(c);
