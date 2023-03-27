@@ -1,4 +1,4 @@
-using CapaIntegracion;
+﻿using CapaIntegracion;
 using CapaLogica.LogicaNegocio;
 using System;
 using System.Collections.Generic;
@@ -339,7 +339,6 @@ namespace CapaPresentacion.Modulo_Ventas
             //    txtTotal.Text = (Double.Parse(txtMonto.Text) - descuento).ToString();  
            // }
         }
-        ////FIN DE METODOS DE VALIDACION Y CALCULOS
 
         private void btnEditarCarrito_Click(object sender, RoutedEventArgs e)
         {
