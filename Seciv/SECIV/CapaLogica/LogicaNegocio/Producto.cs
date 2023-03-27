@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
@@ -97,6 +97,7 @@ namespace CapaLogica.LogicaNegocio
         [BsonElement("prd_idDecoracion")]
         public string prd_idDecoracion { get; set; }
 
+        public string prd_nomCategoria { get; set; } // auxiliar para pasar nombre de categoria
         #endregion
     }
 }

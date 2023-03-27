@@ -78,7 +78,7 @@ namespace CapaPresentacion.Modulo_Inventarios
             {
                 using (GestorProductos Producto = new GestorProductos())
                 {
-                    Singleton.Instance.productos = Producto.ListarProductos();
+                    Singleton.Instance.productos = Producto.LookupProductoCategoria();//Producto.ListarProductos();
                     dgridInventarios.ItemsSource = Singleton.Instance.productos;
                 }
                 actualizar = false;
