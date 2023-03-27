@@ -96,6 +96,7 @@ namespace CapaLogica.LogicaNegocio
         [BsonElement("prd_idDecoracion")]
         public string prd_idDecoracion { get; set; }
 
+        [BsonIgnore]
         public string prd_nomCategoria { get; set; } // auxiliar para pasar nombre de categoria
         #endregion
     }
