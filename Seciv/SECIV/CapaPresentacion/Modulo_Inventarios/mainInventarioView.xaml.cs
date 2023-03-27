@@ -56,10 +56,8 @@ namespace CapaPresentacion.Modulo_Inventarios
         {
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
             e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "prd_idCategoria" ? Visibility.Hidden : Visibility.Visible;
             e.Column.Visibility = e.PropertyName == "prd_idDecoracion" ? Visibility.Hidden : Visibility.Visible;
-
-            // esconder la visibilida de la columna prd_idCategoria
-            if (e.PropertyName == "prd_idCategoria") { e.Column.Visibility = Visibility.Hidden; }
         }
 
         private void dgridInventarios_MouseUp(object sender, MouseButtonEventArgs e)
@@ -201,7 +199,7 @@ namespace CapaPresentacion.Modulo_Inventarios
             ItemComboxCategoria item = cmbCategoria.SelectedItem as ItemComboxCategoria;
             using (GestorProductos Compra = new GestorProductos())
             {
-                Compra.ActualizarProducto(txtId.Text, txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, 
+                Compra.ActualizarProducto(txtId.Text, txtCodigo.Text, txtNombre.Text, txtDescripcion.Text,
                     Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text),
                     Double.Parse(txtIVA.Text), int.Parse(txtCantidad.Text), item.id, txtDecoracion.Text);
                 alrtCampos.Visibility = Visibility.Collapsed;
