@@ -1,4 +1,4 @@
-using CapaLogica.LogicaNegocio;
+﻿using CapaLogica.LogicaNegocio;
 using CapaLogica.Servicios;
 using System;
 using System.Collections.Generic;
@@ -47,49 +47,6 @@ namespace CapaIntegracion
         {
             using (ServicioProducto Producto = new ServicioProducto())
                 Producto.EliminarProducto(id);
-        }
-
-        public List<Producto> LookupProductoCategoria()
-        {
-            ServicioProducto Producto = new ServicioProducto();
-            var productsCollection = Producto.getCollectionProducto().AsQueryable() ;
-            ServicioCategoria Categoria = new ServicioCategoria();
-            var categoriesCollection = Categoria.getCollectionCategoria().AsQueryable();
-
-            // Realizamos el $lookup utilizando LINQ
-            var productsWithCategories = from product in productsCollection
-                                      join category in categoriesCollection
-                                      on product.prd_idCategoria equals category.id into categoryJoin
-                                      from category in categoryJoin.DefaultIfEmpty()
-                                      select new
-                                      {
-                                          id = product.id,
-                                          prd_codigo = product.prd_codigo,
-                                          prd_nombre = product.prd_nombre,
-                                          prd_descripcion = product.prd_descripcion,
-                                          prd_precioCosto = product.prd_precioCosto,
-                                          prd_utilidad = product.prd_utilidad,
-                                          prd_precioVenta = product.prd_precioVenta,
-                                          prd_porcIVA = product.prd_porcIVA,
-                                          prd_cantStock = product.prd_cantStock,
-                                          prd_idCategoria = product.prd_idCategoria,
-                                          prd_idDecoracion = product.prd_idDecoracion,
-                                          prd_nomCategoria = category != null ? category.cat_nombre : "Desconocido"
-                                      };
-
-            List<Producto> productsList = new List<Producto>();
-            foreach (var product in productsWithCategories)
-            {
-                Producto producto = new Producto(product.id, product.prd_codigo, product.prd_nombre, product.prd_descripcion, product.prd_precioCosto, product.prd_utilidad, product.prd_precioVenta, product.prd_porcIVA, product.prd_cantStock, product.prd_idCategoria, product.prd_idDecoracion);
-                producto.prd_nomCategoria = product.prd_nomCategoria;
-                productsList.Add(producto);
-            }
-            // Imprimimos los resultados de la consulta
-            //foreach (var product in productsWithCategories)
-            //{
-            //    Console.WriteLine($"ID #{product.productId} - Nombre: ${product.name} - Categoria: {product.categoryName}");
-            //}
-            return productsList;
         }
 
     }
