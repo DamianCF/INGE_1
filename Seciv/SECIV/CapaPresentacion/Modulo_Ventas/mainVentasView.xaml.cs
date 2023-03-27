@@ -79,6 +79,7 @@ namespace CapaPresentacion.Modulo_Ventas
 
             editScreen.Visibility = Visibility.Visible;
             nuevaScreeen.Visibility = Visibility.Collapsed;
+            confirmScreen.Visibility = Visibility.Collapsed;
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
@@ -96,6 +97,7 @@ namespace CapaPresentacion.Modulo_Ventas
         {
             editScreen.Visibility = Visibility.Collapsed;
             nuevaScreeen.Visibility = Visibility.Visible;
+            confirmScreen.Visibility = Visibility.Collapsed;
         }
         // ------------------------------------------------------------------------------------------------------------------------ //
 
@@ -198,7 +200,7 @@ namespace CapaPresentacion.Modulo_Ventas
 
         private void dgridCarrito_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
+            
         }
 
         //PRODUCTOS
@@ -229,19 +231,17 @@ namespace CapaPresentacion.Modulo_Ventas
         private void dgridProductos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {                 
             productos.Add((Producto)dgridProductos.SelectedItem);
-        }
-
-        private void btnAgregarCategoria1_Click(object sender, RoutedEventArgs e)
-        {
-            dgridCarrito.ItemsSource = null;
-            dgridCarrito.ItemsSource = productos;
+            productos.Add((Producto)dgridCarritoConfirmacion.SelectedItem);
         }
 
         private void Btn_Agregar_Carrito_Click(object sender, RoutedEventArgs e)
         {
             productos.Add((Producto)dgridProductos.SelectedItem);
+           // productos.Add((Producto)dgridCarritoConfirmacion.SelectedItem);
             dgridCarrito.ItemsSource = null;
+            dgridCarritoConfirmacion.ItemsSource = null;
             dgridCarrito.ItemsSource = productos;
+            dgridCarritoConfirmacion.ItemsSource = productos;
         }
 
         private void cargarTxts()
@@ -291,6 +291,18 @@ namespace CapaPresentacion.Modulo_Ventas
             e.Cancel = e.PropertyName == "id";
             e.Column.Visibility = e.PropertyName == "vent_estado" ? Visibility.Hidden : Visibility.Visible;
             
+        }
+        private void dgridCarritoConfirmacion_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "vent_estado" ? Visibility.Hidden : Visibility.Visible;
+        }
+        private void btnConfirmar_Click(object sender, RoutedEventArgs e)
+        {
+            editScreen.Visibility = Visibility.Collapsed;
+            nuevaScreeen.Visibility = Visibility.Collapsed;
+            confirmScreen.Visibility = Visibility.Visible;
         }
         //FIN METODOS DE CARGA Y LIMPIEZA
 
@@ -346,17 +358,6 @@ namespace CapaPresentacion.Modulo_Ventas
             dgridCarrito.UnselectAllCells();
             
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

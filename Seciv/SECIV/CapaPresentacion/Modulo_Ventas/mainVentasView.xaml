@@ -109,6 +109,8 @@
                     Margin="0,30,0,20"
                     Background="#FFFDFDFD">
 
+
+                    <!--  Este grid contiene la pantalla que se muestra cuando se quiere generar una venta  -->
                     <Grid
                         x:Name="nuevaScreeen"
                         Width="1100"
@@ -207,10 +209,11 @@
 
 
                         <Button
-                            x:Name="btnLimpiarCategoria1"
+                            x:Name="btnConfirmar"
                             Grid.Row="1"
                             Height="30"
                             Margin="441,406,110,10"
+                            Click="btnConfirmar_Click"
                             Content="Confirmar"
                             Foreground="White" />
 
@@ -247,8 +250,7 @@
                             Grid.Column="0"
                             Margin="441,123,110,97"
                             Padding="0,10"
-                            IsReadOnly="True" 
-                             />
+                            IsReadOnly="True" />
 
                         <Button
                             Grid.Row="1"
@@ -256,11 +258,11 @@
                             Height="35"
                             Margin="623,357,0,54"
                             HorizontalAlignment="Left"
+                            Click="btnEditarCarrito_Click"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                             Style="{StaticResource MaterialDesignFloatingActionButton}"
-                            ToolTip="MaterialDesignFloatingActionButton"
-                            Click="btnEditarCarrito_Click">
-                            
+                            ToolTip="MaterialDesignFloatingActionButton">
+
                             <materialDesign:PackIcon
                                 Width="31"
                                 Height="28"
@@ -296,6 +298,137 @@
                         </Button>
                     </Grid>
 
+                    <!--  Pantalla de confirmacion de productos para facturar  -->
+                    <Grid
+                        x:Name="confirmScreen"
+                        Width="800"
+                        Margin="0,30,0,20"
+                        Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="333*" />
+                            <RowDefinition Height="67*" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Width="168"
+                            Height="40"
+                            Margin="0,24,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Content="Genera venta"
+                            FontSize="26"
+                            FontWeight="Bold" />
+
+                        <TextBox
+                            x:Name="txtClientexx"
+                            Margin="437,75,91,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Cliente"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <DatePicker
+                            x:Name="txtFechaxx"
+                            Margin="91,75,469,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Fecha"
+                            materialDesign:TextFieldAssist.HasClearButton="True"
+                            FirstDayOfWeek="Monday"
+                            Focusable="False"
+                            IsTodayHighlighted="True"
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        <ComboBox
+                            x:Name="CbxPagoxx"
+                            Margin="91,117,469,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Metodo de pago"
+                            Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <ComboBoxItem Content="Efectivo" />
+                            <ComboBoxItem Content="Sinpe" />
+                            <ComboBoxItem Content="Transferencia" />
+                            <ComboBoxItem Content="Cheque" />
+                        </ComboBox>
+                        <TextBox
+                            x:Name="txtDetallexx"
+                            Margin="437,117,91,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Detalle"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <DataGrid
+                            x:Name="dgridCarritoConfirmacion"
+                            Margin="23,172,23,155"
+                            materialDesign:HintAssist.Hint="Carrito de compras"
+                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                            AutoGeneratingColumn="dgridCarritoConfirmacion_AutoGeneratingColumn"
+                            VerticalScrollBarVisibility="Auto" />
+
+                        <Border
+                            Margin="23,349,23,10"
+                            CornerRadius="10,10,10,10"
+                            Opacity="0.3">
+                            <Border.Background>
+                                <SolidColorBrush Opacity="0.3" Color="#FF2196F3" />
+                            </Border.Background>
+                        </Border>
+                        <Button
+                            x:Name="btnAgregarxx_Copy"
+                            Width="156"
+                            Height="70"
+                            Margin="593,366,0,57"
+                            HorizontalAlignment="Left"
+                            Background="#FF176EC6"
+                            Content="Facturar"
+                            Foreground="White" />
+
+                        <Button
+                            x:Name="BtnEliminarxx_Copy"
+                            Grid.Row="0"
+                            Width="156"
+                            Height="30"
+                            Margin="593,444,0,19"
+                            HorizontalAlignment="Left"
+                            Background="#FFFF8A65"
+                            BorderBrush="#FFFF8A65"
+                            Content="Cancelar"
+                            Foreground="White" />
+
+                        <TextBox
+                            x:Name="txtDescuentoxx"
+                            Margin="55,348,639,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Descuento"
+                            materialDesign:TextFieldAssist.SuffixText="%"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <ToggleButton
+                            Width="25"
+                            Height="25"
+                            Margin="176,360,599,108"
+                            materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=CloseCircle}"
+                            Content="{materialDesign:PackIcon Kind=Pencil}"
+                            Style="{StaticResource MaterialDesignActionToggleButton}"
+                            ToolTip="MaterialDesignActionLightToggleButton" />
+
+                        <TextBox
+                            x:Name="txtImpuestoxx"
+                            Margin="55,391,599,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="IVA: ₡"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <TextBox
+                            x:Name="txtSubTotalxx"
+                            Height="37"
+                            Margin="55,437,599,19"
+                            materialDesign:HintAssist.Hint="Subtotal: ₡"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <TextBox
+                            x:Name="txtTotalxx"
+                            Height="68"
+                            Margin="286,382,286,0"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Total: ₡"
+                            FontSize="24"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    </Grid>
+
+
+                    <!--  Este grid contiene la pantalla que se muestra cuando se quiere editar una venta  -->
                     <Grid
                         x:Name="editScreen"
                         Width="600"
