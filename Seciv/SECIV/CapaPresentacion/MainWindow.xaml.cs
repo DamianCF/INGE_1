@@ -47,7 +47,7 @@ namespace CapaPresentacion
             }
             using (GestorProductos Producto = new GestorProductos())
             {
-                Singleton.Instance.productos = Producto.ListarProductos();
+                Singleton.Instance.productos = Producto.LookupProductoCategoria();
             }
             using (GestorUsuarios Usuario = new GestorUsuarios())
             {

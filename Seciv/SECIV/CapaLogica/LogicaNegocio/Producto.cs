@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace CapaLogica.LogicaNegocio
 {
@@ -56,37 +57,46 @@ namespace CapaLogica.LogicaNegocio
         public string id { get; set; }
 
         [BsonElement("prd_codigo")]
+        [DisplayName("Código")]
         public string prd_codigo { get; set; }
 
         [BsonElement("prd_nombre")]
+        [DisplayName("Nombre")]
         public string prd_nombre { get; set; }
 
         [BsonElement("prd_descripcion")]
+        [DisplayName("Descripcion")]
         public string prd_descripcion { get; set; }
 
         [BsonElement("prd_precioCosto")]
+        [DisplayName("PrecioCosto")]
         public double prd_precioCosto { get; set; }
 
         [BsonElement("prd_utilidad")]
+        [DisplayName("Utilidad")]
         public double prd_utilidad { get; set; }
 
         [BsonElement("prd_precioVenta")]
+        [DisplayName("PrecioVenta")]
         public double prd_precioVenta { get; set; }
 
         [BsonElement("prd_porcIVA")]
+        [DisplayName("PorcIVA")]
         public double prd_porcIVA { get; set; }
 
         [BsonElement("prd_cantStock")]
+        [DisplayName("Cantidad")]
         public int prd_cantStock { get; set; }
 
-        //[BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("prd_idCategoria")]
+        [DisplayName("Categoria")]
         public string prd_idCategoria { get; set; }
 
         //[BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("prd_idDecoracion")]
         public string prd_idDecoracion { get; set; }
-
+        public string prd_nomCategoria { get; set; } // auxiliar para pasar nombre de categoria
         #endregion
     }
 }
