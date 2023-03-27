@@ -88,14 +88,15 @@ namespace CapaLogica.LogicaNegocio
         [DisplayName("Cantidad")]
         public int prd_cantStock { get; set; }
 
-        //[BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("prd_idCategoria")]
+        [DisplayName("Categoria")]
         public string prd_idCategoria { get; set; }
 
         //[BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("prd_idDecoracion")]
         public string prd_idDecoracion { get; set; }
-
+        public string prd_nomCategoria { get; set; } // auxiliar para pasar nombre de categoria
         #endregion
     }
 }
