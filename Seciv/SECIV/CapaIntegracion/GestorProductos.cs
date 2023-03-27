@@ -56,7 +56,7 @@ namespace CapaIntegracion
             //var query = productsCollection.AsQueryable().Where(p => p.prd_nombre == "Almohada").ToList();
             //query.ForEach(p => Console.WriteLine(p.ToJson()));
 
-        public void LookupProductoCategoria()
+        public List<Producto> LookupProductoCategoria()
         {
             ServicioProducto Producto = new ServicioProducto();
             var productsCollection = Producto.getCollectionProducto().AsQueryable() ;
@@ -70,16 +70,33 @@ namespace CapaIntegracion
                                       from category in categoryJoin.DefaultIfEmpty()
                                       select new
                                       {
-                                          productId = product.id,
-                                          name = product.prd_nombre,
-                                          categoryName = category != null ? category.cat_nombre : "Desconocido"
+                                          id = product.id,
+                                          prd_codigo = product.prd_codigo,
+                                          prd_nombre = product.prd_nombre,
+                                          prd_descripcion = product.prd_descripcion,
+                                          prd_precioCosto = product.prd_precioCosto,
+                                          prd_utilidad = product.prd_utilidad,
+                                          prd_precioVenta = product.prd_precioVenta,
+                                          prd_porcIVA = product.prd_porcIVA,
+                                          prd_cantStock = product.prd_cantStock,
+                                          prd_idCategoria = product.prd_idCategoria,
+                                          prd_idDecoracion = product.prd_idDecoracion,
+                                          prd_nomCategoria = category != null ? category.cat_nombre : "Desconocido"
                                       };
 
-            // Imprimimos los resultados de la consulta
+            List<Producto> productsList = new List<Producto>();
             foreach (var product in productsWithCategories)
             {
-                Console.WriteLine($"ID #{product.productId} - Nombre: ${product.name} - Categoria: {product.categoryName}");
+                Producto producto = new Producto(product.id, product.prd_codigo, product.prd_nombre, product.prd_descripcion, product.prd_precioCosto, product.prd_utilidad, product.prd_precioVenta, product.prd_porcIVA, product.prd_cantStock, product.prd_idCategoria, product.prd_idDecoracion);
+                producto.prd_nomCategoria = product.prd_nomCategoria;
+                productsList.Add(producto);
             }
+            // Imprimimos los resultados de la consulta
+            //foreach (var product in productsWithCategories)
+            //{
+            //    Console.WriteLine($"ID #{product.productId} - Nombre: ${product.name} - Categoria: {product.categoryName}");
+            //}
+            return productsList;
         }
 
     }
