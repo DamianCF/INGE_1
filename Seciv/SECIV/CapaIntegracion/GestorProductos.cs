@@ -1,7 +1,10 @@
 ﻿using CapaLogica.LogicaNegocio;
 using CapaLogica.Servicios;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +50,36 @@ namespace CapaIntegracion
         {
             using (ServicioProducto Producto = new ServicioProducto())
                 Producto.EliminarProducto(id);
+        }
+        
+            // Ejemplo de filtro
+            //var query = productsCollection.AsQueryable().Where(p => p.prd_nombre == "Almohada").ToList();
+            //query.ForEach(p => Console.WriteLine(p.ToJson()));
+
+        public void LookupProductoCategoria()
+        {
+            ServicioProducto Producto = new ServicioProducto();
+            var productsCollection = Producto.getCollectionProducto().AsQueryable() ;
+            ServicioCategoria Categoria = new ServicioCategoria();
+            var categoriesCollection = Categoria.getCollectionCategoria().AsQueryable();
+
+            // Realizamos el $lookup utilizando LINQ
+            var productsWithCategories = from product in productsCollection
+                                      join category in categoriesCollection
+                                      on product.prd_idCategoria equals category.id into categoryJoin
+                                      from category in categoryJoin.DefaultIfEmpty()
+                                      select new
+                                      {
+                                          productId = product.id,
+                                          name = product.prd_nombre,
+                                          categoryName = category != null ? category.cat_nombre : "Desconocido"
+                                      };
+
+            // Imprimimos los resultados de la consulta
+            foreach (var product in productsWithCategories)
+            {
+                Console.WriteLine($"ID #{product.productId} - Nombre: ${product.name} - Categoria: {product.categoryName}");
+            }
         }
 
     }

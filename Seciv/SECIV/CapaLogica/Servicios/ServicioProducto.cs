@@ -23,6 +23,11 @@ namespace CapaLogica.Servicios
 
         static IMongoCollection<Producto> collection = conexion.getDataBase().GetCollection<Producto>("SECIV_productos");
 
+        public IMongoCollection<Producto> getCollectionProducto()
+        {
+            return collection;
+        }
+
         public void InsertarProducto(Producto p)
         {
             collection.InsertOne(p);
