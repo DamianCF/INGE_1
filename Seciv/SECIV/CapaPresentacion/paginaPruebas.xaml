@@ -936,6 +936,7 @@
                 Height="450"
                 Background="White"
                 Cursor="Hand">
+
                 <Button
                     Width="76"
                     Height="60"
@@ -945,7 +946,6 @@
                     BorderBrush="{x:Null}"
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}">
-
                     <materialDesign:PackIcon
                         Width="72"
                         Height="47"
@@ -954,8 +954,6 @@
                         Kind="ArrowRight" />
                 </Button>
 
-
-                <!--  No visibles  -->
                 <TextBox
                     Margin="141,32,141,0"
                     VerticalAlignment="Top"
@@ -971,6 +969,7 @@
                     Height="30"
                     Margin="26,366,0,54"
                     HorizontalAlignment="Left"
+                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                     Content="Agregar Categoria" />
 
                 <Button
@@ -998,6 +997,15 @@
                     Content="Eliminar" />
 
                 <TextBox
+                    x:Name="txtIdCategoria"
+                    Margin="425,10,10,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Id"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Visibility="Hidden" />
+
+                <TextBox
                     x:Name="txtNomCategoria"
                     Margin="36,403,321,0"
                     VerticalAlignment="Top"
@@ -1010,16 +1018,19 @@
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Descripcion"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
                 <DataGrid
-                    x:Name="dgridCategoriasx"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="141,109,141,109"
-                    Padding="0,10" />
-
-
-
+                    Margin="26,109,43,115"
+                    Padding="0,10"
+                    IsReadOnly="True">
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF2196F3" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
             </Grid>
         </StackPanel>
 

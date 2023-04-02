@@ -29,6 +29,7 @@
             <materialDesign:DialogHost>
                 <materialDesign:DialogHost.DialogContent>
                     <StackPanel x:Name="alertas" Margin="25">
+                        <!--  Avisod de faltan campos  -->
                         <StackPanel x:Name="alrtCampos">
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <materialDesign:PackIcon
@@ -112,6 +113,10 @@
                             materialDesign:HintAssist.Hint="Codigo"
                             RenderTransformOrigin="0.5,0.5"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <!--
+                            Focusable="False"
+                            IsReadOnly="True"
+                        -->
 
                         <TextBox
                             x:Name="txtNombre"
@@ -126,7 +131,8 @@
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Precio Costo"
                             materialDesign:TextFieldAssist.SuffixText="colones"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            TextChanged="txtPrecioCost_TextChanged" />
 
                         <TextBox
                             x:Name="txtUtilidad"
@@ -157,7 +163,8 @@
                             Margin="33,284,408,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Cantidad Stock"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            TextChanged="txtCantidad_TextChanged_1" />
 
                         <TextBox
                             x:Name="txtDecoracion"
@@ -254,6 +261,7 @@
                             Margin="237,388,0,32"
                             HorizontalAlignment="Left"
                             Click="btnAgregar_Click_1"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                             Content="Agregar"
                             Foreground="White" />
 
@@ -275,10 +283,9 @@
                             Height="30"
                             Margin="237,342,0,78"
                             HorizontalAlignment="Left"
-                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                            Click="Button_Click_1"
                             Content="Eliminar"
-                            Foreground="White"
-                            Style="{StaticResource MaterialDesignRaisedDarkButton}" />
+                            Foreground="White" />
 
                         <Button
                             x:Name="btnLimpiar"
@@ -330,6 +337,7 @@
                             Margin="26,366,0,54"
                             HorizontalAlignment="Left"
                             Click="btnAgregarCategoria_Click"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                             Content="Agregar Categoria" />
 
                         <Button
@@ -381,27 +389,22 @@
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Descripcion"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                        <DataGrid
-                            x:Name="dgridCategorias"
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Width="350"
-                            Height="400"
-                            Margin="141,109,141,109"
-                            Padding="0,10"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            AutoGeneratingColumn="dgridCategorias_AutoGeneratingColumn"
-                            IsReadOnly="True"
-                            MouseUp="dgridCategorias_MouseUp">
-                            <DataGrid.Resources>
-                                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="Background" Value="#FF2196F3" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Style>
-                            </DataGrid.Resources>
-                        </DataGrid>
+                            <DataGrid
+                                x:Name="dgridCategorias"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="26,109,43,115"
+                                Padding="0,10"
+                                AutoGeneratingColumn="dgridCategorias_AutoGeneratingColumn"
+                                IsReadOnly="True"
+                                MouseUp="dgridCategorias_MouseUp" >
+                                <DataGrid.Resources>
+                                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="Background" Value="#FF2196F3" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Style>
+                                </DataGrid.Resources>
+                            </DataGrid>
                     </Grid>
                 </StackPanel>
 

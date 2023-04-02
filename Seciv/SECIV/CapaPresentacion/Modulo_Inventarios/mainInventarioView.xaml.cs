@@ -11,23 +11,7 @@ using System.Windows.Input;
 namespace CapaPresentacion.Modulo_Inventarios
 {
     /// <summary>
-    /// Operaciones Crud por completar Categorias:
-    /// listar OK
-    /// agregar OK
-    /// editar OK
-    /// limpiar OK
-    /// eliminar OK
-    /// Buscar NO
-    /// Alertas NO
-    /// Operaciones Crud por completar Productos:
-    /// listar OK
-    /// agregar OK 
-    /// editar OK
-    /// limpiar OK
-    /// eliminar OK
-    /// Buscar NO
-    /// Alertas (Eliminar SI)   (Agregado NO)
-    /// Ocultar idCategorias en listado NO
+    /// faltan validaciones de campos y fitros
     /// </summary>
 
     public partial class mainInventarioView : Page
@@ -50,14 +34,54 @@ namespace CapaPresentacion.Modulo_Inventarios
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void txt_TextChanged_IntNumber(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
+        }
+
+        private void txt_TextChanged_FloatNumber(object sender, TextChangedEventArgs e) // detectar si el texto es un numero float
+        {
+            TextBox textBox = sender as TextBox;
+            Int32 selectionStart = textBox.SelectionStart;
+            Int32 selectionLength = textBox.SelectionLength;
+            int cantPuntos = 0;
+
+            String newText = String.Empty;
+            foreach (Char c in textBox.Text.ToCharArray())
+            {
+                if (c == '.' && cantPuntos == 0)
+                {
+                    cantPuntos++;
+                    newText += c;
+                }
+                else if (Char.IsDigit(c) || Char.IsControl(c)) newText += c;
+            }
+            textBox.Text = newText;
+
+            textBox.SelectionStart = selectionStart <= textBox.Text.Length ?
+                selectionStart : textBox.Text.Length;
+        }
+
         #region PRODUCTOS ----------------------------------------------------------------------------------------
 
         private void dgridInventarios_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
             e.Cancel = e.PropertyName == "id";
-            e.Column.Visibility = e.PropertyName == "prd_idCategoria" ? Visibility.Hidden : Visibility.Visible;
             e.Column.Visibility = e.PropertyName == "prd_idDecoracion" ? Visibility.Hidden : Visibility.Visible;
+            if (e.PropertyName == "prd_idCategoria") { e.Column.Visibility = Visibility.Hidden; }
         }
 
         private void dgridInventarios_MouseUp(object sender, MouseButtonEventArgs e)
@@ -111,10 +135,19 @@ namespace CapaPresentacion.Modulo_Inventarios
         }
         private void btnAgregar_Click_1(object sender, RoutedEventArgs e)
         {
-            InsertarProducto();
-            actualizar = true;
-            ListarProductos();
-            LimpiarTxtsProducto();
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtPrecioCost.Text != "" && txtUtilidad.Text != "" && txtPrecioVenta.Text != "" && txtIVA.Text != "" && txtCantidad.Text != "" && txtDecoracion.Text != "" && txtDescripcion.Text != "")
+            {
+                InsertarProducto();
+                actualizar = true;
+                ListarProductos();
+                LimpiarTxtsProducto();
+            }
+            else
+            {
+                alrtCampos.Visibility = Visibility.Visible;
+                alrtConfirmacion.Visibility = Visibility.Collapsed;
+                nmAlerta.Text = "Debe llenar todos los campos";
+            }
         }
 
         //Limpiar Texto Procucto
@@ -342,10 +375,19 @@ namespace CapaPresentacion.Modulo_Inventarios
         }
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
-            InsertarCategoria();
-            actualizar = true;
-            ListarCategorias();
-            LimpiarTxtsCategoria();
+            if (txtNomCategoria.Text != "" && txtdescCategoria.Text != "" )
+            {
+                InsertarCategoria();
+                actualizar = true;
+                ListarCategorias();
+                LimpiarTxtsCategoria();
+            }
+            else
+            {
+                alrtCampos.Visibility = Visibility.Visible;
+                alrtConfirmacion.Visibility = Visibility.Collapsed;
+                nmAlerta.Text = "Debe llenar todos los campos";
+            }
         }
 
         //Editar Categoria
@@ -387,6 +429,16 @@ namespace CapaPresentacion.Modulo_Inventarios
             //ItemComboxCategoria item = cmbCategoria.SelectedItem as ItemComboxCategoria;
             //Console.WriteLine(item.cat_nombre + "   " + item.id);
 
+        }
+
+        private void txtCantidad_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            txt_TextChanged_IntNumber(sender, e);
+        }
+
+        private void txtPrecioCost_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txt_TextChanged_FloatNumber(sender, e);
         }
     }
 
