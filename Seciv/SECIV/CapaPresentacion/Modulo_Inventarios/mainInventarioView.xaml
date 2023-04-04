@@ -300,14 +300,14 @@
                     <Grid
                         x:Name="GridCategorias"
                         Width="600"
-                        Height="450"
+                        Height="600"
                         Background="White"
                         Cursor="Hand">
 
                         <Button
                             Width="76"
                             Height="60"
-                            Margin="10,2,0,388"
+                            Margin="26,28,0,512"
                             HorizontalAlignment="Left"
                             Background="{x:Null}"
                             BorderBrush="{x:Null}"
@@ -334,7 +334,7 @@
                             x:Name="btnAgregarCategoria"
                             Width="155"
                             Height="30"
-                            Margin="26,366,0,54"
+                            Margin="26,480,0,30"
                             HorizontalAlignment="Left"
                             Click="btnAgregarCategoria_Click"
                             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
@@ -345,7 +345,7 @@
                             Grid.Row="0"
                             Width="111"
                             Height="30"
-                            Margin="202,368,0,52"
+                            Margin="202,480,0,28"
                             HorizontalAlignment="Left"
                             Click="btnEditarCategoria_Click"
                             Content="Editar" />
@@ -353,7 +353,7 @@
                         <Button
                             x:Name="btnLimpiarCategoria"
                             Height="30"
-                            Margin="340,368,162,52"
+                            Margin="340,480,162,28"
                             Click="btnLimpiarCategoria_Click"
                             Content="Limpiar" />
 
@@ -362,7 +362,7 @@
                             Grid.Row="0"
                             Width="90"
                             Height="30"
-                            Margin="467,368,0,52"
+                            Margin="467,480,0,28"
                             HorizontalAlignment="Left"
                             Click="BtnEliminarCategoria_Click"
                             Content="Eliminar" />
@@ -378,33 +378,33 @@
 
                         <TextBox
                             x:Name="txtNomCategoria"
-                            Margin="36,403,321,0"
+                            Margin="26,550,331,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Nombre"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                         <TextBox
                             x:Name="txtdescCategoria"
-                            Margin="318,403,43,0"
+                            Margin="318,550,43,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Descripcion"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <DataGrid
-                                x:Name="dgridCategorias"
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                Margin="26,109,43,115"
-                                Padding="0,10"
-                                AutoGeneratingColumn="dgridCategorias_AutoGeneratingColumn"
-                                IsReadOnly="True"
-                                MouseUp="dgridCategorias_MouseUp" >
-                                <DataGrid.Resources>
-                                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                                        <Setter Property="Background" Value="#FF2196F3" />
-                                        <Setter Property="Foreground" Value="White" />
-                                    </Style>
-                                </DataGrid.Resources>
-                            </DataGrid>
+                        <DataGrid
+                            x:Name="dgridCategorias"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="26,109,43,115"
+                            Padding="0,10"
+                            AutoGeneratingColumn="dgridCategorias_AutoGeneratingColumn"
+                            IsReadOnly="True"
+                            MouseUp="dgridCategorias_MouseUp">
+                            <DataGrid.Resources>
+                                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#FF2196F3" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
                     </Grid>
                 </StackPanel>
 
