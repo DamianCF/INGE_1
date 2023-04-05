@@ -93,8 +93,8 @@ namespace CapaPresentacion.Modulo_Inventarios
 
             using (GestorProductos Producto = new GestorProductos())
             {
-                Producto.InsertarProducto(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text), Double.Parse(txtIVA.Text),
-                    Int32.Parse(txtCantidad.Text), item.id, txtDecoracion.Text);
+                Producto.InsertarProducto(Int32.Parse(txtCantidad.Text), txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecioCost.Text), Double.Parse(txtUtilidad.Text), Double.Parse(txtPrecioVenta.Text), Double.Parse(txtIVA.Text),
+                     item.id, txtDecoracion.Text);
                 alrtCampos.Visibility = Visibility.Collapsed;
                 alrtConfirmacion.Visibility = Visibility.Visible;
                 nmAlerta.Text = "Producto registrado con exito";
