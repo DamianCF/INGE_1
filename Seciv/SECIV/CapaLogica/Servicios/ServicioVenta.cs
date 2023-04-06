@@ -27,6 +27,7 @@ namespace CapaLogica.Servicios
             catch (MongoWriteConcernException e)
             {
                 return false;
+                Console.WriteLine(e.Message);
             }
             return true;
         }

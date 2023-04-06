@@ -20,25 +20,26 @@ namespace CapaIntegracion
 
         }
 
-        public void InsertarVenta(string vent_fecha, string vent_nombreComprador, List<Producto> vent_productos, string vent_detalle,
-            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
+        public void InsertarVenta(string vent_fecha, string vent_nombreComprador, List<Producto> vent_productos, string vent_detalle, string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
         {
             Venta nuevaVenta = new Venta(vent_fecha, vent_nombreComprador, vent_productos, vent_detalle, vent_metodoPago, vent_descuento, vent_impuesto, vent_subTotal, vent_total, vent_estado);
             using (ServicioVenta Venta = new ServicioVenta())
-                Venta.InsertarVenta(nuevaVenta);
-            //{
-            //    if (Venta.InsertarVenta(nuevaVenta)) //Actualizar el stock de los productos
-            //    {
-            //        foreach (Producto prod in vent_productos) //recorrer vent_productos
-            //        {
-            //            //obtener productos de bd y encontrar el que coincide con prod
+                //Venta.InsertarVenta(nuevaVenta);
+                if (Venta.InsertarVenta(nuevaVenta))  //si se inserto la venta actualizar stock
+                {
+                    List<Producto> listaProductos = new List<Producto>();
+                    using (ServicioProducto Producto = new ServicioProducto())//obtener productos de BD
+                        listaProductos = Producto.ListarProductos();
 
-            //            //realizar la comparacion y resta de cantStok en el producto de la bd 
+                    foreach (Producto prod in vent_productos) //recorrer vent_productos y realizar la resta de cantStok en el producto de la bd 
+                    {
+                        Producto productoBD = listaProductos.FirstOrDefault(p => p.id == prod.id);//obtener producto en BD que coincide con prod
+                        productoBD.prd_cantStock = productoBD.prd_cantStock - prod.prd_cantStock;//restar cantStock de producto en BD
 
-            //            //actualizar producto en bd
-            //        }
-            //    }
-            //}
+                        using (ServicioProducto Producto = new ServicioProducto())
+                            Producto.ActualizarProducto(productoBD); //actualizar producto en bd = Actualizar el stock de los productos
+                    }
+                }
         }
 
         public List<Venta> ListarVentas()
