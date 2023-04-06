@@ -18,26 +18,19 @@ namespace CapaLogica.Servicios
 
         static IMongoCollection<Venta> collection = conexion.getDataBase().GetCollection<Venta>("SECIV_venta");
 
-        public void InsertarVenta(Venta c)
+        public bool InsertarVenta(Venta c)
         {
-            collection.InsertOne(c);
+            try
+            {
+                collection.InsertOne(c);
+            }
+            catch (MongoWriteConcernException e)
+            {
+                return false;
+            }
+            return true;
         }
 
-        public void InsertarVentaExitosa(Venta c)
-        {
-            //// Perform the insert operation
-            //InsertOneResult result = await collection.InsertOneAsync(myObject);
-
-            //// Check if the operation was acknowledged
-            //if (result.IsAcknowledged)
-            //{
-            //    // The insert operation was successful
-            //}
-            //else
-            //{
-            //    // The insert operation failed
-            //}
-        }
 
         public List<Venta> ListarVentas()
         {
