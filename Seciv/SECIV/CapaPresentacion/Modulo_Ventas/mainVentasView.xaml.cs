@@ -50,12 +50,11 @@ namespace CapaPresentacion.Modulo_Ventas
 
         public void insertarVenta()
         {
-
-            //    using (GestorVentas Venta = new GestorVentas())
-            //    {
-            //        Venta.InsertarVenta(txtFecha.Text, txtCliente.Text,txtDescripcion.Text,txtDetalle.Text,
-            //            CbxPago.Text, Double.Parse(txtDescuento.Text), Double.Parse(txtImpuesto.Text), Double.Parse(txtSubtotal.Text), Double.Parse(txtTotal.Text), "A");
-            //    }
+            using (GestorVentas Venta = new GestorVentas())
+            {
+                Venta.InsertarVenta(txtFechaxx.Text, txtClientexx.Text, productos , txtDetallexx.Text,
+                    CbxPagoxx.Text, Double.Parse(txtDescuentoxx.Text), Double.Parse(txtImpuestoxx.Text), Double.Parse(txtSubTotalxx.Text), Double.Parse(txtTotalxx.Text), "A");
+            }
         }
 
         // -------------------------------------Elementos que pertenecen al view principal--------------------------------------- //
@@ -213,9 +212,9 @@ namespace CapaPresentacion.Modulo_Ventas
             {
                 // Fijar la columna al lado izquierdo
                 e.Column.DisplayIndex = 0;
-                
+
             }
-            
+
             // hide the column
             if (e.PropertyName == "prd_descripcion"
                 || e.PropertyName == "prd_precioCosto"
@@ -245,22 +244,34 @@ namespace CapaPresentacion.Modulo_Ventas
         {
             Producto productoSeleccionado = (Producto)dgridProductos.SelectedItem;//obtiene el producto seleccionado en el grid de productos
             Producto productoExistente = productos.FirstOrDefault(p => p.prd_nombre == productoSeleccionado.prd_nombre);//se encarga de revisar si el producto ya existe en el carrito
-            if (productoExistente != null)//si no hay productos en el carrito
+
+            if (productoSeleccionado.prd_cantStock > 0)
             {
-                productoExistente.prd_cantStock++;
+                if (productoExistente != null)//si hay productos en el carrito
+                {
+                    productoExistente.prd_cantStock++;
+                }
+                else
+                {
+                    ////insertar producto en carrito
+                    Producto productoAuxiliar = new Producto(productoSeleccionado.id, 1, productoSeleccionado.prd_codigo, productoSeleccionado.prd_nombre, productoSeleccionado.prd_descripcion, productoSeleccionado.prd_precioCosto, productoSeleccionado.prd_utilidad,
+                    productoSeleccionado.prd_precioVenta, productoSeleccionado.prd_porcIVA, productoSeleccionado.prd_idCategoria, productoSeleccionado.prd_idDecoracion);
+                    productos.Add(productoAuxiliar);
+                    //productoSeleccionado.prd_cantStock = 1;
+                    //productos.Add(productoSeleccionado);
+                }
+
+                // disminuir stock producto
+                productoSeleccionado.prd_cantStock -= 1;
+                List<Producto> listaProductos = (List<Producto>)dgridProductos.ItemsSource; //obtener lista de productos de dgridProductos
+                dgridProductos.ItemsSource = null;
+                dgridProductos.ItemsSource = listaProductos;
+
+                dgridCarrito.ItemsSource = null;//se libera el grid para evitar problemas de contadores de cantidad
+                dgridCarritoConfirmacion.ItemsSource = null;//igual para este grid
+                dgridCarrito.ItemsSource = productos;// agregamos los productos en el grid de carrito
+                dgridCarritoConfirmacion.ItemsSource = productos;//agregar los productos en el grid de confirmacion
             }
-            else
-            {
-                productoSeleccionado.prd_cantStock = 1;
-                productos.Add(productoSeleccionado);
-            }
-
-            dgridCarrito.ItemsSource = null;//se libera el grid para evitar problemas de contadores de cantidad
-            dgridCarritoConfirmacion.ItemsSource = null;//igual para este grid
-            dgridCarrito.ItemsSource = productos;// agregamos los productos en el grid de carrito
-            dgridCarritoConfirmacion.ItemsSource = productos;//agregar los productos en el grid de confirmacion
-
-
         }
 
         private void cargarTxts()
@@ -304,7 +315,7 @@ namespace CapaPresentacion.Modulo_Ventas
             txtEstado.Text = "";
 
         }
-        
+
         //GRID DE LAS VENTAS
         private void dgridVentas_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -325,7 +336,10 @@ namespace CapaPresentacion.Modulo_Ventas
 
 
         }
-        //GRID DE CARRITO COMPRAS CONFIRMACION
+        //GRID DE CARR
+        //
+        //
+        //ITO COMPRAS CONFIRMACION
         private void dgridCarritoConfirmacion_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
@@ -352,6 +366,8 @@ namespace CapaPresentacion.Modulo_Ventas
             editScreen.Visibility = Visibility.Collapsed;
             nuevaScreeen.Visibility = Visibility.Collapsed;
             confirmScreen.Visibility = Visibility.Visible;
+            txtFechaxx.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            CbxPagoxx.SelectedIndex= 0;
         }
         //FIN METODOS DE CARGA Y LIMPIEZA
 
@@ -406,6 +422,23 @@ namespace CapaPresentacion.Modulo_Ventas
 
             dgridCarrito.UnselectAllCells();
 
+        }
+     
+        private void btnFacturar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtFechaxx.Text != "" && txtClientexx.Text != "" && CbxPagoxx.Text != "" && txtDescuentoxx.Text != ""  && txtSubTotalxx.Text != "" && txtTotalxx.Text != "")
+            {
+                insertarVenta();
+                actualizar = true;
+                ListarVentas();
+                LimpiarTxts();
+            }
+            else
+            {
+                alrtCampos.Visibility = Visibility.Visible;
+                alrtConfirmacion.Visibility = Visibility.Collapsed;
+                nmAlerta.Text = "Debe llenar todos los campos";
+            }
         }
 
 

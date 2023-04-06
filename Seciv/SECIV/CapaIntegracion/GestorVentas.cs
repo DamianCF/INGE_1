@@ -28,6 +28,8 @@ namespace CapaIntegracion
 
             using (ServicioVenta Venta = new ServicioVenta())
                 Venta.InsertarVenta(nuevaVenta);
+
+            //Faltaria actualizar el stock de los productos
         }
 
         public List<Venta> ListarVentas()

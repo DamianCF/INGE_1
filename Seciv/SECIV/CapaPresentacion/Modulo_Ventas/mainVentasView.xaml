@@ -107,7 +107,8 @@
                 <StackPanel
                     Width="1250"
                     Margin="0,30,0,20"
-                    Background="#FFFDFDFD">
+                    Background="#FFFDFDFD"
+                    Cursor="Hand">
 
 
                     <!--  Este grid contiene la pantalla que se muestra cuando se quiere generar una venta  -->
@@ -218,7 +219,6 @@
                             Foreground="White" />
 
                         <DataGrid
-                            
                             x:Name="dgridProductos"
                             Grid.Row="1"
                             Grid.Column="0"
@@ -242,7 +242,7 @@
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
-                                    
+
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
@@ -327,7 +327,8 @@
                             Margin="437,75,91,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Cliente"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="CLIENTE 0" />
                         <DatePicker
                             x:Name="txtFechaxx"
                             Margin="91,75,469,0"
@@ -354,7 +355,8 @@
                             Margin="437,117,91,0"
                             VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Detalle"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="Factura Venta Dani's Shop " />
                         <DataGrid
                             x:Name="dgridCarritoConfirmacion"
                             MaxHeight="166"
@@ -373,12 +375,13 @@
                             </Border.Background>
                         </Border>
                         <Button
-                            x:Name="btnAgregarxx_Copy"
+                            x:Name="btnFacturar"
                             Width="156"
                             Height="70"
                             Margin="593,366,0,57"
                             HorizontalAlignment="Left"
                             Background="#FF176EC6"
+                            Click="btnFacturar_Click"
                             Content="Facturar"
                             Foreground="White" />
 

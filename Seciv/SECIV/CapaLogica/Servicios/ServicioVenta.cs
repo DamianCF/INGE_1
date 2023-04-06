@@ -22,6 +22,23 @@ namespace CapaLogica.Servicios
         {
             collection.InsertOne(c);
         }
+
+        public void InsertarVentaExitosa(Venta c)
+        {
+            //// Perform the insert operation
+            //InsertOneResult result = await collection.InsertOneAsync(myObject);
+
+            //// Check if the operation was acknowledged
+            //if (result.IsAcknowledged)
+            //{
+            //    // The insert operation was successful
+            //}
+            //else
+            //{
+            //    // The insert operation failed
+            //}
+        }
+
         public List<Venta> ListarVentas()
         {
             return collection.AsQueryable().ToList<Venta>(); // collection.Find(x => true).ToList(); 
