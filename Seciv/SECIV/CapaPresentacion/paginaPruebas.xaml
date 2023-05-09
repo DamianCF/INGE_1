@@ -651,8 +651,10 @@
                 x:Name="dgridCategorias"
                 Grid.Row="0"
                 Grid.Column="0"
-                Margin="73,142,209,29"
-                Padding="0,10" />
+                Margin="26,109,43,115"
+                Padding="0,10"
+                
+                IsReadOnly="True" />
 
 
 
@@ -776,7 +778,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel>
+        <StackPanel Height="1290">
             <Grid
                 x:Name="GridProducto"
                 Width="600"
@@ -929,23 +931,22 @@
                     Foreground="White" />
 
             </Grid>
-            <!--  Categorias  -->
             <Grid
                 x:Name="GridCategorias"
                 Width="600"
-                Height="450"
+                Height="600"
                 Background="White"
                 Cursor="Hand">
+
                 <Button
                     Width="76"
                     Height="60"
-                    Margin="10,2,0,388"
+                    Margin="26,28,0,512"
                     HorizontalAlignment="Left"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
                     Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                     CommandParameter="{x:Static Dock.Right}">
-
                     <materialDesign:PackIcon
                         Width="72"
                         Height="47"
@@ -954,8 +955,6 @@
                         Kind="ArrowRight" />
                 </Button>
 
-
-                <!--  No visibles  -->
                 <TextBox
                     Margin="141,32,141,0"
                     VerticalAlignment="Top"
@@ -969,8 +968,9 @@
                     x:Name="btnAgregarCategoria"
                     Width="155"
                     Height="30"
-                    Margin="26,366,0,54"
+                    Margin="26,480,0,30"
                     HorizontalAlignment="Left"
+                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                     Content="Agregar Categoria" />
 
                 <Button
@@ -978,14 +978,14 @@
                     Grid.Row="0"
                     Width="111"
                     Height="30"
-                    Margin="202,368,0,52"
+                    Margin="202,480,0,28"
                     HorizontalAlignment="Left"
                     Content="Editar" />
 
                 <Button
                     x:Name="btnLimpiarCategoria"
                     Height="30"
-                    Margin="340,368,162,52"
+                    Margin="340,480,162,28"
                     Content="Limpiar" />
 
                 <Button
@@ -993,34 +993,47 @@
                     Grid.Row="0"
                     Width="90"
                     Height="30"
-                    Margin="467,368,0,52"
+                    Margin="467,480,0,28"
                     HorizontalAlignment="Left"
                     Content="Eliminar" />
 
                 <TextBox
+                    x:Name="txtIdCategoria"
+                    Margin="425,10,10,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Id"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Visibility="Hidden" />
+
+                <TextBox
                     x:Name="txtNomCategoria"
-                    Margin="36,403,321,0"
+                    Margin="26,550,331,0"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Nombre"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
                 <TextBox
                     x:Name="txtdescCategoria"
-                    Margin="318,403,43,0"
+                    Margin="318,550,43,0"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Descripcion"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
                 <DataGrid
-                    x:Name="dgridCategoriasx"
                     Grid.Row="0"
                     Grid.Column="0"
-                    Margin="141,109,141,109"
-                    Padding="0,10" />
-
-
-
+                    Margin="26,109,43,115"
+                    Padding="0,10"
+                    IsReadOnly="True">
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF2196F3" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
             </Grid>
+            <!--  Categorias  -->
         </StackPanel>
 
         <StackPanel Margin="20">

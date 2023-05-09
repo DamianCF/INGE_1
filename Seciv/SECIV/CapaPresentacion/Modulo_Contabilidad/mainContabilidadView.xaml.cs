@@ -24,5 +24,10 @@ namespace CapaPresentacion.Modulo_Contabilidad
         {
             InitializeComponent();
         }
+
+        private void cmbxRangoFechas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
