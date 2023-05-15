@@ -26,6 +26,13 @@ namespace CapaLogica.Servicios
         {
             return collection.AsQueryable().ToList<Venta>(); // collection.Find(x => true).ToList(); 
         }
+        public List<Venta> ListarVentasRangoFechas(string fechaIni, string fechaFin)
+        {
+            var filter = Builders<Venta>.Filter.And(
+                Builders<Venta>.Filter.Gte(c => c.vent_fecha, fechaIni),
+                Builders<Venta>.Filter.Lte(c => c.vent_fecha, fechaFin));
+            return collection.Find(filter).ToList<Venta>();
+        }
         public void ActualizarVenta(Venta c)
         {
             collection.ReplaceOne(x => x.id == c.id, c);

@@ -11,8 +11,12 @@
 
     <materialDesign:DrawerHost
         x:Name="DrawerHost"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
+        Width="950"
+        Height="700"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        HorizontalContentAlignment="Stretch"
+        VerticalContentAlignment="Stretch"
         OverlayBackground="Transparent"
         RightDrawerCornerRadius="20 0 0 0">
         <materialDesign:DrawerHost.Style>
@@ -153,13 +157,29 @@
             </StackPanel>
         </materialDesign:DrawerHost.RightDrawerContent>
 
-        <StackPanel Width="773" Orientation="Vertical">
+        <StackPanel
+            Width="950"
+            Height="700"
+            Margin="1,3,60.4,26"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical"
+            RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="-0.161" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </StackPanel.RenderTransform>
 
             <Grid
-                Width="775"
-                Height="151"
-                Margin="0,3,-2.2,0"
+                Width="950"
+                Height="193"
+                Margin="1,3,-0.6,0"
                 VerticalAlignment="Top"
+                Background="#FFFDFDFD"
                 RenderTransformOrigin="0.5,0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>
@@ -175,17 +195,19 @@
                     Grid.Row="0"
                     Width="156"
                     Height="40"
+                    Margin="742,0,52,29"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     materialDesign:ButtonAssist.CornerRadius="8"
                     CommandParameter="{x:Static Dock.Right}"
-                    Style="{StaticResource MaterialDesignRaisedDarkButton}" Margin="603,0,16,14" RenderTransformOrigin="0.5,0.5">
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}">
                     <Button.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
+                            <ScaleTransform ScaleY="-1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
                         </TransformGroup>
                     </Button.RenderTransform>
 
@@ -197,16 +219,20 @@
 
                 </Button>
                 <ComboBox
-                            x:Name="cmbxRangoFechas"
-                            VerticalAlignment="Top"
-                            materialDesign:HintAssist.Hint="Selecione Rango Fechas"
-                            Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="21,93,502,0" Height="41" RenderTransformOrigin="0.5,0.5" SelectionChanged="cmbxRangoFechas_SelectionChanged">
+                    x:Name="cmbxRangoFechas"
+                    Height="41"
+                    Margin="49,120,540,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Selecione Rango Fechas"
+                    RenderTransformOrigin="0.5,0.5"
+                    SelectionChanged="cmbxRangoFechas_SelectionChanged"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                     <ComboBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
+                            <ScaleTransform ScaleY="-1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
                         </TransformGroup>
                     </ComboBox.RenderTransform>
                     <ComboBoxItem Content="Diario" />
@@ -214,80 +240,100 @@
                     <ComboBoxItem Content="Mensual" />
                     <ComboBoxItem Content="Anual" />
                     <ComboBoxItem Content="Todo" />
+                    <ComboBoxItem Content="Definir Rango" />
+                    <ComboBoxItem Content="Indefinido" />
                 </ComboBox>
 
                 <DatePicker
-                            x:Name="txtFecha"
-                            VerticalAlignment="Top"
-                            materialDesign:HintAssist.Hint="Fecha"
-                            materialDesign:TextFieldAssist.HasClearButton="True"
-                            FirstDayOfWeek="Monday"
-                            Focusable="False"
-                            IsTodayHighlighted="True"
-                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="316,91,227,0" Height="38" RenderTransformOrigin="0.5,0.5" >
+                    x:Name="txtFecha"
+                    Height="38"
+                    Margin="436,122,237,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Fecha"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    FirstDayOfWeek="Monday"
+                    Focusable="False"
+                    IsTodayHighlighted="True"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
                     <DatePicker.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
+                            <ScaleTransform ScaleY="-1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
                         </TransformGroup>
                     </DatePicker.RenderTransform>
                 </DatePicker>
 
                 <TextBox
-                            x:Name="txtBalance"
-                            VerticalAlignment="Top"
-                            materialDesign:HintAssist.Hint="Balance"
-                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
-                            MaxLength="200"
-                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Auto" Margin="12,22,516,0" Height="53" RenderTransformOrigin="0.5,0.5" >
+                    x:Name="txtBalance"
+                    Height="61"
+                    Margin="47,27,645,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Balance"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    IsReadOnly="True"
+                    MaxLength="200"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
+                            <ScaleTransform ScaleY="-1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
 
                 <TextBox
-                            x:Name="txtVentas"
-                            VerticalAlignment="Top"
-                            materialDesign:HintAssist.Hint="Ventas"
-                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
-                            MaxLength="200"
-                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Auto" Margin="274,22,260,0" Height="51" RenderTransformOrigin="0.5,0.5" >
+                    x:Name="txtVentas"
+                    Height="58"
+                    Margin="330,29,349,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Ventas"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    IsReadOnly="True"
+                    MaxLength="200"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
+                            <ScaleTransform ScaleY="-1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
 
                 <TextBox
-                            x:Name="txtCompras"
-                            VerticalAlignment="Top"
-                            materialDesign:HintAssist.Hint="Compras"
-                            materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
-                            MaxLength="200"
-                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Auto" Margin="525,24,7,0" Height="51" RenderTransformOrigin="0.5,0.5"  >
+                    x:Name="txtCompras"
+                    Height="59"
+                    Margin="626,28,55,0"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Compras"
+                    materialDesign:TextFieldAssist.CharacterCounterVisibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=MaterialDesignOutlinedTextBoxTextCountComboBox}"
+                    materialDesign:TextFieldAssist.SuffixText="colones"
+                    IsReadOnly="True"
+                    MaxLength="200"
+                    RenderTransformOrigin="0.5,0.5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto">
                     <TextBox.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleY="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
+                            <ScaleTransform ScaleY="-1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
@@ -298,15 +344,16 @@
                 <TabItem Header="Ventas">
                     <ScrollViewer>
                         <DataGrid
-                        x:Name="dgridVentas"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Width="745"
-                        Height="712"
-                        Padding="10,10,10,10"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        IsReadOnly="True">
+                            x:Name="dgridVentas"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Width="950"
+                            Height="460"
+                            Padding="10,10,10,10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            IsReadOnly="True"
+                            SelectionChanged="dgridVentas_SelectionChanged">
                             <DataGrid.Resources>
                                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="#FF2196F3" />
@@ -317,17 +364,17 @@
                     </ScrollViewer>
                 </TabItem>
                 <TabItem Header="Compras">
-                    <ScrollViewer>
+                    <ScrollViewer Width="948" Margin="0,0,0,-137.4">
                         <DataGrid
-                        x:Name="dgridCompras"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Width="754"
-                        Height="665"
-                        Padding="10,10,10,10"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        IsReadOnly="True">
+                            x:Name="dgridCompras"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Width="950"
+                            Height="665"
+                            Padding="10,10,10,10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            IsReadOnly="True">
                             <DataGrid.Resources>
                                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="#FF2196F3" />

@@ -35,7 +35,15 @@ namespace CapaIntegracion
                 return Compra.ListarCompras();
             }
         }
-        
+
+        public List<Compra> ListarComprasEntreFechas(string fechaIni, string fechaFin)
+        {
+            using (ServicioCompra Compra = new ServicioCompra())
+            {
+                return Compra.ListarComprasEntreFechas(fechaIni, fechaFin);
+            }
+        }
+
         public void ActualizarCompra(string id, int com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,
             string com_metodoPago, Double com_impuesto, Double com_total, Double com_subTotal)
         {
