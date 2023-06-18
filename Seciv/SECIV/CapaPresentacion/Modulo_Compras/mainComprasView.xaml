@@ -109,9 +109,9 @@
                     </StackPanel>
                 </materialDesign:DialogHost.DialogContent>
 
-                
-                <!--******************************************************************************************************************************-->
-                                                                    <!--INICIO STACKPANEL DE PANTALLA EMERGENTE-->
+
+                <!--  ******************************************************************************************************************************  -->
+                <!--  INICIO STACKPANEL DE PANTALLA EMERGENTE  -->
                 <StackPanel
                     Width="600"
                     Margin="0,30,0,20"
@@ -323,9 +323,9 @@
                             VerticalScrollBarVisibility="Auto" />
                     </Grid>
                 </StackPanel>
-                                                         <!--FIN STACKPANEL DE PANTALLA EMERGENTE-->
-                <!--******************************************************************************************************************************-->
-                
+                <!--  FIN STACKPANEL DE PANTALLA EMERGENTE  -->
+                <!--  ******************************************************************************************************************************  -->
+
             </materialDesign:DialogHost>
         </materialDesign:DrawerHost.RightDrawerContent>
 
@@ -377,8 +377,8 @@
                     </StackPanel>
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
-            
-            
+
+
             <StackPanel
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"

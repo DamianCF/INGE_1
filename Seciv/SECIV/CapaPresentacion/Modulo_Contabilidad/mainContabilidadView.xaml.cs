@@ -52,18 +52,20 @@ namespace CapaPresentacion.Modulo_Contabilidad
             // clear items of dgridCompras
 
 
-            calcularRangoFechas();
-            using (GestorCompras Compra = new GestorCompras())
+            if (calcularRangoFechas())
             {
-                //Console.WriteLine("ListarCompras");
-                dgridCompras.ItemsSource = Compra.ListarComprasEntreFechas(fechaIni, fechaFin);
+                using (GestorCompras Compra = new GestorCompras())
+                {
+                    //Console.WriteLine("ListarCompras");
+                    dgridCompras.ItemsSource = Compra.ListarComprasEntreFechas(fechaIni, fechaFin);
+                }
+                //using (GestorVentas Venta = new GestorVentas())
+                //{
+                //    //Console.WriteLine("ListarVentas");
+                //    dgridCompras.ItemsSource = Venta.ListarVentasRangoFechas(fechaIni, fechaFin);
+                //}
+                continuar = true;
             }
-            //using (GestorVentas Venta = new GestorVentas())
-            //{
-            //    //Console.WriteLine("ListarVentas");
-            //    dgridCompras.ItemsSource = Venta.ListarVentasRangoFechas(fechaIni, fechaFin);
-            //}
-            continuar = true;
         }
 
         private void cmbxRangoFechas_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -82,7 +84,7 @@ namespace CapaPresentacion.Modulo_Contabilidad
             }
         }
 
-        void calcularRangoFechas()
+        bool calcularRangoFechas()
         {
             string rangoSeleccionado = (cmbxRangoFechas.SelectedItem as ComboBoxItem)?.Content.ToString();
             //Console.WriteLine(textoSeleccionado);
@@ -91,7 +93,7 @@ namespace CapaPresentacion.Modulo_Contabilidad
                 case "Diario":
                     fechaIni = txtFecha.Text;
                     fechaFin = txtFecha.Text;
-                    break;
+                    return true;
 
                 case "Semanal":
                     DateTime fecha = (DateTime)txtFecha.SelectedDate;
@@ -105,7 +107,7 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     //Console.WriteLine("Fecha de fin de semana: " + finSemana.ToString("dd/MM/yyyy"));
                     fechaIni = inicioSemana.ToString("dd/MM/yyyy");
                     fechaFin = finSemana.ToString("dd/MM/yyyy");
-                    break;
+                    return true;
 
                 case "Mensual":
                     DateTime fechaM = (DateTime)txtFecha.SelectedDate;
@@ -117,7 +119,8 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     //Console.WriteLine("Fecha de fin del mes: " + finMes.ToString("dd/MM/yyyy"));
                     fechaIni = inicioMes.ToString("dd/MM/yyyy");
                     fechaFin = finMes.ToString("dd/MM/yyyy");
-                    break;
+                    return true;
+
                 case "Anual":
                     DateTime fechaA = (DateTime)txtFecha.SelectedDate;
 
@@ -128,16 +131,33 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     //Console.WriteLine("Fecha de fin del año: " + finAño.ToString("dd/MM/yyyy"));
                     fechaIni = inicioAño.ToString("dd/MM/yyyy");
                     fechaFin = finAño.ToString("dd/MM/yyyy");
-                    break;
+                    return true;
+
                 default:
                     // Acciones por defecto si el valor de rangoSeleccionado no coincide con ningún caso
                     Console.WriteLine("Opción no válida");
-                    break;
+                    return false;
             }
         }
 
         private void dgridVentas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+        }
+
+        private void txtFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (continuar)
+            {
+                if (txtFecha.SelectedDate == null)
+                {
+                    MessageBox.Show("Debe seleccionar una fecha");
+                    return;
+                }
+                else
+                {
+                    ListarComprasVentas();
+                }
+            }
         }
     }
 }
