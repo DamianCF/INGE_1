@@ -11,10 +11,6 @@
 
     <materialDesign:DrawerHost
         x:Name="DrawerHost"
-        Width="950"
-        Height="700"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
         HorizontalContentAlignment="Stretch"
         VerticalContentAlignment="Stretch"
         OverlayBackground="Transparent"
@@ -158,11 +154,7 @@
         </materialDesign:DrawerHost.RightDrawerContent>
 
         <StackPanel
-            Width="950"
-            Height="700"
             Margin="1,3,60.4,26"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
             Orientation="Vertical"
             RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
@@ -255,7 +247,8 @@
                     Focusable="False"
                     IsTodayHighlighted="True"
                     RenderTransformOrigin="0.5,0.5"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="txtFecha_SelectedDateChanged">
+                    SelectedDateChanged="txtFecha_SelectedDateChanged"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
                     <DatePicker.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="-1" />
@@ -340,18 +333,21 @@
 
             </Grid>
 
-            <TabControl Height="370" Margin="0,0,-0.2,0">
-                <TabItem Header="Ventas">
-                    <ScrollViewer>
+            <TabControl Margin="0,0,-0.2,0">
+                <TabItem
+                    Height="60.3"
+                    MaxWidth="341"
+                    Header="Ventas">
+                    <ScrollViewer HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <DataGrid
                             x:Name="dgridVentas"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Width="950"
-                            Height="460"
                             Padding="10,10,10,10"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
                             IsReadOnly="True"
                             SelectionChanged="dgridVentas_SelectionChanged">
                             <DataGrid.Resources>
@@ -364,16 +360,20 @@
                     </ScrollViewer>
                 </TabItem>
                 <TabItem Header="Compras">
-                    <ScrollViewer Width="948" Margin="0,0,0,-137.4">
+                    <ScrollViewer
+                        Margin="0,0,0,-137.4"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch">
                         <DataGrid
                             x:Name="dgridCompras"
                             Grid.Row="0"
                             Grid.Column="0"
-                            Width="950"
-                            Height="665"
+                            MinHeight="500"
                             Padding="10,10,10,10"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
                             IsReadOnly="True">
                             <DataGrid.Resources>
                                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
