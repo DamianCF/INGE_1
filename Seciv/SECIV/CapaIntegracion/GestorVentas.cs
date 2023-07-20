@@ -37,7 +37,14 @@ namespace CapaIntegracion
                 return Venta.ListarVentas();
             }
         }
-        
+        public List<Venta> ListarVentasRangoFechas(string fechaIni, string fechaFin)
+        {
+            using (ServicioVenta Venta = new ServicioVenta())
+            {
+                return Venta.ListarVentasRangoFechas( fechaIni,  fechaFin);
+            }
+        }
+
         public void ActualizarVentas(string id, int vent_codigo, string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
             string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
         {

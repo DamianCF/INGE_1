@@ -194,7 +194,7 @@
                 <Frame
                     x:Name="Grid"
                     Margin="45,20,5,5"
-                    NavigationUIVisibility="Hidden" />
+                    NavigationUIVisibility="Hidden" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
             </Grid>
         </Grid>
     </Border>
