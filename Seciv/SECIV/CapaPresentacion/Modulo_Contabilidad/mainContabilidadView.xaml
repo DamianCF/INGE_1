@@ -374,7 +374,7 @@
                             VerticalAlignment="Stretch"
                             HorizontalContentAlignment="Stretch"
                             VerticalContentAlignment="Stretch"
-                            IsReadOnly="True">
+                            IsReadOnly="True" AutoGeneratingColumn="dgridCompras_AutoGeneratingColumn">
                             <DataGrid.Resources>
                                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="#FF2196F3" />

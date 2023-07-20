@@ -38,7 +38,7 @@ namespace CapaIntegracion
             }
         }
 
-        public List<Compra> ListarComprasEntreFechas(string fechaIni, string fechaFin)
+        public (List<Compra>, double) ListarComprasEntreFechas(string fechaIni, string fechaFin)
         {
             //var query = comprasCollection
             //.Where(x => DateTime.ParseExact(x.com_fecha, "d/M/yyyy", null) >= startDate &&
@@ -75,8 +75,10 @@ namespace CapaIntegracion
                         };
 
             List<Compra> listaCompras = new List<Compra>();
+            double totalCompras = 0;
             foreach (var com in query)  // da error aqui
             {
+                totalCompras += com.com_monto;
                 Compra compra = new Compra(com.id, com.com_codigo, com.com_monto, com.com_fecha, com.com_estado, com.com_nombreProveedor, com.com_productos, com.com_detalle,
              com.com_metodoPago, com.com_impuesto, com.com_subTotal, com.com_total);
                 listaCompras.Add(compra);
@@ -87,7 +89,7 @@ namespace CapaIntegracion
             //    Console.WriteLine($"ID #{product.productId} - Nombre: ${product.name} - Categoria: {product.categoryName}");
             //}
 
-            return listaCompras;
+            return (listaCompras, totalCompras);
         }
 
         public void ActualizarCompra(string id, int com_codigo, double com_monto, string com_fecha, string com_estado, string com_nombreProveedor, string com_productos, string com_detalle,

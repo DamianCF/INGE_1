@@ -2,6 +2,7 @@
 using MaterialDesignColors;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,7 +58,9 @@ namespace CapaPresentacion.Modulo_Contabilidad
                 using (GestorCompras Compra = new GestorCompras())
                 {
                     //Console.WriteLine("ListarCompras");
-                    dgridCompras.ItemsSource = Compra.ListarComprasEntreFechas(fechaIni, fechaFin);
+                    var result = Compra.ListarComprasEntreFechas(fechaIni, fechaFin);
+                    dgridCompras.ItemsSource = result.Item1;
+                    txtCompras.Text = result.Item2.ToString();
                 }
                 //using (GestorVentas Venta = new GestorVentas())
                 //{
@@ -158,6 +161,13 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     ListarComprasVentas();
                 }
             }
+        }
+
+        private void dgridCompras_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
         }
     }
 }
