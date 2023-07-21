@@ -21,9 +21,9 @@ namespace CapaIntegracion
 
         }
 
-        public void InsertarProducto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public void InsertarProducto(int prd_cantStock,string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad, double prd_precioVenta, double prd_porcIVA, string prd_idCategoria, string prd_idDecoracion)
         {
-            Producto nuevoProducto = new Producto(prd_codigo, prd_nombre, prd_descripcion, prd_precioCosto, prd_utilidad, prd_precioVenta, prd_porcIVA, prd_cantStock, prd_idCategoria, prd_idDecoracion);
+            Producto nuevoProducto = new Producto(prd_cantStock,prd_codigo, prd_nombre, prd_descripcion, prd_precioCosto, prd_utilidad, prd_precioVenta, prd_porcIVA, prd_idCategoria, prd_idDecoracion);
 
             using (ServicioProducto Producto = new ServicioProducto())
                 Producto.InsertarProducto(nuevoProducto);
@@ -39,7 +39,7 @@ namespace CapaIntegracion
 
         public void ActualizarProducto(string id, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad, double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
         {
-            Producto ActProducto = new Producto(id, prd_codigo, prd_nombre, prd_descripcion, prd_precioCosto, prd_utilidad, prd_precioVenta, prd_porcIVA, prd_cantStock, prd_idCategoria, prd_idDecoracion);
+            Producto ActProducto = new Producto(id, prd_cantStock, prd_codigo, prd_nombre, prd_descripcion, prd_precioCosto, prd_utilidad, prd_precioVenta, prd_porcIVA,  prd_idCategoria, prd_idDecoracion);
             using (ServicioProducto Producto = new ServicioProducto())
                 Producto.ActualizarProducto(ActProducto);
         }
@@ -85,7 +85,7 @@ namespace CapaIntegracion
             List<Producto> productsList = new List<Producto>();
             foreach (var product in productsWithCategories)
             {
-                Producto producto = new Producto(product.id, product.prd_codigo, product.prd_nombre, product.prd_descripcion, product.prd_precioCosto, product.prd_utilidad, product.prd_precioVenta, product.prd_porcIVA, product.prd_cantStock, product.prd_idCategoria, product.prd_idDecoracion);
+                Producto producto = new Producto(product.id, product.prd_cantStock, product.prd_codigo, product.prd_nombre, product.prd_descripcion, product.prd_precioCosto, product.prd_utilidad, product.prd_precioVenta, product.prd_porcIVA, product.prd_idCategoria, product.prd_idDecoracion);
                 producto.prd_nomCategoria = product.prd_nomCategoria;
                 productsList.Add(producto);
             }

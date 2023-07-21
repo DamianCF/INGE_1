@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
@@ -17,10 +17,11 @@ namespace CapaLogica.LogicaNegocio
         {
 
         }
-        public Producto(string id, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad,
-            double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public Producto(string id, int prd_cantStock, string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad,
+            double prd_precioVenta, double prd_porcIVA, string prd_idCategoria, string prd_idDecoracion)
         {
             this.id = id;
+            this.prd_cantStock = prd_cantStock;
             this.prd_codigo = prd_codigo;
             this.prd_nombre = prd_nombre;
             this.prd_descripcion = prd_descripcion;
@@ -28,14 +29,14 @@ namespace CapaLogica.LogicaNegocio
             this.prd_utilidad = prd_utilidad;
             this.prd_precioVenta = prd_precioVenta;
             this.prd_porcIVA = prd_porcIVA;
-            this.prd_cantStock = prd_cantStock;
             this.prd_idCategoria = prd_idCategoria;
             this.prd_idDecoracion = prd_idDecoracion;
         }
 
-        public Producto(string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad,
-            double prd_precioVenta, double prd_porcIVA, int prd_cantStock, string prd_idCategoria, string prd_idDecoracion)
+        public Producto(int prd_cantStock,string prd_codigo, string prd_nombre, string prd_descripcion, double prd_precioCosto, double prd_utilidad,
+            double prd_precioVenta, double prd_porcIVA, string prd_idCategoria, string prd_idDecoracion)
         {
+            this.prd_cantStock = prd_cantStock;
             this.prd_codigo = prd_codigo;
             this.prd_nombre = prd_nombre;
             this.prd_descripcion = prd_descripcion;
@@ -43,7 +44,6 @@ namespace CapaLogica.LogicaNegocio
             this.prd_utilidad = prd_utilidad;
             this.prd_precioVenta = prd_precioVenta;
             this.prd_porcIVA = prd_porcIVA;
-            this.prd_cantStock = prd_cantStock;
             this.prd_idCategoria = prd_idCategoria;
             this.prd_idDecoracion = prd_idDecoracion;
         }
@@ -52,6 +52,10 @@ namespace CapaLogica.LogicaNegocio
 
         #region ATRIBUTOS
 
+        [BsonElement("prd_cantStock")]
+        [DisplayName("Cantidad")]
+        public int prd_cantStock { get; set; }
+        
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
@@ -84,12 +88,10 @@ namespace CapaLogica.LogicaNegocio
         [DisplayName("PorcIVA")]
         public double prd_porcIVA { get; set; }
 
-        [BsonElement("prd_cantStock")]
-        [DisplayName("Cantidad")]
-        public int prd_cantStock { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("prd_idCategoria")]
+        [DisplayName("Categoria")]
         public string prd_idCategoria { get; set; }
 
         //[BsonRepresentation(BsonType.ObjectId)]

@@ -18,10 +18,21 @@ namespace CapaLogica.Servicios
 
         static IMongoCollection<Venta> collection = conexion.getDataBase().GetCollection<Venta>("SECIV_venta");
 
-        public void InsertarVenta(Venta c)
+        public bool InsertarVenta(Venta c)
         {
-            collection.InsertOne(c);
+            try
+            {
+                collection.InsertOne(c);
+            }
+            catch (MongoWriteConcernException e)
+            {
+                return false;
+                Console.WriteLine(e.Message);
+            }
+            return true;
         }
+
+
         public List<Venta> ListarVentas()
         {
             return collection.AsQueryable().ToList<Venta>(); // collection.Find(x => true).ToList(); 

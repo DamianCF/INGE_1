@@ -12,47 +12,6 @@ namespace CapaLogica.LogicaNegocio
     public class Venta
     {
 
-        #region CONSTRUCTORES
-
-        public Venta()
-        {
-            
-        }
-
-        public Venta(string id, int vent_codigo, string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
-            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
-        {
-            this.id = id;
-            this.vent_codigo = vent_codigo;
-            this.vent_fecha = vent_fecha;
-            this.vent_nombreComprador = vent_nombreComprador;
-            this.vent_productos = vent_productos;
-            this.vent_detalle = vent_detalle;
-            this.vent_metodoPago = vent_metodoPago;
-            this.vent_descuento = vent_descuento;
-            this.vent_impuesto = vent_impuesto;
-            this.vent_subTotal = vent_subTotal;
-            this.vent_total = vent_total;
-            this.vent_estado = vent_estado;
-        }
-
-        public Venta(string vent_fecha, string vent_nombreComprador, string vent_productos, string vent_detalle,
-            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
-        { 
-            this.vent_fecha = vent_fecha;
-            this.vent_nombreComprador = vent_nombreComprador;
-            this.vent_productos = vent_productos;
-            this.vent_detalle = vent_detalle;
-            this.vent_metodoPago = vent_metodoPago;
-            this.vent_descuento = vent_descuento;
-            this.vent_impuesto = vent_impuesto;
-            this.vent_subTotal = vent_subTotal;
-            this.vent_total = vent_total;
-            this.vent_estado = vent_estado;
-        }
-
-        #endregion
-
         #region ATRIBUTOS
 
         [BsonId]
@@ -74,7 +33,7 @@ namespace CapaLogica.LogicaNegocio
 
         [BsonElement("vent_productos")]
         [DisplayName("Productos")]
-        public string vent_productos { get; set; }
+        public List<Producto> vent_productos { get; set; }
 
         [BsonElement("vent_detalle")]
         [DisplayName("Detalle")]
@@ -104,6 +63,46 @@ namespace CapaLogica.LogicaNegocio
         [DisplayName("Estado")]
         public string vent_estado { get; set; }
 
+        #endregion
+
+        #region CONSTRUCTORES
+
+        public Venta()
+        {
+            
+        }
+
+        public Venta(string id, int vent_codigo, string vent_fecha, string vent_nombreComprador, List<Producto> vent_productos, string vent_detalle,
+            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
+        {
+            this.id = id;
+            this.vent_codigo = vent_codigo;
+            this.vent_fecha = vent_fecha;
+            this.vent_nombreComprador = vent_nombreComprador;
+            this.vent_productos = vent_productos;
+            this.vent_detalle = vent_detalle;
+            this.vent_metodoPago = vent_metodoPago;
+            this.vent_descuento = vent_descuento;
+            this.vent_impuesto = vent_impuesto;
+            this.vent_subTotal = vent_subTotal;
+            this.vent_total = vent_total;
+            this.vent_estado = vent_estado;
+        }
+
+        public Venta(string vent_fecha, string vent_nombreComprador, List<Producto> vent_productos, string vent_detalle,
+            string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
+        { 
+            this.vent_fecha = vent_fecha;
+            this.vent_nombreComprador = vent_nombreComprador;
+            this.vent_productos = vent_productos;
+            this.vent_detalle = vent_detalle;
+            this.vent_metodoPago = vent_metodoPago;
+            this.vent_descuento = vent_descuento;
+            this.vent_impuesto = vent_impuesto;
+            this.vent_subTotal = vent_subTotal;
+            this.vent_total = vent_total;
+            this.vent_estado = vent_estado;
+        }
         #endregion
     }
 }
