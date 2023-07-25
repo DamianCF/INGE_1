@@ -39,7 +39,7 @@ namespace CapaPresentacion
 
             using (GestorVentas Ventas = new GestorVentas())// precargar ventas
             {
-               // Singleton.Instance.ventas = Ventas.ListarVentas();
+                Singleton.Instance.ventas = Ventas.ListarVentas();
             }
             using (GestorCompras Compra = new GestorCompras())
             {

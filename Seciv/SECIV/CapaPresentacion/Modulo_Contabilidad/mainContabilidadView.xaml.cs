@@ -136,6 +136,14 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     fechaFin = finAño.ToString("dd/MM/yyyy");
                     return true;
 
+                case "Todo":
+                    using (GestorCompras Compra = new GestorCompras())
+                    {
+                        dgridCompras.ItemsSource = Compra.ListarCompras();
+                        txtCompras.Text = ""; // faltaria hacer la suma de todo
+                    }
+                    return false;
+
                 default:
                     // Acciones por defecto si el valor de rangoSeleccionado no coincide con ningún caso
                     Console.WriteLine("Opción no válida");

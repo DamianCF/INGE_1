@@ -99,7 +99,7 @@ namespace CapaLogica.LogicaNegocio
         public string prd_idDecoracion { get; set; }
 
         [DisplayName("Categoria")]
-        [BsonIgnore]
+        //[BsonIgnore]
         public string prd_nomCategoria { get; set; } // auxiliar para pasar nombre de categoria
         #endregion
     }
