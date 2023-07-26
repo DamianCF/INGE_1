@@ -78,7 +78,7 @@ namespace CapaIntegracion
             double totalCompras = 0;
             foreach (var com in query)  // da error aqui
             {
-                totalCompras += com.com_monto;
+                totalCompras += com.com_total;
                 Compra compra = new Compra(com.id, com.com_codigo, com.com_monto, com.com_fecha, com.com_estado, com.com_nombreProveedor, com.com_productos, com.com_detalle,
              com.com_metodoPago, com.com_impuesto, com.com_subTotal, com.com_total);
                 listaCompras.Add(compra);

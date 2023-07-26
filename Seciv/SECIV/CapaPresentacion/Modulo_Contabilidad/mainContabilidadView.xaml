@@ -232,7 +232,6 @@
                     <ComboBoxItem Content="Mensual" />
                     <ComboBoxItem Content="Anual" />
                     <ComboBoxItem Content="Todo" />
-                    <ComboBoxItem Content="Definir Rango" />
                     <ComboBoxItem Content="Indefinido" />
                 </ComboBox>
 
@@ -349,7 +348,7 @@
                             HorizontalContentAlignment="Stretch"
                             VerticalContentAlignment="Stretch"
                             IsReadOnly="True"
-                            SelectionChanged="dgridVentas_SelectionChanged">
+                            SelectionChanged="dgridVentas_SelectionChanged" MinHeight="500" AutoGeneratingColumn="dgridVentas_AutoGeneratingColumn">
                             <DataGrid.Resources>
                                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                                     <Setter Property="Background" Value="#FF2196F3" />

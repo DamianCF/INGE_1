@@ -19,11 +19,8 @@ using System.Windows.Shapes;
 namespace CapaPresentacion.Modulo_Contabilidad
 {
     /// <summary>
-    /// Cargar el cmbox en Diario y seleccionar la fecha al dia de hoy y inicializar los campos de  balance, ventas y compras en 0
-    /// Cargar los valores desde la bd con el query respectivo de fechas
-    /// Hacer el calculo de balance, ventas y compras
-    /// Cargar los balance, ventas y compras en sus respectivos valores en colones 
-    /// realizar las validaciones respectivas de campos y datagrid ...
+    /// al seleccionar todo cargar el balance de todas las transaciones
+    /// en compras problema con monto y total dejar solo el ultimo
     /// Generar reporte con la informacion especificada en la pantalla de reportes 
     /// De ser posible intentar colocar imagenes ilustrativas a balance, ventas y compras
     /// Hacer la prueba de un texto en el header
@@ -62,13 +59,18 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     dgridCompras.ItemsSource = result.Item1;
                     txtCompras.Text = result.Item2.ToString();
                 }
-                //using (GestorVentas Venta = new GestorVentas())
-                //{
-                //    //Console.WriteLine("ListarVentas");
-                //    dgridCompras.ItemsSource = Venta.ListarVentasRangoFechas(fechaIni, fechaFin);
-                //}
+                using (GestorVentas Venta = new GestorVentas())
+                {
+                    //Console.WriteLine("ListarCompras");
+                    var result = Venta.ListarVentasEntreFechas(fechaIni, fechaFin);
+                    dgridVentas.ItemsSource = result.Item1;
+                    txtVentas.Text = result.Item2.ToString();
+                }
                 continuar = true;
             }
+
+
+            txtBalance.Text = (double.Parse(txtVentas.Text) - double.Parse(txtCompras.Text)).ToString();
         }
 
         private void cmbxRangoFechas_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -137,12 +139,21 @@ namespace CapaPresentacion.Modulo_Contabilidad
                     return true;
 
                 case "Todo":
-                    using (GestorCompras Compra = new GestorCompras())
-                    {
-                        dgridCompras.ItemsSource = Compra.ListarCompras();
-                        txtCompras.Text = ""; // faltaria hacer la suma de todo
-                    }
-                    return false;
+                    //using (GestorCompras Compra = new GestorCompras())
+                    //{
+                    //    dgridCompras.ItemsSource = Compra.ListarCompras();
+                    //    txtCompras.Text = "0"; // faltaria hacer la suma de todo
+                    //}
+                    //using (GestorVentas Venta = new GestorVentas())
+                    //{
+                    //    //Console.WriteLine("ListarVentas");
+                    //    dgridVentas.ItemsSource = Venta.ListarVentas();
+                    //    txtVentas.Text = "0";
+                    //}
+                    //return false;
+                    fechaIni = "1/1/2000";
+                    fechaFin = txtFecha.Text;
+                    return true;
 
                 default:
                     // Acciones por defecto si el valor de rangoSeleccionado no coincide con ningún caso
@@ -176,6 +187,14 @@ namespace CapaPresentacion.Modulo_Contabilidad
             e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
             e.Cancel = e.PropertyName == "id";
             e.Column.Visibility = e.PropertyName == "com_estado" ? Visibility.Hidden : Visibility.Visible;
+        }
+
+        private void dgridVentas_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor)?.DisplayName ?? e.Column.Header;
+            e.Cancel = e.PropertyName == "id";
+            e.Column.Visibility = e.PropertyName == "vent_estado" ? Visibility.Hidden : Visibility.Visible;
+            e.Column.Visibility = e.PropertyName == "vent_productos" ? Visibility.Hidden : Visibility.Visible;
         }
     }
 }

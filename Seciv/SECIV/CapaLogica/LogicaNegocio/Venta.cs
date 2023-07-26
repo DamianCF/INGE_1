@@ -103,6 +103,25 @@ namespace CapaLogica.LogicaNegocio
             this.vent_total = vent_total;
             this.vent_estado = vent_estado;
         }
+
+
+        public Venta(string id, int vent_codigo, string vent_fecha, string vent_nombreComprador, string vent_detalle,
+    string vent_metodoPago, Double vent_descuento, Double vent_impuesto, Double vent_subTotal, Double vent_total, string vent_estado)
+        {
+            this.id = id;
+            this.vent_codigo = vent_codigo;
+            this.vent_fecha = vent_fecha;
+            this.vent_nombreComprador = vent_nombreComprador;
+            this.vent_productos = vent_productos;
+            this.vent_detalle = vent_detalle;
+            this.vent_metodoPago = vent_metodoPago;
+            this.vent_descuento = vent_descuento;
+            this.vent_impuesto = vent_impuesto;
+            this.vent_subTotal = vent_subTotal;
+            this.vent_total = vent_total;
+            this.vent_estado = vent_estado;
+        }
+
         #endregion
     }
 }
